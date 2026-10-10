@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.xlsx binary
+*.gz binary
+data/catalog/*.json linguist-generated=true
+data/analysis/weekly_candidates.csv linguist-generated=true
+vendor/** linguist-vendored=true

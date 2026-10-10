@@ -1,0 +1,122 @@
+[
+  {
+    "file": "vendor/nh/2026-10-11/masters/fut_opt.mst.gz",
+    "sha256": "d8b7c5ab206a00fbf681d25c629410adef28ba3b57b1f4754c28fef6422d5477",
+    "retrieved_date_kst": "2026-10-11",
+    "source_page": "https://apidev.futures.co.kr/#/api/info/market-master",
+    "rows": 14532,
+    "unique_series": 7789,
+    "duplicate_session_series": 0,
+    "types": {
+      "C": 67,
+      "F": 85,
+      "O": 14380
+    },
+    "sessions": {
+      "day": 6827,
+      "night": 7705
+    },
+    "market_codes": {
+      "4": 14532
+    },
+    "underlying_count": 19,
+    "weekly_name_candidate_rows": 1258,
+    "weekly_unique_series": 766,
+    "weekly_underlyings": {
+      "WKI": 410,
+      "WKM": 664,
+      "WQI": 70,
+      "WQM": 114
+    },
+    "weekly_expiries": {
+      "20261012": 550,
+      "20261015": 480,
+      "20261019": 228
+    },
+    "weekly_sessions": {
+      "day": 492,
+      "night": 766
+    },
+    "implied_expiry_minus_remaining_days_by_session": {
+      "day": {
+        "2026-10-07": 6827
+      },
+      "night": {
+        "2026-10-11": 7705
+      }
+    },
+    "freshness_note": "Diagnostic only: expiry minus rem_cnt is not a vendor publication timestamp.",
+    "weekly_note": "Name-based candidates; absence of matching names does not prove no weekly listings."
+  },
+  {
+    "file": "vendor/nh/2026-10-11/masters/idx_fut_opt.mst.gz",
+    "sha256": "1fc4ae94558a27c8b8852987d6153f750b475b9f2e0cc4024ed76e06afda824b",
+    "retrieved_date_kst": "2026-10-11",
+    "source_page": "https://apidev.futures.co.kr/#/api/info/market-master",
+    "rows": 141,
+    "unique_series": 96,
+    "duplicate_session_series": 0,
+    "types": {
+      "C": 65,
+      "F": 76
+    },
+    "sessions": {
+      "day": 96,
+      "night": 45
+    },
+    "market_codes": {
+      "4": 45,
+      "6": 96
+    },
+    "underlying_count": 8,
+    "weekly_name_candidate_rows": 0,
+    "weekly_unique_series": 0,
+    "weekly_underlyings": {},
+    "weekly_expiries": {},
+    "weekly_sessions": {},
+    "implied_expiry_minus_remaining_days_by_session": {
+      "day": {
+        "2026-10-07": 96
+      },
+      "night": {
+        "2026-10-11": 45
+      }
+    },
+    "freshness_note": "Diagnostic only: expiry minus rem_cnt is not a vendor publication timestamp.",
+    "weekly_note": "Name-based candidates; absence of matching names does not prove no weekly listings."
+  },
+  {
+    "file": "vendor/nh/2026-10-11/masters/stk_fut_opt.mst.gz",
+    "sha256": "8c23134a7f03882616e6b6129318973881cd56b348fdad983226d6999b56878f",
+    "retrieved_date_kst": "2026-10-11",
+    "source_page": "https://apidev.futures.co.kr/#/api/info/market-master",
+    "rows": 11071,
+    "unique_series": 11071,
+    "duplicate_session_series": 0,
+    "types": {
+      "C": 27,
+      "F": 1446,
+      "O": 9598
+    },
+    "sessions": {
+      "day": 11071
+    },
+    "market_codes": {
+      "5": 9598,
+      "6": 1473
+    },
+    "underlying_count": 291,
+    "weekly_name_candidate_rows": 0,
+    "weekly_unique_series": 0,
+    "weekly_underlyings": {},
+    "weekly_expiries": {},
+    "weekly_sessions": {},
+    "implied_expiry_minus_remaining_days_by_session": {
+      "day": {
+        "2026-10-07": 11071
+      }
+    },
+    "freshness_note": "Diagnostic only: expiry minus rem_cnt is not a vendor publication timestamp.",
+    "weekly_note": "Name-based candidates; absence of matching names does not prove no weekly listings."
+  }
+]
