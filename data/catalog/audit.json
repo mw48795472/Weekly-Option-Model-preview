@@ -1,0 +1,2795 @@
+{
+  "summary": {
+    "api_count": 49,
+    "transports": {
+      "HTTP": 41,
+      "WEBSOCKET": 8
+    },
+    "methods": {
+      "POST": 40,
+      "GET": 1,
+      "WEBSOCKET": 8
+    },
+    "scopes": {
+      "authentication": 3,
+      "account_or_order": 21,
+      "market_data": 25
+    },
+    "input_fields": 207,
+    "output_fields": 1536,
+    "apis_with_export_warnings": 37
+  },
+  "uploaded_api_count": 49,
+  "missing_individual": [],
+  "additional_individual": [],
+  "changed_api_count": 49,
+  "definition_changed_api_count": 0,
+  "example_changed_api_count": 49,
+  "differences": [
+    {
+      "document": "revoke",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "appsecret": null,
+            "appkey": null
+          },
+          "downloaded": "POST /auth-service/v1/revoke HTTP/1.1\nAccept: application/json, text/plain, */*\nContent-Type: application/json\nAuthorization: \n\n{\n  \"appkey\": \"\",\n  \"appsecret\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "message": null,
+            "timestamp": null,
+            "status": null
+          },
+          "downloaded": {
+            "timestamp": "",
+            "status": "",
+            "message": ""
+          }
+        }
+      ]
+    },
+    {
+      "document": "token",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "grant_type": "client_credentials",
+            "appsecret": null,
+            "appkey": null
+          },
+          "downloaded": "POST /auth-service/v1/token HTTP/1.1\nAccept: application/json, text/plain, */*\nContent-Type: application/x-www-form-urlencoded\n\n{\n  \"grant_type\": \"client_credentials\",\n  \"appkey\": \"\",\n  \"appsecret\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "access_token": null,
+            "expires_at": null,
+            "scopes": null,
+            "token_type": null,
+            "expires_in": null
+          },
+          "downloaded": {
+            "access_token": "",
+            "token_type": "",
+            "scopes": "",
+            "expires_in": "",
+            "expires_at": ""
+          }
+        }
+      ]
+    },
+    {
+      "document": "web-socket-key",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {},
+          "downloaded": "GET /permission/v1/web-socket-key HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \n"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "access_key": null
+          },
+          "downloaded": {
+            "access_key": ""
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/cancel-night",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div": "",
+            "ord_qty": "",
+            "org_ord_no": "1",
+            "sym": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/cancel-night HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: \n\n{\n  \"sym\": \"\",\n  \"trd_div\": \"\",\n  \"ord_qty\": \"\",\n  \"org_ord_no\": \"1\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "domestic/cancel",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div": "",
+            "ord_qty": "",
+            "org_ord_no": "1",
+            "sym": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/cancel HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: \n\n{\n  \"sym\": \"\",\n  \"trd_div\": \"\",\n  \"ord_qty\": \"\",\n  \"org_ord_no\": \"1\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "domestic/chart-daily",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "inq_ed_dt": "99999999",
+            "req_qty": "300",
+            "inq_strt_dt": "00000000",
+            "cidx_yn": "0",
+            "nght_tp": "",
+            "sym": "",
+            "nxt_key": "99999999",
+            "fut_cidx_exp_mod": "0"
+          },
+          "downloaded": "POST /trade/v1/domestic/chart-daily HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"nght_tp\": \"\",\n  \"sym\": \"\",\n  \"inq_strt_dt\": \"00000000\",\n  \"inq_ed_dt\": \"99999999\",\n  \"req_qty\": \"300\",\n  \"cidx_yn\": \"0\",\n  \"nxt_key\": \"99999999\",\n  \"fut_cidx_exp_mod\": \"0\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_ref_dt": "",
+            "occurs1_open_pric": "",
+            "occurs1_high_pric": "",
+            "occurs1_low_pric": "",
+            "sym": "",
+            "occurs1_close_pric": "",
+            "nxt_key": "",
+            "Occurs1": "",
+            "occurs1_diff_rt": "",
+            "nrec": "",
+            "nght_tp": "",
+            "occurs1_opint": "",
+            "occurs1_cum_trd_qty": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nght_tp": "",
+            "sym": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_ref_dt": "",
+              "occurs1_open_pric": "",
+              "occurs1_high_pric": "",
+              "occurs1_low_pric": "",
+              "occurs1_close_pric": "",
+              "occurs1_diff_rt": "",
+              "occurs1_cum_trd_qty": "",
+              "occurs1_opint": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/chart-minute",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "inq_ed_dt": "99999999",
+            "req_qty": "300",
+            "inq_strt_dt": "00000000",
+            "cidx_yn": "0",
+            "nght_tp": "",
+            "sym": "",
+            "ed_tm": "235959",
+            "nxt_key": "99999999",
+            "dcnt": "5",
+            "strt_tm": "000000",
+            "fut_cidx_exp_mod": "0"
+          },
+          "downloaded": "POST /trade/v1/domestic/chart-minute HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"nght_tp\": \"\",\n  \"sym\": \"\",\n  \"inq_strt_dt\": \"00000000\",\n  \"strt_tm\": \"000000\",\n  \"inq_ed_dt\": \"99999999\",\n  \"ed_tm\": \"235959\",\n  \"req_qty\": \"300\",\n  \"dcnt\": \"5\",\n  \"cidx_yn\": \"0\",\n  \"nxt_key\": \"99999999\",\n  \"fut_cidx_exp_mod\": \"0\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_ref_dt": "",
+            "occurs1_open_pric": "",
+            "occurs1_high_pric": "",
+            "occurs1_low_pric": "",
+            "sym": "",
+            "occurs1_close_pric": "",
+            "occurs1_rt": "",
+            "nxt_key": "",
+            "occurs1_exch_tm": "",
+            "Occurs1": "",
+            "occurs1_diff_rt": "",
+            "occurs1_cum_trd_amt": "",
+            "nrec": "",
+            "occurs1_opint": "",
+            "occurs1_cum_trd_qty": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "sym": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_ref_dt": "",
+              "occurs1_exch_tm": "",
+              "occurs1_open_pric": "",
+              "occurs1_high_pric": "",
+              "occurs1_low_pric": "",
+              "occurs1_close_pric": "",
+              "occurs1_diff_rt": "",
+              "occurs1_rt": "",
+              "occurs1_cum_trd_qty": "",
+              "occurs1_cum_trd_amt": "",
+              "occurs1_opint": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/deposit",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "biz_dt": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/deposit HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"biz_dt\": \"\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "domestic/modify-night",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div": "",
+            "ord_tp_cd": "",
+            "ord_qty": "",
+            "org_ord_no": "1",
+            "sym": "",
+            "ord_pric": "",
+            "exec_cnd_cd": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/modify-night HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"sym\": \"\",\n  \"trd_div\": \"\",\n  \"ord_tp_cd\": \"\",\n  \"ord_qty\": \"\",\n  \"ord_pric\": \"\",\n  \"exec_cnd_cd\": \"\",\n  \"org_ord_no\": \"1\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "domestic/modify",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div": "",
+            "ord_tp_cd": "",
+            "ord_qty": "",
+            "org_ord_no": "1",
+            "sym": "",
+            "ord_pric": "",
+            "exec_cnd_cd": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/modify HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: \n\n{\n  \"sym\": \"\",\n  \"trd_div\": \"\",\n  \"ord_tp_cd\": \"\",\n  \"ord_qty\": \"\",\n  \"ord_pric\": \"\",\n  \"exec_cnd_cd\": \"\",\n  \"org_ord_no\": \"1\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "domestic/open-interest",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "nxt_key": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/open-interest HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"nxt_key\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_sym": "",
+            "occurs1_close_pric": "",
+            "occurs1_ko_sym_nm": "",
+            "occurs1_opint_qty": "",
+            "nxt_key": "",
+            "occurs1_trd_div": "",
+            "Occurs1": "",
+            "occurs1_cls_psb_qty": "",
+            "nrec": "",
+            "occurs1_ac_no": "",
+            "occurs1_avg_pric": "",
+            "occurs1_exch_cd": "",
+            "occurs1_opint_amt": "",
+            "occurs1_trd_div_nm_v2": "",
+            "occurs1_fut_opt_div_cd": "",
+            "occurs1_pl_amt": "",
+            "occurs1_ac_nm": "",
+            "occurs1_pl_rt": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_ac_no": "",
+              "occurs1_ac_nm": "",
+              "occurs1_sym": "",
+              "occurs1_ko_sym_nm": "",
+              "occurs1_trd_div": "",
+              "occurs1_trd_div_nm_v2": "",
+              "occurs1_fut_opt_div_cd": "",
+              "occurs1_opint_amt": "",
+              "occurs1_opint_qty": "",
+              "occurs1_cls_psb_qty": "",
+              "occurs1_avg_pric": "",
+              "occurs1_close_pric": "",
+              "occurs1_pl_amt": "",
+              "occurs1_pl_rt": "",
+              "occurs1_exch_cd": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/order-error",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div_cd": "",
+            "nxt_key": "",
+            "inq_dt": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/order-error HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"inq_dt\": \"\",\n  \"trd_div_cd\": \"\",\n  \"nxt_key\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_sym": "",
+            "occurs1_ord_form_nm": "",
+            "occurs1_ord_tp_nm": "",
+            "occurs1_ord_pric": "",
+            "nxt_key": "",
+            "occurs1_exec_cnd_nm": "",
+            "Occurs1": "",
+            "nrec": "",
+            "occurs1_ac_no": "",
+            "occurs1_trd_div_nm": "",
+            "occurs1_rcv_tm": "",
+            "occurs1_exec_cnd_cd": "",
+            "occurs1_trd_div_nm_v2": "",
+            "occurs1_ord_div_nm": "",
+            "occurs1_ac_nm": "",
+            "occurs1_msg": "",
+            "occurs1_ord_form_cd": "",
+            "occurs1_sym_nm": "",
+            "occurs1_ord_qty": "",
+            "data_tot_cnt": "",
+            "occurs1_org_ord_no": "",
+            "occurs1_trd_div_cd": "",
+            "occurs1_ord_tp_cd": "",
+            "occurs1_med_div": "",
+            "occurs1_ord_div_cd": "",
+            "occurs1_msg_cd": "",
+            "occurs1_med_div_nm": "",
+            "nxt_data_yn": ""
+          },
+          "downloaded": {
+            "data_tot_cnt": "",
+            "nxt_data_yn": "",
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_rcv_tm": "",
+              "occurs1_ac_no": "",
+              "occurs1_ac_nm": "",
+              "occurs1_sym": "",
+              "occurs1_sym_nm": "",
+              "occurs1_msg_cd": "",
+              "occurs1_msg": "",
+              "occurs1_org_ord_no": "",
+              "occurs1_ord_form_cd": "",
+              "occurs1_ord_form_nm": "",
+              "occurs1_ord_qty": "",
+              "occurs1_ord_pric": "",
+              "occurs1_trd_div_cd": "",
+              "occurs1_trd_div_nm": "",
+              "occurs1_ord_tp_cd": "",
+              "occurs1_ord_tp_nm": "",
+              "occurs1_ord_div_cd": "",
+              "occurs1_ord_div_nm": "",
+              "occurs1_exec_cnd_cd": "",
+              "occurs1_exec_cnd_nm": "",
+              "occurs1_med_div": "",
+              "occurs1_med_div_nm": "",
+              "occurs1_trd_div_nm_v2": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/order-history",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div": "",
+            "ord_div_cd": "0",
+            "exec_div": "",
+            "nxt_key": "",
+            "trd_tm_div_cd": "0"
+          },
+          "downloaded": "POST /trade/v1/domestic/order-history HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"trd_div\": \"\",\n  \"exec_div\": \"\",\n  \"trd_tm_div_cd\": \"0\",\n  \"ord_div_cd\": \"0\",\n  \"nxt_key\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_sym": "",
+            "occurs1_per_exec_qty": "",
+            "occurs1_pric_var_tick_cnt": "",
+            "occurs1_ord_pric": "",
+            "occurs1_aut_cxl_tp_nm": "",
+            "occurs1_trd_div": "",
+            "occurs1_rejt_rsn_cd": "",
+            "occurs1_exch_exec_tm": "",
+            "occurs1_ord_vld_div_cd": "",
+            "occurs1_stg_div_cd": "",
+            "occurs1_exec_cnd_cd": "",
+            "occurs1_hdg_tp": "",
+            "occurs1_avg_exec_pric": "",
+            "occurs1_fut_opt_div_cd": "",
+            "occurs1_exch_rcv_tm": "",
+            "occurs1_ord_src_tp": "",
+            "occurs1_exec_pric": "",
+            "occurs1_mod_qty": "",
+            "occurs1_spd_proc_div_cd": "",
+            "occurs1_sym_nm": "",
+            "occurs1_user_ip_addr": "",
+            "occurs1_pric_cnd_nm": "",
+            "occurs1_org_ord_no": "",
+            "occurs1_med_div": "",
+            "occurs1_ord_div_cd": "",
+            "occurs1_ord_form_nm": "",
+            "occurs1_pl_rez_pric": "",
+            "occurs1_exch_exec_no": "",
+            "nxt_key": "",
+            "occurs1_exec_cnd_nm": "",
+            "occurs1_opt_strk_bkg_yn": "",
+            "occurs1_ptt_exec_cnt": "",
+            "occurs1_ord_rejt_rsn": "",
+            "Occurs1": "",
+            "occurs1_opt_ord_amt": "",
+            "occurs1_pl_lim_pric": "",
+            "nrec": "",
+            "occurs1_ac_no": "",
+            "occurs1_ord_sts": "",
+            "occurs1_pric_cnd_cd": "",
+            "occurs1_stop_pric": "",
+            "occurs1_exec_qty": "",
+            "occurs1_ord_div_nm": "",
+            "occurs1_ord_no": "",
+            "occurs1_ac_nm": "",
+            "occurs1_und_sym": "",
+            "occurs1_org_ord_dt": "",
+            "occurs1_ord_id": "",
+            "occurs1_ord_form_cd": "",
+            "occurs1_trd_dt": "",
+            "occurs1_ord_qty": "",
+            "occurs1_exch_cd": "",
+            "occurs1_ord_sts_nm": "",
+            "occurs1_rem_ord_qty": "",
+            "occurs1_cxl_qty": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_trd_dt": "",
+              "occurs1_ac_no": "",
+              "occurs1_ac_nm": "",
+              "occurs1_org_ord_no": "",
+              "occurs1_ord_no": "",
+              "occurs1_sym": "",
+              "occurs1_sym_nm": "",
+              "occurs1_und_sym": "",
+              "occurs1_exch_cd": "",
+              "occurs1_trd_div": "",
+              "occurs1_ord_sts": "",
+              "occurs1_ord_sts_nm": "",
+              "occurs1_ord_qty": "",
+              "occurs1_ord_pric": "",
+              "occurs1_exec_qty": "",
+              "occurs1_exec_pric": "",
+              "occurs1_rem_ord_qty": "",
+              "occurs1_mod_qty": "",
+              "occurs1_cxl_qty": "",
+              "occurs1_ord_div_cd": "",
+              "occurs1_ord_div_nm": "",
+              "occurs1_fut_opt_div_cd": "",
+              "occurs1_exec_cnd_cd": "",
+              "occurs1_exec_cnd_nm": "",
+              "occurs1_pric_cnd_cd": "",
+              "occurs1_pric_cnd_nm": "",
+              "occurs1_ord_form_cd": "",
+              "occurs1_ord_form_nm": "",
+              "occurs1_exch_rcv_tm": "",
+              "occurs1_exch_exec_tm": "",
+              "occurs1_rejt_rsn_cd": "",
+              "occurs1_ord_rejt_rsn": "",
+              "occurs1_ord_id": "",
+              "occurs1_user_ip_addr": "",
+              "occurs1_med_div": "",
+              "occurs1_org_ord_dt": "",
+              "occurs1_ord_vld_div_cd": "",
+              "occurs1_avg_exec_pric": "",
+              "occurs1_pl_rez_pric": "",
+              "occurs1_pl_lim_pric": "",
+              "occurs1_pric_var_tick_cnt": "",
+              "occurs1_stg_div_cd": "",
+              "occurs1_exch_exec_no": "",
+              "occurs1_hdg_tp": "",
+              "occurs1_stop_pric": "",
+              "occurs1_opt_strk_bkg_yn": "",
+              "occurs1_opt_ord_amt": "",
+              "occurs1_spd_proc_div_cd": "",
+              "occurs1_ord_src_tp": "",
+              "occurs1_per_exec_qty": "",
+              "occurs1_ptt_exec_cnt": "",
+              "occurs1_aut_cxl_tp_nm": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/order-night",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div": "",
+            "ord_tp_cd": "",
+            "ord_qty": "",
+            "sym": "",
+            "ord_pric": "",
+            "exec_cnd_cd": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/order-night HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"sym\": \"\",\n  \"trd_div\": \"\",\n  \"ord_tp_cd\": \"\",\n  \"ord_qty\": \"\",\n  \"ord_pric\": \"\",\n  \"exec_cnd_cd\": \"\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "domestic/order",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div": "",
+            "ord_tp_cd": "",
+            "ord_qty": "",
+            "sym": "",
+            "ord_pric": "",
+            "exec_cnd_cd": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/order HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: \n\n{\n  \"sym\": \"\",\n  \"trd_div\": \"\",\n  \"ord_tp_cd\": \"\",\n  \"ord_qty\": \"\",\n  \"ord_pric\": \"\",\n  \"exec_cnd_cd\": \"\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "domestic/orderable-quantity",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div": "",
+            "sym": "",
+            "ord_pric": "",
+            "ord_sts": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/orderable-quantity HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: \n\n{\n  \"ord_sts\": \"\",\n  \"sym\": \"\",\n  \"trd_div\": \"\",\n  \"ord_pric\": \"\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "domestic/price-all-futures",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "prd": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/price-all-futures HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"prd\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_exp_mon": "",
+            "occurs1_high_pric": "",
+            "occurs1_last_pric": "",
+            "occurs1_high_pric_dt": "",
+            "occurs1_rt": "",
+            "occurs1_lo": "",
+            "occurs1_sym_exch": "",
+            "Occurs1": "",
+            "nrec": "",
+            "occurs1_chg_sign": "",
+            "occurs1_spt_cd": "",
+            "occurs1_spt_sym": "",
+            "occurs1_opint": "",
+            "occurs1_low_pric_dt": "",
+            "occurs1_pd_close_pric": "",
+            "occurs1_up": "",
+            "occurs1_open_pric": "",
+            "occurs1_low_pric": "",
+            "occurs1_trd_qty": "",
+            "occurs1_ask_pric": "",
+            "occurs1_fact_bas": "",
+            "occurs1_lst_trd_dt": "",
+            "occurs1_sym_nm": "",
+            "occurs1_pd_trd_qty": "",
+            "occurs1_bid_pric": "",
+            "occurs1_dev": "",
+            "occurs1_dev_rt": "",
+            "occurs1_theo_bas": "",
+            "occurs1_theo_pric": "",
+            "occurs1_ask_qty": "",
+            "occurs1_spt_pric": "",
+            "occurs1_prd": "",
+            "occurs1_chg": "",
+            "occurs1_bid_qty": ""
+          },
+          "downloaded": {
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_prd": "",
+              "occurs1_sym_exch": "",
+              "occurs1_sym_nm": "",
+              "occurs1_exp_mon": "",
+              "occurs1_chg_sign": "",
+              "occurs1_last_pric": "",
+              "occurs1_chg": "",
+              "occurs1_rt": "",
+              "occurs1_theo_pric": "",
+              "occurs1_theo_bas": "",
+              "occurs1_fact_bas": "",
+              "occurs1_dev": "",
+              "occurs1_dev_rt": "",
+              "occurs1_ask_pric": "",
+              "occurs1_bid_pric": "",
+              "occurs1_open_pric": "",
+              "occurs1_high_pric": "",
+              "occurs1_low_pric": "",
+              "occurs1_opint": "",
+              "occurs1_trd_qty": "",
+              "occurs1_pd_close_pric": "",
+              "occurs1_pd_trd_qty": "",
+              "occurs1_high_pric_dt": "",
+              "occurs1_up": "",
+              "occurs1_low_pric_dt": "",
+              "occurs1_lo": "",
+              "occurs1_lst_trd_dt": "",
+              "occurs1_ask_qty": "",
+              "occurs1_bid_qty": "",
+              "occurs1_spt_cd": "",
+              "occurs1_spt_sym": "",
+              "occurs1_spt_pric": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/price-all-option-night",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "prd": "",
+            "nxt_stkr_pric": "99999999",
+            "exp_mon": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/price-all-option-night HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"prd\": \"\",\n  \"exp_mon\": \"\",\n  \"nxt_stkr_pric\": \"99999999\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_c_sym_nm": "",
+            "rt": "",
+            "occurs1_p_sym_nm": "",
+            "occurs1_p_opint_chg": "",
+            "chg": "",
+            "occurs1_c_eng_sym_nm": "",
+            "occurs1_c_pd_close_pric": "",
+            "occurs1_p_opint": "",
+            "spt_sym": "",
+            "occurs1_c_opint": "",
+            "spt_pric": "",
+            "occurs1_p_chg_sign": "",
+            "occurs1_p_pd_close_pric": "",
+            "chg_sign": "",
+            "occurs1_strk_pric": "",
+            "Occurs1": "",
+            "nrec": "",
+            "occurs1_c_sym_exch": "",
+            "occurs1_c_opint_chg": "",
+            "nxt_stkr_pric": "",
+            "spt_cd": "",
+            "occurs1_c_chg_sign": "",
+            "und_nm": "",
+            "occurs1_p_sym_exch": ""
+          },
+          "downloaded": {
+            "nxt_stkr_pric": "",
+            "spt_cd": "",
+            "spt_sym": "",
+            "und_nm": "",
+            "chg_sign": "",
+            "spt_pric": "",
+            "chg": "",
+            "rt": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_c_sym_exch": "",
+              "occurs1_c_sym_nm": "",
+              "occurs1_c_eng_sym_nm": "",
+              "occurs1_c_chg_sign": "",
+              "occurs1_c_pd_close_pric": "",
+              "occurs1_c_opint": "",
+              "occurs1_c_opint_chg": "",
+              "occurs1_strk_pric": "",
+              "occurs1_p_sym_exch": "",
+              "occurs1_p_sym_nm": "",
+              "occurs1_p_chg_sign": "",
+              "occurs1_p_pd_close_pric": "",
+              "occurs1_p_opint": "",
+              "occurs1_p_opint_chg": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/price-all-option",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "prd": "",
+            "nxt_stkr_pric": "99999999",
+            "exp_mon": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/price-all-option HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"prd\": \"\",\n  \"exp_mon\": \"\",\n  \"nxt_stkr_pric\": \"99999999\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_c_sym_nm": "",
+            "fut_rt": "",
+            "occurs1_p_chg_sign": "",
+            "occurs1_p_pd_close_pric": "",
+            "occurs1_p_ask_pric": "",
+            "occurs1_c_theo_pric_chg": "",
+            "occurs1_p_low_pric": "",
+            "occurs1_p_gamma": "",
+            "occurs1_c_vega": "",
+            "occurs1_p_vega": "",
+            "fut_rem_dy": "",
+            "fut_chg": "",
+            "occurs1_c_chg_rt": "",
+            "occurs1_p_chg_rt": "",
+            "occurs1_p_dev_rt": "",
+            "occurs1_p_sym_exch": "",
+            "occurs1_p_rho": "",
+            "occurs1_p_opint_chg": "",
+            "chg": "",
+            "occurs1_c_pd_close_pric": "",
+            "occurs1_c_chg": "",
+            "spt_sym": "",
+            "occurs1_p_vol": "",
+            "occurs1_p_trd_qty": "",
+            "occurs1_p_last_pric": "",
+            "occurs1_strk_pric": "",
+            "occurs1_p_high_pric": "",
+            "fut_last_pric": "",
+            "occurs1_p_theo_pric": "",
+            "nxt_stkr_pric": "",
+            "occurs1_p_theo_pric_chg": "",
+            "occurs1_c_dev": "",
+            "occurs1_c_open_pric": "",
+            "occurs1_c_last_pric": "",
+            "occurs1_p_delta": "",
+            "occurs1_c_delta": "",
+            "occurs1_p_bid_pric": "",
+            "rt": "",
+            "occurs1_p_opint": "",
+            "occurs1_c_trd_qty": "",
+            "Occurs1": "",
+            "nrec": "",
+            "occurs1_c_sym_exch": "",
+            "occurs1_c_opint_chg": "",
+            "occurs1_c_chg_sign": "",
+            "occurs1_c_theo_pric": "",
+            "occurs1_c_gamma": "",
+            "occurs1_c_rho": "",
+            "occurs1_p_open_pric": "",
+            "occurs1_c_ask_pric": "",
+            "occurs1_p_sym_nm": "",
+            "fut_sign": "",
+            "occurs1_c_opint": "",
+            "spt_pric": "",
+            "occurs1_c_dev_rt": "",
+            "occurs1_c_low_pric": "",
+            "occurs1_c_high_pric": "",
+            "chg_sign": "",
+            "occurs1_c_bid_pric": "",
+            "occurs1_c_vol": "",
+            "spt_cd": "",
+            "occurs1_c_theta": "",
+            "occurs1_p_theta": "",
+            "und_nm": "",
+            "occurs1_p_chg": "",
+            "occurs1_p_dev": "",
+            "fut_sym": ""
+          },
+          "downloaded": {
+            "nxt_stkr_pric": "",
+            "spt_cd": "",
+            "spt_sym": "",
+            "und_nm": "",
+            "chg_sign": "",
+            "spt_pric": "",
+            "chg": "",
+            "rt": "",
+            "fut_sym": "",
+            "fut_last_pric": "",
+            "fut_sign": "",
+            "fut_chg": "",
+            "fut_rt": "",
+            "fut_rem_dy": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_c_sym_exch": "",
+              "occurs1_c_sym_nm": "",
+              "occurs1_c_chg_sign": "",
+              "occurs1_c_pd_close_pric": "",
+              "occurs1_c_last_pric": "",
+              "occurs1_c_chg_rt": "",
+              "occurs1_c_chg": "",
+              "occurs1_c_open_pric": "",
+              "occurs1_c_high_pric": "",
+              "occurs1_c_low_pric": "",
+              "occurs1_c_ask_pric": "",
+              "occurs1_c_bid_pric": "",
+              "occurs1_c_opint": "",
+              "occurs1_c_opint_chg": "",
+              "occurs1_c_trd_qty": "",
+              "occurs1_c_theo_pric": "",
+              "occurs1_c_theo_pric_chg": "",
+              "occurs1_c_vol": "",
+              "occurs1_c_dev": "",
+              "occurs1_c_dev_rt": "",
+              "occurs1_c_delta": "",
+              "occurs1_c_gamma": "",
+              "occurs1_c_theta": "",
+              "occurs1_c_vega": "",
+              "occurs1_c_rho": "",
+              "occurs1_strk_pric": "",
+              "occurs1_p_sym_exch": "",
+              "occurs1_p_sym_nm": "",
+              "occurs1_p_chg_sign": "",
+              "occurs1_p_pd_close_pric": "",
+              "occurs1_p_last_pric": "",
+              "occurs1_p_chg_rt": "",
+              "occurs1_p_chg": "",
+              "occurs1_p_open_pric": "",
+              "occurs1_p_high_pric": "",
+              "occurs1_p_low_pric": "",
+              "occurs1_p_ask_pric": "",
+              "occurs1_p_bid_pric": "",
+              "occurs1_p_opint": "",
+              "occurs1_p_opint_chg": "",
+              "occurs1_p_trd_qty": "",
+              "occurs1_p_theo_pric": "",
+              "occurs1_p_theo_pric_chg": "",
+              "occurs1_p_vol": "",
+              "occurs1_p_dev": "",
+              "occurs1_p_dev_rt": "",
+              "occurs1_p_delta": "",
+              "occurs1_p_gamma": "",
+              "occurs1_p_theta": "",
+              "occurs1_p_vega": "",
+              "occurs1_p_rho": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/price-bid",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "exch_cd": "",
+            "sym": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/price-bid HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: \n\n{\n  \"exch_cd\": \"\",\n  \"sym\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "rt": "",
+            "lo": "",
+            "occurs1_bid_best_pric": "",
+            "up_act_pric": "",
+            "occurs1_pre_ask_qty": "",
+            "sym": "",
+            "pre_ask_qty": "",
+            "bid_qty": "",
+            "occurs1_ask_rt": "",
+            "lo_pric_3": "",
+            "lo_pric_2": "",
+            "Occurs1": "",
+            "lo_pric_1": "",
+            "occurs1_bid_cnt": "",
+            "occurs1_ask_best_pric": "",
+            "lo_act_pric": "",
+            "nrec": "",
+            "diff_rt": "",
+            "cum_trd_amt": "",
+            "pre_bid_qty": "",
+            "net_bid_ask": "",
+            "open_pric": "",
+            "bid_cnt": "",
+            "last_pric": "",
+            "up": "",
+            "pd_close_pric": "",
+            "up_pric_1": "",
+            "occurs1_ask_cnt": "",
+            "occurs1_bid_rt": "",
+            "up_pric_2": "",
+            "up_pric_3": "",
+            "cum_trd_qty": "",
+            "high_pric": "",
+            "ask_cnt": "",
+            "real": "",
+            "occurs1_pre_bid_qty": "",
+            "est_exec_pric": "",
+            "low_pric": "",
+            "occurs1_ask_qty": "",
+            "ask_qty": "",
+            "qt_tm": "",
+            "occurs1_bid_qty": ""
+          },
+          "downloaded": {
+            "sym": "",
+            "real": "",
+            "qt_tm": "",
+            "ask_qty": "",
+            "pre_ask_qty": "",
+            "ask_cnt": "",
+            "bid_qty": "",
+            "pre_bid_qty": "",
+            "bid_cnt": "",
+            "net_bid_ask": "",
+            "last_pric": "",
+            "diff_rt": "",
+            "rt": "",
+            "open_pric": "",
+            "high_pric": "",
+            "low_pric": "",
+            "pd_close_pric": "",
+            "cum_trd_qty": "",
+            "cum_trd_amt": "",
+            "up_act_pric": "",
+            "lo_act_pric": "",
+            "up_pric_1": "",
+            "lo_pric_1": "",
+            "up_pric_2": "",
+            "lo_pric_2": "",
+            "up_pric_3": "",
+            "lo_pric_3": "",
+            "up": "",
+            "lo": "",
+            "est_exec_pric": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_ask_best_pric": "",
+              "occurs1_ask_rt": "",
+              "occurs1_ask_qty": "",
+              "occurs1_ask_cnt": "",
+              "occurs1_pre_ask_qty": "",
+              "occurs1_bid_best_pric": "",
+              "occurs1_bid_rt": "",
+              "occurs1_bid_qty": "",
+              "occurs1_bid_cnt": "",
+              "occurs1_pre_bid_qty": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/price-expect-fill",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "sym": null
+          },
+          "downloaded": "POST /trade/v1/domestic/price-expect-fill HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"sym\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "ref_pric": "",
+            "nrec": "",
+            "sym_exch": "",
+            "occurs1_chg_sign": "",
+            "occurs1_est_exec_qty": "",
+            "Occurs1": "",
+            "sym_nm": "",
+            "occurs1_chg": "",
+            "occurs1_tm": "",
+            "occurs1_est_exec_pric": ""
+          },
+          "downloaded": {
+            "sym_exch": "",
+            "sym_nm": "",
+            "ref_pric": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_tm": "",
+              "occurs1_est_exec_pric": "",
+              "occurs1_chg_sign": "",
+              "occurs1_chg": "",
+              "occurs1_est_exec_qty": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/price-night",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "sym": null
+          },
+          "downloaded": "POST /trade/v1/domestic/price-night HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"sym\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "spt_chg": "",
+            "theo_bas": "",
+            "rt": "",
+            "low_pric_dt": "",
+            "lo": "",
+            "up_act_pric": "",
+            "dev_rt": "",
+            "mltplr": "",
+            "rem_dy": "",
+            "lo_act_pric": "",
+            "ref_pric": "",
+            "pd_trd_amt": "",
+            "trd_qty": "",
+            "dev": "",
+            "life_high_pric": null,
+            "spt_rt": "",
+            "open_pric": "",
+            "theo_pric_chg": "",
+            "spt_chg_sign": "",
+            "last_pric": "",
+            "up": "",
+            "pd_close_pric": "",
+            "lst_trd_dt": "",
+            "chg": "",
+            "spt_sym": "",
+            "ask_pric": "",
+            "trd_amt": "",
+            "spt_pric": "",
+            "pd_trd_qty": "",
+            "high_pric": "",
+            "pd_theo_pric": "",
+            "chg_sign": "",
+            "bid_pric": "",
+            "high_pric_dt": null,
+            "sym_nm": "",
+            "opint_chg_sign": "",
+            "fact_bas": "",
+            "sym_exch": "",
+            "opint_chg": "",
+            "act_pric_yn": "",
+            "spt_cd": "",
+            "low_pric": "",
+            "theo_pric": "",
+            "pl_rt": "",
+            "ivol": "",
+            "pd_opint": "",
+            "opint": "",
+            "life_low_pric": null
+          },
+          "downloaded": {
+            "chg_sign": "",
+            "sym_exch": "",
+            "sym_nm": "",
+            "last_pric": "",
+            "ref_pric": "",
+            "chg": "",
+            "rt": "",
+            "ask_pric": "",
+            "bid_pric": "",
+            "trd_qty": "",
+            "pd_trd_qty": "",
+            "trd_amt": "",
+            "pd_trd_amt": "",
+            "opint": "",
+            "opint_chg_sign": "",
+            "opint_chg": "",
+            "life_high_pric": "",
+            "high_pric_dt": "",
+            "life_low_pric": "",
+            "low_pric_dt": "",
+            "up": "",
+            "lo": "",
+            "open_pric": "",
+            "high_pric": "",
+            "low_pric": "",
+            "pd_close_pric": "",
+            "lst_trd_dt": "",
+            "rem_dy": "",
+            "pl_rt": "",
+            "spt_cd": "",
+            "spt_sym": "",
+            "spt_chg_sign": "",
+            "spt_pric": "",
+            "spt_chg": "",
+            "spt_rt": "",
+            "theo_bas": "",
+            "fact_bas": "",
+            "dev": "",
+            "dev_rt": "",
+            "theo_pric": "",
+            "ivol": "",
+            "theo_pric_chg": "",
+            "pd_theo_pric": "",
+            "pd_opint": "",
+            "mltplr": "",
+            "act_pric_yn": "",
+            "up_act_pric": "",
+            "lo_act_pric": ""
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/price",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "sym": null
+          },
+          "downloaded": "POST /trade/v1/domestic/price HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"sym\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "spt_chg": "",
+            "lo": "",
+            "up_act_pric": "",
+            "delta": "",
+            "mltplr": "",
+            "theta": "",
+            "rem_dy": "",
+            "lo_act_pric": "",
+            "trd_qty": "",
+            "dev": "",
+            "spt_chg_sign": "",
+            "up": "",
+            "chg": "",
+            "spt_sym": "",
+            "trd_amt": "",
+            "pd_trd_qty": "",
+            "high_pric": "",
+            "bid_pric": "",
+            "sym_nm": "",
+            "fact_bas": "",
+            "sym_exch": "",
+            "opint_chg": "",
+            "theo_pric": "",
+            "pl_rt": "",
+            "pd_opint": "",
+            "opint": "",
+            "theo_bas": "",
+            "rt": "",
+            "low_pric_dt": "",
+            "pd_sett_pric": null,
+            "dev_rt": "",
+            "ref_pric": "",
+            "life_high_pric": null,
+            "spt_rt": "",
+            "open_pric": "",
+            "theo_pric_chg": "",
+            "last_pric": "",
+            "lst_trd_dt": "",
+            "ask_pric": "",
+            "spt_pric": "",
+            "pd_theo_pric": "",
+            "chg_sign": "",
+            "high_pric_dt": null,
+            "opint_chg_sign": "",
+            "spt_cd": "",
+            "low_pric": "",
+            "rho": "",
+            "ivol": "",
+            "life_low_pric": null,
+            "gamma": "",
+            "vega": ""
+          },
+          "downloaded": {
+            "chg_sign": "",
+            "sym_exch": "",
+            "sym_nm": "",
+            "last_pric": "",
+            "ref_pric": "",
+            "chg": "",
+            "rt": "",
+            "ask_pric": "",
+            "bid_pric": "",
+            "trd_qty": "",
+            "pd_trd_qty": "",
+            "trd_amt": "",
+            "opint": "",
+            "opint_chg_sign": "",
+            "opint_chg": "",
+            "life_high_pric": "",
+            "high_pric_dt": "",
+            "life_low_pric": "",
+            "low_pric_dt": "",
+            "up": "",
+            "lo": "",
+            "open_pric": "",
+            "high_pric": "",
+            "low_pric": "",
+            "pd_sett_pric": "",
+            "lst_trd_dt": "",
+            "rem_dy": "",
+            "pl_rt": "",
+            "spt_cd": "",
+            "spt_sym": "",
+            "spt_chg_sign": "",
+            "spt_pric": "",
+            "spt_chg": "",
+            "spt_rt": "",
+            "theo_bas": "",
+            "fact_bas": "",
+            "dev": "",
+            "dev_rt": "",
+            "delta": "",
+            "gamma": "",
+            "theta": "",
+            "vega": "",
+            "rho": "",
+            "theo_pric": "",
+            "ivol": "",
+            "theo_pric_chg": "",
+            "pd_theo_pric": "",
+            "pd_opint": "",
+            "mltplr": "",
+            "up_act_pric": "",
+            "lo_act_pric": ""
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/product-detail",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {},
+          "downloaded": "POST /trade/v1/domestic/product-detail HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_mltplr": "",
+            "occurs1_cd_val_inf_5": "",
+            "occurs1_dtl_cd_ko_nm": "",
+            "Occurs1": "",
+            "nrec": "",
+            "occurs1_init_mrgn": "",
+            "occurs1_exp_dt": "",
+            "occurs1_sett_nm": "",
+            "occurs1_tick_val": "",
+            "occurs1_cd_val_inf_1": "",
+            "occurs1_cd_val_inf_2": "",
+            "occurs1_cd_val_inf_3": "",
+            "occurs1_cd_val_inf_4": "",
+            "occurs1_mtn_mrgn": "",
+            "occurs1_ctr_init_mrgn": ""
+          },
+          "downloaded": {
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_dtl_cd_ko_nm": "",
+              "occurs1_cd_val_inf_1": "",
+              "occurs1_tick_val": "",
+              "occurs1_mltplr": "",
+              "occurs1_cd_val_inf_4": "",
+              "occurs1_cd_val_inf_2": "",
+              "occurs1_cd_val_inf_3": "",
+              "occurs1_cd_val_inf_5": "",
+              "occurs1_sett_nm": "",
+              "occurs1_exp_dt": "",
+              "occurs1_init_mrgn": "",
+              "occurs1_mtn_mrgn": "",
+              "occurs1_ctr_init_mrgn": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "domestic/trend-investor",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "inq_tp": "1",
+            "opt_prd": "",
+            "ref_dt": ""
+          },
+          "downloaded": "POST /trade/v1/domestic/trend-investor HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"opt_prd\": \"\",\n  \"ref_dt\": \"\",\n  \"inq_tp\": \"1\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "cntry_net_buy": "",
+            "grs_buy": "",
+            "scrt_sel_rt": "",
+            "bank_pre_buy": "",
+            "penfnd_pre_buy": "",
+            "invt_sel": "",
+            "ins_buy_rt": "",
+            "scrt_buy_rt": "",
+            "ins_buy": null,
+            "mb_pre_sel": "",
+            "scrt_pre_sel": "",
+            "frgn_pre_sel": "",
+            "etc_pre_sel": "",
+            "grs_pre_buy": "",
+            "scrt_buy": "",
+            "penfnd_sel_rt": "",
+            "frgn_net_buy": "",
+            "mb_sel": "",
+            "ins_sel_rt": null,
+            "cntry_pre_buy": "",
+            "grs_sel": "",
+            "ind_buy_rt": "",
+            "ind_sel": "",
+            "invt_net_buy": "",
+            "penfnd_buy": "",
+            "ins_sel": null,
+            "etc_sel_rt": "",
+            "invt_pre_sel": "",
+            "ind_pre_buy": "",
+            "mb_buy_rt": "",
+            "cntry_buy_rt": "",
+            "bank_buy": "",
+            "etc_pre_buy": "",
+            "etc_buy": "",
+            "invt_sel_rt": "",
+            "scrt_pre_buy": "",
+            "ins_pre_buy": "",
+            "invt_pre_buy": "",
+            "etc_buy_rt": "",
+            "ins_pre_sel": "",
+            "mb_pre_buy": "",
+            "frgn_buy": "",
+            "bank_buy_rt": "",
+            "etc_sel": "",
+            "ind_sel_rt": "",
+            "mb_buy": "",
+            "grs_net_buy": "",
+            "cntry_pre_sel": "",
+            "grs_buy_rt": "",
+            "inst_cd": "",
+            "penfnd_buy_rt": "",
+            "penfnd_net_buy": "",
+            "frgn_buy_rt": "",
+            "bank_net_buy": "",
+            "ins_buy_net": null,
+            "bank_pre_sel": "",
+            "invt_buy": "",
+            "cntry_buy": "",
+            "frgn_sel_rt": "",
+            "bank_sel": "",
+            "cntry_sel": "",
+            "grs_sel_rt": "",
+            "cntry_sel_rt": "",
+            "grs_pre_sel": "",
+            "penfnd_pre_sel": "",
+            "scrt_sel": "",
+            "mb_net_buy": "",
+            "etc_net_buy": "",
+            "scrt_net_buy": "",
+            "frgn_sel": "",
+            "invt_buy_rt": "",
+            "mb_sel_rt": "",
+            "ind_buy": "",
+            "tm": "",
+            "ind_net_buy": "",
+            "ind_pre_sel": "",
+            "bank_sel_rt": "",
+            "frgn_pre_buy": "",
+            "penfnd_sel": ""
+          },
+          "downloaded": {
+            "tm": "",
+            "ind_buy": "",
+            "ind_pre_buy": "",
+            "ind_buy_rt": "",
+            "ind_sel": "",
+            "ind_pre_sel": "",
+            "ind_sel_rt": "",
+            "ind_net_buy": "",
+            "frgn_buy": "",
+            "frgn_pre_buy": "",
+            "frgn_buy_rt": "",
+            "frgn_sel": "",
+            "frgn_pre_sel": "",
+            "frgn_sel_rt": "",
+            "frgn_net_buy": "",
+            "scrt_buy": "",
+            "scrt_pre_buy": "",
+            "scrt_buy_rt": "",
+            "scrt_sel": "",
+            "scrt_pre_sel": "",
+            "scrt_sel_rt": "",
+            "scrt_net_buy": "",
+            "ins_buy": "",
+            "ins_pre_buy": "",
+            "ins_buy_rt": "",
+            "ins_sel": "",
+            "ins_pre_sel": "",
+            "ins_sel_rt": "",
+            "ins_buy_net": "",
+            "invt_buy": "",
+            "invt_pre_buy": "",
+            "invt_buy_rt": "",
+            "invt_sel": "",
+            "invt_pre_sel": "",
+            "invt_sel_rt": "",
+            "invt_net_buy": "",
+            "bank_buy": "",
+            "bank_pre_buy": "",
+            "bank_buy_rt": "",
+            "bank_sel": "",
+            "bank_pre_sel": "",
+            "bank_sel_rt": "",
+            "bank_net_buy": "",
+            "mb_buy": "",
+            "mb_pre_buy": "",
+            "mb_buy_rt": "",
+            "mb_sel": "",
+            "mb_pre_sel": "",
+            "mb_sel_rt": "",
+            "mb_net_buy": "",
+            "penfnd_buy": "",
+            "penfnd_pre_buy": "",
+            "penfnd_buy_rt": "",
+            "penfnd_sel": "",
+            "penfnd_pre_sel": "",
+            "penfnd_sel_rt": "",
+            "penfnd_net_buy": "",
+            "cntry_buy": "",
+            "cntry_pre_buy": "",
+            "cntry_buy_rt": "",
+            "cntry_sel": "",
+            "cntry_pre_sel": "",
+            "cntry_sel_rt": "",
+            "cntry_net_buy": "",
+            "etc_buy": "",
+            "etc_pre_buy": "",
+            "etc_buy_rt": "",
+            "etc_sel": "",
+            "etc_pre_sel": "",
+            "etc_sel_rt": "",
+            "etc_net_buy": "",
+            "grs_buy": "",
+            "grs_pre_buy": "",
+            "grs_buy_rt": "",
+            "grs_sel": "",
+            "grs_pre_sel": "",
+            "grs_sel_rt": "",
+            "grs_net_buy": "",
+            "inst_cd": ""
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/bid-price",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "exch_cd": "",
+            "sym": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/bid-price HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"exch_cd\": \"\",\n  \"sym\": \"\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "overseas/chart-daily",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "inq_ed_dt": "99999999",
+            "req_qty": "300",
+            "inq_strt_dt": "00000000",
+            "cidx_yn": "0",
+            "exch_cd": "",
+            "sym": "",
+            "nxt_key": "99999999"
+          },
+          "downloaded": "POST /trade/v1/overseas/chart-daily HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"exch_cd\": \"\",\n  \"sym\": \"\",\n  \"inq_strt_dt\": \"00000000\",\n  \"inq_ed_dt\": \"99999999\",\n  \"req_qty\": \"300\",\n  \"cidx_yn\": \"0\",\n  \"nxt_key\": \"99999999\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_ref_dt": "",
+            "occurs1_open_pric": "",
+            "occurs1_high_pric": "",
+            "occurs1_low_pric": "",
+            "sym": "",
+            "occurs1_close_pric": "",
+            "occurs1_rt": "",
+            "nxt_key": "",
+            "Occurs1": "",
+            "occurs1_diff_rt": "",
+            "nrec": "",
+            "exch_cd": "",
+            "occurs1_cum_trd_qty": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "exch_cd": "",
+            "sym": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_ref_dt": "",
+              "occurs1_open_pric": "",
+              "occurs1_high_pric": "",
+              "occurs1_low_pric": "",
+              "occurs1_close_pric": "",
+              "occurs1_diff_rt": "",
+              "occurs1_rt": "",
+              "occurs1_cum_trd_qty": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/chart-minute",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "inq_ed_dt": "99999999",
+            "req_qty": "300",
+            "inq_strt_dt": "00000000",
+            "cidx_yn": "0",
+            "exch_cd": "",
+            "sym": "",
+            "ed_tm": "235959",
+            "nxt_key": "99999999",
+            "dcnt": "5",
+            "strt_tm": "000000"
+          },
+          "downloaded": "POST /trade/v1/overseas/chart-minute HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"exch_cd\": \"\",\n  \"sym\": \"\",\n  \"inq_strt_dt\": \"00000000\",\n  \"strt_tm\": \"000000\",\n  \"inq_ed_dt\": \"99999999\",\n  \"ed_tm\": \"235959\",\n  \"req_qty\": \"300\",\n  \"dcnt\": \"5\",\n  \"cidx_yn\": \"0\",\n  \"nxt_key\": \"99999999\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_ref_dt": "",
+            "occurs1_open_pric": "",
+            "occurs1_high_pric": "",
+            "occurs1_low_pric": "",
+            "sym": "",
+            "occurs1_close_pric": "",
+            "occurs1_rt": "",
+            "nxt_key": "",
+            "occurs1_exch_tm": "",
+            "Occurs1": "",
+            "occurs1_diff_rt": "",
+            "occurs1_cum_trd_amt": "",
+            "nrec": "",
+            "exch_cd": "",
+            "occurs1_glb_biz_dt": "",
+            "occurs1_cum_trd_qty": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "exch_cd": "",
+            "sym": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_ref_dt": "",
+              "occurs1_exch_tm": "",
+              "occurs1_open_pric": "",
+              "occurs1_high_pric": "",
+              "occurs1_low_pric": "",
+              "occurs1_close_pric": "",
+              "occurs1_diff_rt": "",
+              "occurs1_rt": "",
+              "occurs1_cum_trd_qty": "",
+              "occurs1_cum_trd_amt": "",
+              "occurs1_glb_biz_dt": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/cumulative-pl",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "inq_ed_dt": "",
+            "cvs_cur_cd": "USD",
+            "inq_strt_dt": "",
+            "cur_cd": "",
+            "nxt_key": "",
+            "prd_cd": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/cumulative-pl HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"nxt_key\": \"\",\n  \"inq_strt_dt\": \"\",\n  \"inq_ed_dt\": \"\",\n  \"prd_cd\": \"\",\n  \"cvs_cur_cd\": \"USD\",\n  \"cur_cd\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "nrec": "",
+            "occurs1_fee": "",
+            "occurs1_cls_pl_amt": "",
+            "occurs1_cur_cd": "",
+            "nxt_key": "",
+            "occurs1_net_pl_amt": "",
+            "Occurs1": "",
+            "occurs1_prd_cd": "",
+            "occurs1_pl_amt": "",
+            "occurs1_prd_nm": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_prd_cd": "",
+              "occurs1_prd_nm": "",
+              "occurs1_cur_cd": "",
+              "occurs1_cls_pl_amt": "",
+              "occurs1_pl_amt": "",
+              "occurs1_fee": "",
+              "occurs1_net_pl_amt": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/deposit",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "cvs_div": "",
+            "cur_cd": "",
+            "biz_dt": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/deposit HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"biz_dt\": \"\",\n  \"cur_cd\": \"\",\n  \"cvs_div\": \"\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "overseas/market-operations",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "fut_opt_div_cd": "",
+            "cur_cd": "",
+            "prd_grp_cd": "",
+            "exch_cd": "",
+            "nxt_key": "",
+            "prd_nm": "",
+            "prd_cd": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/market-operations HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"nxt_key\": \"\",\n  \"fut_opt_div_cd\": \"\",\n  \"prd_grp_cd\": \"\",\n  \"exch_cd\": \"\",\n  \"cur_cd\": \"\",\n  \"prd_cd\": \"\",\n  \"prd_nm\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_sett_pric_tm_inf": "",
+            "nxt_key": "",
+            "Occurs1": "",
+            "occurs1_prd_cd": "",
+            "occurs1_prd_nm": "",
+            "occurs1_trd_tm_inf": "",
+            "nrec": "",
+            "occurs1_prd_grp_cd": "",
+            "occurs1_exch_cd": "",
+            "occurs1_prd_grp_nm": "",
+            "occurs1_trd_tm_inf_2": "",
+            "occurs1_cur_cd": "",
+            "occurs1_ko_prd_nm": "",
+            "occurs1_nxd_trd_tm_inf": "",
+            "occurs1_fut_opt_div_cd": "",
+            "occurs1_fut_opt_div_nm": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_prd_cd": "",
+              "occurs1_prd_nm": "",
+              "occurs1_ko_prd_nm": "",
+              "occurs1_fut_opt_div_cd": "",
+              "occurs1_fut_opt_div_nm": "",
+              "occurs1_prd_grp_cd": "",
+              "occurs1_prd_grp_nm": "",
+              "occurs1_exch_cd": "",
+              "occurs1_cur_cd": "",
+              "occurs1_trd_tm_inf": "",
+              "occurs1_trd_tm_inf_2": "",
+              "occurs1_nxd_trd_tm_inf": "",
+              "occurs1_sett_pric_tm_inf": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/open-interest-expiry",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "inq_dy_cnt": "2000",
+            "nxt_key": "000",
+            "und_sym": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/open-interest-expiry HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"nxt_key\": \"000\",\n  \"und_sym\": \"\",\n  \"inq_dy_cnt\": \"2000\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_pstn_qty": "",
+            "occurs1_sym": "",
+            "occurs1_exec_pric": "",
+            "nxt_key": "",
+            "Occurs1": "",
+            "occurs1_sym_nm": "",
+            "nrec": "",
+            "occurs1_exec_dt": "",
+            "occurs1_exp_dt": "",
+            "occurs1_cur_cd": "",
+            "occurs1_rem_dy": "",
+            "occurs1_dlv_sett_div_nm": "",
+            "occurs1_cd_nm": "",
+            "occurs1_fst_ntf_dt": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_sym": "",
+              "occurs1_sym_nm": "",
+              "occurs1_cd_nm": "",
+              "occurs1_pstn_qty": "",
+              "occurs1_exec_pric": "",
+              "occurs1_exec_dt": "",
+              "occurs1_cur_cd": "",
+              "occurs1_dlv_sett_div_nm": "",
+              "occurs1_fst_ntf_dt": "",
+              "occurs1_exp_dt": "",
+              "occurs1_rem_dy": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/open-interest",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "nxt_key": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/open-interest HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"nxt_key\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_sel_urez_exec_qty": "",
+            "occurs1_sym": "",
+            "occurs1_pd_buy_opint_qty": "",
+            "occurs1_last_pric": "",
+            "occurs1_pstn_blc_amt": "",
+            "occurs1_td_opint_qty": "",
+            "occurs1_opint_qty": "",
+            "nxt_key": "",
+            "Occurs1": "",
+            "occurs1_cls_psb_qty": "",
+            "occurs1_ctr_unt_amt": "",
+            "nrec": "",
+            "occurs1_ac_no": "",
+            "occurs1_buy_urez_exec_qty": "",
+            "occurs1_avg_pric": "",
+            "occurs1_trd_amt": "",
+            "occurs1_usd_exrt": "",
+            "occurs1_pstn_amt": "",
+            "occurs1_exp_dt": "",
+            "occurs1_cur_cd": "",
+            "occurs1_fut_opt_tp": "",
+            "occurs1_trd_tp": "",
+            "occurs1_pd_sel_opint_qty": "",
+            "occurs1_pl_amt": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_ac_no": "",
+              "occurs1_fut_opt_tp": "",
+              "occurs1_sym": "",
+              "occurs1_trd_tp": "",
+              "occurs1_td_opint_qty": "",
+              "occurs1_pd_buy_opint_qty": "",
+              "occurs1_pd_sel_opint_qty": "",
+              "occurs1_opint_qty": "",
+              "occurs1_cls_psb_qty": "",
+              "occurs1_buy_urez_exec_qty": "",
+              "occurs1_sel_urez_exec_qty": "",
+              "occurs1_avg_pric": "",
+              "occurs1_pl_amt": "",
+              "occurs1_cur_cd": "",
+              "occurs1_usd_exrt": "",
+              "occurs1_last_pric": "",
+              "occurs1_trd_amt": "",
+              "occurs1_ctr_unt_amt": "",
+              "occurs1_pstn_blc_amt": "",
+              "occurs1_pstn_amt": "",
+              "occurs1_exp_dt": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/order-error",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "nxt_key": "",
+            "inq_dt": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/order-error HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"nxt_key\": \"\",\n  \"inq_dt\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_sym": "",
+            "occurs1_ord_pric": "",
+            "occurs1_cme_yn": "",
+            "nxt_key": "",
+            "Occurs1": "",
+            "nrec": "",
+            "occurs1_trd_div_nm": "",
+            "occurs1_dom_tm": "",
+            "occurs1_stop_pric": "",
+            "occurs1_ord_med_div_cd_nm": "",
+            "occurs1_inp_tm": "",
+            "occurs1_ord_no": "",
+            "occurs1_qt_div_cd_nm": "",
+            "occurs1_err_msg": "",
+            "occurs1_inq_dt": "",
+            "occurs1_ip_addr": "",
+            "occurs1_mltple_grp_no": "",
+            "occurs1_glb_ord_tp_cd_nm": "",
+            "occurs1_ord_qty": "",
+            "occurs1_pric_ind": "",
+            "occurs1_org_ord_no": "",
+            "occurs1_glb_ord_div_cd_nm": "",
+            "occurs1_msg_cd": "",
+            "occurs1_dom_dt": "",
+            "occurs1_seq_no": "",
+            "occurs1_fst_ord_id": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_inq_dt": "",
+              "occurs1_seq_no": "",
+              "occurs1_inp_tm": "",
+              "occurs1_ord_no": "",
+              "occurs1_org_ord_no": "",
+              "occurs1_sym": "",
+              "occurs1_glb_ord_div_cd_nm": "",
+              "occurs1_qt_div_cd_nm": "",
+              "occurs1_trd_div_nm": "",
+              "occurs1_glb_ord_tp_cd_nm": "",
+              "occurs1_ord_pric": "",
+              "occurs1_ord_qty": "",
+              "occurs1_stop_pric": "",
+              "occurs1_msg_cd": "",
+              "occurs1_err_msg": "",
+              "occurs1_ip_addr": "",
+              "occurs1_fst_ord_id": "",
+              "occurs1_mltple_grp_no": "",
+              "occurs1_pric_ind": "",
+              "occurs1_cme_yn": "",
+              "occurs1_dom_dt": "",
+              "occurs1_dom_tm": "",
+              "occurs1_ord_med_div_cd_nm": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/order-history",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div_cd": "",
+            "inq_div": "",
+            "nxt_key": "",
+            "prd_cd": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/order-history HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"nxt_key\": \"\",\n  \"inq_div\": \"\",\n  \"prd_cd\": \"\",\n  \"trd_div_cd\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_sym": "",
+            "occurs1_per_exec_qty": null,
+            "occurs1_ord_tp": "",
+            "occurs1_sl_ord_tp_cd": "",
+            "occurs1_ord_pric": "",
+            "occurs1_ord_rcv_tm": "",
+            "occurs1_err_cd": "",
+            "occurs1_hdg_tp": "",
+            "occurs1_exec_pric": "",
+            "occurs1_tpf_ord_pric": "",
+            "occurs1_mod_qty": "",
+            "occurs1_user_id": "",
+            "occurs1_exec_tm": "",
+            "occurs1_tpf_pric": "",
+            "occurs1_mo_ord_no": "",
+            "occurs1_ord_div": "",
+            "occurs1_ptt_proc_no": "",
+            "occurs1_org_ord_no": "",
+            "occurs1_cur_cd": "",
+            "occurs1_grp_ord_no": "",
+            "occurs1_med_div": "",
+            "occurs1_fut_opt_tp": "",
+            "occurs1_ref_ord_no": "",
+            "occurs1_user_proc_item": "",
+            "nxt_key": "",
+            "occurs1_opt_strk_bkg_yn": "",
+            "Occurs1": "",
+            "occurs1_opt_ord_amt": "",
+            "occurs1_ord_rem_qty": "",
+            "occurs1_ord_avg_pric": "",
+            "nrec": "",
+            "occurs1_ac_no": "",
+            "occurs1_ord_sts": "",
+            "occurs1_stop_pric": "",
+            "occurs1_exec_qty": "",
+            "occurs1_str_div": "",
+            "occurs1_ord_no": "",
+            "occurs1_exec_no": "",
+            "occurs1_err_msg": "",
+            "occurs1_tpf_ord_tp_cd": "",
+            "occurs1_qt_tp": "",
+            "occurs1_ip_addr": "",
+            "occurs1_org_ord_dt": "",
+            "occurs1_sl_pric": "",
+            "occurs1_ord_dt": "",
+            "occurs1_ord_ed_dt": "",
+            "occurs1_ord_qty": "",
+            "occurs1_fcm_exec_rcv_tm": "",
+            "occurs1_cxl_qty": "",
+            "occurs1_rejt_rsn": "",
+            "occurs1_trd_tp": "",
+            "occurs1_cls_pstn_no": null,
+            "occurs1_fcm_ord_rcv_tm": "",
+            "occurs1_sl_ord_pric": "",
+            "occurs1_pric_diff_tick": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_ac_no": "",
+              "occurs1_ord_dt": "",
+              "occurs1_ord_no": "",
+              "occurs1_org_ord_dt": "",
+              "occurs1_org_ord_no": "",
+              "occurs1_fut_opt_tp": "",
+              "occurs1_sym": "",
+              "occurs1_ord_sts": "",
+              "occurs1_trd_tp": "",
+              "occurs1_qt_tp": "",
+              "occurs1_ord_tp": "",
+              "occurs1_ord_div": "",
+              "occurs1_ord_qty": "",
+              "occurs1_exec_qty": "",
+              "occurs1_mod_qty": "",
+              "occurs1_cxl_qty": "",
+              "occurs1_ord_pric": "",
+              "occurs1_exec_pric": "",
+              "occurs1_ord_avg_pric": "",
+              "occurs1_tpf_pric": "",
+              "occurs1_sl_pric": "",
+              "occurs1_pric_diff_tick": "",
+              "occurs1_ord_rcv_tm": "",
+              "occurs1_exec_tm": "",
+              "occurs1_user_id": "",
+              "occurs1_grp_ord_no": "",
+              "occurs1_str_div": "",
+              "occurs1_med_div": "",
+              "occurs1_err_cd": "",
+              "occurs1_rejt_rsn": "",
+              "occurs1_cur_cd": "",
+              "occurs1_exec_no": "",
+              "occurs1_per_exec_qty": "",
+              "occurs1_hdg_tp": "",
+              "occurs1_stop_pric": "",
+              "occurs1_opt_strk_bkg_yn": "",
+              "occurs1_ord_ed_dt": "",
+              "occurs1_opt_ord_amt": "",
+              "occurs1_ord_rem_qty": "",
+              "occurs1_ref_ord_no": "",
+              "occurs1_cls_pstn_no": "",
+              "occurs1_mo_ord_no": "",
+              "occurs1_fcm_ord_rcv_tm": "",
+              "occurs1_fcm_exec_rcv_tm": "",
+              "occurs1_user_proc_item": "",
+              "occurs1_err_msg": "",
+              "occurs1_ip_addr": "",
+              "occurs1_tpf_ord_tp_cd": "",
+              "occurs1_tpf_ord_pric": "",
+              "occurs1_sl_ord_tp_cd": "",
+              "occurs1_sl_ord_pric": "",
+              "occurs1_ptt_proc_no": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/order",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "trd_div_cd": "",
+            "stop_pric": "",
+            "ord_qty": "",
+            "org_ord_no": "0",
+            "sym": "",
+            "ord_pric": "",
+            "qt_div_cd": "",
+            "glb_ord_tp_cd": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/order HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"qt_div_cd\": \"\",\n  \"sym\": \"\",\n  \"trd_div_cd\": \"\",\n  \"glb_ord_tp_cd\": \"\",\n  \"ord_qty\": \"\",\n  \"ord_pric\": \"\",\n  \"stop_pric\": \"\",\n  \"org_ord_no\": \"0\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "overseas/orderable-quantity",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "stop_pric": "",
+            "sym": "",
+            "ord_pric": "",
+            "glb_ord_tp_cd": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/orderable-quantity HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"sym\": \"\",\n  \"glb_ord_tp_cd\": \"\",\n  \"ord_pric\": \"\",\n  \"stop_pric\": \"\"\n}"
+        }
+      ]
+    },
+    {
+      "document": "overseas/price-all-option",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "exch_cd": "",
+            "sym": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/price-all-option HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"exch_cd\": \"\",\n  \"sym\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_p_bid_qty": "",
+            "occurs1_p_atm_flag": "",
+            "occurs1_c_sym": "",
+            "occurs1_p_exec_cd": "",
+            "occurs1_c_trd_qty": "",
+            "occurs1_p_ask_pric": "",
+            "Occurs1": "",
+            "rem_dy": "",
+            "nrec": "",
+            "occurs1_p_ask_qty": "",
+            "occurs1_c_diff": "",
+            "occurs1_c_ask_qty": "",
+            "occurs1_c_bid_qty": "",
+            "occurs1_p_diff": "",
+            "occurs1_c_atm_flag": "",
+            "occurs1_c_ask_pric": "",
+            "occurs1_p_rt": "",
+            "occurs1_p_trd_qty": "",
+            "occurs1_p_sym": "",
+            "occurs1_p_last_pric": "",
+            "occurs1_strk_pric": "",
+            "occurs1_c_exec_cd": "",
+            "occurs1_c_rt": "",
+            "occurs1_c_bid_pric": "",
+            "occurs1_pric_ind": "",
+            "occurs1_c_last_pric": "",
+            "occurs1_p_bid_pric": ""
+          },
+          "downloaded": {
+            "nrec": "",
+            "rem_dy": "",
+            "Occurs1": {
+              "occurs1_strk_pric": "",
+              "occurs1_pric_ind": "",
+              "occurs1_c_exec_cd": "",
+              "occurs1_c_sym": "",
+              "occurs1_c_last_pric": "",
+              "occurs1_c_diff": "",
+              "occurs1_c_rt": "",
+              "occurs1_c_bid_pric": "",
+              "occurs1_c_ask_pric": "",
+              "occurs1_c_bid_qty": "",
+              "occurs1_c_ask_qty": "",
+              "occurs1_c_trd_qty": "",
+              "occurs1_c_atm_flag": "",
+              "occurs1_p_exec_cd": "",
+              "occurs1_p_sym": "",
+              "occurs1_p_last_pric": "",
+              "occurs1_p_diff": "",
+              "occurs1_p_rt": "",
+              "occurs1_p_bid_pric": "",
+              "occurs1_p_ask_pric": "",
+              "occurs1_p_bid_qty": "",
+              "occurs1_p_ask_qty": "",
+              "occurs1_p_trd_qty": "",
+              "occurs1_p_atm_flag": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/price",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "iccurs1_exch_cd": "",
+            "Iccurs1": "",
+            "iccurs1_sym": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/price HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"Iccurs1\": {\n    \"iccurs1_exch_cd\": \"\",\n    \"iccurs1_sym\": \"\"\n  }\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_sym": "",
+            "occurs1_high_pric": "",
+            "occurs1_last_pric": "",
+            "occurs1_rt": "",
+            "occurs1_life_high_dt": "",
+            "occurs1_sett_pric": "",
+            "occurs1_life_low_dt": "",
+            "Occurs1": "",
+            "occurs1_ris_trd_qty": "",
+            "nrec": "",
+            "occurs1_fal_trd_qty": null,
+            "occurs1_life_high_pric": "",
+            "occurs1_pre_close_pric": "",
+            "occurs1_biz_dt": "",
+            "occurs1_cum_trd_qty": "",
+            "occurs1_open_pric": "",
+            "occurs1_low_pric": "",
+            "occurs1_ask_pric": "",
+            "occurs1_diff_rt": "",
+            "occurs1_sym_nm": "",
+            "occurs1_life_low_pric": "",
+            "occurs1_exch_cd": "",
+            "occurs1_bid_pric": "",
+            "occurs1_trd_tm": "",
+            "occurs1_real_sym": "",
+            "occurs1_ask_qty": "",
+            "occurs1_bid_qty": "",
+            "occurs1_pre_sett_dy": null
+          },
+          "downloaded": {
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_exch_cd": "",
+              "occurs1_sym": "",
+              "occurs1_real_sym": "",
+              "occurs1_sym_nm": "",
+              "occurs1_last_pric": "",
+              "occurs1_diff_rt": "",
+              "occurs1_rt": "",
+              "occurs1_open_pric": "",
+              "occurs1_high_pric": "",
+              "occurs1_low_pric": "",
+              "occurs1_bid_pric": "",
+              "occurs1_ask_pric": "",
+              "occurs1_bid_qty": "",
+              "occurs1_ask_qty": "",
+              "occurs1_cum_trd_qty": "",
+              "occurs1_sett_pric": "",
+              "occurs1_pre_sett_dy": "",
+              "occurs1_biz_dt": "",
+              "occurs1_trd_tm": "",
+              "occurs1_life_high_pric": "",
+              "occurs1_life_high_dt": "",
+              "occurs1_life_low_pric": "",
+              "occurs1_life_low_dt": "",
+              "occurs1_pre_close_pric": "",
+              "occurs1_ris_trd_qty": "",
+              "occurs1_fal_trd_qty": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/product-detail",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "sett_cd": "",
+            "fut_opt_div_cd": "",
+            "cur_cd": "",
+            "prd_grp_cd": "",
+            "exch_cd": "",
+            "nxt_key": "",
+            "prd_nm": "",
+            "prd_cd": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/product-detail HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: application/json\n\n{\n  \"nxt_key\": \"\",\n  \"fut_opt_div_cd\": \"\",\n  \"prd_grp_cd\": \"\",\n  \"exch_cd\": \"\",\n  \"cur_cd\": \"\",\n  \"sett_cd\": \"\",\n  \"prd_cd\": \"\",\n  \"prd_nm\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "occurs1_dlv_div": "",
+            "nxt_key": "",
+            "occurs1_apl_dt": "",
+            "Occurs1": "",
+            "occurs1_prd_cd": "",
+            "occurs1_tick_unt": "",
+            "nrec": "",
+            "occurs1_exch_cd": "",
+            "occurs1_prd_grp_nm": "",
+            "occurs1_cur_cd": "",
+            "occurs1_ko_prd_nm": "",
+            "occurs1_tick_val": "",
+            "occurs1_ctr_unt": "",
+            "occurs1_fut_opt_div_cd": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_prd_cd": "",
+              "occurs1_ko_prd_nm": "",
+              "occurs1_fut_opt_div_cd": "",
+              "occurs1_prd_grp_nm": "",
+              "occurs1_exch_cd": "",
+              "occurs1_cur_cd": "",
+              "occurs1_ctr_unt": "",
+              "occurs1_tick_unt": "",
+              "occurs1_tick_val": "",
+              "occurs1_dlv_div": "",
+              "occurs1_apl_dt": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "overseas/product-expiry",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "rem_dy": "30",
+            "fut_opt_div_cd": "",
+            "sym": "",
+            "nxt_key": ""
+          },
+          "downloaded": "POST /trade/v1/overseas/product-expiry HTTP/1.1\nAccept: application/json, text/plain, */*\nAuthorization: \nContent-Type: \n\n{\n  \"nxt_key\": \"\",\n  \"rem_dy\": \"30\",\n  \"sym\": \"\",\n  \"fut_opt_div_cd\": \"\"\n}"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "nrec": "",
+            "occurs1_sym": "",
+            "occurs1_lst_sett_dt": "",
+            "occurs1_exch_cd": "",
+            "occurs1_exp_dt": "",
+            "occurs1_sett_nm": "",
+            "nxt_key": "",
+            "occurs1_rem_dy": "",
+            "Occurs1": "",
+            "occurs1_fst_ntf_dt": "",
+            "occurs1_prd_cd": "",
+            "occurs1_sym_nm": ""
+          },
+          "downloaded": {
+            "nxt_key": "",
+            "nrec": "",
+            "Occurs1": {
+              "occurs1_sym": "",
+              "occurs1_sym_nm": "",
+              "occurs1_sett_nm": "",
+              "occurs1_exch_cd": "",
+              "occurs1_fst_ntf_dt": "",
+              "occurs1_exp_dt": "",
+              "occurs1_lst_sett_dt": "",
+              "occurs1_rem_dy": "",
+              "occurs1_prd_cd": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "document": "FA",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "api_ver": "1",
+            "action_code": "FA",
+            "action_sym": "6AU26",
+            "header": null,
+            "action": null,
+            "body": null
+          },
+          "downloaded": "GET /trade/v1/FA HTTP/1.1\nHost: \nUpgrade: websocket\nConnection: Upgrade\nSec-WebSocket-Key: <Generated Key>\nSec-WebSocket-Version: 13\n\n--- WebSocket Message ---\n{\n    \"header\" : {\n                \"api_ver\": \"1\",\n                \"action\": \"action값\"\n    }, \n    \"body\" : {\n                \"action_code\": \"FA\",\n                \"action_sym\": \"6AU26\"\n    }\n}\n            \n"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "cum_sel_exec_amt": "",
+            "rt": "",
+            "fal_trd_qty": null,
+            "sym": "",
+            "biz_dt": "",
+            "bid_qty": "",
+            "ko_exec_tm": "",
+            "ko_trd_dt": "",
+            "diff_rt": "",
+            "qt_fgr": "",
+            "open_pric": "",
+            "exec_div": "",
+            "tick_div": "",
+            "last_pric": "",
+            "seq_no": "",
+            "prd": "",
+            "pd_trd_qty_rt": "",
+            "bid_best_pric": null,
+            "cum_trd_qty": "",
+            "pd_trd_qty": "",
+            "high_pric": "",
+            "pric_ind": "",
+            "cum_buy_exec_amt": "",
+            "chg_div": "",
+            "ask_best_pric": null,
+            "cum_sel_exec_qty": "",
+            "exec_qty": "",
+            "low_pric": "",
+            "ris_trd_qty": "",
+            "cum_buy_exec_qty": "",
+            "ask_qty": "",
+            "ref_dt": "",
+            "exch_tm": "",
+            "opint": ""
+          },
+          "downloaded": {
+            "sym": "",
+            "prd": "",
+            "pric_ind": "",
+            "tick_div": "",
+            "ko_trd_dt": "",
+            "ko_exec_tm": "",
+            "ref_dt": "",
+            "exch_tm": "",
+            "open_pric": "",
+            "high_pric": "",
+            "low_pric": "",
+            "last_pric": "",
+            "chg_div": "",
+            "diff_rt": "",
+            "rt": "",
+            "exec_qty": "",
+            "cum_trd_qty": "",
+            "exec_div": "",
+            "ask_best_pric": "",
+            "bid_best_pric": "",
+            "opint": "",
+            "pd_trd_qty": "",
+            "pd_trd_qty_rt": "",
+            "cum_buy_exec_qty": "",
+            "cum_sel_exec_qty": "",
+            "biz_dt": "",
+            "seq_no": "",
+            "cum_buy_exec_amt": "",
+            "cum_sel_exec_amt": "",
+            "qt_fgr": "",
+            "ask_qty": "",
+            "bid_qty": "",
+            "ris_trd_qty": "",
+            "fal_trd_qty": ""
+          }
+        }
+      ]
+    },
+    {
+      "document": "FB",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "api_ver": "1",
+            "action_code": null,
+            "action_sym": "",
+            "header": null,
+            "action": null,
+            "body": null
+          },
+          "downloaded": "GET /trade/v1/FB HTTP/1.1\nHost: \nUpgrade: websocket\nConnection: Upgrade\nSec-WebSocket-Key: <Generated Key>\nSec-WebSocket-Version: 13\n\n--- WebSocket Message ---\n{\n    \"header\" : {\n                \"api_ver\": \"1\",\n                \"action\": \"action값\"\n    }, \n    \"body\" : {\n                \"action_code\": \"action_code값\",\n                \"action_sym\": \"action_sym값\"\n    }\n}\n            \n"
+        }
+      ]
+    },
+    {
+      "document": "KA",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "api_ver": "1",
+            "action_code": "KA",
+            "action_sym": "A0169000",
+            "header": null,
+            "action": null,
+            "body": null
+          },
+          "downloaded": "GET /trade/v1/KA HTTP/1.1\nHost: \nUpgrade: websocket\nConnection: Upgrade\nSec-WebSocket-Key: <Generated Key>\nSec-WebSocket-Version: 13\n\n--- WebSocket Message ---\n{\n    \"header\" : {\n                \"api_ver\": \"1\",\n                \"action\": \"action값\"\n    }, \n    \"body\" : {\n                \"action_code\": \"KA\",\n                \"action_sym\": \"A0169000\"\n    }\n}\n            \n"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "cum_sel_exec_amt": "",
+            "rt": "",
+            "tm_val": "",
+            "up_act_pric": "",
+            "sym": "",
+            "mkt_bas": "",
+            "dev_rt": "",
+            "delta": "",
+            "dev_clr": "",
+            "theta": "",
+            "lo_act_pric": "",
+            "dev_rt_clr": "",
+            "dev": "",
+            "diff_rt": "",
+            "cum_trd_amt": "",
+            "open_pric": "",
+            "exec_div": "",
+            "tick_div": "",
+            "cum_sel_cnt": "",
+            "last_pric": "",
+            "theo_bas_clr": "",
+            "opint_diff": "",
+            "und_last_pric": "",
+            "pd_trd_qty_rt": "",
+            "bid_best_pric": null,
+            "cum_trd_qty": "",
+            "pd_trd_qty": "",
+            "high_pric": "",
+            "ival": "",
+            "cum_buy_exec_amt": "",
+            "chg_div": "",
+            "ask_best_pric": null,
+            "cum_sel_exec_qty": "",
+            "exec_qty": "",
+            "theo_chg": "",
+            "est_exec_pric": "",
+            "low_pric": "",
+            "theo_pric": "",
+            "cum_buy_exec_qty": "",
+            "cum_buy_cnt": "",
+            "rho": "",
+            "ivol": "",
+            "exch_tm": "",
+            "opint": "",
+            "gamma": "",
+            "vega": ""
+          },
+          "downloaded": {
+            "sym": "",
+            "tick_div": "",
+            "exch_tm": "",
+            "open_pric": "",
+            "high_pric": "",
+            "low_pric": "",
+            "last_pric": "",
+            "chg_div": "",
+            "diff_rt": "",
+            "rt": "",
+            "exec_qty": "",
+            "cum_trd_qty": "",
+            "cum_trd_amt": "",
+            "exec_div": "",
+            "ask_best_pric": "",
+            "bid_best_pric": "",
+            "opint": "",
+            "pd_trd_qty": "",
+            "pd_trd_qty_rt": "",
+            "und_last_pric": "",
+            "cum_buy_exec_qty": "",
+            "cum_sel_exec_qty": "",
+            "cum_buy_exec_amt": "",
+            "cum_sel_exec_amt": "",
+            "mkt_bas": "",
+            "theo_bas_clr": "",
+            "cum_buy_cnt": "",
+            "cum_sel_cnt": "",
+            "up_act_pric": "",
+            "lo_act_pric": "",
+            "dev_rt_clr": "",
+            "dev_rt": "",
+            "theo_pric": "",
+            "ival": "",
+            "tm_val": "",
+            "ivol": "",
+            "delta": "",
+            "gamma": "",
+            "theta": "",
+            "vega": "",
+            "rho": "",
+            "opint_diff": "",
+            "theo_chg": "",
+            "est_exec_pric": "",
+            "dev_clr": "",
+            "dev": ""
+          }
+        }
+      ]
+    },
+    {
+      "document": "KB",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "api_ver": "1",
+            "action_code": "KB",
+            "action_sym": "A0169000",
+            "header": null,
+            "action": null,
+            "body": null
+          },
+          "downloaded": "GET /trade/v1/KB HTTP/1.1\nHost: \nUpgrade: websocket\nConnection: Upgrade\nSec-WebSocket-Key: <Generated Key>\nSec-WebSocket-Version: 13\n\n--- WebSocket Message ---\n{\n    \"header\" : {\n                \"api_ver\": \"1\",\n                \"action\": \"action값\"\n    }, \n    \"body\" : {\n                \"action_code\": \"KB\",\n                \"action_sym\": \"A0169000\"\n    }\n}\n            \n"
+        }
+      ]
+    },
+    {
+      "document": "KC",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "api_ver": "1",
+            "action_code": "KC",
+            "action_sym": "A0169000",
+            "header": null,
+            "action": null,
+            "body": null
+          },
+          "downloaded": "GET /trade/v1/KC HTTP/1.1\nHost: \nUpgrade: websocket\nConnection: Upgrade\nSec-WebSocket-Key: <Generated Key>\nSec-WebSocket-Version: 13\n\n--- WebSocket Message ---\n{\n    \"header\" : {\n                \"api_ver\": \"1\",\n                \"action\": \"action값\"\n    }, \n    \"body\" : {\n                \"action_code\": \"KC\",\n                \"action_sym\": \"A0169000\"\n    }\n}\n            \n"
+        },
+        {
+          "location": "response_example",
+          "uploaded": {
+            "cum_sel_exec_amt": "",
+            "theo_bas": "",
+            "rt": "",
+            "tm_val": "",
+            "up_act_pric": "",
+            "sym": "",
+            "mkt_bas": "",
+            "dev_rt": "",
+            "delta": "",
+            "theta": "",
+            "lo_act_pric": "",
+            "dev": "",
+            "diff_rt": "",
+            "cum_trd_amt": "",
+            "open_pric": "",
+            "exec_div": "",
+            "tick_div": "",
+            "cum_sel_cnt": "",
+            "last_pric": "",
+            "opint_diff": "",
+            "und_last_pric": "",
+            "pd_trd_qty_rt": "",
+            "bid_best_pric": null,
+            "cum_trd_qty": "",
+            "pd_trd_qty": "",
+            "high_pric": "",
+            "ival": "",
+            "cum_buy_exec_amt": "",
+            "chg_div": "",
+            "ask_best_pric": null,
+            "cum_sel_exec_qty": "",
+            "exec_qty": "",
+            "theo_chg": "",
+            "est_exec_pric": "",
+            "low_pric": "",
+            "theo_pric": "",
+            "cum_buy_exec_qty": "",
+            "cum_buy_cnt": "",
+            "rho": "",
+            "ivol": "",
+            "exch_tm": "",
+            "opint": "",
+            "gamma": "",
+            "vega": ""
+          },
+          "downloaded": {
+            "sym": "",
+            "tick_div": "",
+            "exch_tm": "",
+            "open_pric": "",
+            "high_pric": "",
+            "low_pric": "",
+            "last_pric": "",
+            "chg_div": "",
+            "diff_rt": "",
+            "rt": "",
+            "exec_qty": "",
+            "cum_trd_qty": "",
+            "cum_trd_amt": "",
+            "exec_div": "",
+            "ask_best_pric": "",
+            "bid_best_pric": "",
+            "opint": "",
+            "pd_trd_qty": "",
+            "pd_trd_qty_rt": "",
+            "und_last_pric": "",
+            "cum_buy_exec_qty": "",
+            "cum_sel_exec_qty": "",
+            "cum_buy_exec_amt": "",
+            "cum_sel_exec_amt": "",
+            "mkt_bas": "",
+            "theo_bas": "",
+            "cum_buy_cnt": "",
+            "cum_sel_cnt": "",
+            "up_act_pric": "",
+            "lo_act_pric": "",
+            "dev_rt": "",
+            "theo_pric": "",
+            "ival": "",
+            "tm_val": "",
+            "ivol": "",
+            "delta": "",
+            "gamma": "",
+            "theta": "",
+            "vega": "",
+            "rho": "",
+            "opint_diff": "",
+            "theo_chg": "",
+            "est_exec_pric": "",
+            "dev": ""
+          }
+        }
+      ]
+    },
+    {
+      "document": "KD",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "api_ver": "1",
+            "action_code": "KD",
+            "action_sym": "A0169000",
+            "header": null,
+            "action": null,
+            "body": null
+          },
+          "downloaded": "GET /trade/v1/KD HTTP/1.1\nHost: \nUpgrade: websocket\nConnection: Upgrade\nSec-WebSocket-Key: <Generated Key>\nSec-WebSocket-Version: 13\n\n--- WebSocket Message ---\n{\n    \"header\" : {\n                \"api_ver\": \"1\",\n                \"action\": \"action값\"\n    }, \n    \"body\" : {\n                \"action_code\": \"KD\",\n                \"action_sym\": \"A0169000\"\n    }\n}\n            \n"
+        }
+      ]
+    },
+    {
+      "document": "O1",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "api_ver": "1",
+            "action_code": "O1",
+            "header": null,
+            "action": null,
+            "body": null
+          },
+          "downloaded": "GET /trade/v1/O1 HTTP/1.1\nHost: \nUpgrade: websocket\nConnection: Upgrade\nSec-WebSocket-Key: <Generated Key>\nSec-WebSocket-Version: 13\n\n--- WebSocket Message ---\n{\n    \"header\" : {\n                \"api_ver\": \"1\",\n                \"action\": \"action값\"\n    }, \n    \"body\" : {\n                \"action_code\": \"O1\"\n    }\n}\n            \n"
+        }
+      ]
+    },
+    {
+      "document": "O1_K",
+      "differences": [
+        {
+          "location": "request_example",
+          "uploaded": {
+            "api_ver": "1",
+            "action_code": "O1",
+            "header": null,
+            "action": null,
+            "body": null
+          },
+          "downloaded": "GET /trade/v1/O1_K HTTP/1.1\nHost: \nUpgrade: websocket\nConnection: Upgrade\nSec-WebSocket-Key: <Generated Key>\nSec-WebSocket-Version: 13\n\n--- WebSocket Message ---\n{\n    \"header\" : {\n                \"api_ver\": \"1\",\n                \"action\": \"action값\"\n    }, \n    \"body\" : {\n                \"action_code\": \"O1\"\n    }\n}\n            \n"
+        }
+      ]
+    }
+  ]
+}

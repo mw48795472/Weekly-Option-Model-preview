@@ -1,0 +1,168 @@
+{
+  "source_label": "Weekly Option",
+  "files": [
+    {
+      "name": "20190927_01.pdf",
+      "extension": ".pdf",
+      "bytes": 1163710,
+      "sha256": "af163a74dc84be9cd3dec27f9fe2c46e22995c00b05b24f2bf9075ac336361e0"
+    },
+    {
+      "name": "20260608095228783_0_ko.pdf",
+      "extension": ".pdf",
+      "bytes": 642532,
+      "sha256": "656ff5e3469e3d4687bbd8fe38798654bceb42475920aa3dacb4b9769fad077e"
+    },
+    {
+      "name": "expiry_reversal_analysis.py",
+      "extension": ".py",
+      "bytes": 8941,
+      "sha256": "480f35823d1b0298c2cae6f772af34f078b0910328dc32735b2a8b8142e0306a"
+    },
+    {
+      "name": "h5_h6_hypothesis_test.png",
+      "extension": ".png",
+      "bytes": 183833,
+      "sha256": "8a6bbdc853d48ab59b0a64d7ade7e43dbb79e7f27f2dd3010423fec4724053ed"
+    },
+    {
+      "name": "h5_h6_hypothesis_test.py",
+      "extension": ".py",
+      "bytes": 9557,
+      "sha256": "8b982ca7090cbd2976ce725a8c16e6d01ff419fe4465d3b598c877276b764a06"
+    },
+    {
+      "name": "h7_concentration_sensitivity.png",
+      "extension": ".png",
+      "bytes": 313363,
+      "sha256": "993b35ee2a441a942d4376acd39fc9286a53ffe6b39c1db0a25ed1dfc2a78b72"
+    },
+    {
+      "name": "h7_concentration_sensitivity.py",
+      "extension": ".py",
+      "bytes": 8772,
+      "sha256": "aa8529488b45470c62da32c4b77c111832ed614cdb5452e856c4869125f606d0"
+    },
+    {
+      "name": "h9_rfq_cqbreak_enhanced.png",
+      "extension": ".png",
+      "bytes": 244743,
+      "sha256": "7cb43d3e3d35f9966335f300dff98ee6a6a2da36ebed49b7964e2d2f7c1197bc"
+    },
+    {
+      "name": "h9_rfq_cqbreak_enhanced.py",
+      "extension": ".py",
+      "bytes": 10586,
+      "sha256": "da8c9987a5887380ec4ddc9731312281c3a1783e7a59a085892290f525640326"
+    },
+    {
+      "name": "table12_reproduced.png",
+      "extension": ".png",
+      "bytes": 241446,
+      "sha256": "0dcef2c503f5ca4896a0ecf7d90053d5f889f571f8bafef9c5df6031fe84c418"
+    },
+    {
+      "name": "가설 검정 부분(하드코딩).zip",
+      "extension": ".zip",
+      "bytes": 20231,
+      "sha256": "97da9d6af7301c975b61e29617ac3c44e1ecd211ef0f92dea49f88920634f4d6"
+    },
+    {
+      "name": "기획서 초안.docx",
+      "extension": ".docx",
+      "bytes": 4329307,
+      "sha256": "a3b12d2a1003ea5e08e5d0135edf983b01e873e2c18502ab17cfbca92bf150c8"
+    },
+    {
+      "name": "로컬변동성 모형 수치해석 기초 코딩.py",
+      "extension": ".py",
+      "bytes": 16091,
+      "sha256": "d8d8e179c4798656a33c69b360fddd3f12254ca155ab0b47b5b1ad29e0f1a1d1"
+    },
+    {
+      "name": "위클리 옵션 기획서 (블랭크).docx",
+      "extension": ".docx",
+      "bytes": 2647468,
+      "sha256": "c8be4131ca0563828a1713a09073b1e513615bb07fa0fcfbc241fff1c709b778"
+    },
+    {
+      "name": "위클리 옵션 데이터베이스 참고용.docx",
+      "extension": ".docx",
+      "bytes": 11203,
+      "sha256": "44b2144f5f4f94315c659addd236408e8e8292495551fe5a415b995c52f1903e"
+    },
+    {
+      "name": "위클리 옵션 모델 기획서.pdf",
+      "extension": ".pdf",
+      "bytes": 398234,
+      "sha256": "418243870f53303cfe93415b9822bf8d270ee63bd5e3e956e5c40f6164684ede"
+    },
+    {
+      "name": "위클리옵션_기획서.docx",
+      "extension": ".docx",
+      "bytes": 18085,
+      "sha256": "2d28292046b0a13606db133daa0ec9dc5b3c7c2e8efeebcb9c32c40af6f8dd62"
+    },
+    {
+      "name": "이슈(26-03) 자본시장 심리지수 시리즈 3：투자자 심리와 주식시장의 관계 고찰.pdf",
+      "extension": ".pdf",
+      "bytes": 907992,
+      "sha256": "450ab1a6eb1bfc5e7a972cce29e3ee889f2e559ff855eb13e09bfe91c8058605"
+    },
+    {
+      "name": "조사(24-04)_전자거래 확산에 따른 글로벌 외환시장의 구조적 변화와 시사점.pdf",
+      "extension": ".pdf",
+      "bytes": 907561,
+      "sha256": "5c827ece72c16d4e2c75a8bede5ecd9512a4a9332c206ad2af7aa2b4e366500c"
+    },
+    {
+      "name": "화면 캡처 2026-07-16 135425.png",
+      "extension": ".png",
+      "bytes": 98974,
+      "sha256": "87102ab443b9058ea7ba6f8b20c295e51b3cb939ab1b9124a07872941c724cd4"
+    },
+    {
+      "name": "회귀율표.png",
+      "extension": ".png",
+      "bytes": 1228687,
+      "sha256": "955293c695e5495dc5819fc512c4ee5d0ef8abb30b4f9bbf64df4f5e160c2431"
+    }
+  ],
+  "zip_members": [
+    {
+      "archive": "가설 검정 부분(하드코딩).zip",
+      "sha256": "480f35823d1b0298c2cae6f772af34f078b0910328dc32735b2a8b8142e0306a",
+      "byte_identical_to": [
+        "expiry_reversal_analysis.py"
+      ]
+    },
+    {
+      "archive": "가설 검정 부분(하드코딩).zip",
+      "sha256": "8b982ca7090cbd2976ce725a8c16e6d01ff419fe4465d3b598c877276b764a06",
+      "byte_identical_to": [
+        "h5_h6_hypothesis_test.py"
+      ]
+    },
+    {
+      "archive": "가설 검정 부분(하드코딩).zip",
+      "sha256": "aa8529488b45470c62da32c4b77c111832ed614cdb5452e856c4869125f606d0",
+      "byte_identical_to": [
+        "h7_concentration_sensitivity.py"
+      ]
+    },
+    {
+      "archive": "가설 검정 부분(하드코딩).zip",
+      "sha256": "da8c9987a5887380ec4ddc9731312281c3a1783e7a59a085892290f525640326",
+      "byte_identical_to": [
+        "h9_rfq_cqbreak_enhanced.py"
+      ]
+    },
+    {
+      "archive": "가설 검정 부분(하드코딩).zip",
+      "sha256": "d8d8e179c4798656a33c69b360fddd3f12254ca155ab0b47b5b1ad29e0f1a1d1",
+      "byte_identical_to": [
+        "로컬변동성 모형 수치해석 기초 코딩.py"
+      ]
+    }
+  ]
+}

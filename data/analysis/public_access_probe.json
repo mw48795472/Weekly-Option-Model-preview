@@ -1,0 +1,31 @@
+[
+  {
+    "url": "https://apidev.futures.co.kr/",
+    "method": "GET",
+    "checked_at_utc": "2026-10-10T16:58:34.411755+00:00",
+    "authorization_sent": false,
+    "status": 200,
+    "content_type": "text/html",
+    "server_date": "Sat, 10 Oct 2026 16:58:40 GMT"
+  },
+  {
+    "url": "https://api.futures.co.kr/trade/v1/domestic/price",
+    "method": "POST",
+    "checked_at_utc": "2026-10-10T16:58:40.449697+00:00",
+    "authorization_sent": false,
+    "status": 401,
+    "content_type": "application/json",
+    "server_date": "Sat, 10 Oct 2026 16:58:41 GMT",
+    "error_fields": {}
+  },
+  {
+    "url": "https://apidemo.futures.co.kr/trade/v1/domestic/price",
+    "method": "POST",
+    "checked_at_utc": "2026-10-10T16:58:40.766419+00:00",
+    "authorization_sent": false,
+    "status": 401,
+    "content_type": "application/json",
+    "server_date": "Sat, 10 Oct 2026 16:58:41 GMT",
+    "error_fields": {}
+  }
+]
