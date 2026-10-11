@@ -9,6 +9,7 @@ import zipfile
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
 from nh_research.master import load_master, weekly_name_candidate
+from nh_research.contract_exports import export_contracts
 from plotly.offline import get_plotlyjs
 import pandas as pd
 
@@ -33,6 +34,10 @@ def build(output=None, zip_archive=False):
         payload=base64.b64encode((ROOT/'docs/images'/f'{name}.png').read_bytes()).decode()
         template=template.replace('__'+name.upper()+'__','data:image/png;base64,'+payload)
     template=template.replace('__DATA__',json.dumps(data,ensure_ascii=False).replace('<','\\u003c'))
+    details=export_contracts(ROOT)
+    archive=details.pop('archive')
+    template=template.replace('__CONTRACT_DATA__',json.dumps(details,ensure_ascii=False).replace('<','\\u003c'))
+    template=template.replace('__CSV_ZIP__',base64.b64encode(archive.read_bytes()).decode())
     template=template.replace('__PLOTLY__',get_plotlyjs())
     output=Path(output) if output is not None else ROOT/'artifacts/private/dashboard/weekly_option_poc.html'
     output.parent.mkdir(parents=True,exist_ok=True)
