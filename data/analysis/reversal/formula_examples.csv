@@ -1,0 +1,5 @@
+﻿scenario,observation_type,preclose,close,open,1m,30m,rev1_bp,rev2_bp,rev3_bp
+rise_then_reversal,mathematical_example,100,101,100.5,100.25,100,49.50495049504955,74.25742574257433,99.0099009900991
+fall_then_reversal,mathematical_example,100,99,99.5,99.75,100,50.505050505049724,75.7575757575757,101.01010101010166
+continuation,mathematical_example,100,101,101.5,101.75,102,-49.50495049504955,-74.25742574257433,-99.0099009900991
+no_reference_move,mathematical_example,100,100,100.5,100.25,100,,,

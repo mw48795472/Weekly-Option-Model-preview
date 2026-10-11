@@ -10,6 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
 from nh_research.master import load_master, weekly_name_candidate
 from nh_research.contract_exports import export_contracts
+from analyze_reversal import build_public as build_reversal
 from plotly.offline import get_plotlyjs
 import pandas as pd
 
@@ -30,7 +31,13 @@ def build(output=None, zip_archive=False):
     data={'products':products,'expiries':[pd.to_datetime(e).strftime('%Y-%m-%d (%a)') for e in expiries],
           'matrix':matrix,'coverage':coverage}
     template=(ROOT/'templates/research_poc.html').read_text(encoding='utf-8')
-    for name in ('weekly_products','weekly_expiries','strike_coverage','session_coverage'):
+    template=template.replace('</nav>','<a href="#reversal">가격회귀율 REV</a></nav>'+
+                              (ROOT/'templates/reversal_section.html').read_text(encoding='utf-8'))
+    template=template.replace('__REVERSAL_SCRIPT__',(ROOT/'templates/reversal.js').read_text(encoding='utf-8'))
+    reversal=build_reversal()
+    template=template.replace('__REVERSAL_DATA__',json.dumps(reversal,ensure_ascii=False).replace('<','\\u003c'))
+    for name in ('weekly_products','weekly_expiries','strike_coverage','session_coverage',
+                 'reversal_feasibility','reversal_formula_examples'):
         payload=base64.b64encode((ROOT/'docs/images'/f'{name}.png').read_bytes()).decode()
         template=template.replace('__'+name.upper()+'__','data:image/png;base64,'+payload)
     template=template.replace('__DATA__',json.dumps(data,ensure_ascii=False).replace('<','\\u003c'))

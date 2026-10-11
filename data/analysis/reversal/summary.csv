@@ -1,0 +1,7 @@
+﻿underlying_id,price_kind,event_type,horizon,n,distinct_dates,mean_bp,median_bp,positive_share,status
+KOSDAQ150,cash_index,expiry,open,0,0,,,,no_observations
+KOSDAQ150,cash_index,expiry,1m,0,0,,,,no_observations
+KOSDAQ150,cash_index,expiry,30m,0,0,,,,no_observations
+KOSPI200,cash_index,expiry,open,0,0,,,,no_observations
+KOSPI200,cash_index,expiry,1m,0,0,,,,no_observations
+KOSPI200,cash_index,expiry,30m,0,0,,,,no_observations

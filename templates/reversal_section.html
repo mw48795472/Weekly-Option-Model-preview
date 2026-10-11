@@ -1,0 +1,24 @@
+<section id="reversal">
+  <span class="tag">실제 자료 가용성 분석 / 실측 REV 표본 0</span>
+  <h2>가격회귀율 REV · 만기 전 움직임이 다음 장에서 되돌아오는가?</h2>
+  <p id="reversalAvailability" class="metric"></p>
+  <p>기초자산과 만기일을 묶은 사건 단위입니다. 행사가·콜풋·주야간별 계약 수를 독립 표본 수로 세지 않습니다. 세 만기 모두 2026-10-11 기준 미래이며, 과거 기초자산 가격과 거래일 캘린더도 아직 없습니다.</p>
+  <div class="controls"><button id="downloadReversalEvents">사건별 가용성 CSV</button><button id="downloadReversalSummary">실측 REV 요약 CSV</button><button id="downloadReversalExamples">수식 예시 CSV (실측 아님)</button></div>
+  <details><summary>실제 확보 상태 PNG · 6개 사건 각각 0/5</summary><img src="__REVERSAL_FEASIBILITY__" alt="가격회귀율에 필요한 다섯 가격 모두 미확보인 여섯 사건"></details>
+  <div class="note warning">현재 실측 REV1·REV2·REV3 모두 n=0입니다. 효과가 없다는 결론이 아니라 계산할 가격이 없다는 뜻입니다. 아래는 직접 지정한 가격의 수학적 시연이며 평균 효과·유의확률·매매 성과를 추정하지 않습니다.</div>
+  <h3><span class="tag assumed">가정 가격 입력</span> 반전과 추세 지속을 비교해 보세요</h3>
+  <p>기획서 기준: r<sub>전</sub>=종가/장 마감 30분 전 가격−1, REV<sub>h</sub>=−sign(r<sub>전</sub>)×(다음 장의 h 가격/전일 종가−1). 표시 단위는 bp(1bp=0.01%). REV1=시가, REV2=시가+1분, REV3=시가+30분입니다.</p>
+  <div class="controls">
+    <label for="revPre">마감 30분 전<input id="revPre" type="number" min="0.001" step="0.01" value="100"></label>
+    <label for="revClose">만기일 종가<input id="revClose" type="number" min="0.001" step="0.01" value="101"></label>
+    <label for="revOpen">다음 거래일 시가<input id="revOpen" type="number" min="0.001" step="0.01" value="100.5"></label>
+    <label for="revOne">시가 +1분<input id="revOne" type="number" min="0.001" step="0.01" value="100.25"></label>
+    <label for="revThirty">시가 +30분<input id="revThirty" type="number" min="0.001" step="0.01" value="100"></label>
+  </div>
+  <p id="reversalText" class="metric" aria-live="polite"></p>
+  <div class="grid"><div id="reversalPrices" class="plot"></div><div id="reversalValues" class="plot"></div></div>
+  <p><b>읽는 법:</b> 양수는 전날 마지막 30분과 반대 방향, 음수는 같은 방향입니다. 전날 움직임이 0이면 방향을 정할 수 없어 결측입니다. REV는 되돌림 비율이나 회귀분석의 R²가 아니며, +100bp를 ‘100% 복원’이라고 읽지 않습니다.</p>
+  <details><summary>고정 수식 예시 PNG · 상승 후 반전 / 하락 후 반전 / 지속</summary><img src="__REVERSAL_FORMULA_EXAMPLES__" alt="가정 가격 경로와 REV의 부호 비교, 실측 자료 아님"></details>
+  <p>실증 입력은 동일 현물지수 또는 동일 선물계약의 정확한 시각별 가격 5개와 출처 있는 거래일 캘린더입니다. 만기 소멸 옵션의 다음날 가격을 연결하지 않습니다. 휴일·가격 공백·계약 롤·아직 관측할 수 없는 미래 값은 자동 보간하지 않습니다. 선물 대용치와 현물 결과는 구분합니다.</p>
+  <div class="note">후속 검증: 같은 기초자산의 여러 만기와 비만기 대조일 → 요일·동시만기·야간 뉴스 통제 → 날짜 단위 불확실성 평가. 차익거래 비중이 없는 현재는 H/L 비교를 실행하지 않습니다. 양의 REV만으로 가격 왜곡이나 차익거래 청산의 원인을 확정할 수 없습니다.</div>
+</section>
