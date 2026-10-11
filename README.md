@@ -6,6 +6,23 @@ NH선물 REST API 명세와 공개 종목 마스터를 기반으로 위클리옵
 
 ZIP을 풀고 `weekly_option_poc.html`을 브라우저로 열면 설치·API 키·인터넷 연결 없이 실행됩니다. 약 10MB의 단일 파일에 대화형 차트, PNG 6개, 종목별 CSV·변수 사전과 해설을 포함합니다. ZIP에는 HTML 한 파일만 들어 있습니다. HTML 원본 링크가 텍스트로 열리면 ZIP 다운로드를 사용하세요. 바로 다운로드 링크는 검증된 스냅샷의 커밋 주소이므로 PR 병합 후 브랜치를 삭제해도 유지됩니다.
 
+## H1부터 H9 가설 심화 검토
+
+[통합 보고서](docs/hypotheses-review.md) · **[Word 보고서 바로 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)** · [세부 검토 노트](docs/research/hypotheses/README.md) · [실행한 진단 결과](data/analysis/hypotheses/forecast_diagnostics.json)
+
+기획서의 H1–H9와 공개 호가 대안 H9b를 추정 대상·변수·비교군·정보시점·반증 기준까지 검토했습니다. 우선순위는 **자료 정합성과 HAR 기준 → H5 만기·H6 OI → 투자자 수급의 추가 예측력 → 호가 확보 후 H9b**입니다. H3·H7·H8의 원래 원인 가설에는 포지션·보유·리밸런싱 자료가 필요하며, NH 집계 매매만으로는 하나의 수급 예측 실험으로 다룹니다. H2 해외 정보 추가와 실제 모델 전이, H4 인과효과와 국면별 예측 평가도 구분합니다.
+
+저장자료 진단에서 766계약은 6개 후보 사건으로 축약됐습니다. 완료 사건·비만기 대조·가격·OI는 없어 효과나 성능을 추정하지 않았습니다. 현재 스냅샷의 만기 설계행렬 rank는 1/2, 상품·요일 설계는 4/5입니다. 원본 H9 라벨은 t+4…t+8이며 마지막 미완성 8개가 0으로 분류되는 것을 정수 인덱스로 재현했습니다. 이 검증은 시장 관측이나 예측 성과가 아닙니다.
+
+```sh
+python scripts/analyze_hypotheses.py
+# Word 문서를 다시 생성할 때만 추가 의존성 설치
+python -m pip install -e ".[reports]"
+python scripts/build_hypotheses_docx.py --source-ref main
+```
+
+진단은 보존된 **2026-10-11** 자료와 기준일을 사용하며 API·키를 사용하지 않습니다. 결과는 `data/analysis/hypotheses/`에 저장합니다. Word는 통합 보고서 전체와 클릭 가능한 근거 링크를 포함합니다. 문서 생성 명령 자체는 페이지 렌더링 검사를 대신하지 않습니다.
+
 ## 가격회귀율(REV) 분석
 
 기획서의 **만기일 마지막 30분 → 다음 거래일 시가·1분·30분 반전**을 계산하는 분석기를 추가했습니다. 공개 자료로 실행한 결과는 **766계약 → 6개 기초자산·만기 사건 후보, 필요한 가격 30개 중 0개 확보**입니다. 모두 미래 만기이므로 현재 실측 REV 표본은 0개이며 평균·유의확률을 추정하지 않았습니다.

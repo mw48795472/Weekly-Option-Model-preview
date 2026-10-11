@@ -1,0 +1,75 @@
+{
+  "limitations": [
+    "Rank restrictions apply to these saved-snapshot rows only, not every possible historical design",
+    "No prices, OI, market labels, effect coefficients, p-values, or model scores were fabricated",
+    "Original-label index audit is deterministic integer-marker software validation, not market analysis",
+    "No RFQ match in 49 archived catalog entries does not prove NH can never provide RFQ logs"
+  ],
+  "diagnostic_kind": "saved-master identifiability and index alignment only; no market hypothesis tests",
+  "source": "data/analysis/contracts/weekly_contracts.csv",
+  "source_sha256": "cc68fe82e0b1b8b161666b32ebf22be077b05e68e437b9c575da980db957f79f",
+  "as_of": "2026-10-11",
+  "unique_contracts": 766,
+  "session_rows": 1258,
+  "candidate_underlying_date_events": 6,
+  "distinct_event_dates": 3,
+  "completed_candidate_events": 0,
+  "control_event_rows": 0,
+  "expiry_only_design": {
+    "row_unit": "underlying/date candidate event",
+    "columns": [
+      "intercept",
+      "expiry_event"
+    ],
+    "shape": [
+      6,
+      2
+    ],
+    "rank": 1,
+    "identity": "expiry_event == intercept == 1; no observed non-expiry control"
+  },
+  "product_weekday_design": {
+    "row_unit": "product/expiry-date cell (not independent market return)",
+    "columns": [
+      "intercept",
+      "monday",
+      "WKM",
+      "WQI",
+      "WQM"
+    ],
+    "shape": [
+      6,
+      5
+    ],
+    "rank": 4,
+    "identity": "monday == WKM + WQM; WKI omitted as reference",
+    "identity_verified": true
+  },
+  "product_weekday_counts": {
+    "WKI:목": 216,
+    "WKM:월": 440,
+    "WQI:목": 36,
+    "WQM:월": 74
+  },
+  "observed_required_fields": {
+    "last_pric": 0,
+    "bid_pric": 0,
+    "ask_pric": 0,
+    "opint": 0,
+    "pd_opint": 0,
+    "rv_daily": 0,
+    "rv_forward_5d": 0
+  },
+  "original_h9_index_audit": {
+    "marker_length": 25,
+    "source_expression": "shift(-3).rolling(5).mean().shift(-5)",
+    "implied_window": "t+4 through t+8 inclusive",
+    "example_t": 5,
+    "example_marker_mean": 11.0,
+    "incomplete_labels": 8,
+    "incomplete_converted_to_zero": 8,
+    "warning": "Index markers only: these are not market or model-performance data"
+  },
+  "documented_api_entries": 49,
+  "rfq_catalog_entry_matches": []
+}
