@@ -129,6 +129,10 @@ def main():
     parser.add_argument("--output", type=Path, default=ROOT / "docs/downloads/weekly_option_hypotheses_review.docx")
     args = parser.parse_args()
     doc = Document()
+    # Some distributed default templates contain a blue Title border. Remove
+    # paragraph borders from all styles so inherited formatting cannot restore it.
+    for border in doc.styles.element.findall(".//" + qn("w:pBdr")):
+        border.getparent().remove(border)
     section = doc.sections[0]
     section.page_width, section.page_height = Inches(8.5), Inches(11)
     section.left_margin = section.right_margin = Inches(0.7)

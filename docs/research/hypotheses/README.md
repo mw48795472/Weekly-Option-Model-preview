@@ -15,3 +15,5 @@
 저장소 루트에서 `python scripts/analyze_hypotheses.py`로 JSON과 CSV를 재생성합니다. 입력은 `data/analysis/contracts/weekly_contracts.csv`와 `data/catalog/catalog.json`입니다. 원자료 SHA-256과 고정 검토 기준일을 결과에 보존하며 현재 시각의 시장 상태로 갱신하지 않습니다. 실행에는 `dashboard` 추가 의존성이 필요합니다.
 
 원 기획서와 합성 Python 소스는 로컬에서 검토했으며 원문은 이 PR에 포함하지 않습니다. 해당 출처는 [기존 감사 요약](../../source-audit.md)과 [원천 파일 목록](../../../data/analysis/weekly_option_source_inventory.json)으로 추적합니다. 합성 코드의 성능·상관·유의확률을 시장 결과로 재사용하지 않습니다. 인덱스 마커 진단도 라벨 정렬을 확인하는 소프트웨어 검증입니다.
+
+배포 Word는 본문과 표의 텍스트를 Markdown 원문과 대조했고, Microsoft Word PDF 변환 후 15페이지 전체를 이미지로 확인했습니다. 표는 3개이며 중복 주소를 제외한 외부 링크는 35개입니다. 저장소 근거 링크는 보고서와 진단을 담은 커밋 `43ab2df8ed7c7821e91554acba51d0338a0e6033`으로 고정했습니다. 재생성 시 `--source-ref`에 게시된 근거 커밋을 지정할 수 있습니다.
