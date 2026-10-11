@@ -1,17 +1,20 @@
 # Streamlit Community Cloud 배포
 
-공개 저장소의 연구 대시보드를 배포하는 설정입니다. 아직 배포가 완료되지 않았다면 README의 로컬 주소는 공개 주소를 대신하지 않습니다. 실제 공개 주소는 앱 실행을 확인한 뒤 README에 기록합니다.
+**공개 주소: [weekly-option-model-preview.streamlit.app](https://weekly-option-model-preview.streamlit.app/)**
+
+2026-10-11 KST에 Community Cloud 앱 실행과 공개 공유 설정을 확인했습니다. 로그인 쿠키를 전달하지 않은 별도 HTTP 클라이언트에서 루트 페이지와 앱 상태 주소가 모두 200으로 응답했고 상태 값은 `ok`였습니다. 로컬 실행 주소는 개발용으로만 유지합니다.
 
 | 설정 | 값 |
 |---|---|
 | Repository | `mw48795472/Weekly-Option-Model-preview` |
+| Branch | `codex/streamlit-public-deployment` |
 | Main file path | `streamlit_app.py` |
 | Python | `3.12` |
 | Dependency file | `requirements.txt` |
 | Secrets | 비워 둠 — 공개 연구 앱은 API 키를 사용하지 않음 |
 | Sharing | Anyone / public |
 
-배포 브랜치는 Cloud 화면에서 확인합니다. 검토 브랜치로 최초 배포한 경우 유지하고, 운영 브랜치를 변경할 때는 Cloud의 실제 설정과 문서를 함께 갱신합니다. 변경한 파일을 해당 브랜치에 push하면 Cloud가 다시 실행합니다.
+현재 공개 앱은 위 배포 브랜치를 따라갑니다. PR 병합만으로 Cloud의 대상 브랜치가 바뀌지는 않습니다. `main`으로 전환할 때는 Cloud의 저장소 설정을 함께 변경한 후 공개 앱을 다시 확인합니다. 전환 전에는 배포 브랜치를 삭제하지 않습니다. 변경한 파일을 배포 브랜치에 push하면 Cloud가 다시 실행합니다.
 
 ## 배포 순서
 

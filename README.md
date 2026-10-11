@@ -2,7 +2,7 @@
 
 **위클리옵션의 만기·포지션 정보가 이후 가격 반전과 변동성에 어떤 정보를 더하는가?** NH선물 REST API 명세와 공개 종목 마스터를 바탕으로 이 질문을 검증하는 연구 프로젝트입니다. 자료 구조·가용성을 분석하고, H1–H9/H9b 검증 설계와 대화형 PoC를 제공합니다.
 
-**[Streamlit 대시보드 열기 · 로컬 실행 필요](http://127.0.0.1:8501/)** · [실행 방법](#streamlit-dashboard) · **[설치 없이 보는 HTML mock 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_poc.zip)** · [Word 통합보고서 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)
+**[공개 Streamlit 대시보드 열기](https://weekly-option-model-preview.streamlit.app/)** · [화면·로컬 실행 안내](#streamlit-dashboard) · **[오프라인 HTML mock 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_poc.zip)** · [Word 통합보고서 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)
 
 > **자료 기준: 2026-10-11 KST.** 현재 단계는 공개 마스터 분석·연구 설계·수식 검증입니다. 실측 가격과 OI 이력이 없어 시장 효과·예측 성능·매매 수익은 추정하지 않았습니다. 아래 수치는 보존된 스냅샷의 결과입니다.
 
@@ -79,16 +79,18 @@ H9 진단은 정수 인덱스 마커로 재현했습니다. 수익률·변동성
 <a id="streamlit-dashboard"></a>
 ## Streamlit 대시보드
 
-### [대시보드 열기 → http://127.0.0.1:8501](http://127.0.0.1:8501/)
+### [공개 대시보드 열기 → weekly-option-model-preview.streamlit.app](https://weekly-option-model-preview.streamlit.app/)
 
-**이 링크는 로컬 실행용입니다.** 링크를 여는 사람의 컴퓨터에서 아래 서버가 실행 중이어야 접속됩니다. 공개 인터넷 배포 주소는 아직 없습니다. 설치 없이 열어보려면 위의 **HTML mock ZIP**을 내려받아 압축을 풀고 `weekly_option_poc.html`을 실행하세요.
+**로그인·설치·API 키 없이 웹에서 사용할 수 있습니다.** Streamlit Community Cloud에서 실행되므로 위 공개 주소를 다른 사람에게 그대로 공유하면 됩니다. 인터넷 없이 보려면 **HTML mock ZIP**을 내려받아 압축을 풀고 `weekly_option_poc.html`을 실행하세요.
 
-저장소 루트에서 Python 3.10 이상으로 실행합니다. 보존된 공개자료를 사용하므로 API 키가 필요하지 않습니다.
+직접 개발하거나 로컬에서 실행할 때는 저장소 루트에서 아래 명령을 사용합니다. Python 3.10 이상을 지원하며 공개 배포는 Python 3.12 환경입니다.
 
 ```sh
 python -m pip install -e ".[streamlit]"
 python -m streamlit run streamlit_app.py --server.address 127.0.0.1
 ```
+
+로컬 서버를 실행한 경우에만 [http://127.0.0.1:8501](http://127.0.0.1:8501/)을 사용합니다. [공개 배포·운영 설정](docs/streamlit-deployment.md)
 
 | 화면 | 직접 해볼 수 있는 작업 |
 |---|---|
