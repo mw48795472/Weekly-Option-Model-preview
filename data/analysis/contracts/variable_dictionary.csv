@@ -25,6 +25,7 @@ real_Code,API 연결용 원코드,마스터 원값,확보,문자열,1258,1258,0,
 kofex_Code,대체 종목 원코드,마스터 원값,확보,문자열,1258,1258,0,766,,,KOSPIWK610W3Call925; KOSPIWK610W3Put925; KOSPIWK610W3Call927.5; KOSPIWK610W3Put927.5,이종 코드 연결,vendor/nh/2026-10-11/masters/fut_opt.mst.gz,고유성 검증 후 사용
 mrkt_code,시장 상세 원코드,마스터 원값,확보,문자열,1258,1258,0,2,,,03; 04,원문 코드 보존,vendor/nh/2026-10-11/masters/fut_opt.mst.gz,03 등 앞자리 0 유지
 trd_code,거래 상품 원코드,마스터 원값,확보,문자열,1258,1258,0,4,,,09; AF; AJ; AK,상품 연결 확인,vendor/nh/2026-10-11/masters/fut_opt.mst.gz,현행 코드표 대조 필요
+product_name,한글 상품명,파생 진단,확보,문자열,1258,1258,0,4,,,코스피위클리; 코스피위클리M; 코스닥위클리; 코스닥위클리M,상품명 검색·표시,vendor/nh/2026-10-11/masters/fut_opt.mst.gz,한글 종목명에서 콜풋·만기·행사가 부분을 제외한 원문 명칭
 snapshot_date,파일 확보일,파생 진단,확보,YYYY-MM-DD,1258,1258,0,1,,,2026-10-11,출처 시점,vendor/nh/2026-10-11/masters/fut_opt.mst.gz,거래소 관측 시각이 아님
 source_file,원본 파일,파생 진단,확보,상대 경로,1258,1258,0,1,,,vendor/nh/2026-10-11/masters/fut_opt.mst.gz,재현 출처,vendor/nh/2026-10-11/masters/fut_opt.mst.gz,공개 파일 스냅샷
 candidate_rule,선정 규칙,파생 진단,확보,문자열,1258,1258,0,1,,,fo_tp=O AND name contains 위클리/WEEK,표본 정의,vendor/nh/2026-10-11/masters/fut_opt.mst.gz,공식 위클리 분류 아님
