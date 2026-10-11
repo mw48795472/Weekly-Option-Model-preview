@@ -8,7 +8,7 @@ ZIP을 풀고 `weekly_option_poc.html`을 브라우저로 열면 설치·API 키
 
 ## H1부터 H9 가설 심화 검토
 
-[통합 보고서](docs/hypotheses-review.md) · [Word 보고서](docs/downloads/weekly_option_hypotheses_review.docx) · [세부 검토 노트](docs/research/hypotheses/README.md) · [실행한 진단 결과](data/analysis/hypotheses/forecast_diagnostics.json)
+[통합 보고서](docs/hypotheses-review.md) · **[Word 보고서 바로 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)** · [세부 검토 노트](docs/research/hypotheses/README.md) · [실행한 진단 결과](data/analysis/hypotheses/forecast_diagnostics.json)
 
 기획서의 H1–H9와 공개 호가 대안 H9b를 추정 대상·변수·비교군·정보시점·반증 기준까지 검토했습니다. 우선순위는 **자료 정합성과 HAR 기준 → H5 만기·H6 OI → 투자자 수급의 추가 예측력 → 호가 확보 후 H9b**입니다. H3·H7·H8의 원래 원인 가설에는 포지션·보유·리밸런싱 자료가 필요하며, NH 집계 매매만으로는 하나의 수급 예측 실험으로 다룹니다. H2 해외 정보 추가와 실제 모델 전이, H4 인과효과와 국면별 예측 평가도 구분합니다.
 
