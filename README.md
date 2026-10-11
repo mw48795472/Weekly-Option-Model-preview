@@ -6,6 +6,17 @@ NH선물 REST API 명세와 공개 종목 마스터를 기반으로 위클리옵
 
 ZIP을 풀고 `weekly_option_poc.html`을 브라우저로 열면 설치·API 키·인터넷 연결 없이 실행됩니다. 약 10MB의 단일 파일에 대화형 차트, PNG 6개, 종목별 CSV·변수 사전과 해설을 포함합니다. ZIP에는 HTML 한 파일만 들어 있습니다. HTML 원본 링크가 텍스트로 열리면 ZIP 다운로드를 사용하세요. 바로 다운로드 링크는 검증된 스냅샷의 커밋 주소이므로 PR 병합 후 브랜치를 삭제해도 유지됩니다.
 
+## Streamlit 연구 대시보드
+
+종목별 탐색과 가설 검토, 입력을 바꾸는 PoC 실험, Word·CSV·PNG 다운로드를 한 앱에서 제공합니다. **API 키 없이 보존된 공개자료로 실행**합니다.
+
+```sh
+python -m pip install -e ".[streamlit]"
+python -m streamlit run streamlit_app.py
+```
+
+브라우저에서 `http://127.0.0.1:8501`을 엽니다. **연구 개요 / 종목·변수 탐색 / 가설 검토 / PoC 실험실 / 진단·다운로드**의 다섯 화면입니다. Streamlit은 Python 서버가 필요하며, 서버 없이 배포할 때는 기존 단일 HTML mock을 사용합니다. [화면별 해석·실행·검증 안내](docs/streamlit-dashboard.md)
+
 ## H1부터 H9 가설 심화 검토
 
 [통합 보고서](docs/hypotheses-review.md) · **[Word 보고서 바로 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)** · [세부 검토 노트](docs/research/hypotheses/README.md) · [실행한 진단 결과](data/analysis/hypotheses/forecast_diagnostics.json)
