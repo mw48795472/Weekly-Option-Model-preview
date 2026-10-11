@@ -1,0 +1,7 @@
+﻿underlying_id,event_date,event_type,price_kind,price_symbol,expiry_source,product_codes,contract_count
+KOSDAQ150,2026-10-12,expiry,cash_index,,vendor/nh/2026-10-11/masters/fut_opt.mst.gz#exp_ym,WQM,40
+KOSDAQ150,2026-10-15,expiry,cash_index,,vendor/nh/2026-10-11/masters/fut_opt.mst.gz#exp_ym,WQI,36
+KOSDAQ150,2026-10-19,expiry,cash_index,,vendor/nh/2026-10-11/masters/fut_opt.mst.gz#exp_ym,WQM,34
+KOSPI200,2026-10-12,expiry,cash_index,,vendor/nh/2026-10-11/masters/fut_opt.mst.gz#exp_ym,WKM,246
+KOSPI200,2026-10-15,expiry,cash_index,,vendor/nh/2026-10-11/masters/fut_opt.mst.gz#exp_ym,WKI,216
+KOSPI200,2026-10-19,expiry,cash_index,,vendor/nh/2026-10-11/masters/fut_opt.mst.gz#exp_ym,WKM,194

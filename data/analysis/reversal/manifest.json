@@ -1,0 +1,20 @@
+{
+  "as_of": "2026-10-11T09:00:00+09:00",
+  "input_contracts": 766,
+  "candidate_events": 6,
+  "distinct_expiry_dates": 3,
+  "future_events": 6,
+  "supplied_calendar_rows": 0,
+  "supplied_price_rows": 0,
+  "observed_anchor_cells": 0,
+  "required_anchor_cells": 30,
+  "empirical_n": {
+    "rev1": 0,
+    "rev2": 0,
+    "rev3": 0
+  },
+  "effect_estimate": null,
+  "p_value": null,
+  "status": "blocked_missing_historical_prices_and_calendar",
+  "scope": "Public saved-master feasibility; does not read credentials or private snapshots"
+}

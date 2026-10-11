@@ -2,9 +2,19 @@
 
 NH선물 REST API 명세와 공개 종목 마스터를 기반으로 위클리옵션을 연구하는 저장소입니다. **모의 인증, 읽기 전용 수집기, 공개 마스터 분석 대시보드**를 제공합니다. 기준일은 **2026-10-11 KST**입니다.
 
-**[PoC HTML mock 바로 다운로드 (ZIP)](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/cb134a163126b79650e04faf0735cfd4bf0f78a0/docs/downloads/weekly_option_poc.zip)** · [HTML 원본](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/cb134a163126b79650e04faf0735cfd4bf0f78a0/docs/downloads/weekly_option_poc.html) · [전체 종목 CSV ZIP 바로 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/cb134a163126b79650e04faf0735cfd4bf0f78a0/docs/downloads/weekly_option_data.zip)
+**[PoC HTML mock 바로 다운로드 (ZIP)](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_poc.zip)** · [HTML 원본](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_poc.html) · [전체 종목 CSV ZIP 바로 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_data.zip)
 
-ZIP을 풀고 `weekly_option_poc.html`을 브라우저로 열면 설치·API 키·인터넷 연결 없이 실행됩니다. 약 9MB의 단일 파일에 대화형 차트, PNG 4개, 종목별 CSV·변수 사전과 해설을 포함합니다. ZIP에는 HTML 한 파일만 들어 있습니다. HTML 원본 링크가 텍스트로 열리면 ZIP 다운로드를 사용하세요. 바로 다운로드 링크는 검증된 스냅샷의 커밋 주소이므로 PR 병합 후 브랜치를 삭제해도 유지됩니다.
+ZIP을 풀고 `weekly_option_poc.html`을 브라우저로 열면 설치·API 키·인터넷 연결 없이 실행됩니다. 약 10MB의 단일 파일에 대화형 차트, PNG 6개, 종목별 CSV·변수 사전과 해설을 포함합니다. ZIP에는 HTML 한 파일만 들어 있습니다. HTML 원본 링크가 텍스트로 열리면 ZIP 다운로드를 사용하세요. 바로 다운로드 링크는 검증된 스냅샷의 커밋 주소이므로 PR 병합 후 브랜치를 삭제해도 유지됩니다.
+
+## 가격회귀율(REV) 분석
+
+기획서의 **만기일 마지막 30분 → 다음 거래일 시가·1분·30분 반전**을 계산하는 분석기를 추가했습니다. 공개 자료로 실행한 결과는 **766계약 → 6개 기초자산·만기 사건 후보, 필요한 가격 30개 중 0개 확보**입니다. 모두 미래 만기이므로 현재 실측 REV 표본은 0개이며 평균·유의확률을 추정하지 않았습니다.
+
+- [분석 결과·정의·NH 연동 계획](docs/price-reversal-analysis.md) · [사건별 상태 CSV](data/analysis/reversal/event_results.csv) · [실측 요약 CSV](data/analysis/reversal/summary.csv)
+- 단일 HTML의 **가격회귀율 REV**: 가격 5개를 바꾸며 반전/지속의 부호와 크기를 확인합니다. 직접 입력한 가정 예시이며 시장 추정이 아닙니다.
+- [가용성 PNG](docs/images/reversal_feasibility.png) · [수식·가격 경로 PNG](docs/images/reversal_formula_examples.png)
+
+`python scripts/analyze_reversal.py`로 재현합니다. 실제 가격·거래일 캘린더 CSV를 제공하는 실행법은 분석 문서에 있습니다. 시각·계약을 임의로 연결하거나 가격을 채우지 않으며, 실측 입력의 결과는 Git 제외 폴더에 저장합니다.
 
 ## 종목별 CSV와 변수·값 분석
 
@@ -66,7 +76,7 @@ python scripts/build_poc.py
 python scripts/build_poc.py --output docs/downloads/weekly_option_poc.html --zip
 ```
 
-`artifacts/private/dashboard/weekly_option_poc.html`을 열면 인터넷 연결 없이 사용할 수 있습니다. 차트 라이브러리, 실제 마스터 요약과 기존 PNG 4개를 한 파일에 포함합니다. 화면의 **HTML mock 다운로드** 버튼으로도 저장할 수 있습니다. 키와 토큰은 포함하지 않습니다.
+`artifacts/private/dashboard/weekly_option_poc.html`을 열면 인터넷 연결 없이 사용할 수 있습니다. 차트 라이브러리, 실제 마스터 요약과 PNG 6개(기존 4개 + REV 2개)를 한 파일에 포함합니다. 화면의 **HTML mock 다운로드** 버튼으로도 저장할 수 있습니다. 키와 토큰은 포함하지 않습니다.
 
 배포본을 갱신하면 위의 바로 다운로드 링크도 새 HTML을 포함한 커밋으로 갱신합니다. 템플릿은 `templates/research_poc.html`, 생성기는 `scripts/build_poc.py`이며 CI에서 생성 과정을 확인합니다.
 

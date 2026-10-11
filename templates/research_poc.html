@@ -73,6 +73,7 @@ for(let id of ['sigma','tenor'])$(id).addEventListener('change',updateGamma);
 for(let id of ['oiPrev','oiNow','horizon'])$(id).addEventListener('input',updateOI);
 for(let id of ['edge','fee','slip'])$(id).addEventListener('input',updateCost);
 updateGamma();updateOI();updateCost();
+__REVERSAL_SCRIPT__
 const checks=[['미래 5일 라벨은 t+1부터',Math.abs(labels(5)[0]-rv.slice(1,6).reduce((a,b)=>a+b,0))<1e-10],['미완성 5개는 결측',labels(5).filter(v=>v===null).length===5],['고정 ATM 1일 감마 > 30일',gamma(1,.25)>gamma(30,.25)],['세션 합집합과 후보 개수 일치',MASTER.coverage.reduce((a,r)=>a+r.both+r.day_only+r.night_only,0)===766]];
 $('validation').textContent=checks.map(([k,v])=>(v?'PASS':'FAIL')+' · '+k).join('\n');
 $('save').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([pristine],{type:'text/html;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='weekly_option_poc.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),10000);});
