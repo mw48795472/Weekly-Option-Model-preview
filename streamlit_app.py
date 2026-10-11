@@ -88,7 +88,7 @@ with st.sidebar:
     st.write("**공개 마스터 + 오프라인 진단**")
     st.caption("실시간 시세와 예측 성능은 미확보입니다. 자료 기준일 이후의 현재 시장을 표시하지 않습니다.")
     download("통합 보고서 Word", "docs/downloads/weekly_option_hypotheses_review.docx", key="sidebar_word")
-    st.link_button("GitHub 검토 PR ↗", "https://github.com/mw48795472/Weekly-Option-Model-preview/pull/7", width="stretch")
+    st.link_button("GitHub 저장소 ↗", "https://github.com/mw48795472/Weekly-Option-Model-preview", width="stretch")
 
 
 def overview():
