@@ -87,7 +87,7 @@ H9 진단은 정수 인덱스 마커로 재현했습니다. 수익률·변동성
 
 ```sh
 python -m pip install -e ".[streamlit]"
-python -m streamlit run streamlit_app.py
+python -m streamlit run streamlit_app.py --server.address 127.0.0.1
 ```
 
 | 화면 | 직접 해볼 수 있는 작업 |

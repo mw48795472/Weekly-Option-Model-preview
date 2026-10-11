@@ -8,10 +8,10 @@
 
 ```sh
 python -m pip install -e ".[streamlit]"
-python -m streamlit run streamlit_app.py
+python -m streamlit run streamlit_app.py --server.address 127.0.0.1
 ```
 
-브라우저에서 `http://127.0.0.1:8501`을 엽니다. 이미 포트를 사용하는 앱이 있으면 `--server.port 8502`를 붙입니다. 기본 설정은 로컬 컴퓨터에만 바인딩하며 사용 통계 전송과 정적 파일 제공은 꺼져 있습니다. HTML mock과 달리 Streamlit은 Python 서버가 실행 중이어야 합니다.
+브라우저에서 `http://127.0.0.1:8501`을 엽니다. 이미 포트를 사용하는 앱이 있으면 `--server.port 8502`를 붙입니다. 위 명령은 로컬 컴퓨터에만 바인딩합니다. 사용 통계 전송과 정적 파일 제공은 꺼져 있습니다. HTML mock과 달리 Streamlit은 Python 서버가 실행 중이어야 합니다. 클라우드에서는 호스팅 환경의 바인딩 설정을 사용합니다. [공개 배포 설정](streamlit-deployment.md)
 
 ## 다섯 화면
 
