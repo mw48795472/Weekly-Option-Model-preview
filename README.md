@@ -2,9 +2,34 @@
 
 NH선물 REST API 명세와 공개 종목 마스터를 기반으로 위클리옵션을 연구하는 저장소입니다. **모의 인증, 읽기 전용 수집기, 공개 마스터 분석 대시보드**를 제공합니다. 기준일은 **2026-10-11 KST**입니다.
 
-**[PoC HTML mock 바로 다운로드 (ZIP)](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/3a695e02e32dd2e2ff04ce03bc15ec4e4dc25af0/docs/downloads/weekly_option_poc.zip)** · [HTML 원본](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/b1de17d769c434a19b6779184ac4c519a9093b83/docs/downloads/weekly_option_poc.html) · [저장소의 HTML 파일](docs/downloads/weekly_option_poc.html)
+**[PoC HTML mock 바로 다운로드 (ZIP)](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/3c2fa31a8100e2040d0e4c3a2dc4c1b4d29c46a5/docs/downloads/weekly_option_poc.zip)** · [HTML 원본](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/3c2fa31a8100e2040d0e4c3a2dc4c1b4d29c46a5/docs/downloads/weekly_option_poc.html) · [전체 종목 CSV ZIP 바로 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/3c2fa31a8100e2040d0e4c3a2dc4c1b4d29c46a5/docs/downloads/weekly_option_data.zip)
 
-ZIP을 풀고 `weekly_option_poc.html`을 브라우저로 열면 설치·API 키·인터넷 연결 없이 실행됩니다. 약 5MB의 단일 파일에 대화형 차트, PNG 4개와 해설을 포함합니다. ZIP에는 HTML 한 파일만 들어 있습니다. HTML 원본 링크가 텍스트로 열리면 ZIP 다운로드를 사용하세요. 바로 다운로드 링크는 검증된 스냅샷의 커밋 주소이므로 PR 병합 후 브랜치를 삭제해도 유지됩니다.
+ZIP을 풀고 `weekly_option_poc.html`을 브라우저로 열면 설치·API 키·인터넷 연결 없이 실행됩니다. 약 9MB의 단일 파일에 대화형 차트, PNG 4개, 종목별 CSV·변수 사전과 해설을 포함합니다. ZIP에는 HTML 한 파일만 들어 있습니다. HTML 원본 링크가 텍스트로 열리면 ZIP 다운로드를 사용하세요. 바로 다운로드 링크는 검증된 스냅샷의 커밋 주소이므로 PR 병합 후 브랜치를 삭제해도 유지됩니다.
+
+## 종목별 CSV와 변수·값 분석
+
+[전체 CSV 패키지](docs/downloads/weekly_option_data.zip)에는 **통합본과 상품군별 파일**, **각 계약코드별 766개 파일**을 모두 포함합니다. 대시보드의 ‘종목별 CSV·변수’에서 검색·콜풋/상품군 필터·상세 비교·다운로드를 지원합니다.
+
+| 파일 | 내용 |
+|---|---|
+| [고유 계약 통합본](data/analysis/contracts/weekly_contracts.csv) | 766행. 세션별 값과 식별 속성 충돌을 구분 |
+| [세션 원장](data/analysis/contracts/weekly_contract_sessions.csv) | 1,258행. 원본 26필드 보존 + 진단 + 미확보 변수 |
+| `products/*.csv` | WKI/WKM/WQI/WQM별 고유 계약 파일 4개 |
+| ZIP의 `symbols/<종목코드>.csv` | 계약별 766개 CSV, 각 1~2개 세션 행 |
+| [변수 사전](data/analysis/contracts/variable_dictionary.csv) | 61항목의 의미·단위·실제 예시·범위·공란·분석 용도 |
+| [값별 빈도](data/analysis/contracts/variable_value_counts.csv) | 관측값의 빈도. 분모는 계약 수가 아닌 세션 행 수 |
+| [상품·만기·세션 요약](data/analysis/contracts/product_expiry_session_summary.csv) | 콜풋 구성과 행사가 범위·관측 간격 |
+| [분석 가용성](data/analysis/contracts/analysis_readiness.csv) | 지금 가능한 분석과 다음 필수 자료·우선순위 |
+| [PoC 가정값](data/analysis/contracts/poc_assumptions.csv) | OI 10,000/12,000, σ 25% 등의 가정·합성 입력. 실측 자료와 분리 |
+
+현재 모든 후보 행에 유일한 반대 콜풋 코드가 있으며, 공통 492계약의 식별 속성 충돌은 0입니다. 모든 공통 계약에서 잔존일수 등 세션별 원값의 차이가 있어 한쪽 값으로 덮어쓰지 않습니다. `class`는 원문 전체 공란이며 현재가·OI·IV 등 **23개 미확보 관측/연구 변수**는 빈칸으로 남깁니다. 이 스냅샷만으로 시계열 예측력을 평가하지 않습니다.
+
+```sh
+python scripts/build_contract_exports.py
+python scripts/build_poc.py --output docs/downloads/weekly_option_poc.html --zip
+```
+
+CSV는 UTF-8 BOM입니다. Excel의 ‘데이터 → 텍스트/CSV’에서 코드 열을 텍스트로 지정하면 `001`·`03` 등의 앞자리 0을 유지할 수 있습니다. 빈칸을 0으로 치환하지 마세요. `day_`/`night_`는 원변수의 세션 접두사입니다. [자료 해석과 분석 순서](docs/contract-data.md)를 참고하세요.
 
 ## 현재 확인된 결과
 
