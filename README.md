@@ -4,6 +4,8 @@
 
 **[공개 Streamlit 대시보드 열기](https://weekly-option-model-preview.streamlit.app/)** · [대시보드 구성·사용 안내](#streamlit-dashboard) · **[오프라인 HTML mock 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_poc.zip)** · [Word 통합보고서 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)
 
+[분석 착수에 필요한 데이터·API·문의 체크리스트 ↓](#data-acquisition)
+
 > **자료 기준: 2026-10-11 KST.** 현재 단계는 공개 마스터 분석·연구 설계·수식 검증입니다. 실측 가격과 OI 이력이 없어 시장 효과·예측 성능·매매 수익은 추정하지 않았습니다. 아래 수치는 보존된 스냅샷의 결과입니다.
 
 | 확보·진단 항목 | 결과 | 읽는 방법 |
@@ -252,6 +254,117 @@ python -m streamlit run streamlit_app.py --server.address 127.0.0.1
 | [자료 감사](docs/source-audit.md) · [연구 설계](docs/research-design.md) · [검증 기록](docs/verification.md) | 원 기획서 검토와 구현 범위 |
 
 CSV는 UTF-8 BOM이며 미확보 현재가·OI·IV 등 23개 관측/연구 변수는 빈칸입니다. Excel에서 코드 열을 텍스트로 가져오면 앞자리 0을 유지할 수 있습니다. 다운로드 주소는 검증된 커밋에 고정돼 있어 브랜치 삭제 후에도 같은 파일을 가리킵니다.
+
+<a id="data-acquisition"></a>
+## 분석 착수를 위한 데이터 확보 안내
+
+**첫 문의 대상은 NH선물 → KRX → 코스콤입니다.** 기초지수·선물의 과거 1분봉, 만기된 옵션의 OI 이력, 실제 만기·거래시간 캘린더부터 확인하면 H5·H6·REV 연구를 준비할 수 있습니다.
+
+> **확보 목표와 현재 상태를 구분합니다.** 아래는 2026-10-11에 정리한 조달·문의 목록입니다. 제공처의 서비스 존재를 확인한 것과 특정 상품·기간·필드의 이용 권한을 확보한 것은 다릅니다. 현재 공개 산출물은 766계약의 마스터 스냅샷과 오프라인 진단이며, 실측 가격·OI 이력은 미확보입니다.
+
+[필요 데이터](#data-required) · [제공처와 신청 경로](#data-providers) · [문의 체크리스트·복사 문구](#data-inquiry)
+
+<a id="data-required"></a>
+### 1. 무엇을 확보하면 어떤 분석을 시작할 수 있는가
+
+| 우선순위 | 요청할 데이터·범위 | 분석 목적 |
+|---|---|---|
+| **우선** | **기초자산 가격:** KOSPI200·KOSDAQ150 현물지수 1분 시계열, 해당 선물의 계약별 1분 OHLC·거래량, 정확한 시가·종가 | 실현변동성(RV), HAR 기준모형, REV |
+| **우선** | **옵션 일별 가격·OI:** 계약별 OHLC·정산가·거래량·거래대금·미결제약정. 위클리·월물, 콜·풋, **만기된 계약 포함** | H5 만기 효과, H6 OI의 추가 예측력 |
+| **우선** | **과거 마스터:** 코드·상품명·기초자산·콜풋·행사가·상장일·최종거래일·결제일·승수·틱 크기·세션 | 과거 계약 연결, 만기·롤 처리, 비교군 구성 |
+| **우선** | **실제 캘린더:** 휴장·특별 개장시간·만기일 종료시각·동시호가·주야간 귀속일과 변경 이력 | 다음 거래일·미래 RV, REV의 다섯 가격 시점 정렬 |
+| 다음 | **장중 옵션 체인:** 계약별 1분 가격·거래량, 동시 bid/ask·잔량, OI·IV·Greeks와 갱신시각 | 머니니스·스큐·기간구조·만기 접근 분석 |
+| **H9b 필수** | **체결 틱·호가 이력:** 가격·수량, 최우선/다단계 bid/ask·잔량, 순번, 거래소시각·수신시각 | 다음 5분 유동성 스트레스, 스프레드·잔량 불균형 |
+| 다음 | **투자자·프로그램매매:** 개인·외국인·기관의 매수/매도 수량·금액, 상품 범위, 차익/비차익 구분, 공표시각 | 공동 수급 예측 실험, REV의 차익거래 그룹 비교 |
+| **가격모형 필수** | **평가 입력:** 만기에 맞는 금리, 예상 배당·배당락, 현물·선물/선도, 행사·결제 방식, IV·Greeks 계산 기준 | IV 재계산, 가격곡면·로컬변동성, 헤지 |
+| **수익성 평가 필수** | **비용·실행:** 수수료·스프레드·슬리피지·승수·증거금·자금비용. 실행 검증에는 주문/체결시각·부분체결 추가 | 비용 차감 성과, 델타 헤지오차 |
+
+**처음 요청할 과거 범위는 최근 2~3년을 제안합니다.** 이는 견적 비교용 범위이며 충분한 검정력을 보장하는 최소 기간은 아닙니다. 각 상품의 실제 상장일 이후 자료를 확인하고, H1은 도입 전 자료와 비도입 대조군까지 확장합니다. 현물지수를 선물로 대체하면 별도의 선물 기준 분석으로 구분합니다. [연구 설계](docs/research-design.md) · [REV 입력 규약](docs/price-reversal-analysis.md)
+
+<details>
+<summary><strong>가설별로 더 필요한 외부 자료 펼치기 — H1·H2·H3·H4·H7·H8·H9 및 REV 확장</strong></summary>
+
+| 연구 | 추가 요청 자료 | 해석에 필요한 구분 |
+|---|---|---|
+| **H1 도입 효과** | 공식 발표일·거래개시일, 도입/비도입 종목의 전후 가격·거래량, 동시 제도 변경. 개별주식은 배당·분할·상장폐지 이력 | 발표와 실제 개시를 분리하고 현재 규격을 과거에 소급하지 않음 |
+| **H2 해외 전이** | 일본·홍콩·대만 기초자산·옵션 가격·OI·호가·만기 이력, 환율·거래시간·행사 방식 | NH 해외 API의 존재만으로 특정 해외 상품 취급·역사 범위를 확정하지 않음 |
+| **H3 커버드콜 공급** | 펀드/ETF의 계약별 옵션 매도 수량·방향, 현물 보유, 롤 날짜, 발행좌수·설정/환매·NAV·AUM | AUM 증가와 옵션 매도 포지션 증가를 구분. 운용사 구성내역·운용보고서 및 별도 자료 요청 |
+| **H4 국면** | VKOSPI·VIX, 뉴스/설문 심리지수, 공표시각·과거 판본, 주요 정책·경제지표 발표시각 | 보고서 그래프와 원시 시계열은 별개. 당시 이용 가능했던 값만 사용 |
+| **H7 보유 집중도** | 보유자별 지분/포지션 및 변화·공표시점 | DART 등 일부 공시자의 지분은 전체 보유자 자료가 아님. 투자자 순매수·행사가별 OI 집중과도 구분 |
+| **H8 리밸런싱** | 지수 편입/편출 발표일·효력일·변경 비중, 펀드 목표/실제 보유 변화·설정/환매 사건 | 기관 순매수가 큰 날만으로 리밸런싱 사건을 확정하지 않음 |
+| **H9 RFQ** | 요청/응답 ID·시각, 계약·방향·수량, 제시 호가·응답자, 체결 여부·가격·시각 | RFQ 운영사·증권사 등의 별도 로그 필요. 장내 호가 기반 H9b와 다른 연구 |
+| **REV 그룹 비교** | 정의·분모가 명확한 차익거래 비중, 프로그램매매, 관련 포지션·청산 정보 | 없으면 기본 REV 분석부터 진행하고 H/L 그룹 비교는 보류 |
+
+DART는 대량보유·임원/주요주주 소유보고 API를 제공합니다. CMSI는 원시 시계열·공표 이력 제공 여부를 별도 문의할 대상입니다. [DART 지분공시 API](https://opendart.fss.or.kr/guide/main.do?apiGrpCd=DS004) · [CMSI 연구자료](https://www.kcmi.re.kr/report/report_view?report_no=2227) · [Cboe VIX 역사자료](https://www.cboe.com/tradable_products/vix/vix_historical_data/) · [가설별 검토 근거](docs/research/hypotheses/README.md)
+
+</details>
+
+<a id="data-providers"></a>
+### 2. 어디에서 확인하고 신청할 것인가
+
+| 제공처·공식 링크 | 확인할 서비스 | 아직 확인할 사항 |
+|---|---|---|
+| **[NH선물](https://apidev.futures.co.kr/)** | REST 일/분봉·체인·OI, WebSocket 체결·호가 | 국내 시세 권한, 만기 계약 조회, 최초 역사일, 현물지수 제공, 모의/실전·주야간 차이 |
+| **[KRX OPEN API 목록](https://openapi.krx.co.kr/contents/OPP/INFO/service/OPPINFO004.cmd)** | 옵션·선물 일별매매정보(주식옵션/주식선물外), KOSPI·KOSDAQ 시리즈 일별시세, ETF 일별매매정보 | **인증키 승인 + 개별 API 활용 승인**. 계약별 OI·위클리 식별 필드는 샘플로 확인 |
+| **[KRX 데이터상품](https://openapi.krx.co.kr/contents/OPP/DATA/OPPDATA001.jsp)** | 과거 시세·매매 데이터 구입; [상품 규격](https://open.krx.co.kr/contents/OPN/01/01040202/OPN01040202.jsp)·시장 공고로 만기/세션 대조 | 원하는 분봉·틱·호가·참조정보의 상품별 제공 범위, 샘플·가격·만기 계약 포함 여부 |
+| **[코스콤 DATAMALL / CHECK](https://www.koscom.co.kr/mobile/main/contents.do?menuNo=400044)** | 일별 및 일중 Tick·1분 자료 서비스 | KOSPI200·KOSDAQ150 지수/선물/옵션의 실제 범위, OI·호가 이력, 최초일·파일/API 전달 방식 |
+| **[한국은행 ECOS](https://ecos.bok.or.kr/api/)** | 금리·환율 등 경제통계 조회 경로 | 통계표·단위·빈도·공표시점 확인. 옵션 평가금리는 만기와 기준을 맞춰 선정 |
+| **[DART](https://opendart.fss.or.kr/guide/main.do?apiGrpCd=DS004) / 운용사 공시** | 지분공시, ETF/펀드 구성내역·운용보고서 | 계약별 옵션 포지션·설정/환매·공시 당시 이력이 어느 범위까지 공개되는지 확인 |
+
+**KRX 공개 API의 일별 서비스와 과거 분봉·틱 구매는 별도 경로입니다.** 일별 API 승인만으로 장중 이력이 확보되지는 않습니다. API 신청은 [이용 절차](https://openapi.krx.co.kr/contents/OPP/INFO/OPPINFO003.jsp)를, 실시간 직접 수신은 [거래소 데이터 수신 안내](https://openapi.krx.co.kr/contents/OPP/DATA/OPPDATA003.jsp)를 확인하세요.
+
+<details>
+<summary><strong>NH선물에 문의할 API·실시간 채널 펼치기</strong></summary>
+
+아래 경로는 보존한 공식 Excel 명세 기준입니다. REST 시세/상품 경로는 `/trade/v1/` 뒤에 붙으며, `KA` 등은 WebSocket 구독 채널입니다. 정확한 필드·요청 방식은 [49종 API 색인](docs/api-catalog.md)을 따릅니다.
+
+| 기능 | API·채널 | 문의 핵심 |
+|---|---|---|
+| 과거 차트 | `domestic/chart-daily`, `domestic/chart-minute` | **1분 설정 `dcnt=1`**, 연속조회, 최초일·만기된 계약 지원 |
+| 현재가·OI·IV·Greeks | `domestic/price`, `domestic/price-night` | 필드 단위·갱신/공표시각, 주야간 차이 |
+| 전체 선물·옵션 | `domestic/price-all-futures`, `domestic/price-all-option`, `domestic/price-all-option-night` | 위클리 만기 선택·페이지 완결성·야간 필드 범위 |
+| 호가·동시호가 | `domestic/price-bid`, `domestic/price-expect-fill` | 제공 단계·잔량·시간, 예상체결가와 실제 체결가 구분 |
+| 수급·규격 | `domestic/trend-investor`, `domestic/product-detail` | 집계 상품 범위·지연·야간 지원, 승수·틱·거래시간 |
+| 국내 실시간 | **KA/KB 주간 체결/호가**, **KC/KD 야간 체결/호가** | 계좌 전체 구독 한도, 재연결 누락, 거래소·수신시각 |
+| 해외 가격·차트 | `overseas/price`, `overseas/bid-price`, `overseas/chart-daily`, `overseas/chart-minute`, `overseas/price-all-option` | 실제 취급 거래소·상품, 거래소별 권한·지연·과거 범위 |
+| 해외 규격·실시간 | `overseas/product-detail`, `overseas/product-expiry`, `overseas/market-operations`, **FA/FB 체결/호가** | 만기·세션·시간대와 실시간 권한 |
+
+**`domestic/open-interest`는 계좌 잔고 조회입니다.** 시장 OI는 현재가·차트·체인의 해당 필드에서 확인합니다. 보존 명세에는 국내 야간 모의 미지원과 실시간 총 20구독/계좌가 명시되어 있으므로, 전체 체인의 동시 호가 수집 가능 범위도 문의해야 합니다. 토큰 발급 성공과 시세 이용 권한은 별개입니다. [NH 구조·제약](docs/nh-api-architecture.md) · [분봉 명세](https://apidev.futures.co.kr/#/api?g=118&a=236&v=1) · [실시간 호가](https://apidev.futures.co.kr/#/api?g=123&a=192&v=1)
+
+</details>
+
+<details>
+<summary><strong>H2 해외 전이를 위한 거래소 자료 펼치기 — 일본·홍콩·대만</strong></summary>
+
+| 시장·공식 제공처 | 확인한 서비스 | 추가 확인 |
+|---|---|---|
+| 일본 · **[JPX J-Quants Pro](https://pro.jpx-jquants.com/)** | 선물·옵션 가격, 종목별 OI 등의 데이터셋 | 위클리/미니 상품 포함 여부, 시간 단위, 이용 대상·요금·과거 범위 |
+| 홍콩 · **[HKEX Data Marketplace](https://www.hkex.com.hk/Services/Market-Data-Services/Historical-Data-Services/HKEX-Data-Marketplace?sc_lang=en)** | 파생상품 과거 주문·체결을 포함한 Full Book 상품 | 주식옵션/지수옵션 구분, 해당 계약의 상장 기간·전달 방식·이용조건 |
+| 대만 · **[TAIFEX OpenAPI](https://openapi.taifex.com.tw/)** / [과거 옵션 자료](https://www.taifex.com.tw/enl/eng3/optDailyMarketView?menuid1=03) | `DailyMarketReportOpt`, `DailyOptionsDelta`, `PutCallRatio`, `OpenInterestOfLargeTradersOptions`, `OptionsTimeAndSalesData` | API의 조회 범위와 장기 역사 다운로드/구매를 구분; 야간 거래일 귀속·행사 방식 확인 |
+
+국내외 데이터는 통화·승수·시간대·행사/결제 방식과 정보 가용시각을 맞춰 연결합니다. 국내 기준모형을 먼저 만든 뒤 해외 정보를 추가한 모형과 해외 학습을 전이한 모형을 따로 비교합니다.
+
+</details>
+
+<a id="data-inquiry"></a>
+### 3. 문의할 때 확인할 체크리스트
+
+- [ ] **표본 범위:** 만기·상장폐지된 계약과 위클리·월물·콜풋을 모두 제공하는가?
+- [ ] **과거 기간:** 1분봉·틱·OI·호가별 최초일, 조회 건수·연속조회·다운로드 한도는?
+- [ ] **기초자산:** 현물지수와 계약별 선물을 모두 제공하는가? 롤·코드 연결 자료가 있는가?
+- [ ] **OI·시각:** OI는 장중/전일 확정 중 무엇이며 언제 공표·수정되는가? 분봉은 시작/종료시각 중 무엇인가?
+- [ ] **세션·품질:** 개장 첫 거래·종가 단일가·무거래 분·정정/취소·야간 귀속일을 어떻게 기록하는가?
+- [ ] **호가 단위:** 최우선/다단계/주문별 중 무엇이며, 모든 이벤트인가 일정 간격 스냅샷인가?
+- [ ] **이용 권한:** 모의/실전·주간/야간 지원, 시세 지연, 호출·구독 한도와 비용은?
+- [ ] **공유 범위:** 연구 저장·가공, 원시 CSV 재배포, 공개 대시보드의 집계 그래프 게시를 각각 허용하는가?
+
+각 자료에 맞는 **식별자(계약·지수·공시 코드), 관측시각·공표/수신시각·세션·단위·출처·버전·결측 표시**를 함께 요청합니다. 먼저 필드 명세와 소량 샘플로 필요한 열·시각·만기 계약이 실제로 들어 있는지 확인합니다.
+
+**복사해서 사용할 문의 문구**
+
+> KOSPI200·KOSDAQ150 위클리옵션 연구용 데이터를 검토하고 있습니다. 현물지수·선물 1분 시계열, 위클리·월물 옵션의 계약별 일별 가격·거래량·미결제약정, 과거 종목 마스터·실제 만기 및 거래시간 이력이 필요합니다. 체결 틱·다단계 호가 이력은 별도 항목으로 견적을 부탁드립니다.
+>
+> 만기된 계약을 포함한 최근 2~3년의 제공 가능 범위, 필드 명세·샘플, API/파일 전달 방식, 시각·OI 갱신 기준, 이용료와 연구·공개 그래프 이용조건을 알려주시기 바랍니다.
 
 ## 재현과 후속 시세 연결
 
