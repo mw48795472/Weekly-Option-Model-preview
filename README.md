@@ -2,6 +2,10 @@
 
 NH선물 REST API 명세와 공개 종목 마스터를 기반으로 위클리옵션을 연구하는 저장소입니다. **모의 인증, 읽기 전용 수집기, 공개 마스터 분석 대시보드**를 제공합니다. 기준일은 **2026-10-11 KST**입니다.
 
+**[PoC HTML mock 바로 다운로드 (ZIP)](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/3a695e02e32dd2e2ff04ce03bc15ec4e4dc25af0/docs/downloads/weekly_option_poc.zip)** · [HTML 원본](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/b1de17d769c434a19b6779184ac4c519a9093b83/docs/downloads/weekly_option_poc.html) · [저장소의 HTML 파일](docs/downloads/weekly_option_poc.html)
+
+ZIP을 풀고 `weekly_option_poc.html`을 브라우저로 열면 설치·API 키·인터넷 연결 없이 실행됩니다. 약 5MB의 단일 파일에 대화형 차트, PNG 4개와 해설을 포함합니다. ZIP에는 HTML 한 파일만 들어 있습니다. HTML 원본 링크가 텍스트로 열리면 ZIP 다운로드를 사용하세요. 바로 다운로드 링크는 검증된 스냅샷의 커밋 주소이므로 PR 병합 후 브랜치를 삭제해도 유지됩니다.
+
 ## 현재 확인된 결과
 
 - 모의 Access Token 발급 성공: `scopes=S`, 유효기간 86,400초. 키·토큰은 저장소에 포함하지 않습니다.
@@ -28,6 +32,25 @@ python scripts/render_dashboard.py
 ```sh
 python -m http.server 8765 --bind 127.0.0.1 --directory artifacts/private/dashboard
 ```
+
+## 기획서 기반 인터랙티브 PoC (단일 HTML)
+
+```sh
+python scripts/build_poc.py
+# 저장소 배포본을 다시 생성할 때
+python scripts/build_poc.py --output docs/downloads/weekly_option_poc.html --zip
+```
+
+`artifacts/private/dashboard/weekly_option_poc.html`을 열면 인터넷 연결 없이 사용할 수 있습니다. 차트 라이브러리, 실제 마스터 요약과 기존 PNG 4개를 한 파일에 포함합니다. 화면의 **HTML mock 다운로드** 버튼으로도 저장할 수 있습니다. 키와 토큰은 포함하지 않습니다.
+
+배포본을 갱신하면 위의 바로 다운로드 링크도 새 HTML을 포함한 커밋으로 갱신합니다. 템플릿은 `templates/research_poc.html`, 생성기는 `scripts/build_poc.py`이며 CI에서 생성 과정을 확인합니다.
+
+- 실제 분석: 상품×만기 구성과 주·야간 종목 교집합으로 표본 편향을 진단합니다. 주간 파일에 없는 274개는 전체 후보 766개의 35.8%이며 원인은 미확인입니다.
+- H5: 고정 ATM Black–Scholes 가정에서 잔존일·변동성과 감마의 관계를 실험합니다. 실제 시장 변동성 증폭의 증거는 아닙니다.
+- H6: 전기 OI 분모 및 t+1부터 시작하는 미래 RV 라벨을 확인합니다. RV는 명시적 합성 예시이고 예측력은 평가하지 않습니다.
+- H9b: 가정한 가격 움직임이 스프레드·왕복 비용을 넘는 조건을 확인합니다. 원래 H9의 RFQ 분석에는 별도 로그가 필요합니다.
+
+입력 변경과 계산 자체검증 4항목, 기존 그래프별 해설 및 실측 데이터 확보 후 모델 채택 기준을 제공합니다. 학습 성능·SHAP·수익률을 추정한 결과가 아닙니다.
 
 ## 권한 승인 후 시세 수집
 
