@@ -9,6 +9,9 @@ description = "NH Futures API documentation audit and read-only research tools"
 requires-python = ">=3.10"
 dependencies = ["openpyxl>=3.1,<4"]
 
+[project.optional-dependencies]
+dashboard = ["numpy>=1.26,<3", "pandas>=2.2,<4", "matplotlib>=3.8,<4", "plotly>=6,<7"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
