@@ -1,0 +1,7 @@
+﻿data_kind,source,limitations,product,expiry_date,underlying,contracts,intercept,monday,WKM,WQI,WQM
+observed saved-master design diagnostic,data/analysis/contracts/weekly_contracts.csv,snapshot-only; future expiry candidates; no market outcomes or causal estimates,WKI,2026-10-15,KOSPI200,216,1,0,0,0,0
+observed saved-master design diagnostic,data/analysis/contracts/weekly_contracts.csv,snapshot-only; future expiry candidates; no market outcomes or causal estimates,WKM,2026-10-12,KOSPI200,246,1,1,1,0,0
+observed saved-master design diagnostic,data/analysis/contracts/weekly_contracts.csv,snapshot-only; future expiry candidates; no market outcomes or causal estimates,WKM,2026-10-19,KOSPI200,194,1,1,1,0,0
+observed saved-master design diagnostic,data/analysis/contracts/weekly_contracts.csv,snapshot-only; future expiry candidates; no market outcomes or causal estimates,WQI,2026-10-15,KOSDAQ150,36,1,0,0,1,0
+observed saved-master design diagnostic,data/analysis/contracts/weekly_contracts.csv,snapshot-only; future expiry candidates; no market outcomes or causal estimates,WQM,2026-10-12,KOSDAQ150,40,1,1,0,0,1
+observed saved-master design diagnostic,data/analysis/contracts/weekly_contracts.csv,snapshot-only; future expiry candidates; no market outcomes or causal estimates,WQM,2026-10-19,KOSDAQ150,34,1,1,0,0,1
