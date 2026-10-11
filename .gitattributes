@@ -1,6 +1,2 @@
-* text=auto eol=lf
-*.xlsx binary
-*.gz binary
-data/catalog/*.json linguist-generated=true
-data/analysis/weekly_candidates.csv linguist-generated=true
-vendor/** linguist-vendored=true
+# Keep the self-contained export byte-stable and review its template/generator instead.
+docs/downloads/*.html -text -diff linguist-generated=true
