@@ -4,6 +4,7 @@ import argparse
 import json
 import sys
 import base64
+import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
@@ -12,7 +13,7 @@ from plotly.offline import get_plotlyjs
 import pandas as pd
 
 
-def build(output=None):
+def build(output=None, zip_archive=False):
     rows=[r for r in load_master(ROOT/'vendor/nh/2026-10-11/masters/fut_opt.mst.gz') if weekly_name_candidate(r)]
     raw=pd.DataFrame(rows)
     unique=raw.drop_duplicates('series')
@@ -36,6 +37,11 @@ def build(output=None):
     output=Path(output) if output is not None else ROOT/'artifacts/private/dashboard/weekly_option_poc.html'
     output.parent.mkdir(parents=True,exist_ok=True)
     output.write_text(template,encoding='utf-8')
+    if zip_archive:
+        info=zipfile.ZipInfo('weekly_option_poc.html',date_time=(2026,10,11,0,0,0))
+        info.compress_type=zipfile.ZIP_DEFLATED
+        with zipfile.ZipFile(output.with_suffix('.zip'),'w') as archive:
+            archive.writestr(info,output.read_bytes())
     print(json.dumps({'html':str(output),'bytes':output.stat().st_size,'actual_data':data},ensure_ascii=False))
     return output
 
@@ -43,4 +49,6 @@ def build(output=None):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output',type=Path,help='Export path; defaults to the local dashboard directory.')
-    build(parser.parse_args().output)
+    parser.add_argument('--zip',action='store_true',help='Also package the single HTML file for direct download.')
+    args=parser.parse_args()
+    build(args.output,args.zip)
