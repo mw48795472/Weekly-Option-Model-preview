@@ -1,0 +1,18 @@
+{
+  "snapshot_date": "2026-10-11",
+  "session_rows": 1258,
+  "unique_contracts": 766,
+  "day_rows": 492,
+  "night_rows": 766,
+  "night_only_contracts": 274,
+  "matched_pair_rows": 1258,
+  "identity_conflicts": 0,
+  "session_difference_contracts": 492,
+  "variable_count": 61,
+  "raw_fields": 26,
+  "missing_market_fields": 23,
+  "inferred_dates": {
+    "night:2026-10-11": 766,
+    "day:2026-10-07": 492
+  }
+}

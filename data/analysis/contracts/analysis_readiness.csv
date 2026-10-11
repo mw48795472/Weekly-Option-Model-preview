@@ -1,0 +1,9 @@
+﻿analysis,status,variables,remaining_requirement,priority
+계약 식별·세션 비교,가능,"series,cme_tp,session_difference_fields",세션 중복·차이를 분리,지금
+H5 만기·행사가 표본 설계,가능,"exp_ym,strike_p,opt_tp,under_name",여러 독립 만기 시계열은 아직 없음,지금
+콜풋 짝 구성,가능,"opposite_series,pair_status",동시 가격 확보 전 패리티 검정 불가,지금
+H5 만기 효과 예측 검증,미확보,"calendar_dte_at_snapshot,rv_daily",분봉·세션 종료시각·휴장 캘린더 필요,1순위
+H6 OI와 미래 RV,미확보,"opint,pd_opint,rv_forward_5d",OI 공표시각·롤·미래 완결 라벨 필요,1순위
+H9b 스프레드·거래비용,미확보,"bid_pric,ask_pric,trd_qty",호가시각·잔량·실제 비용 필요,1순위
+IV 스마일·감마,미확보,"ivol,gamma,log_moneyness",선도/현물 및 단위 검증 필요,2순위
+RFQ·보유집중도·기관 사건,외부 자료 필요,"RFQ logs,position holdings,event dates",마스터·OI·투자자 순매수로 대체 불가,후속
