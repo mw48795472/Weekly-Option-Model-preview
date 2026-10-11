@@ -20,7 +20,7 @@ python -m unittest discover -s tests -v
 
 ## 대시보드 및 HTML mock
 
-Streamlit은 [별도 실행 안내](streamlit-dashboard.md)를 따릅니다. 서버가 실행 중이면 [로컬 대시보드](http://127.0.0.1:8501/)에서 사용할 수 있습니다.
+Streamlit은 [공개 대시보드](https://weekly-option-model-preview.streamlit.app/)에서 바로 사용할 수 있습니다. 직접 개발할 때는 [별도 실행 안내](streamlit-dashboard.md)를 따르고, 서버가 실행 중이면 [로컬 대시보드](http://127.0.0.1:8501/)에 접속합니다.
 
 정적 마스터 대시보드와 단일 HTML PoC를 로컬에 생성하려면:
 

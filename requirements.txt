@@ -1,0 +1,6 @@
+# Streamlit Community Cloud runtime; validated with Python 3.12.
+# The app imports local src/ modules directly and does not use NH credentials.
+streamlit==1.65.0
+numpy==2.3.5
+pandas==3.0.1
+plotly==6.9.0

@@ -1,17 +1,17 @@
 # Streamlit 위클리옵션 연구 대시보드
 
-저장된 공개 마스터와 가설 진단을 탐색하고 가정 기반 PoC를 실행하는 로컬 대시보드입니다. NH API를 호출하거나 `.env`·키·토큰·계좌자료를 읽지 않습니다. 기준일 이후의 실시간 자료로 오인하지 않도록 2026-10-11 스냅샷을 화면에 표시합니다.
+저장된 공개 마스터와 가설 진단을 탐색하고 가정 기반 PoC를 실행하는 연구 대시보드입니다. **[공개 대시보드 열기](https://weekly-option-model-preview.streamlit.app/)**에서 로그인이나 설치 없이 사용할 수 있습니다. NH API를 호출하거나 `.env`·키·토큰·계좌자료를 읽지 않습니다. 기준일 이후의 실시간 자료로 오인하지 않도록 2026-10-11 스냅샷을 화면에 표시합니다.
 
-## 실행
+## 로컬 실행
 
 저장소 루트에서 Python 3.10 이상으로 실행합니다.
 
 ```sh
 python -m pip install -e ".[streamlit]"
-python -m streamlit run streamlit_app.py
+python -m streamlit run streamlit_app.py --server.address 127.0.0.1
 ```
 
-브라우저에서 `http://127.0.0.1:8501`을 엽니다. 이미 포트를 사용하는 앱이 있으면 `--server.port 8502`를 붙입니다. 기본 설정은 로컬 컴퓨터에만 바인딩하며 사용 통계 전송과 정적 파일 제공은 꺼져 있습니다. HTML mock과 달리 Streamlit은 Python 서버가 실행 중이어야 합니다.
+브라우저에서 `http://127.0.0.1:8501`을 엽니다. 이미 포트를 사용하는 앱이 있으면 `--server.port 8502`를 붙입니다. 위 명령은 로컬 컴퓨터에만 바인딩합니다. 사용 통계 전송과 정적 파일 제공은 꺼져 있습니다. HTML mock과 달리 Streamlit은 Python 서버가 실행 중이어야 합니다. 클라우드에서는 호스팅 환경의 바인딩 설정을 사용합니다. [공개 배포 설정](streamlit-deployment.md)
 
 ## 다섯 화면
 
