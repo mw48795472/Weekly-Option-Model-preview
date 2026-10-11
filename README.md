@@ -2,9 +2,9 @@
 
 NH선물 REST API 명세와 공개 종목 마스터를 기반으로 위클리옵션을 연구하는 저장소입니다. **모의 인증, 읽기 전용 수집기, 공개 마스터 분석 대시보드**를 제공합니다. 기준일은 **2026-10-11 KST**입니다.
 
-**[PoC HTML mock 바로 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/b1de17d769c434a19b6779184ac4c519a9093b83/docs/downloads/weekly_option_poc.html)** · [저장소의 HTML 파일](docs/downloads/weekly_option_poc.html)
+**[PoC HTML mock 바로 다운로드 (ZIP)](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/3a695e02e32dd2e2ff04ce03bc15ec4e4dc25af0/docs/downloads/weekly_option_poc.zip)** · [HTML 원본](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/b1de17d769c434a19b6779184ac4c519a9093b83/docs/downloads/weekly_option_poc.html) · [저장소의 HTML 파일](docs/downloads/weekly_option_poc.html)
 
-다운로드한 `weekly_option_poc.html`을 브라우저로 열면 설치·API 키·인터넷 연결 없이 실행됩니다. 약 5MB의 단일 파일에 대화형 차트, PNG 4개와 해설을 포함합니다. 바로 다운로드 링크는 검증된 스냅샷의 커밋 주소이므로 PR 병합 후 브랜치를 삭제해도 유지됩니다.
+ZIP을 풀고 `weekly_option_poc.html`을 브라우저로 열면 설치·API 키·인터넷 연결 없이 실행됩니다. 약 5MB의 단일 파일에 대화형 차트, PNG 4개와 해설을 포함합니다. ZIP에는 HTML 한 파일만 들어 있습니다. HTML 원본 링크가 텍스트로 열리면 ZIP 다운로드를 사용하세요. 바로 다운로드 링크는 검증된 스냅샷의 커밋 주소이므로 PR 병합 후 브랜치를 삭제해도 유지됩니다.
 
 ## 현재 확인된 결과
 
@@ -38,7 +38,7 @@ python -m http.server 8765 --bind 127.0.0.1 --directory artifacts/private/dashbo
 ```sh
 python scripts/build_poc.py
 # 저장소 배포본을 다시 생성할 때
-python scripts/build_poc.py --output docs/downloads/weekly_option_poc.html
+python scripts/build_poc.py --output docs/downloads/weekly_option_poc.html --zip
 ```
 
 `artifacts/private/dashboard/weekly_option_poc.html`을 열면 인터넷 연결 없이 사용할 수 있습니다. 차트 라이브러리, 실제 마스터 요약과 기존 PNG 4개를 한 파일에 포함합니다. 화면의 **HTML mock 다운로드** 버튼으로도 저장할 수 있습니다. 키와 토큰은 포함하지 않습니다.
