@@ -7347,6 +7347,10 @@ trd_code,09,410,세션 원장,0.32591414944356123
 trd_code,AF,664,세션 원장,0.5278219395866455
 trd_code,AJ,70,세션 원장,0.05564387917329094
 trd_code,AK,114,세션 원장,0.09062003179650238
+product_name,코스닥위클리,70,세션 원장,0.05564387917329094
+product_name,코스닥위클리M,114,세션 원장,0.09062003179650238
+product_name,코스피위클리,410,세션 원장,0.32591414944356123
+product_name,코스피위클리M,664,세션 원장,0.5278219395866455
 snapshot_date,2026-10-11,1258,세션 원장,1.0
 source_file,vendor/nh/2026-10-11/masters/fut_opt.mst.gz,1258,세션 원장,1.0
 candidate_rule,fo_tp=O AND name contains 위클리/WEEK,1258,세션 원장,1.0

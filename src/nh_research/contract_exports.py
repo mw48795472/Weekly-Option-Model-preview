@@ -10,6 +10,7 @@ import hashlib
 import io
 import json
 import math
+import re
 import zipfile
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
@@ -48,6 +49,7 @@ MASTER_NOTES = {
     'trd_code': ('거래 상품 원코드', '문자열', '상품 연결 확인', '현행 코드표 대조 필요'),
 }
 DERIVED_NOTES = {
+    'product_name': ('한글 상품명', '문자열', '상품명 검색·표시', '한글 종목명에서 콜풋·만기·행사가 부분을 제외한 원문 명칭'),
     'snapshot_date': ('파일 확보일', 'YYYY-MM-DD', '출처 시점', '거래소 관측 시각이 아님'),
     'source_file': ('원본 파일', '상대 경로', '재현 출처', '공개 파일 스냅샷'),
     'candidate_rule': ('선정 규칙', '문자열', '표본 정의', '공식 위클리 분류 아님'),
@@ -126,6 +128,7 @@ def prepare_contracts(raw, snapshot=SNAPSHOT):
         opposite_type = {'3': '4', '4': '3'}.get(r['opt_tp'])
         pair = pair_index.get((r['cme_tp'], r['under_name'], r['exp_ym'], float(r['strike_p']), opposite_type), [])
         r.update(snapshot_date=snapshot.isoformat(), source_file=SOURCE,
+                 product_name=re.split(r'\s+[CP]\s+', r['name_kor'], maxsplit=1)[0].strip(),
                  candidate_rule='fo_tp=O AND name contains 위클리/WEEK',
                  option_side={'3': 'C', '4': 'P'}.get(r['opt_tp'], ''),
                  expiry_date=expiry.isoformat(), expiry_weekday='월화수목금토일'[expiry.weekday()],
@@ -136,7 +139,7 @@ def prepare_contracts(raw, snapshot=SNAPSHOT):
                  session_difference_fields=';'.join(differences[r['series']]),
                  market_data_status='미확보: 국내 시세 EGW016; 마스터만 보유')
         r.update({k: '' for k in [*NEEDED, *FUTURE_DERIVED]})
-    identity = ['series','real_Code','under_name','opt_tp','option_side','name_kor','name_eng',
+    identity = ['series','real_Code','under_name','product_name','opt_tp','option_side','name_kor','name_eng',
                 'exp_ym','expiry_date','expiry_weekday','calendar_dte_at_snapshot','strike_p','ctrt_size','p_dec']
     by_series = defaultdict(list)
     for r in rows:
@@ -203,7 +206,7 @@ def export_contracts(root: Path, output_dir: Path | None = None):
     for (product, expiry, session), rs in sorted(grouped.items()):
         strikes = sorted({float(r['strike_p']) for r in rs})
         gaps = [round(b-a,8) for a,b in zip(strikes,strikes[1:])]
-        summary.append(dict(product=product,expiry_date=expiry,session=session,contracts=len(rs),
+        summary.append(dict(product=product,product_name=rs[0]['product_name'],expiry_date=expiry,session=session,contracts=len(rs),
                             calls=sum(r['option_side']=='C' for r in rs),puts=sum(r['option_side']=='P' for r in rs),
                             unique_strikes=len(strikes),min_strike=min(strikes),max_strike=max(strikes),
                             min_observed_strike_step=min(gaps) if gaps else '',max_observed_strike_step=max(gaps) if gaps else '',
