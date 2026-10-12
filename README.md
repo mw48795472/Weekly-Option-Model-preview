@@ -47,7 +47,7 @@
 
 **홍콩 HKEX:** 위클리 HSI 보고서 접근·샘플 구조는 확인했습니다. [HKEX 약관 5절](https://www.hkex.com.hk/Global/Exchange/Terms-of-Use?sc_lang=en)에 따라 자동 조회·파생 DB·제3자 공개에는 별도 허락이 필요해, 권한 없는 홍콩 시세와 파생 시계열은 이번 공개 배포에서 제외했습니다. 대시보드에 확보 조건과 필드 구조를 정리했으며 홍콩 H5/H6는 보류입니다.
 
-**[전체 실측 보고서](docs/empirical-analysis.md)** · [고정 분석 규칙](docs/empirical-protocol.md) · **[실측 CSV·PNG·보고서 ZIP 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/refs/heads/codex/h5-h6-extended-markets/docs/downloads/empirical_h5_h6.zip)** · [일별 결합 데이터](data/analysis/empirical/daily_panel.csv) · [시간순 예측값](data/analysis/empirical/h6_forecasts.csv) · [수집 근거](data/source/extended_taiwan/20261012/manifest.json)
+**[전체 실측 보고서](docs/empirical-analysis.md)** · [고정 분석 규칙](docs/empirical-protocol.md) · **[실측 CSV·PNG·보고서 ZIP 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/615106b608b1a5441309c45b1ee37d53a36be2b5/docs/downloads/empirical_h5_h6.zip)** · [일별 결합 데이터](data/analysis/empirical/daily_panel.csv) · [시간순 예측값](data/analysis/empirical/h6_forecasts.csv) · [수집 근거](data/source/extended_taiwan/20261012/manifest.json)
 
 <a id="taifex-live"></a>
 ## 대만 TAIFEX — 실제 가격·OI 분석
