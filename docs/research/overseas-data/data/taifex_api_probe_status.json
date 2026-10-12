@@ -1,0 +1,17 @@
+{
+  "checked_date_kst": "2026-10-12",
+  "saved_at_utc": "2026-10-12T00:11:32.099Z",
+  "openapi_portal": "https://openapi.taifex.com.tw/",
+  "schema_attempt_url": "https://openapi.taifex.com.tw/swagger.json",
+  "node_fetch_status": "fetch failed",
+  "escalated_shell_status": "interrupted before result; no saved file",
+  "schema_downloaded": false,
+  "data_get_success": false,
+  "api_rows_observed": null,
+  "api_dates_observed": null,
+  "document_roster_verified": true,
+  "weekly_eligible_underlyings": 7,
+  "weekly_eligible_etfs": 0,
+  "roster_effective_date": "2026-09-03",
+  "source": "https://www.taifex.com.tw/cht/2/stockLists"
+}
