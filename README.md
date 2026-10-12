@@ -4,7 +4,7 @@
 
 **[공개 Streamlit 대시보드 열기](https://weekly-option-model-preview.streamlit.app/)** · [대시보드 구성·사용 안내](#streamlit-dashboard) · **[오프라인 HTML mock 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_poc.zip)** · [Word 통합보고서 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)
 
-[분석 착수에 필요한 데이터·API·문의 체크리스트 ↓](#data-acquisition)
+[분석 착수에 필요한 데이터·API·문의 체크리스트 ↓](#data-acquisition) · [해외 데이터·API 조사와 종목 명부 ↓](#overseas-data)
 
 > **자료 기준: 2026-10-11 KST.** 현재 단계는 공개 마스터 분석·연구 설계·수식 검증입니다. 실측 가격과 OI 이력이 없어 시장 효과·예측 성능·매매 수익은 추정하지 않았습니다. 아래 수치는 보존된 스냅샷의 결과입니다.
 
@@ -251,9 +251,10 @@ python -m streamlit run streamlit_app.py --server.address 127.0.0.1
 | [분석 가용성](data/analysis/contracts/analysis_readiness.csv) · [PoC 가정값](data/analysis/contracts/poc_assumptions.csv) | 확보한 관측과 연구 입력 가정 구분 |
 | [통합 보고서](docs/hypotheses-review.md) · [Word 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx) | H1–H9/H9b 검토, 근거 링크와 후속 연구 설계 |
 | [NH API 구조](docs/nh-api-architecture.md) · [49종 API·Excel 색인](docs/api-catalog.md) | 인증·요청 구조·제약과 보존된 공식 명세 |
+| [해외 데이터·API 전체 보고서](docs/research/overseas-data/report.md) · [종목 명부·근거 자료](docs/research/overseas-data/README.md) | 일본·홍콩·대만 조달 구조, 홍콩 54개·대만 7개 대상과 검증 상태 |
 | [자료 감사](docs/source-audit.md) · [연구 설계](docs/research-design.md) · [검증 기록](docs/verification.md) | 원 기획서 검토와 구현 범위 |
 
-CSV는 UTF-8 BOM이며 미확보 현재가·OI·IV 등 23개 관측/연구 변수는 빈칸입니다. Excel에서 코드 열을 텍스트로 가져오면 앞자리 0을 유지할 수 있습니다. 다운로드 주소는 검증된 커밋에 고정돼 있어 브랜치 삭제 후에도 같은 파일을 가리킵니다.
+국내 계약 CSV는 UTF-8 BOM이며 미확보 현재가·OI·IV 등 23개 관측/연구 변수는 빈칸입니다. Excel에서 코드 열을 텍스트로 가져오면 앞자리 0을 유지할 수 있습니다. 위 ZIP·Word 다운로드 주소는 검증된 커밋에 고정돼 있어 브랜치 삭제 후에도 같은 파일을 가리킵니다.
 
 <a id="data-acquisition"></a>
 ## 분석 착수를 위한 데이터 확보 안내
@@ -333,18 +334,39 @@ DART는 대량보유·임원/주요주주 소유보고 API를 제공합니다. C
 
 </details>
 
-<details>
-<summary><strong>H2 해외 전이를 위한 거래소 자료 펼치기 — 일본·홍콩·대만</strong></summary>
+<a id="overseas-data"></a>
+### 해외 위클리옵션 데이터 — 일본·홍콩·대만
 
-| 시장·공식 제공처 | 확인한 서비스 | 추가 확인 |
-|---|---|---|
-| 일본 · **[JPX J-Quants Pro](https://pro.jpx-jquants.com/)** | 선물·옵션 가격, 종목별 OI 등의 데이터셋 | 위클리/미니 상품 포함 여부, 시간 단위, 이용 대상·요금·과거 범위 |
-| 홍콩 · **[HKEX Data Marketplace](https://www.hkex.com.hk/Services/Market-Data-Services/Historical-Data-Services/HKEX-Data-Marketplace?sc_lang=en)** | 파생상품 과거 주문·체결을 포함한 Full Book 상품 | 주식옵션/지수옵션 구분, 해당 계약의 상장 기간·전달 방식·이용조건 |
-| 대만 · **[TAIFEX OpenAPI](https://openapi.taifex.com.tw/)** / [과거 옵션 자료](https://www.taifex.com.tw/enl/eng3/optDailyMarketView?menuid1=03) | `DailyMarketReportOpt`, `DailyOptionsDelta`, `PutCallRatio`, `OpenInterestOfLargeTradersOptions`, `OptionsTimeAndSalesData` | API의 조회 범위와 장기 역사 다운로드/구매를 구분; 야간 거래일 귀속·행사 방식 확인 |
+**[전체 보고서](docs/research/overseas-data/report.md) · [별도 자료 폴더·종목 명부](docs/research/overseas-data/README.md)**
 
-국내외 데이터는 통화·승수·시간대·행사/결제 방식과 정보 가용시각을 맞춰 연결합니다. 국내 기준모형을 먼저 만든 뒤 해외 정보를 추가한 모형과 해외 학습을 전이한 모형을 따로 비교합니다.
+> **확인 기준: 2026-10-12 KST.** 공식 명세·상품 규격·상장 대상 명부를 정리했습니다. 유료 시세 표본과 가격·OI 패널은 미확보이며, 대만은 Swagger·데이터 JSON 취득에 실패해 API 실행 검증이 남아 있습니다. 아래 54개·7개는 **기초종목 수**로, 실제 만기·행사가·콜풋별 계약 수가 아닙니다.
 
-</details>
+| 시장·공식 제공처 | 데이터셋·수집 구조 | 위클리·개별주식 범위 | 분석 전 확인할 사항 |
+|---|---|---|---|
+| **일본 · [J-Quants Pro](https://pro.jpx-jquants.com/)** | 인증 REST·SFTP. `/v2/derivatives/options`는 날짜별 옵션 OHLC·OI·IV, 별도 계약별·참가자별 OI API 제공 | 지수 mini `NK225MWE`는 현재 수·금 만기. 일반 개별증권 `EQOP`는 월물이며 Flexible 계약과 구분 | 실제 구독 권한·응답·IV 기준 확인. **Pro 1분 API는 현물주식용**으로 선물·옵션·지수 제외 |
+| **일본 · [DataCube 옵션 1분](https://jpx.gitbook.io/jquants-dc/en/dataspec/fin_derivatives/ohlc_minute/options/deribatibu-opushon-risuto)** | 별도 유료 CSV. mini 옵션 1분은 **2023-05-29~**, 개별증권 옵션 1분은 **2014-03-24~** | 지수 mini 장중 분석과 개별증권 월물 비교집단에 활용 | 같은 시각의 기초가격을 별도 연결. 분 경계·무거래·거래량 단위 확인; 체결 틱은 주문장 이력이 아님 |
+| **홍콩 · [HKEX Marketplace](https://www.hkex.com.hk/Services/Market-Data-Services/Historical-Data-Services/HKEX-Data-Marketplace?sc_lang=en)** | 라이선스 기반 다운로드·SFTP·S3. Full Book은 주식옵션 `CFBD-SOM`, 그 외 선물·옵션 `CFBD-NSOM` 구분 | 위클리 주식옵션 **54개 클래스**. HSI·HHI·HTI 지수 위클리 별도 | 실제 활성 계약체인·조정 승수·기초가격 필요. **Full Book만으로 OI·IV가 확보되지 않음** |
+| **대만 · [TAIFEX OpenAPI](https://openapi.taifex.com.tw/) / [과거 자료](https://www.taifex.com.tw/enl/eng3/optDailyMarketView?menuid1=03)** | `DailyMarketReportOpt`, `DailyOptionsDelta`, `PutCallRatio`, `OpenInterestOfLargeTradersOptions`, `OptionsTimeAndSalesData`는 후속 검증 대상 | 공식 명부상 주식옵션 32개 중 **위클리 7개**, 위클리 ETF 0개. 주식 위클리는 수요일 만기 | **실제 JSON 미검증:** 인증·query·응답 필드·장기 역사 범위를 확정하지 않음. TXO 지수 위클리 규칙은 별도 확인 |
+
+위 상품 범위는 [JPX mini 규격](https://www.jpx.co.jp/derivatives/products/domestic/225mini-options/01.html)·[Pro 1분 명세](https://jpx.gitbook.io/j-quants-pro/api-reference/equities_bars_minute)·[일본 개별증권 규격](https://www.jpx.co.jp/english/derivatives/products/individual/securities-options/01.html), [HKEX 위클리 명부](https://www.hkex.com.hk/Products/Listed-Derivatives/Single-Stock/Stock-Options/Weekly-Stock-Options?sc_lang=en), [TAIFEX 대상 명부](https://www.taifex.com.tw/cht/2/stockLists)를 기준으로 정리했습니다. 세부 인증·필드·갱신시각과 출처는 [전체 보고서](docs/research/overseas-data/report.md)에 있습니다.
+
+**개별주식 명부와 API 자료**
+
+| 바로 받을 자료 | 포함 내용 |
+|---|---|
+| [홍콩 54개 CSV](docs/research/overseas-data/data/hkex_weekly_stock_option_classes_20261012.csv) · [JSON](docs/research/overseas-data/data/hkex_weekly_stock_option_classes_20261012.json) | 주식코드·HKATS·기업명·위클리 출시일·출처. 2026-09-01 갱신 명부 |
+| [대만 7개 CSV](docs/research/overseas-data/data/taifex_weekly_stock_option_underlyings_20261012.csv) | 南亞·聯電(UMC)·台積電(TSMC)·長榮·鴻海·聯發科·緯創의 코드·상품명. 2026-09-03 효력 명부 |
+| [일본 API 맵](docs/research/overseas-data/data/japan_api_map.json) · [홍콩 데이터셋 목록](docs/research/overseas-data/data/hkex_dataset_inventory.csv) · [대만 호출 확인 기록](docs/research/overseas-data/data/taifex_api_probe_status.json) | 문서 기반 엔드포인트, 조달 항목과 실제 검증 상태 |
+
+GitHub 파일 화면에서 **Download raw file**로 저장할 수 있습니다. 이 파일들은 대상 명부·구조 메타데이터이며 실제 옵션 가격·OI 시계열이 아닙니다.
+
+**국내 기준모형에 연결하는 순서**
+
+1. **계약·시각 정렬:** 거래소·기초자산·실제 만기일·콜풋·행사가·승수·조정자를 연결하고, OI의 관측시각과 공개시각을 구분합니다. 현재 명부를 과거 모든 날짜에 소급하지 않습니다.
+2. **지수 위클리부터 비교:** 국내 HAR/RV 기준 → 국내 옵션 정보 추가 → 당시 이용 가능한 해외 정보 추가 → 해외 사전학습 후 국내 보정을 같은 국내 평가 구간에서 비교합니다. 해외 변수의 추가 효과와 모델 전이 효과를 구분합니다.
+3. **개별주식은 별도 검증군:** 배당·실적발표·기업행사, 미국형/유럽형·실물/현금결제 차이를 반영합니다. 가격·OI로 H5·H6를 준비하고, REV에는 정확한 장중 기초가격, H9b에는 호가·잔량 이력을 추가합니다.
+
+현재 확인한 조달 구조를 기준으로 **일본 지수 mini의 계약·일별·장중 표본부터 연결**하고, 대만 API 검증과 홍콩·대만 개별주식 확장을 진행하는 순서를 제안합니다. [계약·시간·목표 정렬 설계](docs/research/overseas-data/report.md#model-transfer) · [공급처별 문의표](docs/research/overseas-data/report.md#acquisition)
 
 <a id="data-inquiry"></a>
 ### 3. 문의할 때 확인할 체크리스트

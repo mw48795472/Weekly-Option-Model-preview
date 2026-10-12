@@ -1,0 +1,133 @@
+{
+  "reviewed_on": "2026-10-12",
+  "kind": "documentation-derived endpoint map, not live market sample",
+  "service": "J-Quants Pro",
+  "base_url": "https://api.jquants-pro.com/v2",
+  "authentication": {
+    "method": "Bearer idToken",
+    "initial_path": "/token/auth_user",
+    "initial_method": "POST",
+    "initial_json_fields": [
+      "mailaddress",
+      "password"
+    ],
+    "id_token_lifetime": "24 hours",
+    "refresh_token_lifetime": "1 week",
+    "source": "https://jpx.gitbook.io/j-quants-pro/api-reference/refreshtoken"
+  },
+  "endpoints": [
+    {
+      "path": "/derivatives/options",
+      "method": "GET",
+      "required_query": [
+        "date"
+      ],
+      "optional_query": [
+        "category",
+        "code",
+        "contract_flag",
+        "pagination_key"
+      ],
+      "code_meaning": "Underlying security code for EQOP, not derivative contract code",
+      "response_key": "options",
+      "source": "https://jpx.gitbook.io/j-quants-pro/api-reference/options"
+    },
+    {
+      "path": "/derivatives/futures",
+      "method": "GET",
+      "required_query": [
+        "date"
+      ],
+      "optional_query": [
+        "category",
+        "contract_flag",
+        "pagination_key"
+      ],
+      "response_key": "futures",
+      "source": "https://jpx.gitbook.io/j-quants-pro/api-reference/futures"
+    },
+    {
+      "path": "/derivatives/open_interest_by_issue",
+      "method": "GET",
+      "required_query": [
+        "date"
+      ],
+      "optional_query": [
+        "product_code",
+        "pagination_key"
+      ],
+      "source": "https://jpx.gitbook.io/j-quants-pro/api-reference/open_interest_by_issue"
+    },
+    {
+      "path": "/derivatives/open_interest_by_participant",
+      "method": "GET",
+      "query": [
+        "category",
+        "date",
+        "pagination_key"
+      ],
+      "source": "https://jpx.gitbook.io/j-quants-pro/api-reference/open_interest_by_participant"
+    },
+    {
+      "path": "/derivatives/volume_by_participant",
+      "method": "GET",
+      "required_query": [
+        "date"
+      ],
+      "optional_query": [
+        "category",
+        "pagination_key"
+      ],
+      "source": "https://jpx.gitbook.io/j-quants-pro/api-reference/volume_by_participant"
+    },
+    {
+      "path": "/equities/bars/minute",
+      "method": "GET",
+      "requires_one_of": [
+        "code",
+        "date"
+      ],
+      "optional_query": [
+        "from",
+        "to",
+        "pagination_key"
+      ],
+      "not_covered": [
+        "futures",
+        "options",
+        "indices",
+        "PTS"
+      ],
+      "source": "https://jpx.gitbook.io/j-quants-pro/api-reference/equities_bars_minute"
+    }
+  ],
+  "options_ohlc_categories": [
+    {
+      "code": "NK225E",
+      "name": "Nikkei 225 Options",
+      "history_start": "2008-05-07"
+    },
+    {
+      "code": "NK225MWE",
+      "name": "Nikkei 225 mini Options",
+      "history_start": "2023-05-29"
+    },
+    {
+      "code": "TOPIXE",
+      "name": "TOPIX Options",
+      "history_start": "2008-05-07"
+    },
+    {
+      "code": "JGBLFE",
+      "name": "Options on JGB Futures",
+      "history_start": "2008-05-07"
+    },
+    {
+      "code": "EQOP",
+      "name": "Securities Options",
+      "history_start": "2014-11-17"
+    }
+  ],
+  "categories_source": "https://jpx.gitbook.io/j-quants-pro-ja/api-reference/options/codelist",
+  "live_requests_executed": false
+}
