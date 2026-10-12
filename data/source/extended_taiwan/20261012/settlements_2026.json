@@ -1,0 +1,13 @@
+{
+  "name": "settlements_2026",
+  "url": "https://www.taifex.com.tw/cht/5/optIndxFSP?commodityIds=2&start_year=2026&start_month=01&end_year=2026&end_month=12",
+  "method": "GET",
+  "request_fields": null,
+  "retrieved_at": "2026-10-12T02:20:49.078514+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=UTF-8",
+  "bytes": 289928,
+  "sha256": "5b91e8f0ab6350e6e4d9be03da54a3f039819d9359d7f45fe980214e3c5ac958",
+  "file": "settlements_2026.raw.gz"
+}

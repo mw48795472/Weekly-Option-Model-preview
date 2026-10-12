@@ -1,0 +1,9 @@
+﻿variant,n,rank,columns,identified,lags
+primary,405,13,13,True,5
+primary,405,13,13,True,20
+weekday_by_regime,405,17,17,True,5
+weekday_by_regime,405,17,17,True,20
+exclude_monthly,385,12,12,True,5
+exclude_monthly,385,12,12,True,20
+placebo_shift2,403,13,13,True,5
+placebo_shift2,403,13,13,True,20
