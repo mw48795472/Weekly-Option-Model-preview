@@ -57,7 +57,7 @@ API 상품코드, 기초주식 코드, 개별 계약 ID를 구분합니다. 연�
 
 **남은 한계:** 기본 가격 API의 날짜 query는 문서에 없고, 임의 날짜를 보낸 응답도 최신 자료와 동일했습니다. 과거 이력은 별도 CSV 경로로 확보했습니다. 기초자산 장중 가격이 없어 HAR/RV·REV·국내 전이 성능은 아직 추정하지 않았습니다. 종가 호가도 API↔CSV 간 bid 2,214행·ask 2,077행이 달라 섞지 않습니다.
 
-**[실측 분석·API·티커 전체 보고서](docs/taifex-analysis.md)** · **[TAIFEX CSV 패키지 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/codex/taifex-live-analysis/docs/downloads/taifex_weekly_data.zip)** · [개별 계약 티커 CSV](data/analysis/taifex/ticker_catalog.csv) · [수집 기록](data/source/taifex/20261012/manifest.json) · [출처·필드 안내](data/source/taifex/README.md)
+**[실측 분석·API·티커 전체 보고서](docs/taifex-analysis.md)** · **[TAIFEX CSV 패키지 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/3812ea4cefb4ebe72d6a3af1c26fe44cf64b2d9f/docs/downloads/taifex_weekly_data.zip)** · [개별 계약 티커 CSV](data/analysis/taifex/ticker_catalog.csv) · [수집 기록](data/source/taifex/20261012/manifest.json) · [출처·필드 안내](data/source/taifex/README.md)
 
 ## 국내 핵심 그래프와 분석
 
