@@ -19,11 +19,12 @@ from nh_research.dashboard_data import (
 )
 from nh_research.reversal import rev_bp
 from nh_research.taifex_dashboard import render_taifex
+from nh_research.empirical_dashboard import render_empirical
 
 DATA = ROOT / "data/analysis"
 EVIDENCE = "https://github.com/mw48795472/Weekly-Option-Model-preview/blob/43ab2df8ed7c7821e91554acba51d0338a0e6033"
 COLORS = ["#087F8C", "#426DAD", "#C88B37", "#7C6BAD"]
-PAGES = ["연구 개요", "종목·변수 탐색", "TAIFEX 실측 분석", "가설 검토", "PoC 실험실", "진단·다운로드"]
+PAGES = ["연구 개요", "종목·변수 탐색", "TAIFEX 실측 분석", "H5·H6 실측 연구", "가설 검토", "PoC 실험실", "진단·다운로드"]
 
 st.set_page_config(page_title="Weekly Option · 연구 대시보드", page_icon="◈", layout="wide")
 st.markdown("""<style>
@@ -87,13 +88,13 @@ with st.sidebar:
     st.divider()
     st.caption(f"자료 기준 · {summary['snapshot_date']} KST")
     st.write("**국내 마스터 + TAIFEX 실측 자료**")
-    st.caption("국내 마스터 기준일입니다. TAIFEX는 별도 화면에 실제 관측·수집일을 표시합니다. 실시간 시세·예측 성능을 제공하지 않습니다.")
+    st.caption("국내 마스터 기준일입니다. TAIFEX는 별도 화면에 실제 관측·수집일을 표시합니다. 실시간 시세가 아닙니다. H5·H6 메뉴는 일별 대용치의 사후 예측 검증입니다.")
     download("통합 보고서 Word", "docs/downloads/weekly_option_hypotheses_review.docx", key="sidebar_word")
     st.link_button("GitHub 저장소 ↗", "https://github.com/mw48795472/Weekly-Option-Model-preview", width="stretch")
 
 
 def overview():
-    header("위클리옵션 연구 대시보드", "국내 공개 마스터의 연구 준비 상태를 살펴봅니다. TAIFEX 실제 가격·OI는 사이드바의 TAIFEX 실측 분석에서 확인하세요.")
+    header("위클리옵션 연구 대시보드", "국내 공개 마스터의 연구 준비 상태를 살펴봅니다. TAIFEX 실제 가격·OI는 TAIFEX 실측 분석, 장기 기초지수와 예측 검증은 H5·H6 실측 연구에서 확인하세요.")
     cols = st.columns(4)
     for col, label, value, help_text in zip(cols,
             ["고유 계약", "후보 만기 사건", "완료 사건", "유효 가격·OI"],
@@ -312,5 +313,5 @@ def diagnostics():
     st.caption("이 앱의 대화형 그래프는 오른쪽 위 카메라 아이콘으로 PNG를 저장할 수 있습니다. PoC 그래프에는 가정 또는 인덱스라는 축 설명을 함께 보존합니다.")
 
 
-{"연구 개요": overview, "종목·변수 탐색": explorer, "TAIFEX 실측 분석": lambda: render_taifex(ROOT), "가설 검토": hypotheses,
+{"연구 개요": overview, "종목·변수 탐색": explorer, "TAIFEX 실측 분석": lambda: render_taifex(ROOT), "H5·H6 실측 연구": lambda: render_empirical(ROOT), "가설 검토": hypotheses,
  "PoC 실험실": lab, "진단·다운로드": diagnostics}[page]()

@@ -1,0 +1,13 @@
+{
+  "name": "taiex_202603",
+  "url": "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?response=json&date=20260301",
+  "method": "GET",
+  "request_fields": null,
+  "retrieved_at": "2026-10-12T02:18:39.401941+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "application/json;charset=UTF-8",
+  "bytes": 1557,
+  "sha256": "e8926685144b22b65e7450815dda03dbdc9a00b3b03401073596e6596d57bae2",
+  "file": "taiex_202603.raw.gz"
+}

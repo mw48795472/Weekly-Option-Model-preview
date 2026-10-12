@@ -1,0 +1,13 @@
+{
+  "name": "settlements_2025",
+  "url": "https://www.taifex.com.tw/cht/5/optIndxFSP?commodityIds=2&start_year=2025&start_month=01&end_year=2025&end_month=12",
+  "method": "GET",
+  "request_fields": null,
+  "retrieved_at": "2026-10-12T02:20:46.777045+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=UTF-8",
+  "bytes": 289928,
+  "sha256": "b23d990bf743aa9bf08cb6cccec433fd8a6b2f3b2c76150e1a513e6a6d92580e",
+  "file": "settlements_2025.raw.gz"
+}

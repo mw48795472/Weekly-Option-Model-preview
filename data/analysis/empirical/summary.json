@@ -1,0 +1,105 @@
+{
+  "version": "empirical-20261012",
+  "market": "TAIFEX TXO / TWSE TAIEX",
+  "start": "2025-01-02",
+  "end": "2026-10-08",
+  "trading_days": 428,
+  "previous_trading_days": 20,
+  "raw_option_rows": 1642334,
+  "regular_weekly_rows": 309082,
+  "unique_weekly_contracts": 34848,
+  "undefined_matched_oi_days": 39,
+  "continuing_previous_coverage_median": 0.04100445301,
+  "weekly_expiry_days": 135,
+  "monthly_expiry_days": 21,
+  "scheduled_actual_conflicts": 1,
+  "test_start": "2025-08-20",
+  "test_end": "2026-10-01",
+  "test_days": 263,
+  "target": "next five trading days mean Parkinson daily range variance; NOT intraday RV",
+  "h6_primary": {
+    "proxy": "parkinson",
+    "model": "HAR_calendar_OI_lag1",
+    "baseline": "HAR_calendar",
+    "block": 10,
+    "n": 263,
+    "qlike_difference": 0.001604272695,
+    "ci_low": -0.004012646018,
+    "ci_high": 0.006665908934,
+    "improved": false
+  },
+  "h5_design": [
+    {
+      "variant": "primary",
+      "n": 405,
+      "rank": 13,
+      "columns": 13,
+      "identified": true,
+      "lags": 5
+    },
+    {
+      "variant": "primary",
+      "n": 405,
+      "rank": 13,
+      "columns": 13,
+      "identified": true,
+      "lags": 20
+    },
+    {
+      "variant": "weekday_by_regime",
+      "n": 405,
+      "rank": 17,
+      "columns": 17,
+      "identified": true,
+      "lags": 5
+    },
+    {
+      "variant": "weekday_by_regime",
+      "n": 405,
+      "rank": 17,
+      "columns": 17,
+      "identified": true,
+      "lags": 20
+    },
+    {
+      "variant": "exclude_monthly",
+      "n": 385,
+      "rank": 12,
+      "columns": 12,
+      "identified": true,
+      "lags": 5
+    },
+    {
+      "variant": "exclude_monthly",
+      "n": 385,
+      "rank": 12,
+      "columns": 12,
+      "identified": true,
+      "lags": 20
+    },
+    {
+      "variant": "placebo_shift2",
+      "n": 403,
+      "rank": 13,
+      "columns": 13,
+      "identified": true,
+      "lags": 5
+    },
+    {
+      "variant": "placebo_shift2",
+      "n": 403,
+      "rank": 13,
+      "columns": 13,
+      "identified": true,
+      "lags": 20
+    }
+  ],
+  "hkex_status": "Public daily report access verified; automated collection/derived datasets/public redistribution require permission under HKEX terms section 5. No HKEX market data included.",
+  "limitations": [
+    "Daily proxy, not intraday RV",
+    "Retrospective final data, publication/revision timestamps unavailable",
+    "OI lag scenarios are assumptions, not validated availability",
+    "Expiry calendar is ex post, historical schedule revisions unavailable",
+    "One index, no single-stock or domestic-transfer conclusion"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "txo_202511",
+  "url": "https://www.taifex.com.tw/cht/3/optDataDown",
+  "method": "POST",
+  "request_fields": {
+    "queryStartDate": "2025/11/01",
+    "queryEndDate": "2025/11/30",
+    "down_type": "1",
+    "commodity_id": "TXO",
+    "commodity_id2": ""
+  },
+  "retrieved_at": "2026-10-12T02:17:38.488800+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=MS950",
+  "bytes": 5942368,
+  "sha256": "f1d76996bcc124f5e6af77b58eb45b82aed0c870ec44b454463ec342be912ca7",
+  "file": "txo_202511.raw.gz"
+}

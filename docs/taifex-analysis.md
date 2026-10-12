@@ -1,5 +1,7 @@
 # TAIFEX 위클리옵션 실측 분석과 개별 계약 티커
 
+> **후속 실측 업데이트(2026-10-12):** TXO·TAIEX 428거래일의 H5·H6 일별 대용치 분석은 [새 실측 보고서](empirical-analysis.md)에 있습니다. 아래는 기존 자료 범위와 당시 검토 기록입니다.
+
 **2026-10-12 KST 실제 호출 결과:** 키 없이 공식 API 조회에 성공했고, 별도 공식 CSV 경로로 **2026-09-09~2026-10-08의 20거래일**을 확보했습니다. 개별주식 위클리 7개 상품과 TXO의 계약별 가격·OI를 분석합니다. 최신 API 날짜는 10월 8일이며 수집일과 다릅니다.
 
 [CSV 패키지](downloads/taifex_weekly_data.zip) · [수집·해시 기록](../data/source/taifex/20261012/manifest.json) · [계산 결과](../data/analysis/taifex/summary.json) · [티커 원장](../data/analysis/taifex/ticker_catalog.csv)

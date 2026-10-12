@@ -39,7 +39,7 @@ def render_taifex(root):
     st.caption(f"수집 {summary['collected_date_kst']} KST · 가격 API 기준 {summary['api_market_date']} · "
                f"역사 CSV {summary['history_start']}–{summary['history_end']} / {summary['history_dates']}개 관측 거래일")
     st.info("공식 API·과거 CSV에서 실제 수집한 고정 스냅샷입니다. 화면을 열어도 새 시세를 호출하지 않습니다. "
-            "국내 자료와 별도 표본이며 예측 성능·매매 수익을 추정한 결과는 아닙니다.")
+            "이 화면은 20일 계약 기술통계입니다. 428일 기초자산·예측 검증은 사이드바 H5·H6 실측 연구에서 확인하세요.")
     a,b,c,d=st.columns(4)
     a.metric("API 계약·세션 행",f"{summary['api_rows']:,}")
     b.metric("최신 자료 위클리 계약",f"{summary['latest_weekly_contracts']:,}",help="주간 세션, 개별주식 7개와 TXO. 행사가·콜풋별 계약 수")
