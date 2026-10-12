@@ -1,0 +1,10 @@
+﻿endpoint,http_status,actual_format,rows,date_field,min_date,max_date,distinct_dates,retrieved_at,date_query_documented
+DailyMarketReportOpt,200,json,11938,Date,20261008,20261008,1,2026-10-12T00:54:48.846293+00:00,False
+DailyOptionsDelta,200,json,8674,,,,0,2026-10-12T00:54:48.850749+00:00,False
+SSOLists,200,json,32,,,,0,2026-10-12T00:54:51.998535+00:00,False
+SSFAdjustedInfo,200,json,22,Date,20261008,20261008,1,2026-10-12T00:54:53.604872+00:00,False
+PutCallRatio,200,json,17,Date,20260914,20261008,17,2026-10-12T00:54:48.852851+00:00,False
+OpenInterestOfLargeTradersOptions,200,csv,320,Date,20261008,20261008,1,2026-10-12T00:54:51.911851+00:00,False
+ContractAdj,200,json,170,AdjustmentDate,20260713,20261022,48,2026-10-12T00:54:52.255403+00:00,False
+FinalSettlementPriceOptions,200,json,8,TheFinalSettlementDay,20261007,20261007,1,2026-10-12T00:54:52.974827+00:00,False
+SettledPositionsSSO,200,json,14,TheFinalSettlementDay,20261007,20261007,1,2026-10-12T00:54:53.387118+00:00,False

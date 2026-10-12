@@ -18,11 +18,12 @@ from nh_research.dashboard_data import (
     markdown_for_browser, report_section,
 )
 from nh_research.reversal import rev_bp
+from nh_research.taifex_dashboard import render_taifex
 
 DATA = ROOT / "data/analysis"
 EVIDENCE = "https://github.com/mw48795472/Weekly-Option-Model-preview/blob/43ab2df8ed7c7821e91554acba51d0338a0e6033"
 COLORS = ["#087F8C", "#426DAD", "#C88B37", "#7C6BAD"]
-PAGES = ["연구 개요", "종목·변수 탐색", "가설 검토", "PoC 실험실", "진단·다운로드"]
+PAGES = ["연구 개요", "종목·변수 탐색", "TAIFEX 실측 분석", "가설 검토", "PoC 실험실", "진단·다운로드"]
 
 st.set_page_config(page_title="Weekly Option · 연구 대시보드", page_icon="◈", layout="wide")
 st.markdown("""<style>
@@ -81,25 +82,25 @@ def download(label, relative, name=None, mime=None, key=None):
 
 with st.sidebar:
     st.markdown("## ◈ Weekly Option")
-    st.caption("NH선물 자료 기반 연구실")
+    st.caption("NH선물 · TAIFEX 연구실")
     page = st.radio("연구 탐색", PAGES, key="page")
     st.divider()
     st.caption(f"자료 기준 · {summary['snapshot_date']} KST")
-    st.write("**공개 마스터 + 오프라인 진단**")
-    st.caption("실시간 시세와 예측 성능은 미확보입니다. 자료 기준일 이후의 현재 시장을 표시하지 않습니다.")
+    st.write("**국내 마스터 + TAIFEX 실측 자료**")
+    st.caption("국내 마스터 기준일입니다. TAIFEX는 별도 화면에 실제 관측·수집일을 표시합니다. 실시간 시세·예측 성능을 제공하지 않습니다.")
     download("통합 보고서 Word", "docs/downloads/weekly_option_hypotheses_review.docx", key="sidebar_word")
     st.link_button("GitHub 저장소 ↗", "https://github.com/mw48795472/Weekly-Option-Model-preview", width="stretch")
 
 
 def overview():
-    header("위클리옵션 연구 대시보드", "어떤 자료를 확보했고, 어떤 가설을 다음에 검증할지 살펴봅니다.")
+    header("위클리옵션 연구 대시보드", "국내 공개 마스터의 연구 준비 상태를 살펴봅니다. TAIFEX 실제 가격·OI는 사이드바의 TAIFEX 실측 분석에서 확인하세요.")
     cols = st.columns(4)
     for col, label, value, help_text in zip(cols,
             ["고유 계약", "후보 만기 사건", "완료 사건", "유효 가격·OI"],
             [f"{len(contracts):,}", str(diag["candidate_underlying_date_events"]), str(diag["completed_candidate_events"]), "0"],
             ["세션 중복 제거 후 계약 수", "기초자산×만기일 기준. 독립 관측 수가 아닙니다.", "보존된 기준일 이전 만기", "진단 시점의 확보 관측 수"]):
         col.metric(label, value, help=help_text)
-    st.info("지금 가능한 분석은 표본 구성·자료 가용성·설계 오류 진단입니다. 아래 계약 수를 거래량이나 시장 활성도로 해석하지 않습니다.")
+    st.info("이 국내 마스터에서 가능한 분석은 표본 구성·자료 가용성·설계 오류 진단입니다. 아래 계약 수를 거래량이나 시장 활성도로 해석하지 않습니다.")
     left, right = st.columns([1.25, 1])
     with left:
         st.subheader("만기별로 어떤 계약이 있는가")
@@ -311,5 +312,5 @@ def diagnostics():
     st.caption("이 앱의 대화형 그래프는 오른쪽 위 카메라 아이콘으로 PNG를 저장할 수 있습니다. PoC 그래프에는 가정 또는 인덱스라는 축 설명을 함께 보존합니다.")
 
 
-{"연구 개요": overview, "종목·변수 탐색": explorer, "가설 검토": hypotheses,
+{"연구 개요": overview, "종목·변수 탐색": explorer, "TAIFEX 실측 분석": lambda: render_taifex(ROOT), "가설 검토": hypotheses,
  "PoC 실험실": lab, "진단·다운로드": diagnostics}[page]()

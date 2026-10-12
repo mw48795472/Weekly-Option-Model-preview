@@ -49,10 +49,10 @@ class DashboardUITests(unittest.TestCase):
         self.assertFalse(app.exception)
         return app
 
-    def test_all_five_pages_render(self):
+    def test_all_six_pages_render(self):
         app = self.app()
         self.assertEqual(app.metric[0].value, "766")
-        for page in ["종목·변수 탐색", "가설 검토", "PoC 실험실", "진단·다운로드"]:
+        for page in ["종목·변수 탐색", "TAIFEX 실측 분석", "가설 검토", "PoC 실험실", "진단·다운로드"]:
             with self.subTest(page=page):
                 app.radio(key="page").set_value(page).run()
                 self.assertFalse(app.exception)

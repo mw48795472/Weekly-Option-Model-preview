@@ -1,12 +1,12 @@
 # Weekly Option Research
 
-**위클리옵션의 만기·포지션 정보가 이후 가격 반전과 변동성에 어떤 정보를 더하는가?** NH선물 REST API 명세와 공개 종목 마스터를 바탕으로 이 질문을 검증하는 연구 프로젝트입니다. 자료 구조·가용성을 분석하고, H1–H9/H9b 검증 설계와 대화형 PoC를 제공합니다.
+**위클리옵션의 만기·포지션 정보가 이후 가격 반전과 변동성에 어떤 정보를 더하는가?** NH선물 REST API 명세·국내 공개 마스터와 TAIFEX 실제 옵션 가격·OI를 바탕으로 이 질문을 검증하는 연구 프로젝트입니다. 자료 구조·가용성을 분석하고, H1–H9/H9b 검증 설계와 대화형 PoC를 제공합니다.
 
 **[공개 Streamlit 대시보드 열기](https://weekly-option-model-preview.streamlit.app/)** · [대시보드 구성·사용 안내](#streamlit-dashboard) · **[오프라인 HTML mock 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_poc.zip)** · [Word 통합보고서 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)
 
-[분석 착수에 필요한 데이터·API·문의 체크리스트 ↓](#data-acquisition) · [해외 데이터·API 조사와 종목 명부 ↓](#overseas-data)
+[TAIFEX 실제 가격·OI·개별 티커 ↓](#taifex-live) · [분석 착수에 필요한 데이터·API·문의 체크리스트 ↓](#data-acquisition) · [해외 데이터·API 조사와 종목 명부 ↓](#overseas-data)
 
-> **자료 기준: 2026-10-11 KST.** 현재 단계는 공개 마스터 분석·연구 설계·수식 검증입니다. 실측 가격과 OI 이력이 없어 시장 효과·예측 성능·매매 수익은 추정하지 않았습니다. 아래 수치는 보존된 스냅샷의 결과입니다.
+> **자료 기준:** 국내 마스터는 2026-10-11, 대만 실측 수집은 2026-10-12 KST입니다. 대만은 20거래일의 옵션 가격·OI 기술통계를 분석했습니다. 국내 가격·OI와 양국 기초자산 장중 가격은 미확보여서 시장 효과·예측 성능·매매 수익은 아직 추정하지 않았습니다. 아래 첫 표는 국내 마스터 기준입니다.
 
 | 확보·진단 항목 | 결과 | 읽는 방법 |
 |---|---:|---|
@@ -17,7 +17,49 @@
 
 [계약 요약 원본](data/analysis/contracts/summary.json) · [REV 실행 명세](data/analysis/reversal/manifest.json) · [가설 진단 JSON](data/analysis/hypotheses/forecast_diagnostics.json)
 
-## 핵심 그래프와 분석
+<a id="taifex-live"></a>
+## 대만 TAIFEX — 실제 가격·OI 분석
+
+**공식 API 무인증 호출과 과거 CSV 다운로드를 완료했습니다.** 2026-10-12 수집, API 최신 자료는 **10월 8일**입니다. 국내 마스터와 별도 표본으로 분석합니다.
+
+| 실제 확보·검증 | 결과 | 해석 |
+|---|---:|---|
+| API 최신 계약·세션 원장 | **11,938행 / 8,674계약** | 주간·야간 구분, 전체 옵션 |
+| 과거 CSV | **20거래일 / 146,692행** | 9월 9일~10월 8일, 7개 주식 상품군 + TXO, 월물 포함 |
+| 위클리 이력 | **56,124행 / 5,158계약** | 날짜·계약·세션 관측과 고유 계약 수 구분 |
+| 최신 주간 위클리 | **1,288계약** | 개별주식 278 + TXO 1,010 |
+| API↔CSV 가격·OI 대사 | **7,134행 모두 일치** | 호가에는 차이가 있어 별도로 보존 |
+
+### 개별 종목 티커까지 연결
+
+| 기초주식 | 상품명 | 옵션 API 코드 | 최신 위클리 계약 | 체결가 관측 |
+|---|---|---|---:|---:|
+| 1303 | 南亞 | CAO | 46 | 2 |
+| 2303 | 聯電 / UMC | CCO | 28 | 12 |
+| 2330 | 台積電 / TSMC | CDO | 38 | 5 |
+| 2603 | 長榮 | CZO | 32 | 5 |
+| 2317 | 鴻海 | DHO | 30 | 6 |
+| 2454 | 聯發科 | DVO | 76 | 1 |
+| 3231 | 緯創 | DXO | 28 | 8 |
+
+**예: 2330 → CDO → 202610W2 + P + 2450 → 연구용 ID TAIFEX:CDO:202610W2:P:2450.**
+API 상품코드, 기초주식 코드, 개별 계약 ID를 구분합니다. 연구용 ID는 주문용 심볼이 아닙니다. TXO의 W2 거래시스템 상품코드는 TX2지만 API에는 TXO로 나타납니다. CDA·CDB 등 조정계약도 표준 CDO와 분리합니다.
+
+![개별주식 위클리 체결가 관측률과 TSMC 행사가별 OI](docs/images/taifex/taifex_stock_coverage.png)
+
+**읽을 수 있는 결과:** 개별주식 위클리 278계약 중 실제 마지막 체결가가 있는 것은 **39계약(14.0%)**입니다. 정산가 곡선을 체결 가능한 가격 곡선으로 해석하면 안 됩니다. 행사가별 OI는 계약 분포이며 투자자 방향성이나 보유자 집중도와 다릅니다.
+
+![TXO 위클리 OI 변화와 동일 계약·표본 진입·이탈 분해](docs/images/taifex/taifex_oi_decomposition.png)
+
+**H6 분석 준비:** 총 OI 변화 = 동일 계약 변화 + 새로 관측된 계약 OI − 사라진 계약 OI로 분해했습니다. 만기·상장에 따른 계약 구성 변화를 투자자 포지션 청산과 구분할 수 있습니다. 야간 OI는 결측이므로 주간만 집계합니다.
+
+**실제 예:** TXO 위클리 OI는 9월 11일 129,111계약에서 9월 14일 8,336계약으로 120,775계약 감소했습니다. 그러나 동일 계약 OI는 **2,771계약 증가**했고 진입은 207계약, 이탈은 123,753계약이었습니다. 전체 감소만 보고 모든 계약에서 포지션이 줄었다고 해석하면 반대 결론에 도달합니다.
+
+**남은 한계:** 기본 가격 API의 날짜 query는 문서에 없고, 임의 날짜를 보낸 응답도 최신 자료와 동일했습니다. 과거 이력은 별도 CSV 경로로 확보했습니다. 기초자산 장중 가격이 없어 HAR/RV·REV·국내 전이 성능은 아직 추정하지 않았습니다. 종가 호가도 API↔CSV 간 bid 2,214행·ask 2,077행이 달라 섞지 않습니다.
+
+**[실측 분석·API·티커 전체 보고서](docs/taifex-analysis.md)** · **[TAIFEX CSV 패키지 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/codex/taifex-live-analysis/docs/downloads/taifex_weekly_data.zip)** · [개별 계약 티커 CSV](data/analysis/taifex/ticker_catalog.csv) · [수집 기록](data/source/taifex/20261012/manifest.json) · [출처·필드 안내](data/source/taifex/README.md)
+
+## 국내 핵심 그래프와 분석
 
 ### 1. 계약 수가 많아도 만기 효과를 검증할 사건 수는 늘지 않는다
 
@@ -57,7 +99,7 @@
 
 ## 가설 심화 검토에서 확인한 사항
 
-현재 자료에서는 **관측 단위·비교군·미래 라벨을 먼저 정리**해야 합니다. 다음은 시장 효과 검정이 아니라, 보존된 자료와 기존 코드의 설계 진단입니다.
+국내 마스터 자료에서는 **관측 단위·비교군·미래 라벨을 먼저 정리**해야 합니다. 다음은 시장 효과 검정이 아니라, 보존된 자료와 기존 코드의 설계 진단입니다.
 
 | 진단 | 실행 결과 | 분석 설계에 반영할 점 |
 |---|---|---|
@@ -91,6 +133,7 @@ H9 진단은 정수 인덱스 마커로 재현했습니다. 수익률·변동성
 |---|---|---|
 | [연구 개요](#dashboard-overview) | 지금 무엇을 분석할 수 있는가? | 네 가지 지표, 만기별 계약 구성, 주간·야간 범위, 연구 순서 |
 | [종목·변수 탐색](#dashboard-explorer) | 어떤 계약과 변수가 있는가? | 상품·만기·콜풋 필터, 이름·코드 검색, 행사가 분포, 계약 상세와 CSV |
+| [TAIFEX 실측 분석](#dashboard-taifex) | 실제 가격·OI와 개별 계약을 어떻게 분석하는가? | 시장·OI, 티커 검색·계약 경로, API 검증·CSV·PNG |
 | [가설 검토](#dashboard-hypotheses) | 무엇을 검증하며 어떤 관측이 더 필요한가? | H1–H9/H9b 비교표, 가설 선택, 질문·필수 자료·상세 검토 |
 | [PoC 실험실](#dashboard-lab) | 입력을 바꾸면 수식과 설계가 어떻게 반응하는가? | H5 감마, H6 OI·미래창, REV, H9b 비용의 네 가지 실험 |
 | [진단·다운로드](#dashboard-downloads) | 결과의 근거를 확인하고 저장할 수 있는가? | 설계행렬·JSON, 보고서·CSV·HTML mock, 저장된 PNG |
@@ -107,7 +150,7 @@ H9 진단은 정수 인덱스 마커로 재현했습니다. 수익률·변동성
 <a id="dashboard-overview"></a>
 ### 1. 연구 개요 — 표본 범위와 연구 순서
 
-상단의 네 지표는 **고유 계약 766개**, **후보 만기 사건 6개**, **완료 사건 0개**, **유효 가격·OI 0개**입니다. 모두 보존된 자료 기준의 값이며 실시간으로 갱신되는 시세 지표가 아닙니다.
+이 국내 개요 화면의 네 지표는 **고유 계약 766개**, **후보 만기 사건 6개**, **완료 사건 0개**, **유효 가격·OI 0개**입니다. 모두 보존된 자료 기준의 값이며 실시간으로 갱신되는 시세 지표가 아닙니다.
 
 | 구성 | 표시하는 내용 | 읽는 방법 |
 |---|---|---|
@@ -131,6 +174,22 @@ H9 진단은 정수 인덱스 마커로 재현했습니다. 수익률·변동성
 | 변수 사전과 관측 범위 | 62개 항목 중 **분석 변수** 선택 → 확보 상태·관측 행·공란 행, 의미·단위·용도·주의 | `opint`(미결제약정)나 `ivol`(내재변동성)을 선택하면 분석에 필요한 값의 확보 여부를 확인할 수 있습니다. **변수 사전 전체 보기**에서 전체 표와 CSV를 제공합니다. |
 
 **변수 사전의 통계는 전체 자료 기준으로 고정되어 있습니다.** 위쪽 계약 필터를 바꿔도 관측·공란 행 수가 다시 집계되지는 않습니다. 각 변수에 표시된 분모를 확인해 766개 계약과 1,258개 세션 행을 구분하세요. CSV의 미확보 값은 빈칸으로 유지하며 0으로 대체하지 않습니다. Excel에서는 코드 열을 텍스트로 가져와 앞자리 0을 보존합니다.
+
+<a id="dashboard-taifex"></a>
+### TAIFEX 실측 분석 — 가격·OI·개별 계약
+
+사이드바에서 **TAIFEX 실측 분석**을 선택합니다. 이 화면은 실제로 수집한 대만 자료를 사용하며, 기존 국내 마스터 화면·가정 입력 PoC와 자료 범위를 구분합니다.
+
+| 화면 | 조작 | 그래프·지표에서 읽을 내용 |
+|---|---|---|
+| **시장·OI 분석** | 상품명·날짜·주간 만기 선택 | 행사가별 콜풋 OI, 정산가(선)와 실제 체결가(점), 선택 만기 OI·체결가 관측률·상위 3개 행사가 비중 |
+| **OI 경로·분해** | 위에서 선택한 상품 적용 | 상품의 **모든 위클리 만기** OI 경로와 동일 계약/표본 진입/이탈 분해. 선택한 한 만기만의 경로와 구분 |
+| **개별 계약·티커** | 2330·CDO·종목명 검색, 위클리/전체 선택 | 이름·기초코드·만기·콜풋·행사가·조정계약 표시. 한 계약의 정산가·마지막 체결가·OI 경로와 CSV |
+| **API 확인·다운로드** | 수집 범위·호가 대사 결과 확인 | 전체 CSV ZIP, 티커, 수집 JSON, 보고서, 저장된 PNG 다운로드 |
+
+처음에는 **台積電(CDO) → 최신 날짜 → 주간 만기**를 선택해 정산가 선에 비해 체결가 점이 얼마나 드문지 봅니다. 다음으로 **TXO**를 골라 OI 변화의 동일 계약 기여와 계약 진입·이탈을 비교합니다. 펼침 영역의 공식 풋/콜 이력은 **TXO 전체 만기** 집계로 개별주식이나 위클리 전용 수치가 아닙니다.
+
+수집일·시장 관측일을 상단에 표시하며 앱을 열어도 새 시세를 자동 호출하지 않습니다. 기존 HTML mock은 이전 국내 PoC이며 TAIFEX 화면은 Streamlit에 추가했습니다. 공개 앱은 별도 배포 브랜치를 따르므로 이 PR의 새 화면은 배포 브랜치 반영 후 공개 주소에 표시됩니다. [배포 구조](docs/streamlit-deployment.md)
 
 <a id="dashboard-hypotheses"></a>
 ### 3. 가설 검토 — 질문에서 필요한 관측까지
@@ -261,7 +320,7 @@ python -m streamlit run streamlit_app.py --server.address 127.0.0.1
 
 **첫 문의 대상은 NH선물 → KRX → 코스콤입니다.** 기초지수·선물의 과거 1분봉, 만기된 옵션의 OI 이력, 실제 만기·거래시간 캘린더부터 확인하면 H5·H6·REV 연구를 준비할 수 있습니다.
 
-> **확보 목표와 현재 상태를 구분합니다.** 아래는 2026-10-11에 정리한 조달·문의 목록입니다. 제공처의 서비스 존재를 확인한 것과 특정 상품·기간·필드의 이용 권한을 확보한 것은 다릅니다. 현재 공개 산출물은 766계약의 마스터 스냅샷과 오프라인 진단이며, 실측 가격·OI 이력은 미확보입니다.
+> **확보 목표와 현재 상태를 구분합니다.** 아래는 2026-10-11에 정리한 조달·문의 목록입니다. 제공처의 서비스 존재를 확인한 것과 특정 상품·기간·필드의 이용 권한을 확보한 것은 다릅니다. 국내 산출물은 766계약의 마스터 스냅샷과 오프라인 진단이며 국내 실측 가격·OI 이력은 미확보입니다. 대만의 20거래일 실측 결과는 [TAIFEX 분석](#taifex-live)에 별도로 정리했습니다.
 
 [필요 데이터](#data-required) · [제공처와 신청 경로](#data-providers) · [문의 체크리스트·복사 문구](#data-inquiry)
 
@@ -339,14 +398,14 @@ DART는 대량보유·임원/주요주주 소유보고 API를 제공합니다. C
 
 **[전체 보고서](docs/research/overseas-data/report.md) · [별도 자료 폴더·종목 명부](docs/research/overseas-data/README.md)**
 
-> **확인 기준: 2026-10-12 KST.** 공식 명세·상품 규격·상장 대상 명부를 정리했습니다. 유료 시세 표본과 가격·OI 패널은 미확보이며, 대만은 Swagger·데이터 JSON 취득에 실패해 API 실행 검증이 남아 있습니다. 아래 54개·7개는 **기초종목 수**로, 실제 만기·행사가·콜풋별 계약 수가 아닙니다.
+> **확인 기준: 2026-10-12 KST.** 공식 명세·상품 규격·상장 대상 명부를 정리했습니다. 일본·홍콩 유료 시세 표본은 미확보입니다. 대만은 후속 실제 호출에서 Swagger·가격/OI·역사 CSV 확보에 성공했으며 [실행 결과](docs/taifex-analysis.md)를 추가했습니다. 이전 조사 보고서의 실패 기록은 당시 이력으로 보존합니다. 아래 54개·7개는 **기초종목 수**로, 실제 만기·행사가·콜풋별 계약 수가 아닙니다.
 
 | 시장·공식 제공처 | 데이터셋·수집 구조 | 위클리·개별주식 범위 | 분석 전 확인할 사항 |
 |---|---|---|---|
 | **일본 · [J-Quants Pro](https://pro.jpx-jquants.com/)** | 인증 REST·SFTP. `/v2/derivatives/options`는 날짜별 옵션 OHLC·OI·IV, 별도 계약별·참가자별 OI API 제공 | 지수 mini `NK225MWE`는 현재 수·금 만기. 일반 개별증권 `EQOP`는 월물이며 Flexible 계약과 구분 | 실제 구독 권한·응답·IV 기준 확인. **Pro 1분 API는 현물주식용**으로 선물·옵션·지수 제외 |
 | **일본 · [DataCube 옵션 1분](https://jpx.gitbook.io/jquants-dc/en/dataspec/fin_derivatives/ohlc_minute/options/deribatibu-opushon-risuto)** | 별도 유료 CSV. mini 옵션 1분은 **2023-05-29~**, 개별증권 옵션 1분은 **2014-03-24~** | 지수 mini 장중 분석과 개별증권 월물 비교집단에 활용 | 같은 시각의 기초가격을 별도 연결. 분 경계·무거래·거래량 단위 확인; 체결 틱은 주문장 이력이 아님 |
 | **홍콩 · [HKEX Marketplace](https://www.hkex.com.hk/Services/Market-Data-Services/Historical-Data-Services/HKEX-Data-Marketplace?sc_lang=en)** | 라이선스 기반 다운로드·SFTP·S3. Full Book은 주식옵션 `CFBD-SOM`, 그 외 선물·옵션 `CFBD-NSOM` 구분 | 위클리 주식옵션 **54개 클래스**. HSI·HHI·HTI 지수 위클리 별도 | 실제 활성 계약체인·조정 승수·기초가격 필요. **Full Book만으로 OI·IV가 확보되지 않음** |
-| **대만 · [TAIFEX OpenAPI](https://openapi.taifex.com.tw/) / [과거 자료](https://www.taifex.com.tw/enl/eng3/optDailyMarketView?menuid1=03)** | `DailyMarketReportOpt`, `DailyOptionsDelta`, `PutCallRatio`, `OpenInterestOfLargeTradersOptions`, `OptionsTimeAndSalesData`는 후속 검증 대상 | 공식 명부상 주식옵션 32개 중 **위클리 7개**, 위클리 ETF 0개. 주식 위클리는 수요일 만기 | **실제 JSON 미검증:** 인증·query·응답 필드·장기 역사 범위를 확정하지 않음. TXO 지수 위클리 규칙은 별도 확인 |
+| **대만 · [TAIFEX OpenAPI](https://openapi.taifex.com.tw/) / [과거 자료](https://www.taifex.com.tw/enl/eng3/optDailyMarketView?menuid1=03)** | 무인증 가격 API 최신 1일, 공식 CSV 20거래일 수집 성공. 대용량 틱 전체는 미수집 | 공식 명부상 주식옵션 32개 중 **위클리 7개**, 위클리 ETF 0개. 주식 위클리는 수요일 만기 | 현재 가격 API에 날짜 query 없음; 별도 CSV 월간 구간 조회 확인. Delta 날짜 없음·야간 OI 결측·호가 출처 차이 유의 |
 
 위 상품 범위는 [JPX mini 규격](https://www.jpx.co.jp/derivatives/products/domestic/225mini-options/01.html)·[Pro 1분 명세](https://jpx.gitbook.io/j-quants-pro/api-reference/equities_bars_minute)·[일본 개별증권 규격](https://www.jpx.co.jp/english/derivatives/products/individual/securities-options/01.html), [HKEX 위클리 명부](https://www.hkex.com.hk/Products/Listed-Derivatives/Single-Stock/Stock-Options/Weekly-Stock-Options?sc_lang=en), [TAIFEX 대상 명부](https://www.taifex.com.tw/cht/2/stockLists)를 기준으로 정리했습니다. 세부 인증·필드·갱신시각과 출처는 [전체 보고서](docs/research/overseas-data/report.md)에 있습니다.
 
@@ -366,7 +425,7 @@ GitHub 파일 화면에서 **Download raw file**로 저장할 수 있습니다. 
 2. **지수 위클리부터 비교:** 국내 HAR/RV 기준 → 국내 옵션 정보 추가 → 당시 이용 가능한 해외 정보 추가 → 해외 사전학습 후 국내 보정을 같은 국내 평가 구간에서 비교합니다. 해외 변수의 추가 효과와 모델 전이 효과를 구분합니다.
 3. **개별주식은 별도 검증군:** 배당·실적발표·기업행사, 미국형/유럽형·실물/현금결제 차이를 반영합니다. 가격·OI로 H5·H6를 준비하고, REV에는 정확한 장중 기초가격, H9b에는 호가·잔량 이력을 추가합니다.
 
-현재 확인한 조달 구조를 기준으로 **일본 지수 mini의 계약·일별·장중 표본부터 연결**하고, 대만 API 검증과 홍콩·대만 개별주식 확장을 진행하는 순서를 제안합니다. [계약·시간·목표 정렬 설계](docs/research/overseas-data/report.md#model-transfer) · [공급처별 문의표](docs/research/overseas-data/report.md#acquisition)
+현재 확인한 조달 구조를 기준으로 **일본 지수 mini의 계약·일별·장중 표본부터 연결**하고, 이미 확보한 대만 일별 자료를 기초가격·장기 이력과 연결하고 홍콩 표본 확보를 진행합니다. [계약·시간·목표 정렬 설계](docs/research/overseas-data/report.md#model-transfer) · [공급처별 문의표](docs/research/overseas-data/report.md#acquisition)
 
 <a id="data-inquiry"></a>
 ### 3. 문의할 때 확인할 체크리스트
@@ -394,9 +453,10 @@ GitHub 파일 화면에서 **Download raw file**로 저장할 수 있습니다. 
 python -m pip install -e ".[dashboard,streamlit]"
 python scripts/analyze_reversal.py
 python scripts/analyze_hypotheses.py
+python scripts/analyze_taifex.py
 python -m unittest discover -s tests -v
 ```
 
-로컬 검증과 CI는 분석 경계조건, 자료 보존, Streamlit 다섯 화면을 검사합니다. 전체 산출물 재생성·HTML/Word 빌드·API 수집 절차는 [재현 및 운영 안내](docs/reproduction.md)에 정리했습니다.
+로컬 검증과 CI는 분석 경계조건, 자료 보존, Streamlit 여섯 화면과 TAIFEX 세부 화면을 검사합니다. 전체 산출물 재생성·HTML/Word 빌드·API 수집 절차는 [재현 및 운영 안내](docs/reproduction.md)에 정리했습니다.
 
-보존된 검증 기록에서는 **모의 Access Token 발급 성공**, 국내 시세는 **403 / EGW016**이었습니다. 인증 성공과 시세 권한은 별도이며, 이번 README 정리에서는 권한 상태를 다시 확인하지 않았습니다. 시세 확보 후에도 거래일·가격 시각·계약 연결·비용을 검증한 뒤 성능을 평가합니다. 키·토큰·원본 시세 응답은 저장소에 포함하지 않습니다.
+보존된 검증 기록에서는 **모의 Access Token 발급 성공**, 국내 시세는 **403 / EGW016**이었습니다. 인증 성공과 시세 권한은 별도이며, 이번 README 정리에서는 권한 상태를 다시 확인하지 않았습니다. 시세 확보 후에도 거래일·가격 시각·계약 연결·비용을 검증한 뒤 성능을 평가합니다. 키·토큰·비공개 계좌 응답은 저장소에 포함하지 않습니다. TAIFEX 공개자료는 출처·이용허락·해시와 함께 별도로 보존했습니다.
