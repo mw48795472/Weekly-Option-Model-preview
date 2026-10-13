@@ -1,0 +1,138 @@
+{
+  "package": "h5_h6_diagnostics.zip",
+  "bytes": 621787,
+  "sha256": "29a0fc2a1c86469b95b90a72dddbb79466373d0d27ea4bc5c2b13f176679adc3",
+  "files": [
+    {
+      "path": "data/analysis/h5_diagnostics/design_cells.csv",
+      "bytes": 3551,
+      "sha256": "426cd83a36c1fc3f3adc243818f0fbb97e9387877c2cd5ccdf0ff8f804770fa6"
+    },
+    {
+      "path": "data/analysis/h5_diagnostics/exclusion_audit.csv",
+      "bytes": 262951,
+      "sha256": "ff702bf3b47019e9e2be932dc3a394921839c7198738ab38d3e3b06165ca310d"
+    },
+    {
+      "path": "data/analysis/h5_diagnostics/primary_diagnostics.csv",
+      "bytes": 7385,
+      "sha256": "c95735774b94ad7816ccb3c5a1b56777de06f2d914a67ce33bd24706f9e50a89"
+    },
+    {
+      "path": "data/analysis/h5_diagnostics/sample_scenarios.csv",
+      "bytes": 7701,
+      "sha256": "087188fec3b03d961d06a3d3eb48c0fb86cb59556b3528b0f7909daee9878eed"
+    },
+    {
+      "path": "data/analysis/h5_diagnostics/specification_design.csv",
+      "bytes": 5187,
+      "sha256": "2fbd2b3f02142739ecb758659b22ef08471cae07b42b381f0284ecf3be5bd5d4"
+    },
+    {
+      "path": "data/analysis/h5_diagnostics/specification_sensitivity.csv",
+      "bytes": 38617,
+      "sha256": "65ad1b4188d4f2438a02fd3cc626e7df4e8fe6153147f1cef4afa7b684a69bd1"
+    },
+    {
+      "path": "data/analysis/h5_diagnostics/summary.json",
+      "bytes": 17614,
+      "sha256": "aaa0ef4b682a554f676704af996b40d871aba6cff8a0fccc497c8156d29de317"
+    },
+    {
+      "path": "data/analysis/h6_diagnostics/additional_data.csv",
+      "bytes": 2600,
+      "sha256": "40186b089e657248b905371643ea7b5cdd492a087913ef91c1e1444a4d136aff"
+    },
+    {
+      "path": "data/analysis/h6_diagnostics/common_refit_comparison.csv",
+      "bytes": 17757,
+      "sha256": "413a2df0c4237a1603c60d866b27224336adb0caec037f348f22574130dfca94"
+    },
+    {
+      "path": "data/analysis/h6_diagnostics/common_refit_forecasts.csv",
+      "bytes": 143295,
+      "sha256": "04d38ad06873228a721b26e81ad0e83d0d36062c820aae663191a81520c98571"
+    },
+    {
+      "path": "data/analysis/h6_diagnostics/existing_family_common_dates.csv",
+      "bytes": 2028,
+      "sha256": "5eb8c1858751fc0dec04ab850d3675d9f219404164e0bcdf905f244fb6289aa2"
+    },
+    {
+      "path": "data/analysis/h6_diagnostics/information.csv",
+      "bytes": 1461,
+      "sha256": "260387d1f80c6c8cfdb0e822c6a71849d48c0ce30a369ec6c0512bfbbcae2021"
+    },
+    {
+      "path": "data/analysis/h6_diagnostics/origin_audit.csv",
+      "bytes": 3182576,
+      "sha256": "b0461f39cb7772157f60452b1893a05b7032bd8907f47e8c482db1adfc3e9bc3"
+    },
+    {
+      "path": "data/analysis/h6_diagnostics/precision.csv",
+      "bytes": 58612,
+      "sha256": "e05e91e4c19d9aa77565e81e4dfa824b8d9e473a2e5b7b8cb654e3b7fda15cf1"
+    },
+    {
+      "path": "data/analysis/h6_diagnostics/sample_attrition.csv",
+      "bytes": 55574,
+      "sha256": "b2e73d116a9a9581ffa9fd75f1a3ee338a188970f16f5a680b493f241ee4cda4"
+    },
+    {
+      "path": "data/analysis/h6_diagnostics/summary.json",
+      "bytes": 1400,
+      "sha256": "9d4cfdf85f6e6312a4a009c29c7715433dbd583640bf656173ace1f833f99003"
+    },
+    {
+      "path": "data/analysis/nikkei/required_data.csv",
+      "bytes": 1980,
+      "sha256": "12337831a8b38bfb397cc375e5052833199eebcd93d978e8dc4ec80b1ef4dcb4"
+    },
+    {
+      "path": "data/analysis/nikkei/status.csv",
+      "bytes": 1363,
+      "sha256": "02e9f13778c79d60c89f64abd2be5fd37b4113bcb799e8311da644814a5cc8e6"
+    },
+    {
+      "path": "data/analysis/nikkei/summary.json",
+      "bytes": 760,
+      "sha256": "4ee5cb5d65ecab60afa78e25570d10c2b89cc85bff1a820cb7fa4fa9d9f8464a"
+    },
+    {
+      "path": "data/analysis/research_diagnostics/additional_data.csv",
+      "bytes": 5769,
+      "sha256": "17546fd3cb50df4922415465c4e8657f5b18d21dcfe6ab7c5c57f3887b6fe4ba"
+    },
+    {
+      "path": "docs/images/h5_diagnostics/h5_precision_design.png",
+      "bytes": 119058,
+      "sha256": "70c17bf7f441e88d4f0b7c3b788aba6b5dbe0494d4288ef2ee68be1503937edc"
+    },
+    {
+      "path": "docs/images/h5_diagnostics/h5_sample_units.png",
+      "bytes": 56738,
+      "sha256": "bd22447bf676f63a0ae8771bf92463c349dda3d0748f2a86884853f95c1a33cf"
+    },
+    {
+      "path": "docs/images/h6_diagnostics/common_refit.png",
+      "bytes": 84658,
+      "sha256": "4b6f97969135565ad27847f43dd2be1af5baa38823c393005736a69efe4e5c9d"
+    },
+    {
+      "path": "docs/images/h6_diagnostics/oi_information.png",
+      "bytes": 81494,
+      "sha256": "03c52ed241b92af4d13ddaf1cc8d4e367d67db586478dd31ae0e7ebfac6c9670"
+    },
+    {
+      "path": "docs/images/h6_diagnostics/sample_attrition.png",
+      "bytes": 68999,
+      "sha256": "809d7551a0489f7fdc218d7f2b291c83ccd144ebfa7df8e3a62ceb35eb7d2961"
+    },
+    {
+      "path": "reports/H5 H6 불확실성과 닛케이 확장.md",
+      "bytes": 22515,
+      "sha256": "52ff503e50ad6ea151481f5ec45f7db4eab83f3aa5ac8383fbe2000f306f2f12"
+    }
+  ],
+  "scope": "Public derived diagnostics and metadata; no private source prices or credentials"
+}

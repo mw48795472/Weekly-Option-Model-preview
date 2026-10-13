@@ -1,0 +1,10 @@
+{
+  "name": "DailyMarketReportFut",
+  "url": "https://openapi.taifex.com.tw/v1/DailyMarketReportFut",
+  "method": "GET",
+  "request_fields": null,
+  "retrieved_at": "2026-10-13T04:05:57.794960+00:00",
+  "complete": false,
+  "error": "Local network access denied before HTTP response",
+  "error_class": "PermissionError"
+}

@@ -1,0 +1,22 @@
+{
+  "version": "nikkei-readiness-20261013",
+  "verified_at": "2026-10-13",
+  "status": "data_unavailable",
+  "taifex_nikkei_listed": false,
+  "correct_venue": "OSE",
+  "correct_product": "Nikkei 225 mini Options",
+  "taifex_japan_product": "TOPIX futures (TJF)",
+  "nikkei_observations": 0,
+  "option_oi_observations": 0,
+  "h5_executed": false,
+  "h6_executed": false,
+  "api_requests": 2,
+  "api_success": 0,
+  "requested_start": "2025-01-02",
+  "requested_end": "2026-10-08",
+  "actual_start": null,
+  "actual_end": null,
+  "product_evidence": "Official product page; not an API response audit",
+  "reason": "TAIFEX does not list Nikkei225 in its official product catalog. OSE/Nikkei source files were not acquired.",
+  "public_raw_redistribution": false
+}

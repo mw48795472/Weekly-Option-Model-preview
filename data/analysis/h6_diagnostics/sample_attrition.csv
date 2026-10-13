@@ -1,0 +1,837 @@
+﻿unit,name,order,gate,count,remaining,proxy,family
+TXO,TAIEX / TXO,0,pre_launch,0,428,parkinson,matched
+TXO,TAIEX / TXO,1,history_initial_22,21,407,parkinson,matched
+TXO,TAIEX / TXO,2,history_missing_price,0,407,parkinson,matched
+TXO,TAIEX / TXO,3,history_zero_range,0,407,parkinson,matched
+TXO,TAIEX / TXO,4,history_non_comparable,0,407,parkinson,matched
+TXO,TAIEX / TXO,5,history_other_proxy_missing,0,407,parkinson,matched
+TXO,TAIEX / TXO,6,oi_warmup_or_source_missing,0,407,parkinson,matched
+TXO,TAIEX / TXO,7,oi_zero_denominator_or_no_overlap,34,373,parkinson,matched
+TXO,TAIEX / TXO,8,oi_other_missing,0,373,parkinson,matched
+TXO,TAIEX / TXO,9,target_end_boundary,5,368,parkinson,matched
+TXO,TAIEX / TXO,10,target_missing_price,0,368,parkinson,matched
+TXO,TAIEX / TXO,11,target_zero_range,0,368,parkinson,matched
+TXO,TAIEX / TXO,12,target_non_comparable,0,368,parkinson,matched
+TXO,TAIEX / TXO,13,target_other_missing,0,368,parkinson,matched
+TXO,TAIEX / TXO,14,calendar_missing,0,368,parkinson,matched
+TXO,TAIEX / TXO,15,initial_train_below_100,100,268,parkinson,matched
+TXO,TAIEX / TXO,16,purge_train_below_100,5,263,parkinson,matched
+TXO,TAIEX / TXO,17,rank_unidentified,0,263,parkinson,matched
+TXO,TAIEX / TXO,18,evaluated,263,263,parkinson,matched
+TXO,TAIEX / TXO,0,pre_launch,0,428,close_squared_return,matched
+TXO,TAIEX / TXO,1,history_initial_22,21,407,close_squared_return,matched
+TXO,TAIEX / TXO,2,history_missing_price,0,407,close_squared_return,matched
+TXO,TAIEX / TXO,3,history_zero_range,0,407,close_squared_return,matched
+TXO,TAIEX / TXO,4,history_non_comparable,0,407,close_squared_return,matched
+TXO,TAIEX / TXO,5,history_other_proxy_missing,1,406,close_squared_return,matched
+TXO,TAIEX / TXO,6,oi_warmup_or_source_missing,0,406,close_squared_return,matched
+TXO,TAIEX / TXO,7,oi_zero_denominator_or_no_overlap,33,373,close_squared_return,matched
+TXO,TAIEX / TXO,8,oi_other_missing,0,373,close_squared_return,matched
+TXO,TAIEX / TXO,9,target_end_boundary,5,368,close_squared_return,matched
+TXO,TAIEX / TXO,10,target_missing_price,0,368,close_squared_return,matched
+TXO,TAIEX / TXO,11,target_zero_range,0,368,close_squared_return,matched
+TXO,TAIEX / TXO,12,target_non_comparable,0,368,close_squared_return,matched
+TXO,TAIEX / TXO,13,target_other_missing,0,368,close_squared_return,matched
+TXO,TAIEX / TXO,14,calendar_missing,0,368,close_squared_return,matched
+TXO,TAIEX / TXO,15,initial_train_below_100,100,268,close_squared_return,matched
+TXO,TAIEX / TXO,16,purge_train_below_100,5,263,close_squared_return,matched
+TXO,TAIEX / TXO,17,rank_unidentified,0,263,close_squared_return,matched
+TXO,TAIEX / TXO,18,evaluated,263,263,close_squared_return,matched
+1303,Nan Ya Plastics,0,pre_launch,264,164,parkinson,matched
+1303,Nan Ya Plastics,1,history_initial_22,0,164,parkinson,matched
+1303,Nan Ya Plastics,2,history_missing_price,0,164,parkinson,matched
+1303,Nan Ya Plastics,3,history_zero_range,44,120,parkinson,matched
+1303,Nan Ya Plastics,4,history_non_comparable,0,120,parkinson,matched
+1303,Nan Ya Plastics,5,history_other_proxy_missing,0,120,parkinson,matched
+1303,Nan Ya Plastics,6,oi_warmup_or_source_missing,7,113,parkinson,matched
+1303,Nan Ya Plastics,7,oi_zero_denominator_or_no_overlap,91,22,parkinson,matched
+1303,Nan Ya Plastics,8,oi_other_missing,0,22,parkinson,matched
+1303,Nan Ya Plastics,9,target_end_boundary,0,22,parkinson,matched
+1303,Nan Ya Plastics,10,target_missing_price,0,22,parkinson,matched
+1303,Nan Ya Plastics,11,target_zero_range,1,21,parkinson,matched
+1303,Nan Ya Plastics,12,target_non_comparable,0,21,parkinson,matched
+1303,Nan Ya Plastics,13,target_other_missing,0,21,parkinson,matched
+1303,Nan Ya Plastics,14,calendar_missing,0,21,parkinson,matched
+1303,Nan Ya Plastics,15,initial_train_below_100,21,0,parkinson,matched
+1303,Nan Ya Plastics,16,purge_train_below_100,0,0,parkinson,matched
+1303,Nan Ya Plastics,17,rank_unidentified,0,0,parkinson,matched
+1303,Nan Ya Plastics,18,evaluated,0,0,parkinson,matched
+1303,Nan Ya Plastics,0,pre_launch,264,164,parkinson,level
+1303,Nan Ya Plastics,1,history_initial_22,0,164,parkinson,level
+1303,Nan Ya Plastics,2,history_missing_price,0,164,parkinson,level
+1303,Nan Ya Plastics,3,history_zero_range,44,120,parkinson,level
+1303,Nan Ya Plastics,4,history_non_comparable,0,120,parkinson,level
+1303,Nan Ya Plastics,5,history_other_proxy_missing,0,120,parkinson,level
+1303,Nan Ya Plastics,6,oi_warmup_or_source_missing,2,118,parkinson,level
+1303,Nan Ya Plastics,7,oi_zero_denominator_or_no_overlap,0,118,parkinson,level
+1303,Nan Ya Plastics,8,oi_other_missing,0,118,parkinson,level
+1303,Nan Ya Plastics,9,target_end_boundary,5,113,parkinson,level
+1303,Nan Ya Plastics,10,target_missing_price,0,113,parkinson,level
+1303,Nan Ya Plastics,11,target_zero_range,10,103,parkinson,level
+1303,Nan Ya Plastics,12,target_non_comparable,0,103,parkinson,level
+1303,Nan Ya Plastics,13,target_other_missing,0,103,parkinson,level
+1303,Nan Ya Plastics,14,calendar_missing,0,103,parkinson,level
+1303,Nan Ya Plastics,15,initial_train_below_100,100,3,parkinson,level
+1303,Nan Ya Plastics,16,purge_train_below_100,3,0,parkinson,level
+1303,Nan Ya Plastics,17,rank_unidentified,0,0,parkinson,level
+1303,Nan Ya Plastics,18,evaluated,0,0,parkinson,level
+1303,Nan Ya Plastics,0,pre_launch,264,164,close_squared_return,matched
+1303,Nan Ya Plastics,1,history_initial_22,0,164,close_squared_return,matched
+1303,Nan Ya Plastics,2,history_missing_price,0,164,close_squared_return,matched
+1303,Nan Ya Plastics,3,history_zero_range,0,164,close_squared_return,matched
+1303,Nan Ya Plastics,4,history_non_comparable,22,142,close_squared_return,matched
+1303,Nan Ya Plastics,5,history_other_proxy_missing,0,142,close_squared_return,matched
+1303,Nan Ya Plastics,6,oi_warmup_or_source_missing,7,135,close_squared_return,matched
+1303,Nan Ya Plastics,7,oi_zero_denominator_or_no_overlap,109,26,close_squared_return,matched
+1303,Nan Ya Plastics,8,oi_other_missing,0,26,close_squared_return,matched
+1303,Nan Ya Plastics,9,target_end_boundary,0,26,close_squared_return,matched
+1303,Nan Ya Plastics,10,target_missing_price,0,26,close_squared_return,matched
+1303,Nan Ya Plastics,11,target_zero_range,0,26,close_squared_return,matched
+1303,Nan Ya Plastics,12,target_non_comparable,1,25,close_squared_return,matched
+1303,Nan Ya Plastics,13,target_other_missing,0,25,close_squared_return,matched
+1303,Nan Ya Plastics,14,calendar_missing,0,25,close_squared_return,matched
+1303,Nan Ya Plastics,15,initial_train_below_100,25,0,close_squared_return,matched
+1303,Nan Ya Plastics,16,purge_train_below_100,0,0,close_squared_return,matched
+1303,Nan Ya Plastics,17,rank_unidentified,0,0,close_squared_return,matched
+1303,Nan Ya Plastics,18,evaluated,0,0,close_squared_return,matched
+1303,Nan Ya Plastics,0,pre_launch,264,164,close_squared_return,level
+1303,Nan Ya Plastics,1,history_initial_22,0,164,close_squared_return,level
+1303,Nan Ya Plastics,2,history_missing_price,0,164,close_squared_return,level
+1303,Nan Ya Plastics,3,history_zero_range,0,164,close_squared_return,level
+1303,Nan Ya Plastics,4,history_non_comparable,22,142,close_squared_return,level
+1303,Nan Ya Plastics,5,history_other_proxy_missing,0,142,close_squared_return,level
+1303,Nan Ya Plastics,6,oi_warmup_or_source_missing,2,140,close_squared_return,level
+1303,Nan Ya Plastics,7,oi_zero_denominator_or_no_overlap,0,140,close_squared_return,level
+1303,Nan Ya Plastics,8,oi_other_missing,0,140,close_squared_return,level
+1303,Nan Ya Plastics,9,target_end_boundary,5,135,close_squared_return,level
+1303,Nan Ya Plastics,10,target_missing_price,0,135,close_squared_return,level
+1303,Nan Ya Plastics,11,target_zero_range,0,135,close_squared_return,level
+1303,Nan Ya Plastics,12,target_non_comparable,5,130,close_squared_return,level
+1303,Nan Ya Plastics,13,target_other_missing,0,130,close_squared_return,level
+1303,Nan Ya Plastics,14,calendar_missing,0,130,close_squared_return,level
+1303,Nan Ya Plastics,15,initial_train_below_100,100,30,close_squared_return,level
+1303,Nan Ya Plastics,16,purge_train_below_100,5,25,close_squared_return,level
+1303,Nan Ya Plastics,17,rank_unidentified,0,25,close_squared_return,level
+1303,Nan Ya Plastics,18,evaluated,25,25,close_squared_return,level
+1303,Nan Ya Plastics,0,pre_launch,264,164,parkinson_clean,matched
+1303,Nan Ya Plastics,1,history_initial_22,0,164,parkinson_clean,matched
+1303,Nan Ya Plastics,2,history_missing_price,0,164,parkinson_clean,matched
+1303,Nan Ya Plastics,3,history_zero_range,44,120,parkinson_clean,matched
+1303,Nan Ya Plastics,4,history_non_comparable,6,114,parkinson_clean,matched
+1303,Nan Ya Plastics,5,history_other_proxy_missing,0,114,parkinson_clean,matched
+1303,Nan Ya Plastics,6,oi_warmup_or_source_missing,7,107,parkinson_clean,matched
+1303,Nan Ya Plastics,7,oi_zero_denominator_or_no_overlap,86,21,parkinson_clean,matched
+1303,Nan Ya Plastics,8,oi_other_missing,0,21,parkinson_clean,matched
+1303,Nan Ya Plastics,9,target_end_boundary,0,21,parkinson_clean,matched
+1303,Nan Ya Plastics,10,target_missing_price,0,21,parkinson_clean,matched
+1303,Nan Ya Plastics,11,target_zero_range,0,21,parkinson_clean,matched
+1303,Nan Ya Plastics,12,target_non_comparable,0,21,parkinson_clean,matched
+1303,Nan Ya Plastics,13,target_other_missing,0,21,parkinson_clean,matched
+1303,Nan Ya Plastics,14,calendar_missing,0,21,parkinson_clean,matched
+1303,Nan Ya Plastics,15,initial_train_below_100,21,0,parkinson_clean,matched
+1303,Nan Ya Plastics,16,purge_train_below_100,0,0,parkinson_clean,matched
+1303,Nan Ya Plastics,17,rank_unidentified,0,0,parkinson_clean,matched
+1303,Nan Ya Plastics,18,evaluated,0,0,parkinson_clean,matched
+1303,Nan Ya Plastics,0,pre_launch,264,164,parkinson_clean,level
+1303,Nan Ya Plastics,1,history_initial_22,0,164,parkinson_clean,level
+1303,Nan Ya Plastics,2,history_missing_price,0,164,parkinson_clean,level
+1303,Nan Ya Plastics,3,history_zero_range,44,120,parkinson_clean,level
+1303,Nan Ya Plastics,4,history_non_comparable,6,114,parkinson_clean,level
+1303,Nan Ya Plastics,5,history_other_proxy_missing,0,114,parkinson_clean,level
+1303,Nan Ya Plastics,6,oi_warmup_or_source_missing,2,112,parkinson_clean,level
+1303,Nan Ya Plastics,7,oi_zero_denominator_or_no_overlap,0,112,parkinson_clean,level
+1303,Nan Ya Plastics,8,oi_other_missing,0,112,parkinson_clean,level
+1303,Nan Ya Plastics,9,target_end_boundary,5,107,parkinson_clean,level
+1303,Nan Ya Plastics,10,target_missing_price,0,107,parkinson_clean,level
+1303,Nan Ya Plastics,11,target_zero_range,5,102,parkinson_clean,level
+1303,Nan Ya Plastics,12,target_non_comparable,0,102,parkinson_clean,level
+1303,Nan Ya Plastics,13,target_other_missing,0,102,parkinson_clean,level
+1303,Nan Ya Plastics,14,calendar_missing,0,102,parkinson_clean,level
+1303,Nan Ya Plastics,15,initial_train_below_100,100,2,parkinson_clean,level
+1303,Nan Ya Plastics,16,purge_train_below_100,2,0,parkinson_clean,level
+1303,Nan Ya Plastics,17,rank_unidentified,0,0,parkinson_clean,level
+1303,Nan Ya Plastics,18,evaluated,0,0,parkinson_clean,level
+2303,UMC,0,pre_launch,264,164,parkinson,matched
+2303,UMC,1,history_initial_22,0,164,parkinson,matched
+2303,UMC,2,history_missing_price,0,164,parkinson,matched
+2303,UMC,3,history_zero_range,44,120,parkinson,matched
+2303,UMC,4,history_non_comparable,0,120,parkinson,matched
+2303,UMC,5,history_other_proxy_missing,0,120,parkinson,matched
+2303,UMC,6,oi_warmup_or_source_missing,7,113,parkinson,matched
+2303,UMC,7,oi_zero_denominator_or_no_overlap,38,75,parkinson,matched
+2303,UMC,8,oi_other_missing,0,75,parkinson,matched
+2303,UMC,9,target_end_boundary,3,72,parkinson,matched
+2303,UMC,10,target_missing_price,0,72,parkinson,matched
+2303,UMC,11,target_zero_range,3,69,parkinson,matched
+2303,UMC,12,target_non_comparable,0,69,parkinson,matched
+2303,UMC,13,target_other_missing,0,69,parkinson,matched
+2303,UMC,14,calendar_missing,0,69,parkinson,matched
+2303,UMC,15,initial_train_below_100,69,0,parkinson,matched
+2303,UMC,16,purge_train_below_100,0,0,parkinson,matched
+2303,UMC,17,rank_unidentified,0,0,parkinson,matched
+2303,UMC,18,evaluated,0,0,parkinson,matched
+2303,UMC,0,pre_launch,264,164,parkinson,level
+2303,UMC,1,history_initial_22,0,164,parkinson,level
+2303,UMC,2,history_missing_price,0,164,parkinson,level
+2303,UMC,3,history_zero_range,44,120,parkinson,level
+2303,UMC,4,history_non_comparable,0,120,parkinson,level
+2303,UMC,5,history_other_proxy_missing,0,120,parkinson,level
+2303,UMC,6,oi_warmup_or_source_missing,2,118,parkinson,level
+2303,UMC,7,oi_zero_denominator_or_no_overlap,0,118,parkinson,level
+2303,UMC,8,oi_other_missing,0,118,parkinson,level
+2303,UMC,9,target_end_boundary,5,113,parkinson,level
+2303,UMC,10,target_missing_price,0,113,parkinson,level
+2303,UMC,11,target_zero_range,10,103,parkinson,level
+2303,UMC,12,target_non_comparable,0,103,parkinson,level
+2303,UMC,13,target_other_missing,0,103,parkinson,level
+2303,UMC,14,calendar_missing,0,103,parkinson,level
+2303,UMC,15,initial_train_below_100,100,3,parkinson,level
+2303,UMC,16,purge_train_below_100,3,0,parkinson,level
+2303,UMC,17,rank_unidentified,0,0,parkinson,level
+2303,UMC,18,evaluated,0,0,parkinson,level
+2303,UMC,0,pre_launch,264,164,close_squared_return,matched
+2303,UMC,1,history_initial_22,0,164,close_squared_return,matched
+2303,UMC,2,history_missing_price,0,164,close_squared_return,matched
+2303,UMC,3,history_zero_range,0,164,close_squared_return,matched
+2303,UMC,4,history_non_comparable,22,142,close_squared_return,matched
+2303,UMC,5,history_other_proxy_missing,0,142,close_squared_return,matched
+2303,UMC,6,oi_warmup_or_source_missing,7,135,close_squared_return,matched
+2303,UMC,7,oi_zero_denominator_or_no_overlap,49,86,close_squared_return,matched
+2303,UMC,8,oi_other_missing,0,86,close_squared_return,matched
+2303,UMC,9,target_end_boundary,3,83,close_squared_return,matched
+2303,UMC,10,target_missing_price,0,83,close_squared_return,matched
+2303,UMC,11,target_zero_range,0,83,close_squared_return,matched
+2303,UMC,12,target_non_comparable,5,78,close_squared_return,matched
+2303,UMC,13,target_other_missing,0,78,close_squared_return,matched
+2303,UMC,14,calendar_missing,0,78,close_squared_return,matched
+2303,UMC,15,initial_train_below_100,78,0,close_squared_return,matched
+2303,UMC,16,purge_train_below_100,0,0,close_squared_return,matched
+2303,UMC,17,rank_unidentified,0,0,close_squared_return,matched
+2303,UMC,18,evaluated,0,0,close_squared_return,matched
+2303,UMC,0,pre_launch,264,164,close_squared_return,level
+2303,UMC,1,history_initial_22,0,164,close_squared_return,level
+2303,UMC,2,history_missing_price,0,164,close_squared_return,level
+2303,UMC,3,history_zero_range,0,164,close_squared_return,level
+2303,UMC,4,history_non_comparable,22,142,close_squared_return,level
+2303,UMC,5,history_other_proxy_missing,0,142,close_squared_return,level
+2303,UMC,6,oi_warmup_or_source_missing,2,140,close_squared_return,level
+2303,UMC,7,oi_zero_denominator_or_no_overlap,0,140,close_squared_return,level
+2303,UMC,8,oi_other_missing,0,140,close_squared_return,level
+2303,UMC,9,target_end_boundary,5,135,close_squared_return,level
+2303,UMC,10,target_missing_price,0,135,close_squared_return,level
+2303,UMC,11,target_zero_range,0,135,close_squared_return,level
+2303,UMC,12,target_non_comparable,5,130,close_squared_return,level
+2303,UMC,13,target_other_missing,0,130,close_squared_return,level
+2303,UMC,14,calendar_missing,0,130,close_squared_return,level
+2303,UMC,15,initial_train_below_100,100,30,close_squared_return,level
+2303,UMC,16,purge_train_below_100,5,25,close_squared_return,level
+2303,UMC,17,rank_unidentified,0,25,close_squared_return,level
+2303,UMC,18,evaluated,25,25,close_squared_return,level
+2303,UMC,0,pre_launch,264,164,parkinson_clean,matched
+2303,UMC,1,history_initial_22,0,164,parkinson_clean,matched
+2303,UMC,2,history_missing_price,0,164,parkinson_clean,matched
+2303,UMC,3,history_zero_range,44,120,parkinson_clean,matched
+2303,UMC,4,history_non_comparable,6,114,parkinson_clean,matched
+2303,UMC,5,history_other_proxy_missing,0,114,parkinson_clean,matched
+2303,UMC,6,oi_warmup_or_source_missing,7,107,parkinson_clean,matched
+2303,UMC,7,oi_zero_denominator_or_no_overlap,36,71,parkinson_clean,matched
+2303,UMC,8,oi_other_missing,0,71,parkinson_clean,matched
+2303,UMC,9,target_end_boundary,3,68,parkinson_clean,matched
+2303,UMC,10,target_missing_price,0,68,parkinson_clean,matched
+2303,UMC,11,target_zero_range,0,68,parkinson_clean,matched
+2303,UMC,12,target_non_comparable,0,68,parkinson_clean,matched
+2303,UMC,13,target_other_missing,0,68,parkinson_clean,matched
+2303,UMC,14,calendar_missing,0,68,parkinson_clean,matched
+2303,UMC,15,initial_train_below_100,68,0,parkinson_clean,matched
+2303,UMC,16,purge_train_below_100,0,0,parkinson_clean,matched
+2303,UMC,17,rank_unidentified,0,0,parkinson_clean,matched
+2303,UMC,18,evaluated,0,0,parkinson_clean,matched
+2303,UMC,0,pre_launch,264,164,parkinson_clean,level
+2303,UMC,1,history_initial_22,0,164,parkinson_clean,level
+2303,UMC,2,history_missing_price,0,164,parkinson_clean,level
+2303,UMC,3,history_zero_range,44,120,parkinson_clean,level
+2303,UMC,4,history_non_comparable,6,114,parkinson_clean,level
+2303,UMC,5,history_other_proxy_missing,0,114,parkinson_clean,level
+2303,UMC,6,oi_warmup_or_source_missing,2,112,parkinson_clean,level
+2303,UMC,7,oi_zero_denominator_or_no_overlap,0,112,parkinson_clean,level
+2303,UMC,8,oi_other_missing,0,112,parkinson_clean,level
+2303,UMC,9,target_end_boundary,5,107,parkinson_clean,level
+2303,UMC,10,target_missing_price,0,107,parkinson_clean,level
+2303,UMC,11,target_zero_range,5,102,parkinson_clean,level
+2303,UMC,12,target_non_comparable,0,102,parkinson_clean,level
+2303,UMC,13,target_other_missing,0,102,parkinson_clean,level
+2303,UMC,14,calendar_missing,0,102,parkinson_clean,level
+2303,UMC,15,initial_train_below_100,100,2,parkinson_clean,level
+2303,UMC,16,purge_train_below_100,2,0,parkinson_clean,level
+2303,UMC,17,rank_unidentified,0,0,parkinson_clean,level
+2303,UMC,18,evaluated,0,0,parkinson_clean,level
+2317,Hon Hai,0,pre_launch,226,202,parkinson,matched
+2317,Hon Hai,1,history_initial_22,0,202,parkinson,matched
+2317,Hon Hai,2,history_missing_price,0,202,parkinson,matched
+2317,Hon Hai,3,history_zero_range,0,202,parkinson,matched
+2317,Hon Hai,4,history_non_comparable,0,202,parkinson,matched
+2317,Hon Hai,5,history_other_proxy_missing,0,202,parkinson,matched
+2317,Hon Hai,6,oi_warmup_or_source_missing,7,195,parkinson,matched
+2317,Hon Hai,7,oi_zero_denominator_or_no_overlap,58,137,parkinson,matched
+2317,Hon Hai,8,oi_other_missing,0,137,parkinson,matched
+2317,Hon Hai,9,target_end_boundary,2,135,parkinson,matched
+2317,Hon Hai,10,target_missing_price,0,135,parkinson,matched
+2317,Hon Hai,11,target_zero_range,0,135,parkinson,matched
+2317,Hon Hai,12,target_non_comparable,0,135,parkinson,matched
+2317,Hon Hai,13,target_other_missing,0,135,parkinson,matched
+2317,Hon Hai,14,calendar_missing,0,135,parkinson,matched
+2317,Hon Hai,15,initial_train_below_100,100,35,parkinson,matched
+2317,Hon Hai,16,purge_train_below_100,5,30,parkinson,matched
+2317,Hon Hai,17,rank_unidentified,0,30,parkinson,matched
+2317,Hon Hai,18,evaluated,30,30,parkinson,matched
+2317,Hon Hai,0,pre_launch,226,202,parkinson,level
+2317,Hon Hai,1,history_initial_22,0,202,parkinson,level
+2317,Hon Hai,2,history_missing_price,0,202,parkinson,level
+2317,Hon Hai,3,history_zero_range,0,202,parkinson,level
+2317,Hon Hai,4,history_non_comparable,0,202,parkinson,level
+2317,Hon Hai,5,history_other_proxy_missing,0,202,parkinson,level
+2317,Hon Hai,6,oi_warmup_or_source_missing,2,200,parkinson,level
+2317,Hon Hai,7,oi_zero_denominator_or_no_overlap,0,200,parkinson,level
+2317,Hon Hai,8,oi_other_missing,0,200,parkinson,level
+2317,Hon Hai,9,target_end_boundary,5,195,parkinson,level
+2317,Hon Hai,10,target_missing_price,0,195,parkinson,level
+2317,Hon Hai,11,target_zero_range,0,195,parkinson,level
+2317,Hon Hai,12,target_non_comparable,0,195,parkinson,level
+2317,Hon Hai,13,target_other_missing,0,195,parkinson,level
+2317,Hon Hai,14,calendar_missing,0,195,parkinson,level
+2317,Hon Hai,15,initial_train_below_100,100,95,parkinson,level
+2317,Hon Hai,16,purge_train_below_100,5,90,parkinson,level
+2317,Hon Hai,17,rank_unidentified,0,90,parkinson,level
+2317,Hon Hai,18,evaluated,90,90,parkinson,level
+2317,Hon Hai,0,pre_launch,226,202,close_squared_return,matched
+2317,Hon Hai,1,history_initial_22,0,202,close_squared_return,matched
+2317,Hon Hai,2,history_missing_price,0,202,close_squared_return,matched
+2317,Hon Hai,3,history_zero_range,0,202,close_squared_return,matched
+2317,Hon Hai,4,history_non_comparable,22,180,close_squared_return,matched
+2317,Hon Hai,5,history_other_proxy_missing,0,180,close_squared_return,matched
+2317,Hon Hai,6,oi_warmup_or_source_missing,7,173,close_squared_return,matched
+2317,Hon Hai,7,oi_zero_denominator_or_no_overlap,51,122,close_squared_return,matched
+2317,Hon Hai,8,oi_other_missing,0,122,close_squared_return,matched
+2317,Hon Hai,9,target_end_boundary,2,120,close_squared_return,matched
+2317,Hon Hai,10,target_missing_price,0,120,close_squared_return,matched
+2317,Hon Hai,11,target_zero_range,0,120,close_squared_return,matched
+2317,Hon Hai,12,target_non_comparable,3,117,close_squared_return,matched
+2317,Hon Hai,13,target_other_missing,0,117,close_squared_return,matched
+2317,Hon Hai,14,calendar_missing,0,117,close_squared_return,matched
+2317,Hon Hai,15,initial_train_below_100,100,17,close_squared_return,matched
+2317,Hon Hai,16,purge_train_below_100,5,12,close_squared_return,matched
+2317,Hon Hai,17,rank_unidentified,0,12,close_squared_return,matched
+2317,Hon Hai,18,evaluated,12,12,close_squared_return,matched
+2317,Hon Hai,0,pre_launch,226,202,close_squared_return,level
+2317,Hon Hai,1,history_initial_22,0,202,close_squared_return,level
+2317,Hon Hai,2,history_missing_price,0,202,close_squared_return,level
+2317,Hon Hai,3,history_zero_range,0,202,close_squared_return,level
+2317,Hon Hai,4,history_non_comparable,22,180,close_squared_return,level
+2317,Hon Hai,5,history_other_proxy_missing,0,180,close_squared_return,level
+2317,Hon Hai,6,oi_warmup_or_source_missing,2,178,close_squared_return,level
+2317,Hon Hai,7,oi_zero_denominator_or_no_overlap,0,178,close_squared_return,level
+2317,Hon Hai,8,oi_other_missing,0,178,close_squared_return,level
+2317,Hon Hai,9,target_end_boundary,5,173,close_squared_return,level
+2317,Hon Hai,10,target_missing_price,0,173,close_squared_return,level
+2317,Hon Hai,11,target_zero_range,0,173,close_squared_return,level
+2317,Hon Hai,12,target_non_comparable,5,168,close_squared_return,level
+2317,Hon Hai,13,target_other_missing,0,168,close_squared_return,level
+2317,Hon Hai,14,calendar_missing,0,168,close_squared_return,level
+2317,Hon Hai,15,initial_train_below_100,100,68,close_squared_return,level
+2317,Hon Hai,16,purge_train_below_100,5,63,close_squared_return,level
+2317,Hon Hai,17,rank_unidentified,0,63,close_squared_return,level
+2317,Hon Hai,18,evaluated,63,63,close_squared_return,level
+2317,Hon Hai,0,pre_launch,226,202,parkinson_clean,matched
+2317,Hon Hai,1,history_initial_22,0,202,parkinson_clean,matched
+2317,Hon Hai,2,history_missing_price,0,202,parkinson_clean,matched
+2317,Hon Hai,3,history_zero_range,0,202,parkinson_clean,matched
+2317,Hon Hai,4,history_non_comparable,22,180,parkinson_clean,matched
+2317,Hon Hai,5,history_other_proxy_missing,0,180,parkinson_clean,matched
+2317,Hon Hai,6,oi_warmup_or_source_missing,7,173,parkinson_clean,matched
+2317,Hon Hai,7,oi_zero_denominator_or_no_overlap,51,122,parkinson_clean,matched
+2317,Hon Hai,8,oi_other_missing,0,122,parkinson_clean,matched
+2317,Hon Hai,9,target_end_boundary,2,120,parkinson_clean,matched
+2317,Hon Hai,10,target_missing_price,0,120,parkinson_clean,matched
+2317,Hon Hai,11,target_zero_range,0,120,parkinson_clean,matched
+2317,Hon Hai,12,target_non_comparable,3,117,parkinson_clean,matched
+2317,Hon Hai,13,target_other_missing,0,117,parkinson_clean,matched
+2317,Hon Hai,14,calendar_missing,0,117,parkinson_clean,matched
+2317,Hon Hai,15,initial_train_below_100,100,17,parkinson_clean,matched
+2317,Hon Hai,16,purge_train_below_100,5,12,parkinson_clean,matched
+2317,Hon Hai,17,rank_unidentified,0,12,parkinson_clean,matched
+2317,Hon Hai,18,evaluated,12,12,parkinson_clean,matched
+2317,Hon Hai,0,pre_launch,226,202,parkinson_clean,level
+2317,Hon Hai,1,history_initial_22,0,202,parkinson_clean,level
+2317,Hon Hai,2,history_missing_price,0,202,parkinson_clean,level
+2317,Hon Hai,3,history_zero_range,0,202,parkinson_clean,level
+2317,Hon Hai,4,history_non_comparable,22,180,parkinson_clean,level
+2317,Hon Hai,5,history_other_proxy_missing,0,180,parkinson_clean,level
+2317,Hon Hai,6,oi_warmup_or_source_missing,2,178,parkinson_clean,level
+2317,Hon Hai,7,oi_zero_denominator_or_no_overlap,0,178,parkinson_clean,level
+2317,Hon Hai,8,oi_other_missing,0,178,parkinson_clean,level
+2317,Hon Hai,9,target_end_boundary,5,173,parkinson_clean,level
+2317,Hon Hai,10,target_missing_price,0,173,parkinson_clean,level
+2317,Hon Hai,11,target_zero_range,0,173,parkinson_clean,level
+2317,Hon Hai,12,target_non_comparable,5,168,parkinson_clean,level
+2317,Hon Hai,13,target_other_missing,0,168,parkinson_clean,level
+2317,Hon Hai,14,calendar_missing,0,168,parkinson_clean,level
+2317,Hon Hai,15,initial_train_below_100,100,68,parkinson_clean,level
+2317,Hon Hai,16,purge_train_below_100,5,63,parkinson_clean,level
+2317,Hon Hai,17,rank_unidentified,0,63,parkinson_clean,level
+2317,Hon Hai,18,evaluated,63,63,parkinson_clean,level
+2330,TSMC,0,pre_launch,226,202,parkinson,matched
+2330,TSMC,1,history_initial_22,0,202,parkinson,matched
+2330,TSMC,2,history_missing_price,0,202,parkinson,matched
+2330,TSMC,3,history_zero_range,0,202,parkinson,matched
+2330,TSMC,4,history_non_comparable,0,202,parkinson,matched
+2330,TSMC,5,history_other_proxy_missing,0,202,parkinson,matched
+2330,TSMC,6,oi_warmup_or_source_missing,7,195,parkinson,matched
+2330,TSMC,7,oi_zero_denominator_or_no_overlap,51,144,parkinson,matched
+2330,TSMC,8,oi_other_missing,0,144,parkinson,matched
+2330,TSMC,9,target_end_boundary,3,141,parkinson,matched
+2330,TSMC,10,target_missing_price,0,141,parkinson,matched
+2330,TSMC,11,target_zero_range,0,141,parkinson,matched
+2330,TSMC,12,target_non_comparable,0,141,parkinson,matched
+2330,TSMC,13,target_other_missing,0,141,parkinson,matched
+2330,TSMC,14,calendar_missing,0,141,parkinson,matched
+2330,TSMC,15,initial_train_below_100,100,41,parkinson,matched
+2330,TSMC,16,purge_train_below_100,5,36,parkinson,matched
+2330,TSMC,17,rank_unidentified,0,36,parkinson,matched
+2330,TSMC,18,evaluated,36,36,parkinson,matched
+2330,TSMC,0,pre_launch,226,202,parkinson,level
+2330,TSMC,1,history_initial_22,0,202,parkinson,level
+2330,TSMC,2,history_missing_price,0,202,parkinson,level
+2330,TSMC,3,history_zero_range,0,202,parkinson,level
+2330,TSMC,4,history_non_comparable,0,202,parkinson,level
+2330,TSMC,5,history_other_proxy_missing,0,202,parkinson,level
+2330,TSMC,6,oi_warmup_or_source_missing,2,200,parkinson,level
+2330,TSMC,7,oi_zero_denominator_or_no_overlap,0,200,parkinson,level
+2330,TSMC,8,oi_other_missing,0,200,parkinson,level
+2330,TSMC,9,target_end_boundary,5,195,parkinson,level
+2330,TSMC,10,target_missing_price,0,195,parkinson,level
+2330,TSMC,11,target_zero_range,0,195,parkinson,level
+2330,TSMC,12,target_non_comparable,0,195,parkinson,level
+2330,TSMC,13,target_other_missing,0,195,parkinson,level
+2330,TSMC,14,calendar_missing,0,195,parkinson,level
+2330,TSMC,15,initial_train_below_100,100,95,parkinson,level
+2330,TSMC,16,purge_train_below_100,5,90,parkinson,level
+2330,TSMC,17,rank_unidentified,0,90,parkinson,level
+2330,TSMC,18,evaluated,90,90,parkinson,level
+2330,TSMC,0,pre_launch,226,202,close_squared_return,matched
+2330,TSMC,1,history_initial_22,0,202,close_squared_return,matched
+2330,TSMC,2,history_missing_price,0,202,close_squared_return,matched
+2330,TSMC,3,history_zero_range,0,202,close_squared_return,matched
+2330,TSMC,4,history_non_comparable,81,121,close_squared_return,matched
+2330,TSMC,5,history_other_proxy_missing,0,121,close_squared_return,matched
+2330,TSMC,6,oi_warmup_or_source_missing,3,118,close_squared_return,matched
+2330,TSMC,7,oi_zero_denominator_or_no_overlap,30,88,close_squared_return,matched
+2330,TSMC,8,oi_other_missing,0,88,close_squared_return,matched
+2330,TSMC,9,target_end_boundary,0,88,close_squared_return,matched
+2330,TSMC,10,target_missing_price,0,88,close_squared_return,matched
+2330,TSMC,11,target_zero_range,0,88,close_squared_return,matched
+2330,TSMC,12,target_non_comparable,10,78,close_squared_return,matched
+2330,TSMC,13,target_other_missing,0,78,close_squared_return,matched
+2330,TSMC,14,calendar_missing,0,78,close_squared_return,matched
+2330,TSMC,15,initial_train_below_100,78,0,close_squared_return,matched
+2330,TSMC,16,purge_train_below_100,0,0,close_squared_return,matched
+2330,TSMC,17,rank_unidentified,0,0,close_squared_return,matched
+2330,TSMC,18,evaluated,0,0,close_squared_return,matched
+2330,TSMC,0,pre_launch,226,202,close_squared_return,level
+2330,TSMC,1,history_initial_22,0,202,close_squared_return,level
+2330,TSMC,2,history_missing_price,0,202,close_squared_return,level
+2330,TSMC,3,history_zero_range,0,202,close_squared_return,level
+2330,TSMC,4,history_non_comparable,81,121,close_squared_return,level
+2330,TSMC,5,history_other_proxy_missing,0,121,close_squared_return,level
+2330,TSMC,6,oi_warmup_or_source_missing,2,119,close_squared_return,level
+2330,TSMC,7,oi_zero_denominator_or_no_overlap,0,119,close_squared_return,level
+2330,TSMC,8,oi_other_missing,0,119,close_squared_return,level
+2330,TSMC,9,target_end_boundary,0,119,close_squared_return,level
+2330,TSMC,10,target_missing_price,0,119,close_squared_return,level
+2330,TSMC,11,target_zero_range,0,119,close_squared_return,level
+2330,TSMC,12,target_non_comparable,16,103,close_squared_return,level
+2330,TSMC,13,target_other_missing,0,103,close_squared_return,level
+2330,TSMC,14,calendar_missing,0,103,close_squared_return,level
+2330,TSMC,15,initial_train_below_100,100,3,close_squared_return,level
+2330,TSMC,16,purge_train_below_100,3,0,close_squared_return,level
+2330,TSMC,17,rank_unidentified,0,0,close_squared_return,level
+2330,TSMC,18,evaluated,0,0,close_squared_return,level
+2330,TSMC,0,pre_launch,226,202,parkinson_clean,matched
+2330,TSMC,1,history_initial_22,0,202,parkinson_clean,matched
+2330,TSMC,2,history_missing_price,0,202,parkinson_clean,matched
+2330,TSMC,3,history_zero_range,0,202,parkinson_clean,matched
+2330,TSMC,4,history_non_comparable,81,121,parkinson_clean,matched
+2330,TSMC,5,history_other_proxy_missing,0,121,parkinson_clean,matched
+2330,TSMC,6,oi_warmup_or_source_missing,3,118,parkinson_clean,matched
+2330,TSMC,7,oi_zero_denominator_or_no_overlap,30,88,parkinson_clean,matched
+2330,TSMC,8,oi_other_missing,0,88,parkinson_clean,matched
+2330,TSMC,9,target_end_boundary,0,88,parkinson_clean,matched
+2330,TSMC,10,target_missing_price,0,88,parkinson_clean,matched
+2330,TSMC,11,target_zero_range,0,88,parkinson_clean,matched
+2330,TSMC,12,target_non_comparable,10,78,parkinson_clean,matched
+2330,TSMC,13,target_other_missing,0,78,parkinson_clean,matched
+2330,TSMC,14,calendar_missing,0,78,parkinson_clean,matched
+2330,TSMC,15,initial_train_below_100,78,0,parkinson_clean,matched
+2330,TSMC,16,purge_train_below_100,0,0,parkinson_clean,matched
+2330,TSMC,17,rank_unidentified,0,0,parkinson_clean,matched
+2330,TSMC,18,evaluated,0,0,parkinson_clean,matched
+2330,TSMC,0,pre_launch,226,202,parkinson_clean,level
+2330,TSMC,1,history_initial_22,0,202,parkinson_clean,level
+2330,TSMC,2,history_missing_price,0,202,parkinson_clean,level
+2330,TSMC,3,history_zero_range,0,202,parkinson_clean,level
+2330,TSMC,4,history_non_comparable,81,121,parkinson_clean,level
+2330,TSMC,5,history_other_proxy_missing,0,121,parkinson_clean,level
+2330,TSMC,6,oi_warmup_or_source_missing,2,119,parkinson_clean,level
+2330,TSMC,7,oi_zero_denominator_or_no_overlap,0,119,parkinson_clean,level
+2330,TSMC,8,oi_other_missing,0,119,parkinson_clean,level
+2330,TSMC,9,target_end_boundary,0,119,parkinson_clean,level
+2330,TSMC,10,target_missing_price,0,119,parkinson_clean,level
+2330,TSMC,11,target_zero_range,0,119,parkinson_clean,level
+2330,TSMC,12,target_non_comparable,16,103,parkinson_clean,level
+2330,TSMC,13,target_other_missing,0,103,parkinson_clean,level
+2330,TSMC,14,calendar_missing,0,103,parkinson_clean,level
+2330,TSMC,15,initial_train_below_100,100,3,parkinson_clean,level
+2330,TSMC,16,purge_train_below_100,3,0,parkinson_clean,level
+2330,TSMC,17,rank_unidentified,0,0,parkinson_clean,level
+2330,TSMC,18,evaluated,0,0,parkinson_clean,level
+2454,MediaTek,0,pre_launch,226,202,parkinson,matched
+2454,MediaTek,1,history_initial_22,0,202,parkinson,matched
+2454,MediaTek,2,history_missing_price,0,202,parkinson,matched
+2454,MediaTek,3,history_zero_range,81,121,parkinson,matched
+2454,MediaTek,4,history_non_comparable,0,121,parkinson,matched
+2454,MediaTek,5,history_other_proxy_missing,0,121,parkinson,matched
+2454,MediaTek,6,oi_warmup_or_source_missing,7,114,parkinson,matched
+2454,MediaTek,7,oi_zero_denominator_or_no_overlap,61,53,parkinson,matched
+2454,MediaTek,8,oi_other_missing,0,53,parkinson,matched
+2454,MediaTek,9,target_end_boundary,2,51,parkinson,matched
+2454,MediaTek,10,target_missing_price,0,51,parkinson,matched
+2454,MediaTek,11,target_zero_range,1,50,parkinson,matched
+2454,MediaTek,12,target_non_comparable,0,50,parkinson,matched
+2454,MediaTek,13,target_other_missing,0,50,parkinson,matched
+2454,MediaTek,14,calendar_missing,0,50,parkinson,matched
+2454,MediaTek,15,initial_train_below_100,50,0,parkinson,matched
+2454,MediaTek,16,purge_train_below_100,0,0,parkinson,matched
+2454,MediaTek,17,rank_unidentified,0,0,parkinson,matched
+2454,MediaTek,18,evaluated,0,0,parkinson,matched
+2454,MediaTek,0,pre_launch,226,202,parkinson,level
+2454,MediaTek,1,history_initial_22,0,202,parkinson,level
+2454,MediaTek,2,history_missing_price,0,202,parkinson,level
+2454,MediaTek,3,history_zero_range,81,121,parkinson,level
+2454,MediaTek,4,history_non_comparable,0,121,parkinson,level
+2454,MediaTek,5,history_other_proxy_missing,0,121,parkinson,level
+2454,MediaTek,6,oi_warmup_or_source_missing,2,119,parkinson,level
+2454,MediaTek,7,oi_zero_denominator_or_no_overlap,0,119,parkinson,level
+2454,MediaTek,8,oi_other_missing,0,119,parkinson,level
+2454,MediaTek,9,target_end_boundary,4,115,parkinson,level
+2454,MediaTek,10,target_missing_price,0,115,parkinson,level
+2454,MediaTek,11,target_zero_range,10,105,parkinson,level
+2454,MediaTek,12,target_non_comparable,0,105,parkinson,level
+2454,MediaTek,13,target_other_missing,0,105,parkinson,level
+2454,MediaTek,14,calendar_missing,0,105,parkinson,level
+2454,MediaTek,15,initial_train_below_100,100,5,parkinson,level
+2454,MediaTek,16,purge_train_below_100,5,0,parkinson,level
+2454,MediaTek,17,rank_unidentified,0,0,parkinson,level
+2454,MediaTek,18,evaluated,0,0,parkinson,level
+2454,MediaTek,0,pre_launch,226,202,close_squared_return,matched
+2454,MediaTek,1,history_initial_22,0,202,close_squared_return,matched
+2454,MediaTek,2,history_missing_price,0,202,close_squared_return,matched
+2454,MediaTek,3,history_zero_range,0,202,close_squared_return,matched
+2454,MediaTek,4,history_non_comparable,44,158,close_squared_return,matched
+2454,MediaTek,5,history_other_proxy_missing,0,158,close_squared_return,matched
+2454,MediaTek,6,oi_warmup_or_source_missing,7,151,close_squared_return,matched
+2454,MediaTek,7,oi_zero_denominator_or_no_overlap,97,54,close_squared_return,matched
+2454,MediaTek,8,oi_other_missing,0,54,close_squared_return,matched
+2454,MediaTek,9,target_end_boundary,2,52,close_squared_return,matched
+2454,MediaTek,10,target_missing_price,0,52,close_squared_return,matched
+2454,MediaTek,11,target_zero_range,0,52,close_squared_return,matched
+2454,MediaTek,12,target_non_comparable,5,47,close_squared_return,matched
+2454,MediaTek,13,target_other_missing,0,47,close_squared_return,matched
+2454,MediaTek,14,calendar_missing,0,47,close_squared_return,matched
+2454,MediaTek,15,initial_train_below_100,47,0,close_squared_return,matched
+2454,MediaTek,16,purge_train_below_100,0,0,close_squared_return,matched
+2454,MediaTek,17,rank_unidentified,0,0,close_squared_return,matched
+2454,MediaTek,18,evaluated,0,0,close_squared_return,matched
+2454,MediaTek,0,pre_launch,226,202,close_squared_return,level
+2454,MediaTek,1,history_initial_22,0,202,close_squared_return,level
+2454,MediaTek,2,history_missing_price,0,202,close_squared_return,level
+2454,MediaTek,3,history_zero_range,0,202,close_squared_return,level
+2454,MediaTek,4,history_non_comparable,44,158,close_squared_return,level
+2454,MediaTek,5,history_other_proxy_missing,0,158,close_squared_return,level
+2454,MediaTek,6,oi_warmup_or_source_missing,2,156,close_squared_return,level
+2454,MediaTek,7,oi_zero_denominator_or_no_overlap,0,156,close_squared_return,level
+2454,MediaTek,8,oi_other_missing,0,156,close_squared_return,level
+2454,MediaTek,9,target_end_boundary,5,151,close_squared_return,level
+2454,MediaTek,10,target_missing_price,0,151,close_squared_return,level
+2454,MediaTek,11,target_zero_range,0,151,close_squared_return,level
+2454,MediaTek,12,target_non_comparable,10,141,close_squared_return,level
+2454,MediaTek,13,target_other_missing,0,141,close_squared_return,level
+2454,MediaTek,14,calendar_missing,0,141,close_squared_return,level
+2454,MediaTek,15,initial_train_below_100,100,41,close_squared_return,level
+2454,MediaTek,16,purge_train_below_100,3,38,close_squared_return,level
+2454,MediaTek,17,rank_unidentified,0,38,close_squared_return,level
+2454,MediaTek,18,evaluated,38,38,close_squared_return,level
+2454,MediaTek,0,pre_launch,226,202,parkinson_clean,matched
+2454,MediaTek,1,history_initial_22,0,202,parkinson_clean,matched
+2454,MediaTek,2,history_missing_price,0,202,parkinson_clean,matched
+2454,MediaTek,3,history_zero_range,81,121,parkinson_clean,matched
+2454,MediaTek,4,history_non_comparable,39,82,parkinson_clean,matched
+2454,MediaTek,5,history_other_proxy_missing,0,82,parkinson_clean,matched
+2454,MediaTek,6,oi_warmup_or_source_missing,7,75,parkinson_clean,matched
+2454,MediaTek,7,oi_zero_denominator_or_no_overlap,35,40,parkinson_clean,matched
+2454,MediaTek,8,oi_other_missing,0,40,parkinson_clean,matched
+2454,MediaTek,9,target_end_boundary,2,38,parkinson_clean,matched
+2454,MediaTek,10,target_missing_price,0,38,parkinson_clean,matched
+2454,MediaTek,11,target_zero_range,1,37,parkinson_clean,matched
+2454,MediaTek,12,target_non_comparable,5,32,parkinson_clean,matched
+2454,MediaTek,13,target_other_missing,0,32,parkinson_clean,matched
+2454,MediaTek,14,calendar_missing,0,32,parkinson_clean,matched
+2454,MediaTek,15,initial_train_below_100,32,0,parkinson_clean,matched
+2454,MediaTek,16,purge_train_below_100,0,0,parkinson_clean,matched
+2454,MediaTek,17,rank_unidentified,0,0,parkinson_clean,matched
+2454,MediaTek,18,evaluated,0,0,parkinson_clean,matched
+2454,MediaTek,0,pre_launch,226,202,parkinson_clean,level
+2454,MediaTek,1,history_initial_22,0,202,parkinson_clean,level
+2454,MediaTek,2,history_missing_price,0,202,parkinson_clean,level
+2454,MediaTek,3,history_zero_range,81,121,parkinson_clean,level
+2454,MediaTek,4,history_non_comparable,39,82,parkinson_clean,level
+2454,MediaTek,5,history_other_proxy_missing,0,82,parkinson_clean,level
+2454,MediaTek,6,oi_warmup_or_source_missing,2,80,parkinson_clean,level
+2454,MediaTek,7,oi_zero_denominator_or_no_overlap,0,80,parkinson_clean,level
+2454,MediaTek,8,oi_other_missing,0,80,parkinson_clean,level
+2454,MediaTek,9,target_end_boundary,4,76,parkinson_clean,level
+2454,MediaTek,10,target_missing_price,0,76,parkinson_clean,level
+2454,MediaTek,11,target_zero_range,5,71,parkinson_clean,level
+2454,MediaTek,12,target_non_comparable,10,61,parkinson_clean,level
+2454,MediaTek,13,target_other_missing,0,61,parkinson_clean,level
+2454,MediaTek,14,calendar_missing,0,61,parkinson_clean,level
+2454,MediaTek,15,initial_train_below_100,61,0,parkinson_clean,level
+2454,MediaTek,16,purge_train_below_100,0,0,parkinson_clean,level
+2454,MediaTek,17,rank_unidentified,0,0,parkinson_clean,level
+2454,MediaTek,18,evaluated,0,0,parkinson_clean,level
+2603,Evergreen Marine,0,pre_launch,226,202,parkinson,matched
+2603,Evergreen Marine,1,history_initial_22,0,202,parkinson,matched
+2603,Evergreen Marine,2,history_missing_price,0,202,parkinson,matched
+2603,Evergreen Marine,3,history_zero_range,0,202,parkinson,matched
+2603,Evergreen Marine,4,history_non_comparable,0,202,parkinson,matched
+2603,Evergreen Marine,5,history_other_proxy_missing,0,202,parkinson,matched
+2603,Evergreen Marine,6,oi_warmup_or_source_missing,7,195,parkinson,matched
+2603,Evergreen Marine,7,oi_zero_denominator_or_no_overlap,77,118,parkinson,matched
+2603,Evergreen Marine,8,oi_other_missing,0,118,parkinson,matched
+2603,Evergreen Marine,9,target_end_boundary,1,117,parkinson,matched
+2603,Evergreen Marine,10,target_missing_price,0,117,parkinson,matched
+2603,Evergreen Marine,11,target_zero_range,0,117,parkinson,matched
+2603,Evergreen Marine,12,target_non_comparable,0,117,parkinson,matched
+2603,Evergreen Marine,13,target_other_missing,0,117,parkinson,matched
+2603,Evergreen Marine,14,calendar_missing,0,117,parkinson,matched
+2603,Evergreen Marine,15,initial_train_below_100,100,17,parkinson,matched
+2603,Evergreen Marine,16,purge_train_below_100,5,12,parkinson,matched
+2603,Evergreen Marine,17,rank_unidentified,0,12,parkinson,matched
+2603,Evergreen Marine,18,evaluated,12,12,parkinson,matched
+2603,Evergreen Marine,0,pre_launch,226,202,parkinson,level
+2603,Evergreen Marine,1,history_initial_22,0,202,parkinson,level
+2603,Evergreen Marine,2,history_missing_price,0,202,parkinson,level
+2603,Evergreen Marine,3,history_zero_range,0,202,parkinson,level
+2603,Evergreen Marine,4,history_non_comparable,0,202,parkinson,level
+2603,Evergreen Marine,5,history_other_proxy_missing,0,202,parkinson,level
+2603,Evergreen Marine,6,oi_warmup_or_source_missing,2,200,parkinson,level
+2603,Evergreen Marine,7,oi_zero_denominator_or_no_overlap,0,200,parkinson,level
+2603,Evergreen Marine,8,oi_other_missing,0,200,parkinson,level
+2603,Evergreen Marine,9,target_end_boundary,5,195,parkinson,level
+2603,Evergreen Marine,10,target_missing_price,0,195,parkinson,level
+2603,Evergreen Marine,11,target_zero_range,0,195,parkinson,level
+2603,Evergreen Marine,12,target_non_comparable,0,195,parkinson,level
+2603,Evergreen Marine,13,target_other_missing,0,195,parkinson,level
+2603,Evergreen Marine,14,calendar_missing,0,195,parkinson,level
+2603,Evergreen Marine,15,initial_train_below_100,100,95,parkinson,level
+2603,Evergreen Marine,16,purge_train_below_100,5,90,parkinson,level
+2603,Evergreen Marine,17,rank_unidentified,0,90,parkinson,level
+2603,Evergreen Marine,18,evaluated,90,90,parkinson,level
+2603,Evergreen Marine,0,pre_launch,226,202,close_squared_return,matched
+2603,Evergreen Marine,1,history_initial_22,0,202,close_squared_return,matched
+2603,Evergreen Marine,2,history_missing_price,0,202,close_squared_return,matched
+2603,Evergreen Marine,3,history_zero_range,0,202,close_squared_return,matched
+2603,Evergreen Marine,4,history_non_comparable,22,180,close_squared_return,matched
+2603,Evergreen Marine,5,history_other_proxy_missing,0,180,close_squared_return,matched
+2603,Evergreen Marine,6,oi_warmup_or_source_missing,7,173,close_squared_return,matched
+2603,Evergreen Marine,7,oi_zero_denominator_or_no_overlap,66,107,close_squared_return,matched
+2603,Evergreen Marine,8,oi_other_missing,0,107,close_squared_return,matched
+2603,Evergreen Marine,9,target_end_boundary,1,106,close_squared_return,matched
+2603,Evergreen Marine,10,target_missing_price,0,106,close_squared_return,matched
+2603,Evergreen Marine,11,target_zero_range,0,106,close_squared_return,matched
+2603,Evergreen Marine,12,target_non_comparable,2,104,close_squared_return,matched
+2603,Evergreen Marine,13,target_other_missing,0,104,close_squared_return,matched
+2603,Evergreen Marine,14,calendar_missing,0,104,close_squared_return,matched
+2603,Evergreen Marine,15,initial_train_below_100,100,4,close_squared_return,matched
+2603,Evergreen Marine,16,purge_train_below_100,4,0,close_squared_return,matched
+2603,Evergreen Marine,17,rank_unidentified,0,0,close_squared_return,matched
+2603,Evergreen Marine,18,evaluated,0,0,close_squared_return,matched
+2603,Evergreen Marine,0,pre_launch,226,202,close_squared_return,level
+2603,Evergreen Marine,1,history_initial_22,0,202,close_squared_return,level
+2603,Evergreen Marine,2,history_missing_price,0,202,close_squared_return,level
+2603,Evergreen Marine,3,history_zero_range,0,202,close_squared_return,level
+2603,Evergreen Marine,4,history_non_comparable,22,180,close_squared_return,level
+2603,Evergreen Marine,5,history_other_proxy_missing,0,180,close_squared_return,level
+2603,Evergreen Marine,6,oi_warmup_or_source_missing,2,178,close_squared_return,level
+2603,Evergreen Marine,7,oi_zero_denominator_or_no_overlap,0,178,close_squared_return,level
+2603,Evergreen Marine,8,oi_other_missing,0,178,close_squared_return,level
+2603,Evergreen Marine,9,target_end_boundary,5,173,close_squared_return,level
+2603,Evergreen Marine,10,target_missing_price,0,173,close_squared_return,level
+2603,Evergreen Marine,11,target_zero_range,0,173,close_squared_return,level
+2603,Evergreen Marine,12,target_non_comparable,5,168,close_squared_return,level
+2603,Evergreen Marine,13,target_other_missing,0,168,close_squared_return,level
+2603,Evergreen Marine,14,calendar_missing,0,168,close_squared_return,level
+2603,Evergreen Marine,15,initial_train_below_100,100,68,close_squared_return,level
+2603,Evergreen Marine,16,purge_train_below_100,5,63,close_squared_return,level
+2603,Evergreen Marine,17,rank_unidentified,0,63,close_squared_return,level
+2603,Evergreen Marine,18,evaluated,63,63,close_squared_return,level
+2603,Evergreen Marine,0,pre_launch,226,202,parkinson_clean,matched
+2603,Evergreen Marine,1,history_initial_22,0,202,parkinson_clean,matched
+2603,Evergreen Marine,2,history_missing_price,0,202,parkinson_clean,matched
+2603,Evergreen Marine,3,history_zero_range,0,202,parkinson_clean,matched
+2603,Evergreen Marine,4,history_non_comparable,22,180,parkinson_clean,matched
+2603,Evergreen Marine,5,history_other_proxy_missing,0,180,parkinson_clean,matched
+2603,Evergreen Marine,6,oi_warmup_or_source_missing,7,173,parkinson_clean,matched
+2603,Evergreen Marine,7,oi_zero_denominator_or_no_overlap,66,107,parkinson_clean,matched
+2603,Evergreen Marine,8,oi_other_missing,0,107,parkinson_clean,matched
+2603,Evergreen Marine,9,target_end_boundary,1,106,parkinson_clean,matched
+2603,Evergreen Marine,10,target_missing_price,0,106,parkinson_clean,matched
+2603,Evergreen Marine,11,target_zero_range,0,106,parkinson_clean,matched
+2603,Evergreen Marine,12,target_non_comparable,2,104,parkinson_clean,matched
+2603,Evergreen Marine,13,target_other_missing,0,104,parkinson_clean,matched
+2603,Evergreen Marine,14,calendar_missing,0,104,parkinson_clean,matched
+2603,Evergreen Marine,15,initial_train_below_100,100,4,parkinson_clean,matched
+2603,Evergreen Marine,16,purge_train_below_100,4,0,parkinson_clean,matched
+2603,Evergreen Marine,17,rank_unidentified,0,0,parkinson_clean,matched
+2603,Evergreen Marine,18,evaluated,0,0,parkinson_clean,matched
+2603,Evergreen Marine,0,pre_launch,226,202,parkinson_clean,level
+2603,Evergreen Marine,1,history_initial_22,0,202,parkinson_clean,level
+2603,Evergreen Marine,2,history_missing_price,0,202,parkinson_clean,level
+2603,Evergreen Marine,3,history_zero_range,0,202,parkinson_clean,level
+2603,Evergreen Marine,4,history_non_comparable,22,180,parkinson_clean,level
+2603,Evergreen Marine,5,history_other_proxy_missing,0,180,parkinson_clean,level
+2603,Evergreen Marine,6,oi_warmup_or_source_missing,2,178,parkinson_clean,level
+2603,Evergreen Marine,7,oi_zero_denominator_or_no_overlap,0,178,parkinson_clean,level
+2603,Evergreen Marine,8,oi_other_missing,0,178,parkinson_clean,level
+2603,Evergreen Marine,9,target_end_boundary,5,173,parkinson_clean,level
+2603,Evergreen Marine,10,target_missing_price,0,173,parkinson_clean,level
+2603,Evergreen Marine,11,target_zero_range,0,173,parkinson_clean,level
+2603,Evergreen Marine,12,target_non_comparable,5,168,parkinson_clean,level
+2603,Evergreen Marine,13,target_other_missing,0,168,parkinson_clean,level
+2603,Evergreen Marine,14,calendar_missing,0,168,parkinson_clean,level
+2603,Evergreen Marine,15,initial_train_below_100,100,68,parkinson_clean,level
+2603,Evergreen Marine,16,purge_train_below_100,5,63,parkinson_clean,level
+2603,Evergreen Marine,17,rank_unidentified,0,63,parkinson_clean,level
+2603,Evergreen Marine,18,evaluated,63,63,parkinson_clean,level
+3231,Wistron,0,pre_launch,226,202,parkinson,matched
+3231,Wistron,1,history_initial_22,0,202,parkinson,matched
+3231,Wistron,2,history_missing_price,0,202,parkinson,matched
+3231,Wistron,3,history_zero_range,0,202,parkinson,matched
+3231,Wistron,4,history_non_comparable,0,202,parkinson,matched
+3231,Wistron,5,history_other_proxy_missing,0,202,parkinson,matched
+3231,Wistron,6,oi_warmup_or_source_missing,7,195,parkinson,matched
+3231,Wistron,7,oi_zero_denominator_or_no_overlap,80,115,parkinson,matched
+3231,Wistron,8,oi_other_missing,0,115,parkinson,matched
+3231,Wistron,9,target_end_boundary,3,112,parkinson,matched
+3231,Wistron,10,target_missing_price,0,112,parkinson,matched
+3231,Wistron,11,target_zero_range,0,112,parkinson,matched
+3231,Wistron,12,target_non_comparable,0,112,parkinson,matched
+3231,Wistron,13,target_other_missing,0,112,parkinson,matched
+3231,Wistron,14,calendar_missing,0,112,parkinson,matched
+3231,Wistron,15,initial_train_below_100,100,12,parkinson,matched
+3231,Wistron,16,purge_train_below_100,0,12,parkinson,matched
+3231,Wistron,17,rank_unidentified,0,12,parkinson,matched
+3231,Wistron,18,evaluated,12,12,parkinson,matched
+3231,Wistron,0,pre_launch,226,202,parkinson,level
+3231,Wistron,1,history_initial_22,0,202,parkinson,level
+3231,Wistron,2,history_missing_price,0,202,parkinson,level
+3231,Wistron,3,history_zero_range,0,202,parkinson,level
+3231,Wistron,4,history_non_comparable,0,202,parkinson,level
+3231,Wistron,5,history_other_proxy_missing,0,202,parkinson,level
+3231,Wistron,6,oi_warmup_or_source_missing,2,200,parkinson,level
+3231,Wistron,7,oi_zero_denominator_or_no_overlap,0,200,parkinson,level
+3231,Wistron,8,oi_other_missing,0,200,parkinson,level
+3231,Wistron,9,target_end_boundary,5,195,parkinson,level
+3231,Wistron,10,target_missing_price,0,195,parkinson,level
+3231,Wistron,11,target_zero_range,0,195,parkinson,level
+3231,Wistron,12,target_non_comparable,0,195,parkinson,level
+3231,Wistron,13,target_other_missing,0,195,parkinson,level
+3231,Wistron,14,calendar_missing,0,195,parkinson,level
+3231,Wistron,15,initial_train_below_100,100,95,parkinson,level
+3231,Wistron,16,purge_train_below_100,5,90,parkinson,level
+3231,Wistron,17,rank_unidentified,0,90,parkinson,level
+3231,Wistron,18,evaluated,90,90,parkinson,level
+3231,Wistron,0,pre_launch,226,202,close_squared_return,matched
+3231,Wistron,1,history_initial_22,0,202,close_squared_return,matched
+3231,Wistron,2,history_missing_price,0,202,close_squared_return,matched
+3231,Wistron,3,history_zero_range,0,202,close_squared_return,matched
+3231,Wistron,4,history_non_comparable,22,180,close_squared_return,matched
+3231,Wistron,5,history_other_proxy_missing,0,180,close_squared_return,matched
+3231,Wistron,6,oi_warmup_or_source_missing,7,173,close_squared_return,matched
+3231,Wistron,7,oi_zero_denominator_or_no_overlap,69,104,close_squared_return,matched
+3231,Wistron,8,oi_other_missing,0,104,close_squared_return,matched
+3231,Wistron,9,target_end_boundary,3,101,close_squared_return,matched
+3231,Wistron,10,target_missing_price,0,101,close_squared_return,matched
+3231,Wistron,11,target_zero_range,0,101,close_squared_return,matched
+3231,Wistron,12,target_non_comparable,5,96,close_squared_return,matched
+3231,Wistron,13,target_other_missing,0,96,close_squared_return,matched
+3231,Wistron,14,calendar_missing,0,96,close_squared_return,matched
+3231,Wistron,15,initial_train_below_100,96,0,close_squared_return,matched
+3231,Wistron,16,purge_train_below_100,0,0,close_squared_return,matched
+3231,Wistron,17,rank_unidentified,0,0,close_squared_return,matched
+3231,Wistron,18,evaluated,0,0,close_squared_return,matched
+3231,Wistron,0,pre_launch,226,202,close_squared_return,level
+3231,Wistron,1,history_initial_22,0,202,close_squared_return,level
+3231,Wistron,2,history_missing_price,0,202,close_squared_return,level
+3231,Wistron,3,history_zero_range,0,202,close_squared_return,level
+3231,Wistron,4,history_non_comparable,22,180,close_squared_return,level
+3231,Wistron,5,history_other_proxy_missing,0,180,close_squared_return,level
+3231,Wistron,6,oi_warmup_or_source_missing,2,178,close_squared_return,level
+3231,Wistron,7,oi_zero_denominator_or_no_overlap,0,178,close_squared_return,level
+3231,Wistron,8,oi_other_missing,0,178,close_squared_return,level
+3231,Wistron,9,target_end_boundary,5,173,close_squared_return,level
+3231,Wistron,10,target_missing_price,0,173,close_squared_return,level
+3231,Wistron,11,target_zero_range,0,173,close_squared_return,level
+3231,Wistron,12,target_non_comparable,5,168,close_squared_return,level
+3231,Wistron,13,target_other_missing,0,168,close_squared_return,level
+3231,Wistron,14,calendar_missing,0,168,close_squared_return,level
+3231,Wistron,15,initial_train_below_100,100,68,close_squared_return,level
+3231,Wistron,16,purge_train_below_100,5,63,close_squared_return,level
+3231,Wistron,17,rank_unidentified,0,63,close_squared_return,level
+3231,Wistron,18,evaluated,63,63,close_squared_return,level
+3231,Wistron,0,pre_launch,226,202,parkinson_clean,matched
+3231,Wistron,1,history_initial_22,0,202,parkinson_clean,matched
+3231,Wistron,2,history_missing_price,0,202,parkinson_clean,matched
+3231,Wistron,3,history_zero_range,0,202,parkinson_clean,matched
+3231,Wistron,4,history_non_comparable,22,180,parkinson_clean,matched
+3231,Wistron,5,history_other_proxy_missing,0,180,parkinson_clean,matched
+3231,Wistron,6,oi_warmup_or_source_missing,7,173,parkinson_clean,matched
+3231,Wistron,7,oi_zero_denominator_or_no_overlap,69,104,parkinson_clean,matched
+3231,Wistron,8,oi_other_missing,0,104,parkinson_clean,matched
+3231,Wistron,9,target_end_boundary,3,101,parkinson_clean,matched
+3231,Wistron,10,target_missing_price,0,101,parkinson_clean,matched
+3231,Wistron,11,target_zero_range,0,101,parkinson_clean,matched
+3231,Wistron,12,target_non_comparable,5,96,parkinson_clean,matched
+3231,Wistron,13,target_other_missing,0,96,parkinson_clean,matched
+3231,Wistron,14,calendar_missing,0,96,parkinson_clean,matched
+3231,Wistron,15,initial_train_below_100,96,0,parkinson_clean,matched
+3231,Wistron,16,purge_train_below_100,0,0,parkinson_clean,matched
+3231,Wistron,17,rank_unidentified,0,0,parkinson_clean,matched
+3231,Wistron,18,evaluated,0,0,parkinson_clean,matched
+3231,Wistron,0,pre_launch,226,202,parkinson_clean,level
+3231,Wistron,1,history_initial_22,0,202,parkinson_clean,level
+3231,Wistron,2,history_missing_price,0,202,parkinson_clean,level
+3231,Wistron,3,history_zero_range,0,202,parkinson_clean,level
+3231,Wistron,4,history_non_comparable,22,180,parkinson_clean,level
+3231,Wistron,5,history_other_proxy_missing,0,180,parkinson_clean,level
+3231,Wistron,6,oi_warmup_or_source_missing,2,178,parkinson_clean,level
+3231,Wistron,7,oi_zero_denominator_or_no_overlap,0,178,parkinson_clean,level
+3231,Wistron,8,oi_other_missing,0,178,parkinson_clean,level
+3231,Wistron,9,target_end_boundary,5,173,parkinson_clean,level
+3231,Wistron,10,target_missing_price,0,173,parkinson_clean,level
+3231,Wistron,11,target_zero_range,0,173,parkinson_clean,level
+3231,Wistron,12,target_non_comparable,5,168,parkinson_clean,level
+3231,Wistron,13,target_other_missing,0,168,parkinson_clean,level
+3231,Wistron,14,calendar_missing,0,168,parkinson_clean,level
+3231,Wistron,15,initial_train_below_100,100,68,parkinson_clean,level
+3231,Wistron,16,purge_train_below_100,5,63,parkinson_clean,level
+3231,Wistron,17,rank_unidentified,0,63,parkinson_clean,level
+3231,Wistron,18,evaluated,63,63,parkinson_clean,level
