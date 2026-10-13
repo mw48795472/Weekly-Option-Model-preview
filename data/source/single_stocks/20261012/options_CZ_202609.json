@@ -1,0 +1,19 @@
+{
+  "name": "options_CZ_202609",
+  "url": "https://www.taifex.com.tw/cht/3/optDataDown",
+  "method": "POST",
+  "request_fields": {
+    "queryStartDate": "2026/09/01",
+    "queryEndDate": "2026/09/30",
+    "down_type": "1",
+    "commodity_id": "specialid",
+    "commodity_id2": "CZO"
+  },
+  "retrieved_at": "2026-10-12T03:32:12.776451+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=MS950",
+  "bytes": 275346,
+  "sha256": "3cc5b47a1ded3024ba2abba85952af8a6a707e64f4d7f9ff2b39437061421092",
+  "file": "options_CZ_202609.raw.gz"
+}

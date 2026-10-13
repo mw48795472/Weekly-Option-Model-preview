@@ -1,0 +1,19 @@
+{
+  "name": "options_DX_202606",
+  "url": "https://www.taifex.com.tw/cht/3/optDataDown",
+  "method": "POST",
+  "request_fields": {
+    "queryStartDate": "2026/06/01",
+    "queryEndDate": "2026/06/30",
+    "down_type": "1",
+    "commodity_id": "specialid",
+    "commodity_id2": "DXO"
+  },
+  "retrieved_at": "2026-10-12T03:31:31.149597+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=MS950",
+  "bytes": 294261,
+  "sha256": "f613a64d9859c1db5d4847a9e1e44114bb2f763b9c82f5c14da848064b17cf23",
+  "file": "options_DX_202606.raw.gz"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "settlements_DX_2025",
+  "url": "https://www.taifex.com.tw/cht/5/sSOFSP",
+  "method": "POST",
+  "request_fields": {
+    "down_type": "2",
+    "stockCode": "3231",
+    "startYear": "2025",
+    "startMonth": "01",
+    "endYear": "2025",
+    "endMonth": "12"
+  },
+  "retrieved_at": "2026-10-12T03:39:56.248939+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=UTF-8",
+  "bytes": 290303,
+  "sha256": "b6c7634e603ce849256a1ca6907c2312f8e83f4e3e0b27343b59baf4322c9ae9",
+  "file": "settlements_DX_2025.raw.gz"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "catalog_202512",
+  "url": "https://www.taifex.com.tw/cht/3/getOptcontractDl.do?queryStartDate=2025%2F12%2F01&queryEndDate=2025%2F12%2F31",
+  "method": "GET",
+  "request_fields": null,
+  "retrieved_at": "2026-10-12T03:27:50.798944+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "application/json;charset=utf-8",
+  "bytes": 8080,
+  "sha256": "07a0f0189608351d57ec8bf179563f19c1f8027d3401216c6158e2e79255700f",
+  "file": "catalog_202512.raw.gz"
+}

@@ -20,11 +20,12 @@ from nh_research.dashboard_data import (
 from nh_research.reversal import rev_bp
 from nh_research.taifex_dashboard import render_taifex
 from nh_research.empirical_dashboard import render_empirical
+from nh_research.single_stock_dashboard import render_single_stocks
 
 DATA = ROOT / "data/analysis"
 EVIDENCE = "https://github.com/mw48795472/Weekly-Option-Model-preview/blob/43ab2df8ed7c7821e91554acba51d0338a0e6033"
 COLORS = ["#087F8C", "#426DAD", "#C88B37", "#7C6BAD"]
-PAGES = ["연구 개요", "종목·변수 탐색", "TAIFEX 실측 분석", "H5·H6 실측 연구", "가설 검토", "PoC 실험실", "진단·다운로드"]
+PAGES = ["연구 개요", "종목·변수 탐색", "TAIFEX 실측 분석", "H5·H6 실측 연구", "개별주식 H5·H6", "가설 검토", "PoC 실험실", "진단·다운로드"]
 
 st.set_page_config(page_title="Weekly Option · 연구 대시보드", page_icon="◈", layout="wide")
 st.markdown("""<style>
@@ -313,5 +314,5 @@ def diagnostics():
     st.caption("이 앱의 대화형 그래프는 오른쪽 위 카메라 아이콘으로 PNG를 저장할 수 있습니다. PoC 그래프에는 가정 또는 인덱스라는 축 설명을 함께 보존합니다.")
 
 
-{"연구 개요": overview, "종목·변수 탐색": explorer, "TAIFEX 실측 분석": lambda: render_taifex(ROOT), "H5·H6 실측 연구": lambda: render_empirical(ROOT), "가설 검토": hypotheses,
+{"연구 개요": overview, "종목·변수 탐색": explorer, "TAIFEX 실측 분석": lambda: render_taifex(ROOT), "H5·H6 실측 연구": lambda: render_empirical(ROOT), "개별주식 H5·H6": lambda: render_single_stocks(ROOT), "가설 검토": hypotheses,
  "PoC 실험실": lab, "진단·다운로드": diagnostics}[page]()

@@ -2,11 +2,11 @@
 
 **위클리옵션의 만기·포지션 정보가 이후 가격 반전과 변동성에 어떤 정보를 더하는가?** NH선물 REST API 명세·국내 공개 마스터와 TAIFEX 실제 옵션 가격·OI를 바탕으로 이 질문을 검증하는 연구 프로젝트입니다. 자료 구조·가용성, 실제 대만 H5·H6 일별 대용치 분석, H1–H9/H9b 검증 설계와 대화형 PoC를 제공합니다.
 
-**[공개 Streamlit 대시보드 열기](https://weekly-option-model-preview.streamlit.app/)** · [대시보드 구성·사용 안내](#streamlit-dashboard) · **[오프라인 HTML mock 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_poc.zip)** · [Word 통합보고서 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)
+**[공개 Streamlit 대시보드 열기](https://weekly-option-model-preview.streamlit.app/)** · [대시보드 구성·사용 안내](#streamlit-dashboard) · **[오프라인 HTML mock 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_poc.zip)** · [기존 가설설계 Word 보고서 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)
 
-[H5·H6 장기 실측 결과 ↓](#empirical-h5-h6) · [TAIFEX 실제 가격·OI·개별 티커 ↓](#taifex-live) · [분석 착수에 필요한 데이터·API·문의 체크리스트 ↓](#data-acquisition) · [해외 데이터·API 조사와 종목 명부 ↓](#overseas-data)
+[개별주식 H5·H6 확장 ↓](#single-stock-h5-h6) · [H5·H6 장기 실측 결과 ↓](#empirical-h5-h6) · [TAIFEX 실제 가격·OI·개별 티커 ↓](#taifex-live) · [분석 착수에 필요한 데이터·API·문의 체크리스트 ↓](#data-acquisition) · [해외 데이터·API 조사와 종목 명부 ↓](#overseas-data)
 
-> **자료 기준:** 국내 마스터는 2026-10-11, 대만 실측 수집은 2026-10-12 KST입니다. 대만 TXO·TAIEX를 428거래일로 확장해 H5·H6의 일별 대용치 분석을 실행했습니다. 기존 개별주식 7개 상품군의 20일 기술통계도 유지합니다. 국내 가격·OI와 장중 기초가격은 미확보이며, 국내 효과·장중 RV·매매 수익은 추정하지 않았습니다. 아래 첫 표는 국내 마스터 기준입니다.
+> **자료 기준:** 국내 마스터는 2026-10-11, 대만 실측 수집은 2026-10-12 KST입니다. 대만 TXO·TAIEX를 428거래일로 확장해 H5·H6의 일별 대용치 분석을 실행했습니다. 개별주식 7개는 기초주가 428일 달력과 상장 후 옵션 164~202일로 확장했습니다. 기존 20일 계약 탐색도 유지합니다. 국내 가격·OI와 장중 기초가격은 미확보이며, 국내 효과·장중 RV·매매 수익은 추정하지 않았습니다. 아래 첫 표는 국내 마스터 기준입니다.
 
 | 확보·진단 항목 | 결과 | 읽는 방법 |
 |---|---:|---|
@@ -16,6 +16,39 @@
 | REV에 필요한 가격 관측 | **0 / 30개** | 사건당 5개 시점의 가격이 필요 |
 
 [계약 요약 원본](data/analysis/contracts/summary.json) · [REV 실행 명세](data/analysis/reversal/manifest.json) · [가설 진단 JSON](data/analysis/hypotheses/forecast_diagnostics.json)
+
+<a id="single-stock-h5-h6"></a>
+## 개별주식 위클리옵션 — 실제 기초주가로 H5·H6 확장
+
+**7개 주식의 실제 옵션·OI와 TWSE 기초주가를 연결했습니다. 주 H5·H6에서는 효과·추가 예측력을 확정하지 못했습니다.** 기간을 늘렸어도 상장일, 희소 OI, 0범위 가격일과 미완결 미래창 때문에 종목별 검증 가능 표본은 다릅니다. [공개 대시보드](https://weekly-option-model-preview.streamlit.app/) → **개별주식 H5·H6**에서 이름으로 선택하세요.
+
+| 기초주식 · 옵션 계열 | 기초주가 관측 | 실제 옵션 이력 | 주 H6 평가 | OI 수준 보조 평가 |
+|---|---:|---:|---:|---:|
+| **Nan Ya / 南亞 · 1303 · CAO** | 428일 | 164일 | 불가 | 불가 |
+| **UMC / 聯電 · 2303 · CCO** | 428일 | 164일 | 불가 | 불가 |
+| **TSMC / 台積電 · 2330 · CDO** | 428일 | 202일 | 36일 | 90일 |
+| **Evergreen / 長榮 · 2603 · CZO** | 428일 | 202일 | 12일 | 90일 |
+| **Hon Hai / 鴻海 · 2317 · DHO** | 427일 | 202일 | 30일 | 90일 |
+| **MediaTek / 聯發科 · 2454 · DVO** | 428일 | 202일 | 불가 | 불가 |
+| **Wistron / 緯創 · 3231 · DXO** | 428일 | 202일 | 12일 | 90일 |
+
+위클리 원장은 **87,366행 / 10,016개 고유 계약**입니다. 기초주가 달력은 **2025-01-02–2026-10-08**입니다. TSMC·Evergreen·Hon Hai·MediaTek·Wistron은 2025-12-08, Nan Ya·UMC는 2026-02-02 위클리 상장부터 옵션을 연결했습니다. **표의 ‘불가’는 최소 100개 완결 훈련 라벨 이후의 평가 표본을 만들지 못했다는 뜻**이며 성과 0이 아닙니다. Hon Hai의 원자료 OHLC 공란 1일도 보존했습니다. 표는 주 범위 분산 사양이며 대용치를 바꾼 결과·표본은 대시보드에 별도로 표시합니다.
+
+![7개 기초주가와 확보 이력 대비 실제 검증 날짜](docs/images/single-stocks/stock_history_coverage.png)
+
+**가격과 표본을 함께 읽기:** 위쪽은 시작 가격을 100으로 맞춘 수정 전 주가입니다. 배당 재투자 성과가 아닙니다. 아래쪽은 확보한 옵션 거래일과 실제 주 H6 테스트 날짜를 비교합니다. 상장 전 OI는 결측이며, 만기·배당 조정으로 바뀐 계약 ID를 억지로 연결하지 않았습니다.
+
+![개별주식 만기 효과의 점추정과 다중비교 구간](docs/images/single-stocks/stock_h5.png)
+
+**H5 결과:** 만기 당일 계수의 개별 95% 구간은 **7개 모두 0을 포함**합니다. Hon Hai의 만기 다음 날은 개별 구간만 보면 양수지만, 전·당·후 × 7종목의 21개 비교를 고려하면 0을 포함합니다. 그림의 옅은 넓은 구간이 이 다중비교 범위입니다. 요일·월물·상장 이후·과거 자기/시장 변동성을 통제한 조건부 연관성이며 인과효과는 아닙니다.
+
+![동일 계약 OI와 전체 OI 수준의 추가 예측력](docs/images/single-stocks/stock_h6.png)
+
+**H6 결과:** 주 검증의 OI 추가 QLIKE 차이는 TSMC **+0.00037**, Hon Hai **+0.00113**, Evergreen **+0.00977**, Wistron **−0.00372**이고 모두 구간이 0을 포함합니다. 음수는 개선 방향이지만 Wistron의 12일 결과만으로 채택할 수 없습니다. 오른쪽의 사전 지정 OI 수준 보조 분석은 4종목 각 90일을 평가했으나 주 대용치에서 개선을 확인하지 못했습니다. 주/보조·종목 간 평가 날짜가 달라 손실 숫자를 순위화하지 않습니다.
+
+**데이터 제약도 결과입니다.** H=L인 0범위 날짜는 가격 누락과 따로 기록하고, 양의 범위·로그 모형에서는 제외했습니다. 날짜를 유지하므로 22일 과거창과 5일 미래창도 영향을 받습니다. TWSE 비교불가 X·주석·기준가격 차이를 점검해 종가수익률 민감도에 반영했습니다. Hon Hai의 비교불가일 제외 보조 사양에는 개선 신호가 있지만 타깃·표본이 달라 주 검증의 성공으로 바꾸지 않았습니다. [상세 해석과 민감도](docs/single-stock-analysis.md).
+
+**[개별주식 전체 보고서](docs/single-stock-analysis.md)** · **[CSV·PNG·보고서 ZIP 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/af31d150319c78673108a7055325efae0b6ea689/docs/downloads/single_stock_h5_h6.zip)** · [고정 규칙](docs/single-stock-protocol.md) · [종목별 확보 범위](data/analysis/single_stocks/coverage.csv) · [실제 예측·정답](data/analysis/single_stocks/h6_forecasts.csv) · [가격 사건 점검](data/analysis/single_stocks/price_events.csv)
 
 <a id="empirical-h5-h6"></a>
 ## H5·H6 실측 결과 — 428거래일로 확장
@@ -167,6 +200,7 @@ H9 진단은 정수 인덱스 마커로 재현했습니다. 수익률·변동성
 | [종목·변수 탐색](#dashboard-explorer) | 어떤 계약과 변수가 있는가? | 상품·만기·콜풋 필터, 이름·코드 검색, 행사가 분포, 계약 상세와 CSV |
 | [TAIFEX 실측 분석](#dashboard-taifex) | 실제 가격·OI와 개별 계약을 어떻게 분석하는가? | 시장·OI, 티커 검색·계약 경로, API 검증·CSV·PNG |
 | [H5·H6 실측 연구](#dashboard-empirical) | 기초가격·OI가 가설을 뒷받침하는가? | 428일 기초가격, 계수·구간, 263일 예측 비교, HKEX 확보 상태 |
+| [개별주식 H5·H6](#dashboard-single-stocks) | 각 주식의 만기·OI 효과는 같은가? | 7개 이름·코드 선택, 기초주가·가격 사건, H5/H6 사양·표본·다중비교·CSV |
 | [가설 검토](#dashboard-hypotheses) | 무엇을 검증하며 어떤 관측이 더 필요한가? | H1–H9/H9b 비교표, 가설 선택, 질문·필수 자료·상세 검토 |
 | [PoC 실험실](#dashboard-lab) | 입력을 바꾸면 수식과 설계가 어떻게 반응하는가? | H5 감마, H6 OI·미래창, REV, H9b 비용의 네 가지 실험 |
 | [진단·다운로드](#dashboard-downloads) | 결과의 근거를 확인하고 저장할 수 있는가? | 설계행렬·JSON, 보고서·CSV·HTML mock, 저장된 PNG |
@@ -237,6 +271,20 @@ H9 진단은 정수 인덱스 마커로 재현했습니다. 수익률·변동성
 | **HKEX 확보 현황** | HSI 위클리 보고서 필드, 시세 활용 권한, 현물 미확보, 개별주식과의 구분 | 공식 보고서·약관·Marketplace 링크. 홍콩 실증 완료로 표시하지 않음 |
 
 H6의 기준은 `직전 상태 → HAR 형태 → HAR+달력 → OI 추가`입니다. 화면의 **OI 모형−기준모형 QLIKE 차이**가 음수면 개선이며, 95% 구간 전체가 0 아래에 있는지도 봅니다. MAE가 조금 줄었다는 이유로 주 지표 QLIKE의 개선을 선언하지 않습니다. 맨 아래 **재현·다운로드·연구 범위**에서 전체 보고서와 CSV·그래프 ZIP을 저장합니다.
+
+<a id="dashboard-single-stocks"></a>
+### 개별주식 H5·H6 — 종목별 이력과 검증 가능성을 함께 확인
+
+먼저 **기초주식 · 옵션 상품명**에서 회사명·주식 코드·옵션 계열을 고릅니다. 상단은 실제 가격 관측일, 상장 후 옵션 이력, **주 범위 사양의 H6 평가일**을 표시합니다. 아래에서 대용치를 바꾸면 그 사양의 평가일은 별도로 다시 표시됩니다.
+
+| 화면 | 조작·표시 | 읽는 방법 |
+|---|---|---|
+| **종목·데이터** | 원주가, 고가·저가 대용치와 실제 만기, 전체 OI, 가격 사건; 선택 종목 CSV·계약 CSV.gz | 주가 상승을 만기 효과로 해석하지 않습니다. X·0범위·공란을 확인하고 수정주가·총수익률과 구분합니다. |
+| **H5 만기 검토** | 기본/요일×상장후/상장후만/비교불가일 제외, HAC 5·20; 계수·구간·rank·달력 셀 | 개별 95%와 21개 비교 구간을 함께 봅니다. rank가 부족하면 계수를 발표하지 않습니다. |
+| **H6 예측 검증** | 동일 계약 변화/전체 OI 수준, 세 분산 대용치, 블록 5·10·20; 손실차·누적 경로·점수·예측 CSV | 주·보조 검증은 표본이 다릅니다. 0일은 검증 불가, 30일 미만은 단기 탐색입니다. 모든 후보 모형이 같은 날짜에서 평가됐는지 확인합니다. |
+| **비교·다운로드** | 7개 주식 확보 표, H6 PNG, 전체 비교 CSV, 조정계약 매핑·만기 대사 | 서로 다른 날짜·종목의 점수를 성능 순위로 바꾸지 않습니다. 하단에서 전체 보고서·ZIP·재현 명령을 확인합니다. |
+
+주 결과는 양의 고가·저가 범위 표본에 한정됩니다. 종가수익률·비교불가일 제외 민감도에서 나온 유의한 항목은 전체 탐색을 보정한 가설 성공이 아닙니다. OI 시각과 만기 달력도 사후 확정 자료에 대한 가정이 남습니다.
 
 <a id="dashboard-hypotheses"></a>
 ### 3. 가설 검토 — 질문에서 필요한 관측까지

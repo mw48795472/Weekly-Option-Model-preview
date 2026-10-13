@@ -1,0 +1,19 @@
+{
+  "name": "options_CA_202604",
+  "url": "https://www.taifex.com.tw/cht/3/optDataDown",
+  "method": "POST",
+  "request_fields": {
+    "queryStartDate": "2026/04/01",
+    "queryEndDate": "2026/04/30",
+    "down_type": "1",
+    "commodity_id": "specialid",
+    "commodity_id2": "CAO"
+  },
+  "retrieved_at": "2026-10-12T03:30:44.816970+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=MS950",
+  "bytes": 230370,
+  "sha256": "bb706cc1545a450cd034a12973fb205a29e86deffff362496c1366e54889dc7d",
+  "file": "options_CA_202604.raw.gz"
+}

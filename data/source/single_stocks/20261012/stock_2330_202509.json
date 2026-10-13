@@ -1,0 +1,13 @@
+{
+  "name": "stock_2330_202509",
+  "url": "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY?response=json&date=20250901&stockNo=2330",
+  "method": "GET",
+  "request_fields": null,
+  "retrieved_at": "2026-10-12T03:33:04.890285+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "application/json;charset=UTF-8",
+  "bytes": 3147,
+  "sha256": "9155688482b41ea3d8bc0e17babf49a9c5ae01a3c67a4cf416bcb0b898ac35dc",
+  "file": "stock_2330_202509.raw.gz"
+}

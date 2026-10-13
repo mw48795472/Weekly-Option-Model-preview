@@ -1,0 +1,19 @@
+{
+  "name": "options_CC_202603",
+  "url": "https://www.taifex.com.tw/cht/3/optDataDown",
+  "method": "POST",
+  "request_fields": {
+    "queryStartDate": "2026/03/01",
+    "queryEndDate": "2026/03/31",
+    "down_type": "1",
+    "commodity_id": "specialid",
+    "commodity_id2": "CCO"
+  },
+  "retrieved_at": "2026-10-12T03:30:29.553055+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=MS950",
+  "bytes": 235686,
+  "sha256": "e155df5b14c7eade442d9ac36900811476847b1c59336645c7011d8656fb8b94",
+  "file": "options_CC_202603.raw.gz"
+}

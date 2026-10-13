@@ -1,0 +1,13 @@
+{
+  "name": "catalog_202610",
+  "url": "https://www.taifex.com.tw/cht/3/getOptcontractDl.do?queryStartDate=2026%2F10%2F01&queryEndDate=2026%2F10%2F08",
+  "method": "GET",
+  "request_fields": null,
+  "retrieved_at": "2026-10-12T03:32:20.869732+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "application/json;charset=utf-8",
+  "bytes": 5725,
+  "sha256": "e5bea928be6fc4ea707b8f04003a75adb47be25d00c79d976ab8cb796f404bb1",
+  "file": "catalog_202610.raw.gz"
+}

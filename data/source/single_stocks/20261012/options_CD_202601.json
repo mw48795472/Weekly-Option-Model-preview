@@ -1,0 +1,19 @@
+{
+  "name": "options_CD_202601",
+  "url": "https://www.taifex.com.tw/cht/3/optDataDown",
+  "method": "POST",
+  "request_fields": {
+    "queryStartDate": "2026/01/01",
+    "queryEndDate": "2026/01/31",
+    "down_type": "1",
+    "commodity_id": "specialid",
+    "commodity_id2": "CDA,CDO"
+  },
+  "retrieved_at": "2026-10-12T03:29:59.566141+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=MS950",
+  "bytes": 560574,
+  "sha256": "533066625bdf8df2bb3f66da1f4a675dae3f1a097d3df84326eb1dc1f5b64fbc",
+  "file": "options_CD_202601.raw.gz"
+}

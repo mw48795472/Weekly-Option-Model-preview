@@ -1,0 +1,20 @@
+{
+  "name": "settlements_CC_2025",
+  "url": "https://www.taifex.com.tw/cht/5/sSOFSP",
+  "method": "POST",
+  "request_fields": {
+    "down_type": "2",
+    "stockCode": "2303",
+    "startYear": "2025",
+    "startMonth": "01",
+    "endYear": "2025",
+    "endMonth": "12"
+  },
+  "retrieved_at": "2026-10-12T03:39:40.654872+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=UTF-8",
+  "bytes": 289420,
+  "sha256": "320b7759167e66a2d242bc7d4411bd576d84e6db0149a0b3423662ba35208e40",
+  "file": "settlements_CC_2025.raw.gz"
+}

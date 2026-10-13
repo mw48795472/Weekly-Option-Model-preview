@@ -1,0 +1,13 @@
+{
+  "name": "stock_3231_202610",
+  "url": "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY?response=json&date=20261001&stockNo=3231",
+  "method": "GET",
+  "request_fields": null,
+  "retrieved_at": "2026-10-12T03:37:32.054732+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "application/json;charset=UTF-8",
+  "bytes": 1459,
+  "sha256": "4e39a7d41f1bd136bf33af1a8bafae0cbbc9c0def482532392eef8b3b721e611",
+  "file": "stock_3231_202610.raw.gz"
+}
