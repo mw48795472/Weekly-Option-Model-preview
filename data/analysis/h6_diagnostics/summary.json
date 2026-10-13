@@ -1,0 +1,24 @@
+{
+  "version": "h6-diagnostics-20261013",
+  "classification": "post-hoc diagnostics, not new confirmatory proof",
+  "inputs": "Committed 20261012 empirical and single-stock outputs",
+  "units": 8,
+  "date_start": "2025-01-02",
+  "date_end": "2026-10-08",
+  "sample_gates": "Ordered, mutually exclusive first failure; overlap flags retained in origin_audit.csv",
+  "common_refit": "Parkinson only; matched-family eligibility; same train dates; >=100 completed labels; strict label_end < origin; no tuning",
+  "loss_interval": "Calendar-preserving moving-block bootstrap 5/10/20, 2000 draws, seed4879",
+  "disjoint_windows": "Maximum nonoverlapping target intervals, NOT independent/effective sample size",
+  "precision": "Intervals are uncertainty for mean paired loss, not prediction intervals for future volatility; QLIKE units are not percent return",
+  "multiple_comparison": "Pointwise 95% and approximate 7-comparison intervals; all proxy/model diagnostics were not globally multiplicity adjusted",
+  "caution": "No causal attribution of non-significance; do not directly rank different proxies or unequal test dates; no promised sample size guaranteeing significance",
+  "outputs": [
+    "common_refit_comparison.csv",
+    "common_refit_forecasts.csv",
+    "existing_family_common_dates.csv",
+    "information.csv",
+    "origin_audit.csv",
+    "precision.csv",
+    "sample_attrition.csv"
+  ]
+}

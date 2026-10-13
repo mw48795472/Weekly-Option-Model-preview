@@ -1,0 +1,9 @@
+﻿unit,name,calendar_days,option_days,zero_oi_days,missing_price_days,zero_range_days,non_comparable_days,matched_defined_days,matched_undefined_days,coverage_defined_days,coverage_below_10pct_days,nonzero_oi_days,weekly_oi_p05,weekly_oi_median,weekly_oi_p95,coverage_p05,coverage_median,coverage_p95,matched_denominator_p05,matched_denominator_median,matched_denominator_p95,matched_change_p05,matched_change_median,matched_change_p95,matched_change_abs_gt_100pct_days,matched_change_abs_gt_1000pct_days
+TXO,TAIEX / TXO,428,428,0,0,0,0,389,39,423,332,428,12263.3,148275.5,268812.8,0,0.041004453,1,0,5645,25809.4,5.85686574,17.3999789,48.3861157,389,322
+1303,Nan Ya Plastics,428,164,38,0,2,2,42,122,121,90,126,0,9,79.7,0,0,1,0,0,6.1,0,4.55,26.275,31,10
+2303,UMC,428,164,2,0,3,2,115,49,157,73,162,7.15,150,682.85,0,0.120300752,1,0,12,218.2,0.244520132,5.1,53.7,91,38
+2317,Hon Hai,428,202,0,1,2,3,152,50,197,67,202,25.05,144.5,381.8,0,0.215469613,1,0,26,150.6,0.341304348,2.14011181,18.790625,118,14
+2330,TSMC,428,202,0,0,2,7,156,46,197,58,202,10.05,119,315.65,0,0.234848485,1,0,25,125.8,0.0480769231,1.9787234,16.75,113,16
+2454,MediaTek,428,202,30,0,7,4,87,115,167,99,172,0,8,167.55,0,0.0318181818,1,0,0,47.4,0,2.625,24.7,66,18
+2603,Evergreen Marine,428,202,0,0,2,2,138,64,197,84,202,10.15,88,217.9,0,0.2,1,0,11,132.8,0.000990853658,1.59032258,28.675,82,16
+3231,Wistron,428,202,8,0,2,2,131,71,189,93,194,2,76,280.95,0,0.1,1,0,4,89.8,0.454765101,4.375,36,112,41

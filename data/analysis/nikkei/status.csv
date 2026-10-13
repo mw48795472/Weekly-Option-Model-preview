@@ -1,0 +1,8 @@
+﻿stage,state,detail,source_url
+상품 식별,공식 확인,TAIFEX 일본 상품은 TOPIX/TJF. Nikkei225 실측은 OSE로 별도 구성.,https://www.taifex.com.tw/enl/eng2/products
+TAIFEX API,원본 미확보,두 요청 모두 로컬 네트워크 권한 오류. 서비스 HTTP 응답/종목코드 결과로 해석하지 않음.,https://openapi.taifex.com.tw/
+OSE 계약 규격,공식 확인,"Mini: JPY100, 2023-05-29 개시. 수요일 만기 2025-05-26 도입. 최종거래일과 SQ일 구분.",https://www.jpx.co.jp/english/derivatives/products/domestic/225mini-options/01.html
+Nikkei 현물 OHLC,미수집,공식 공개 일별 자료 안내는 확인. 이번 작업에서 원본 검증 및 통계 계산 미실행.,https://indexes.nikkei.co.jp/nkave/data/index.en.html
+OSE 옵션 CSV,필드 안내 확인,최근 약2개월 이론가격/종가/기초지수 종가 안내. OI 시계열 확보를 뜻하지 않음.,https://www.jpx.co.jp/english/markets/derivatives/option-price/01.html
+H5·H6,미실행,실제 기초지수+옵션 OI+계약별 최종거래/SQ 및 가용시각 필요.,https://www.jpx.co.jp/english/markets/statistics-derivatives/daily/
+공개 배포 권한,별도 확인 필요,공개 열람과 원본·파생데이터 재배포 허가는 다름. 로컬 원본은 Git 및 다운로드 제외.,https://indexes.nikkei.co.jp/nkave/data/index.en.html

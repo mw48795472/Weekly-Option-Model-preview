@@ -7,3 +7,8 @@ data/analysis/contracts/** linguist-generated=true
 vendor/** linguist-vendored=true
 # Keep the self-contained export byte-stable and review its template/generator instead.
 docs/downloads/*.html -text -diff linguist-generated=true
+
+# Generated diagnostic evidence; review source modules and reports by default.
+data/analysis/h5_diagnostics/** linguist-generated=true
+data/analysis/h6_diagnostics/** linguist-generated=true
+data/analysis/nikkei/** linguist-generated=true

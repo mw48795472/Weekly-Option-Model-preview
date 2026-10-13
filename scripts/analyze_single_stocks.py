@@ -79,6 +79,8 @@ def build(source,output,charts=True):
  data={name:pd.concat(parts,ignore_index=True) for name,parts in frames.items() if parts}
  if 'h6_forecasts' not in data:raise ValueError('No stock forecasts in either prespecified family')
  data['h6_scores'],data['h6_comparison']=stock_compare(data['h6_forecasts'])
+ # HAC inversion differs at ~1e-13 across BLAS platforms; publish coefficients/CIs to 8 decimal places.
+ data['h5_coefficients']=data['h5_coefficients'].round(8)
  for name,df in data.items():write_csv(output/(name+('.csv.gz' if name=='weekly_contracts' else '.csv')),df)
  summary=dict(version='single-stocks-20261012',start=market.date.min(),end=market.date.max(),underlyings=len(manifest['stocks']),price_dates=len(market),source_requests=len(metas),stocks=data['coverage'].to_dict('records'),
   primary_h6=data['h6_comparison'].query("proxy == 'parkinson' and family == 'matched' and model == 'OI_lag1' and block == 10").to_dict('records'),

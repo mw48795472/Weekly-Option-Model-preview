@@ -4,9 +4,55 @@
 
 **[공개 Streamlit 대시보드 열기](https://weekly-option-model-preview.streamlit.app/)** · [대시보드 구성·사용 안내](#streamlit-dashboard) · **[오프라인 HTML mock 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_poc.zip)** · [기존 가설설계 Word 보고서 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/f5b1838bb316f1a093a1558cf5d1cd0dbdafb090/docs/downloads/weekly_option_hypotheses_review.docx)
 
-[개별주식 H5·H6 확장 ↓](#single-stock-h5-h6) · [H5·H6 장기 실측 결과 ↓](#empirical-h5-h6) · [TAIFEX 실제 가격·OI·개별 티커 ↓](#taifex-live) · [분석 착수에 필요한 데이터·API·문의 체크리스트 ↓](#data-acquisition) · [해외 데이터·API 조사와 종목 명부 ↓](#overseas-data)
+[H5·H6 심화 진단 ↓](#h5-h6-diagnostics) · [닛케이225 확장 ↓](#nikkei-extension) · [개별주식 H5·H6 확장 ↓](#single-stock-h5-h6) · [H5·H6 장기 실측 결과 ↓](#empirical-h5-h6) · [TAIFEX 실제 가격·OI·개별 티커 ↓](#taifex-live) · [분석 착수에 필요한 데이터·API·문의 체크리스트 ↓](#data-acquisition) · [해외 데이터·API 조사와 종목 명부 ↓](#overseas-data)
 
-> **자료 기준:** 국내 마스터는 2026-10-11, 대만 실측 수집은 2026-10-12 KST입니다. 대만 TXO·TAIEX를 428거래일로 확장해 H5·H6의 일별 대용치 분석을 실행했습니다. 개별주식 7개는 기초주가 428일 달력과 상장 후 옵션 164~202일로 확장했습니다. 기존 20일 계약 탐색도 유지합니다. 국내 가격·OI와 장중 기초가격은 미확보이며, 국내 효과·장중 RV·매매 수익은 추정하지 않았습니다. 아래 첫 표는 국내 마스터 기준입니다.
+<a id="h5-h6-diagnostics"></a>
+## H5·H6 심화 진단 — 표본과 설정의 문제를 함께 확인
+
+**‘효과 미확인 = 표본 부족’으로 단정할 수 없습니다.** 실제로 정밀도가 낮고, 만기·요일 대조와 OI 정의도 취약합니다. 기존 주 결과를 유지한 채 **표본 탈락 → 식별 → 같은 표본 재추정**을 추가했습니다. 진단은 2026-10-13 작성, 원자료 종료일은 2026-10-08입니다.
+
+| 질문 | 실행해서 확인한 결과 | 현재 판단 |
+|---|---|---|
+| **H5 표본이 충분한가?** | 주식별 회귀에 남은 실제 만기일 **21~34개**. TAIEX 만기 범위분산 변화 95% 구간 **−9.5%~+93.2%** | 작은 효과의 부재를 확인할 정밀도가 부족합니다. 계약 행 수는 독립 만기 사건 수가 아닙니다. |
+| **H5 달력·통제가 문제인가?** | 주 사양은 모두 full rank. 그러나 **상장후만 사양 7종목 모두 2026-02-23 비만기일을 빼면 만기계수 식별 불가** | 주 분석 전체의 계산 실패는 아닙니다. 좁은 사양의 대조가 특정 달력 날짜에 의존합니다. |
+| **H6 표본은 어디서 줄었나?** | 상장기간·H=L 과거창·희소 OI·100개 완결 훈련을 거쳐 주식 테스트는 **0~36일** | 가격 이력 연장만으로 상장 전 OI나 희소한 동일계약 분모를 해결하지 못합니다. |
+| **OI 정의를 바꾸면?** | 같은 훈련일·테스트일·타깃 재추정에서 Hon Hai/Wistron의 **전체 OI 수준**에 탐색적 개선 신호 | 변수 정의 민감도는 확인했습니다. 짧은 표본과 사후 모형 탐색 때문에 H6 확증으로 승격하지 않습니다. |
+| **무엇을 아직 구분 못 하나?** | 표본·측정·누락변수·실제 작은 효과의 인과적 기여도 | ‘더 모으면 유의’ 또는 ‘모형만 바꾸면 해결’은 입증하지 않았습니다. |
+
+![H5 효과 구간과 통제 후 남은 만기 정보](docs/images/h5_diagnostics/h5_precision_design.png)
+
+**H5 그래프 읽기:** 구간은 로그계수를 변환한 **조건부 기하평균 일별 범위분산 변화**입니다. 수익률%가 아닙니다. 통제 후 만기더미의 잔존 변동은 지수 19.8%, 주식 37.4~51.9%이며 유효표본 수를 뜻하지 않습니다. 상장후만 MediaTek의 명목 양의 신호도 21개 비교 구간에서는 0을 포함하고 단일 날짜 식별 문제를 갖습니다. MDE는 기존 오차·정보구조가 유지된다는 **미래 계획 시나리오**이며 사후 검정력이나 효과 부재 증거가 아닙니다. [H5 진단 CSV](data/analysis/h5_diagnostics/primary_diagnostics.csv) · [사양별 식별](data/analysis/h5_diagnostics/specification_design.csv)
+
+![H6 표본이 줄어드는 구체적인 단계](docs/images/h6_diagnostics/sample_attrition.png)
+
+**표본 그래프 읽기:** 각 날짜를 정해진 순서의 **첫 탈락 사유**에 한 번만 배정했습니다. 0범위 H=L은 가격 누락과 다르며 22일 과거창까지 영향을 줍니다. TXO는 263개 테스트지만 비중첩 5일 타깃창은 54개, 주식은 4~8개입니다. 이 창 수도 독립·유효표본 수는 아닙니다. TXO 동일계약 OI coverage 중앙값은 4.1%여서 전체 OI 대표성도 점검해야 합니다. [날짜별 원장](data/analysis/h6_diagnostics/origin_audit.csv)
+
+![동일 훈련·테스트에서 OI 정의만 바꾼 재추정](docs/images/h6_diagnostics/common_refit.png)
+
+**재추정 그래프 읽기:** QLIKE 차이는 **추가 모형−HAR+달력**, 음수가 개선입니다. 전체 OI 수준의 차이는 Hon Hai **−0.01953**, Wistron **−0.06025**지만 테스트가 각각 30·12일입니다. Hon Hai의 7개 비교 구간은 0을 포함하고, Wistron도 22거래일 span·비중첩 4창과 전체 사후 탐색의 한계가 남습니다. 기존 90일 OI 수준 분석과는 훈련 표본도 다릅니다. 이번에는 **훈련일·평가일 모두 동일하게 맞췄습니다.** [모든 모형·구간 CSV](data/analysis/h6_diagnostics/common_refit_comparison.csv)
+
+| 다음에 확보할 자료 | 이번에 확인한 병목 | 문의·수령 때 확인할 것 |
+|---|---|---|
+| **P0 장중 기초가격·거래상태** | 하루 H/L과 H=L 처리 | 지수 마감 30분·주식 60분 결제구간, 1·5분/tick, 정지·가격제한 |
+| **P0 기업행사·OI 원장** | 과거창 오염·희소 분모·시점 가용성 | 조정승수·deliverable, 전체 체인, 최초공표·정정시각 |
+| **P0 미사용 미래 표본** | 12~36일 평가와 사후 신호 선택 | matched·level 사양과 최소 중요 개선폭을 먼저 고정 |
+| **P1 위험노출·비교군·공시** | 계약생애주기·요일·뉴스와 OI의 혼재 | DTE·머니니스·동시 호가, 당시 달력, 비교종목·발표시각 |
+| **공개 활용 권한** | 접근·구매와 재배포의 차이 | 내부 연구·파생통계·Streamlit·GitHub 원문별 허용 범위 |
+
+[10개 추가 데이터 요청·공식 경로·수령 기준 CSV](data/analysis/research_diagnostics/additional_data.csv)
+
+<a id="nikkei-extension"></a>
+### 닛케이225 확장은 OSE 상품으로 구성합니다
+
+**TAIFEX의 일본 지수 상품은 TOPIX 선물(TJF)입니다. 닛케이225로 바꿔 표시할 수 없습니다.** 닛케이 위클리 비교 대상은 **JPX/OSE Nikkei 225 mini Options**이며 실제 SQ·최종거래일·수요일 도입일을 따로 정렬해야 합니다. 대만의 마감 30/60분 결제와 일본의 시초 SQ는 다른 사건창입니다. [TAIFEX 공식 상품표](https://www.taifex.com.tw/enl/eng2/products) · [OSE mini 규격](https://www.jpx.co.jp/english/derivatives/products/domestic/225mini-options/01.html)
+
+이번 TAIFEX API 접근은 로컬 네트워크 권한 오류로 완료되지 않았고, 닛케이 원본 파일도 확보하지 못했습니다. **닛케이 실제 가격·OI 0건, H5·H6 미실행** 상태이며, 키 부족이나 서비스 HTTP 거부로 확인된 것은 아닙니다. 대시보드에는 상품·공식 자료 경로·확보 상태와 허용된 현물 CSV의 입력 검증 조건을 제공합니다. 최근 JPX 이론가격 CSV는 OI 장기 체인의 대체물이 아니며 조회 가능성과 공개 재배포 허가도 구분합니다. [수집 감사](data/source/nikkei/20261013/manifest.json)
+
+**[전체 심화 보고서](<reports/H5 H6 불확실성과 닛케이 확장.md>)** · **[진단 CSV·PNG·보고서 ZIP](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/7e20665c4d0edd3e2002c9e97b8b9def124732e5/docs/downloads/h5_h6_diagnostics.zip)** · [H5 근거](data/analysis/h5_diagnostics) · [H6 근거](data/analysis/h6_diagnostics)
+
+> **화면 반영 범위:** 이 브랜치에 **H5·H6 심화 진단**, **닛케이225 확장** 화면을 추가했습니다. 공개 Streamlit은 별도 배포 브랜치를 사용하므로 새 화면은 배포 브랜치에 반영된 뒤 공개 주소에 표시됩니다. 이 PR이 공개 배포 완료를 의미하지 않습니다.
+
+> **자료 기준:** 국내 마스터는 2026-10-11, 대만 실측 수집은 2026-10-12 KST입니다. 대만 TXO·TAIEX를 428거래일로 확장해 H5·H6의 일별 대용치 분석을 실행했습니다. 개별주식 7개는 기초주가 428일 달력과 상장 후 옵션 164~202일로 확장했습니다. 기존 20일 계약 탐색도 유지합니다. 국내 가격·OI와 장중 기초가격은 미확보이며, 국내 효과·장중 RV·매매 수익은 추정하지 않았습니다. 바로 아래 표는 국내 마스터 기준입니다.
 
 | 확보·진단 항목 | 결과 | 읽는 방법 |
 |---|---:|---|
@@ -48,7 +94,7 @@
 
 **데이터 제약도 결과입니다.** H=L인 0범위 날짜는 가격 누락과 따로 기록하고, 양의 범위·로그 모형에서는 제외했습니다. 날짜를 유지하므로 22일 과거창과 5일 미래창도 영향을 받습니다. TWSE 비교불가 X·주석·기준가격 차이를 점검해 종가수익률 민감도에 반영했습니다. Hon Hai의 비교불가일 제외 보조 사양에는 개선 신호가 있지만 타깃·표본이 달라 주 검증의 성공으로 바꾸지 않았습니다. [상세 해석과 민감도](docs/single-stock-analysis.md).
 
-**[개별주식 전체 보고서](docs/single-stock-analysis.md)** · **[CSV·PNG·보고서 ZIP 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/af31d150319c78673108a7055325efae0b6ea689/docs/downloads/single_stock_h5_h6.zip)** · [고정 규칙](docs/single-stock-protocol.md) · [종목별 확보 범위](data/analysis/single_stocks/coverage.csv) · [실제 예측·정답](data/analysis/single_stocks/h6_forecasts.csv) · [가격 사건 점검](data/analysis/single_stocks/price_events.csv)
+**[개별주식 전체 보고서](docs/single-stock-analysis.md)** · **[CSV·PNG·보고서 ZIP 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/67d7036527ac5589a891e739018b23fa56c478fc/docs/downloads/single_stock_h5_h6.zip)** · [고정 규칙](docs/single-stock-protocol.md) · [종목별 확보 범위](data/analysis/single_stocks/coverage.csv) · [실제 예측·정답](data/analysis/single_stocks/h6_forecasts.csv) · [가격 사건 점검](data/analysis/single_stocks/price_events.csv)
 
 <a id="empirical-h5-h6"></a>
 ## H5·H6 실측 결과 — 428거래일로 확장
@@ -201,6 +247,8 @@ H9 진단은 정수 인덱스 마커로 재현했습니다. 수익률·변동성
 | [TAIFEX 실측 분석](#dashboard-taifex) | 실제 가격·OI와 개별 계약을 어떻게 분석하는가? | 시장·OI, 티커 검색·계약 경로, API 검증·CSV·PNG |
 | [H5·H6 실측 연구](#dashboard-empirical) | 기초가격·OI가 가설을 뒷받침하는가? | 428일 기초가격, 계수·구간, 263일 예측 비교, HKEX 확보 상태 |
 | [개별주식 H5·H6](#dashboard-single-stocks) | 각 주식의 만기·OI 효과는 같은가? | 7개 이름·코드 선택, 기초주가·가격 사건, H5/H6 사양·표본·다중비교·CSV |
+| [H5·H6 심화 진단](#dashboard-research-diagnostics) | 왜 효과를 확인하지 못했는가? | 판단 요약, H5 정밀도·설계, H6 표본·변수, 추가 데이터 |
+| [닛케이225 확장](#dashboard-nikkei) | 일본 확장에 어떤 상품·실측 자료가 필요한가? | 상품·확보 상태, 분석 입력·실행 조건; 실제 H5/H6 미실행 |
 | [가설 검토](#dashboard-hypotheses) | 무엇을 검증하며 어떤 관측이 더 필요한가? | H1–H9/H9b 비교표, 가설 선택, 질문·필수 자료·상세 검토 |
 | [PoC 실험실](#dashboard-lab) | 입력을 바꾸면 수식과 설계가 어떻게 반응하는가? | H5 감마, H6 OI·미래창, REV, H9b 비용의 네 가지 실험 |
 | [진단·다운로드](#dashboard-downloads) | 결과의 근거를 확인하고 저장할 수 있는가? | 설계행렬·JSON, 보고서·CSV·HTML mock, 저장된 PNG |
@@ -285,6 +333,30 @@ H6의 기준은 `직전 상태 → HAR 형태 → HAR+달력 → OI 추가`입�
 | **비교·다운로드** | 7개 주식 확보 표, H6 PNG, 전체 비교 CSV, 조정계약 매핑·만기 대사 | 서로 다른 날짜·종목의 점수를 성능 순위로 바꾸지 않습니다. 하단에서 전체 보고서·ZIP·재현 명령을 확인합니다. |
 
 주 결과는 양의 고가·저가 범위 표본에 한정됩니다. 종가수익률·비교불가일 제외 민감도에서 나온 유의한 항목은 전체 탐색을 보정한 가설 성공이 아닙니다. OI 시각과 만기 달력도 사후 확정 자료에 대한 가정이 남습니다.
+
+<a id="dashboard-research-diagnostics"></a>
+### H5·H6 심화 진단 — 미확인 원인을 검토하는 네 화면
+
+기존 실측 화면에서 주 결과를 먼저 본 뒤 이 페이지로 이동합니다. 결과를 유의하게 만들기 위한 모형 선택 화면이 아니라, **현재 증거가 어느 결론까지 허용하는지** 확인하는 화면입니다.
+
+| 화면 | 표시 내용 | 읽는 방법 |
+|---|---|---|
+| **판단 요약** | 표본·설계·변수 제약과 허용되는 결론, 핵심 그래프 | 효과 미확인을 효과 부재나 표본 부족 하나로 바꾸지 않습니다. |
+| **H5 정밀도·설계** | 자산별 효과·구간, 실제 만기 수, 통제 후 만기더미 변동, 사양별 식별·MDE 시나리오 | 주 사양과 상장후만 사양을 구분합니다. MDE는 가정에 의존하는 계획치이며 유효표본 수·관측 사후 검정력이 아닙니다. |
+| **H6 표본·변수** | 첫 탈락 사유, OI coverage, 공통 훈련·테스트 재추정, 블록 구간 | 0일은 검증 불가입니다. 비중첩 창을 독립 표본으로 세지 않고 짧은 기간의 음의 손실차를 확증으로 읽지 않습니다. |
+| **추가 데이터** | 우선순위·필드·공식 경로·수령 기준과 CSV | 현재 병목에 맞춰 문의하고 공표시각·기업행사·공개 허용 범위를 함께 확인합니다. |
+
+[전체 심화 보고서](<reports/H5 H6 불확실성과 닛케이 확장.md>)와 [진단 ZIP](docs/downloads/h5_h6_diagnostics.zip)에서 수치·그림의 근거를 저장할 수 있습니다. 기존 family의 동일 평가일 비교는 훈련 이력이 다를 수 있으며, 새 공통 재추정은 훈련일도 맞췄다는 차이를 확인하세요.
+
+<a id="dashboard-nikkei"></a>
+### 닛케이225 확장 — 올바른 상품과 실측 실행 조건
+
+| 화면 | 표시 내용 | 해석·사용 조건 |
+|---|---|---|
+| **상품·확보 상태** | TAIFEX TOPIX/TJF와 OSE Nikkei 225 mini의 구분, 공식 자료 경로, 실제 수집 상태 | 닛케이 실측 가격·OI가 없어 H5·H6 결과는 미실행입니다. 이론가격·선물·현물과 표준·mini 계약을 혼합하지 않습니다. |
+| **분석 입력·실행 조건** | 허용된 현물 CSV의 날짜·OHLC 필드, 검증 규칙, 필요한 옵션 체인·SQ·공표시각 | OHLC 기초 통계만으로 H5·H6를 완료했다고 표시하지 않습니다. 일본 시초 SQ 사건창과 UTC 가용시각을 따로 정의합니다. |
+
+두 새 페이지는 이 브랜치의 구현입니다. **공개 주소의 표시 여부는 별도 배포 브랜치 반영 상태에 따릅니다.** 앱을 열어도 새 시세를 자동 수집하지 않습니다.
 
 <a id="dashboard-hypotheses"></a>
 ### 3. 가설 검토 — 질문에서 필요한 관측까지
@@ -384,6 +456,8 @@ mid 변화 슬라이더는 상단 순손익 카드의 평가값을 바꿉니다.
 | [계약 통합본](data/analysis/contracts/weekly_contracts.csv), [세션 원장](data/analysis/contracts/weekly_contract_sessions.csv), [변수 사전](data/analysis/contracts/variable_dictionary.csv), [요약 JSON](data/analysis/contracts/summary.json) | 연구 개요, 종목·변수 탐색 |
 | [가설 통합보고서](docs/hypotheses-review.md) | 가설 검토의 상세 본문 |
 | [진단 JSON](data/analysis/hypotheses/forecast_diagnostics.json), [설계행렬 CSV](data/analysis/hypotheses/forecast_design_matrix.csv) | 연구 개요의 사건 지표, 진단·다운로드 |
+| [H5 진단](data/analysis/h5_diagnostics), [H6 진단](data/analysis/h6_diagnostics), [추가 데이터](data/analysis/research_diagnostics/additional_data.csv) | H5·H6 심화 진단 |
+| [닛케이 확보·입력 상태](data/analysis/nikkei) | 닛케이225 확장; 실측 모형 결과 아님 |
 | 사용자 입력과 정수 마커 | PoC 실험실의 네 실험 |
 
 화면 구성은 [streamlit_app.py](streamlit_app.py), 필터·감마·미래창 등 계산 보조 함수는 [dashboard_data.py](src/nh_research/dashboard_data.py)에 있습니다. 직접 개발하거나 로컬에서 실행할 때는 저장소 루트에서 아래 명령을 사용합니다. Python 3.10 이상을 지원하며 공개 배포는 Python 3.12 환경입니다.
@@ -399,6 +473,7 @@ python -m streamlit run streamlit_app.py --server.address 127.0.0.1
 
 | 자료 | 구성·용도 |
 |---|---|
+| [H5·H6 심화 보고서](<reports/H5 H6 불확실성과 닛케이 확장.md>) · [진단 ZIP](docs/downloads/h5_h6_diagnostics.zip) | 표본·식별·OI 정의 진단, 추가 데이터, 닛케이 거래소·자료 범위 |
 | [전체 종목 CSV ZIP 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/fcd7aba982e7df532e4ea1c6c63afac44e13e4f4/docs/downloads/weekly_option_data.zip) | 통합본 + 상품군별 4개 + 계약코드별 766개 파일 |
 | [계약 통합본](data/analysis/contracts/weekly_contracts.csv) · [세션 원장](data/analysis/contracts/weekly_contract_sessions.csv) | 상품명·한글 종목명·코드, 766계약 / 1,258세션 행 |
 | [변수 사전](data/analysis/contracts/variable_dictionary.csv) · [값별 빈도](data/analysis/contracts/variable_value_counts.csv) | 62항목의 의미·단위·관측 범위·공란·분석 용도 |
