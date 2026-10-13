@@ -1,0 +1,20 @@
+{
+  "name": "settlements_CA_2026",
+  "url": "https://www.taifex.com.tw/cht/5/sSOFSP",
+  "method": "POST",
+  "request_fields": {
+    "down_type": "2",
+    "stockCode": "1303",
+    "startYear": "2026",
+    "startMonth": "01",
+    "endYear": "2026",
+    "endMonth": "10"
+  },
+  "retrieved_at": "2026-10-12T03:39:38.454107+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=UTF-8",
+  "bytes": 300115,
+  "sha256": "0f529c4e3403f0dd2e2ea06d19e260c93a8b9356e30099bc6def480ff635de7e",
+  "file": "settlements_CA_2026.raw.gz"
+}

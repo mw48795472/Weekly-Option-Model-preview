@@ -1,0 +1,19 @@
+{
+  "name": "options_DV_202512",
+  "url": "https://www.taifex.com.tw/cht/3/optDataDown",
+  "method": "POST",
+  "request_fields": {
+    "queryStartDate": "2025/12/01",
+    "queryEndDate": "2025/12/31",
+    "down_type": "1",
+    "commodity_id": "specialid",
+    "commodity_id2": "DVO"
+  },
+  "retrieved_at": "2026-10-12T03:29:54.149738+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=MS950",
+  "bytes": 406292,
+  "sha256": "43654d591070bc4f7e1cfdae43dc7c74efcc00941e176b7ead79dc44da43f791",
+  "file": "options_DV_202512.raw.gz"
+}

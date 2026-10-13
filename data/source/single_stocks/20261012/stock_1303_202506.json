@@ -1,0 +1,13 @@
+{
+  "name": "stock_1303_202506",
+  "url": "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY?response=json&date=20250601&stockNo=1303",
+  "method": "GET",
+  "request_fields": null,
+  "retrieved_at": "2026-10-12T03:31:46.918154+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "application/json;charset=UTF-8",
+  "bytes": 2813,
+  "sha256": "64063f5bc7eafb6ad7c69108a0bd41a9aaeb150fe04ad2fbe8b486a6ab4c2456",
+  "file": "stock_1303_202506.raw.gz"
+}

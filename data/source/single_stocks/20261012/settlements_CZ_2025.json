@@ -1,0 +1,20 @@
+{
+  "name": "settlements_CZ_2025",
+  "url": "https://www.taifex.com.tw/cht/5/sSOFSP",
+  "method": "POST",
+  "request_fields": {
+    "down_type": "2",
+    "stockCode": "2603",
+    "startYear": "2025",
+    "startMonth": "01",
+    "endYear": "2025",
+    "endMonth": "12"
+  },
+  "retrieved_at": "2026-10-12T03:39:43.787639+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=UTF-8",
+  "bytes": 290306,
+  "sha256": "2d18c8977d9f0f668e6e283eb892a9d5afbd7cba9cd281505aa4b8c9cce12a74",
+  "file": "settlements_CZ_2025.raw.gz"
+}

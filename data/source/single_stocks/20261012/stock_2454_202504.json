@@ -1,0 +1,13 @@
+{
+  "name": "stock_2454_202504",
+  "url": "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY?response=json&date=20250401&stockNo=2454",
+  "method": "GET",
+  "request_fields": null,
+  "retrieved_at": "2026-10-12T03:31:19.651649+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "application/json;charset=UTF-8",
+  "bytes": 3012,
+  "sha256": "d55f91c607aed7204ff52a7d7a1a1123350ca9766df9c62626f829f803b1d96b",
+  "file": "stock_2454_202504.raw.gz"
+}

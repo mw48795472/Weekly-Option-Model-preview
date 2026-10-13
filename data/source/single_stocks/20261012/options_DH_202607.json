@@ -1,0 +1,19 @@
+{
+  "name": "options_DH_202607",
+  "url": "https://www.taifex.com.tw/cht/3/optDataDown",
+  "method": "POST",
+  "request_fields": {
+    "queryStartDate": "2026/07/01",
+    "queryEndDate": "2026/07/31",
+    "down_type": "1",
+    "commodity_id": "specialid",
+    "commodity_id2": "DHA,DHO"
+  },
+  "retrieved_at": "2026-10-12T03:31:42.809770+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=MS950",
+  "bytes": 314807,
+  "sha256": "3180ad2abbc06039c5395f21d81961a175f574c0a07e15018d222e6377ef6996",
+  "file": "options_DH_202607.raw.gz"
+}

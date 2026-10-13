@@ -1,0 +1,20 @@
+{
+  "name": "settlements_CA_2025",
+  "url": "https://www.taifex.com.tw/cht/5/sSOFSP",
+  "method": "POST",
+  "request_fields": {
+    "down_type": "2",
+    "stockCode": "1303",
+    "startYear": "2025",
+    "startMonth": "01",
+    "endYear": "2025",
+    "endMonth": "12"
+  },
+  "retrieved_at": "2026-10-12T03:39:36.637588+00:00",
+  "complete": true,
+  "status": 200,
+  "content_type": "text/html;charset=UTF-8",
+  "bytes": 288571,
+  "sha256": "161429e15cb5c1cf411f0d8a23c0d5507bb82730f9ba058edb57c1818c510dd6",
+  "file": "settlements_CA_2025.raw.gz"
+}
