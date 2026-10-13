@@ -56,7 +56,7 @@
 
 **현재는 서비스·권한·인증 설정 미확인, J-Quants 실제 조회 미실행, 가격·OI 0건입니다.** 이전 TAIFEX 요청 실패는 J-Quants의 인증 실패나 이용 불가 증거가 아닙니다. 미니 이력은 2023-05-29부터이며 실제 수령 기간을 별도로 검증합니다. 옵션의 `UnderPx/UnderlyingPrice` 한 값으로 현물 OHLC·장중 RV를 만들 수 없으므로 기초가격을 보완해야 합니다. 일본 시초 SQ와 대만 마감 결제는 각각의 사건창으로 분석합니다. 원자료 및 파생통계 공개 범위는 해당 서비스 계약에 맞춰 확인합니다.
 
-**[전체 심화 보고서](<reports/H5 H6 불확실성과 닛케이 확장.md>)** · **[진단 CSV·PNG·보고서 ZIP](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/7e20665c4d0edd3e2002c9e97b8b9def124732e5/docs/downloads/h5_h6_diagnostics.zip)** · [H5 근거](data/analysis/h5_diagnostics) · [H6 근거](data/analysis/h6_diagnostics)
+**[전체 심화 보고서](<reports/H5 H6 불확실성과 닛케이 확장.md>)** · **[진단 CSV·PNG·보고서 ZIP](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/e888945ce23864c26d0599d72b967b7ae50330f8/docs/downloads/h5_h6_diagnostics.zip)** · [H5 근거](data/analysis/h5_diagnostics) · [H6 근거](data/analysis/h6_diagnostics)
 
 > **배포 상태:** PR #21의 심화 진단과 닛케이 화면은 2026-10-13 공개 배포를 확인했습니다. 이번 J-Quants 출처 정정은 별도 변경이며 공개 앱은 배포 브랜치 반영 상태를 따릅니다. [배포 구조](docs/streamlit-deployment.md)
 
