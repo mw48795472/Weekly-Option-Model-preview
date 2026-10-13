@@ -48,7 +48,7 @@
 
 이번 TAIFEX API 접근은 로컬 네트워크 권한 오류로 완료되지 않았고, 닛케이 원본 파일도 확보하지 못했습니다. **닛케이 실제 가격·OI 0건, H5·H6 미실행** 상태이며, 키 부족이나 서비스 HTTP 거부로 확인된 것은 아닙니다. 대시보드에는 상품·공식 자료 경로·확보 상태와 허용된 현물 CSV의 입력 검증 조건을 제공합니다. 최근 JPX 이론가격 CSV는 OI 장기 체인의 대체물이 아니며 조회 가능성과 공개 재배포 허가도 구분합니다. [수집 감사](data/source/nikkei/20261013/manifest.json)
 
-**[전체 심화 보고서](<reports/H5 H6 불확실성과 닛케이 확장.md>)** · **[진단 CSV·PNG·보고서 ZIP](docs/downloads/h5_h6_diagnostics.zip)** · [H5 근거](data/analysis/h5_diagnostics) · [H6 근거](data/analysis/h6_diagnostics)
+**[전체 심화 보고서](<reports/H5 H6 불확실성과 닛케이 확장.md>)** · **[진단 CSV·PNG·보고서 ZIP](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/7e20665c4d0edd3e2002c9e97b8b9def124732e5/docs/downloads/h5_h6_diagnostics.zip)** · [H5 근거](data/analysis/h5_diagnostics) · [H6 근거](data/analysis/h6_diagnostics)
 
 > **화면 반영 범위:** 이 브랜치에 **H5·H6 심화 진단**, **닛케이225 확장** 화면을 추가했습니다. 공개 Streamlit은 별도 배포 브랜치를 사용하므로 새 화면은 배포 브랜치에 반영된 뒤 공개 주소에 표시됩니다. 이 PR이 공개 배포 완료를 의미하지 않습니다.
 
