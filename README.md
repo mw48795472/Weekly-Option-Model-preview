@@ -48,7 +48,7 @@
 
 **데이터 제약도 결과입니다.** H=L인 0범위 날짜는 가격 누락과 따로 기록하고, 양의 범위·로그 모형에서는 제외했습니다. 날짜를 유지하므로 22일 과거창과 5일 미래창도 영향을 받습니다. TWSE 비교불가 X·주석·기준가격 차이를 점검해 종가수익률 민감도에 반영했습니다. Hon Hai의 비교불가일 제외 보조 사양에는 개선 신호가 있지만 타깃·표본이 달라 주 검증의 성공으로 바꾸지 않았습니다. [상세 해석과 민감도](docs/single-stock-analysis.md).
 
-**[개별주식 전체 보고서](docs/single-stock-analysis.md)** · **[CSV·PNG·보고서 ZIP 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/af31d150319c78673108a7055325efae0b6ea689/docs/downloads/single_stock_h5_h6.zip)** · [고정 규칙](docs/single-stock-protocol.md) · [종목별 확보 범위](data/analysis/single_stocks/coverage.csv) · [실제 예측·정답](data/analysis/single_stocks/h6_forecasts.csv) · [가격 사건 점검](data/analysis/single_stocks/price_events.csv)
+**[개별주식 전체 보고서](docs/single-stock-analysis.md)** · **[CSV·PNG·보고서 ZIP 다운로드](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/67d7036527ac5589a891e739018b23fa56c478fc/docs/downloads/single_stock_h5_h6.zip)** · [고정 규칙](docs/single-stock-protocol.md) · [종목별 확보 범위](data/analysis/single_stocks/coverage.csv) · [실제 예측·정답](data/analysis/single_stocks/h6_forecasts.csv) · [가격 사건 점검](data/analysis/single_stocks/price_events.csv)
 
 <a id="empirical-h5-h6"></a>
 ## H5·H6 실측 결과 — 428거래일로 확장
