@@ -42,15 +42,23 @@
 [10개 추가 데이터 요청·공식 경로·수령 기준 CSV](data/analysis/research_diagnostics/additional_data.csv)
 
 <a id="nikkei-extension"></a>
-### 닛케이225 확장은 OSE 상품으로 구성합니다
+### 닛케이225 — 일본 시장의 J-Quants 데이터 기반
 
-**TAIFEX의 일본 지수 상품은 TOPIX 선물(TJF)입니다. 닛케이225로 바꿔 표시할 수 없습니다.** 닛케이 위클리 비교 대상은 **JPX/OSE Nikkei 225 mini Options**이며 실제 SQ·최종거래일·수요일 도입일을 따로 정렬해야 합니다. 대만의 마감 30/60분 결제와 일본의 시초 SQ는 다른 사건창입니다. [TAIFEX 공식 상품표](https://www.taifex.com.tw/enl/eng2/products) · [OSE mini 규격](https://www.jpx.co.jp/english/derivatives/products/domestic/225mini-options/01.html)
+일본 **JPX/OSE Nikkei 225 mini Options (NK225MWE)**를 J-Quants에서 확보해 H5·H6를 별도 추정합니다. 대만 TAIFEX는 국가 간 비교 대상입니다. 두 시장의 수집 상태와 결과를 섞지 않습니다.
 
-이번 TAIFEX API 접근은 로컬 네트워크 권한 오류로 완료되지 않았고, 닛케이 원본 파일도 확보하지 못했습니다. **닛케이 실제 가격·OI 0건, H5·H6 미실행** 상태이며, 키 부족이나 서비스 HTTP 거부로 확인된 것은 아닙니다. 대시보드에는 상품·공식 자료 경로·확보 상태와 허용된 현물 CSV의 입력 검증 조건을 제공합니다. 최근 JPX 이론가격 CSV는 OI 장기 체인의 대체물이 아니며 조회 가능성과 공개 재배포 허가도 구분합니다. [수집 감사](data/source/nikkei/20261013/manifest.json)
+| 서비스 | 닛케이 위클리·미니 자료 경로 | 인증·범위 |
+|---|---|---|
+| **개인용 J-Quants Premium** | `/v2/derivatives/bars/daily/options?date=YYYY-MM-DD&category=NK225MWE` | `x-api-key`; 가격·OI·IV·SQ/최종거래일 |
+| **J-Quants Pro** | `/v2/derivatives/options?date=YYYY-MM-DD&category=NK225MWE` | Bearer 토큰; 별도 구독 권한 확인 |
+| 개인용 Standard 이상 | `/v2/derivatives/bars/daily/options/225` | **표준 옵션만 제공, 위클리·미니 제외**; 비교군용 |
 
-**[전체 심화 보고서](<reports/H5 H6 불확실성과 닛케이 확장.md>)** · **[진단 CSV·PNG·보고서 ZIP](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/7e20665c4d0edd3e2002c9e97b8b9def124732e5/docs/downloads/h5_h6_diagnostics.zip)** · [H5 근거](data/analysis/h5_diagnostics) · [H6 근거](data/analysis/h6_diagnostics)
+[개인용 전체 옵션 API](https://jpx-jquants.com/en/spec/drv-bars-daily-opt) · [표준 닛케이 옵션 API의 제외 범위](https://jpx-jquants.com/en/spec/drv-bars-daily-opt-225) · [Pro 옵션 API](https://jpx.gitbook.io/j-quants-pro/api-reference/options) · [상품별 시작일](https://jpx-jquants.com/en/spec/drv-bars-daily-opt/derivative-product-category)
 
-> **화면 반영 범위:** 이 브랜치에 **H5·H6 심화 진단**, **닛케이225 확장** 화면을 추가했습니다. 공개 Streamlit은 별도 배포 브랜치를 사용하므로 새 화면은 배포 브랜치에 반영된 뒤 공개 주소에 표시됩니다. 이 PR이 공개 배포 완료를 의미하지 않습니다.
+**현재는 서비스·권한·인증 설정 미확인, J-Quants 실제 조회 미실행, 가격·OI 0건입니다.** 이전 TAIFEX 요청 실패는 J-Quants의 인증 실패나 이용 불가 증거가 아닙니다. 미니 이력은 2023-05-29부터이며 실제 수령 기간을 별도로 검증합니다. 옵션의 `UnderPx/UnderlyingPrice` 한 값으로 현물 OHLC·장중 RV를 만들 수 없으므로 기초가격을 보완해야 합니다. 일본 시초 SQ와 대만 마감 결제는 각각의 사건창으로 분석합니다. 원자료 및 파생통계 공개 범위는 해당 서비스 계약에 맞춰 확인합니다.
+
+**[전체 심화 보고서](<reports/H5 H6 불확실성과 닛케이 확장.md>)** · **[진단 CSV·PNG·보고서 ZIP](https://github.com/mw48795472/Weekly-Option-Model-preview/raw/e888945ce23864c26d0599d72b967b7ae50330f8/docs/downloads/h5_h6_diagnostics.zip)** · [H5 근거](data/analysis/h5_diagnostics) · [H6 근거](data/analysis/h6_diagnostics)
+
+> **배포 상태:** PR #21의 심화 진단과 닛케이 화면은 2026-10-13 공개 배포를 확인했습니다. 이번 J-Quants 출처 정정은 별도 변경이며 공개 앱은 배포 브랜치 반영 상태를 따릅니다. [배포 구조](docs/streamlit-deployment.md)
 
 > **자료 기준:** 국내 마스터는 2026-10-11, 대만 실측 수집은 2026-10-12 KST입니다. 대만 TXO·TAIEX를 428거래일로 확장해 H5·H6의 일별 대용치 분석을 실행했습니다. 개별주식 7개는 기초주가 428일 달력과 상장 후 옵션 164~202일로 확장했습니다. 기존 20일 계약 탐색도 유지합니다. 국내 가격·OI와 장중 기초가격은 미확보이며, 국내 효과·장중 RV·매매 수익은 추정하지 않았습니다. 바로 아래 표는 국내 마스터 기준입니다.
 
@@ -349,14 +357,14 @@ H6의 기준은 `직전 상태 → HAR 형태 → HAR+달력 → OI 추가`입�
 [전체 심화 보고서](<reports/H5 H6 불확실성과 닛케이 확장.md>)와 [진단 ZIP](docs/downloads/h5_h6_diagnostics.zip)에서 수치·그림의 근거를 저장할 수 있습니다. 기존 family의 동일 평가일 비교는 훈련 이력이 다를 수 있으며, 새 공통 재추정은 훈련일도 맞췄다는 차이를 확인하세요.
 
 <a id="dashboard-nikkei"></a>
-### 닛케이225 확장 — 올바른 상품과 실측 실행 조건
+### 닛케이225 확장 — 일본 J-Quants 데이터와 실측 실행 조건
 
 | 화면 | 표시 내용 | 해석·사용 조건 |
 |---|---|---|
-| **상품·확보 상태** | TAIFEX TOPIX/TJF와 OSE Nikkei 225 mini의 구분, 공식 자료 경로, 실제 수집 상태 | 닛케이 실측 가격·OI가 없어 H5·H6 결과는 미실행입니다. 이론가격·선물·현물과 표준·mini 계약을 혼합하지 않습니다. |
+| **상품·확보 상태** | 일본 NK225MWE·NK225E 구분, 개인용 Premium·Pro API 경로, 실제 수집 상태 | 닛케이 실측 가격·OI가 없어 H5·H6 결과는 미실행입니다. 이론가격·선물·현물과 표준·mini 계약을 혼합하지 않습니다. |
 | **분석 입력·실행 조건** | 허용된 현물 CSV의 날짜·OHLC 필드, 검증 규칙, 필요한 옵션 체인·SQ·공표시각 | OHLC 기초 통계만으로 H5·H6를 완료했다고 표시하지 않습니다. 일본 시초 SQ 사건창과 UTC 가용시각을 따로 정의합니다. |
 
-두 새 페이지는 이 브랜치의 구현입니다. **공개 주소의 표시 여부는 별도 배포 브랜치 반영 상태에 따릅니다.** 앱을 열어도 새 시세를 자동 수집하지 않습니다.
+두 페이지의 공개 버전은 별도 배포 브랜치를 따릅니다. J-Quants 정정은 인증·실측 분석의 완료를 의미하지 않습니다. 앱을 열어도 새 시세를 자동 수집하지 않습니다.
 
 <a id="dashboard-hypotheses"></a>
 ### 3. 가설 검토 — 질문에서 필요한 관측까지

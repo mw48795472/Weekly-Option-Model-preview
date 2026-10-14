@@ -1,7 +1,7 @@
 {
   "package": "h5_h6_diagnostics.zip",
-  "bytes": 621787,
-  "sha256": "29a0fc2a1c86469b95b90a72dddbb79466373d0d27ea4bc5c2b13f176679adc3",
+  "bytes": 622307,
+  "sha256": "d1b7b377675a67f27e1e59490d2939097f44779fbdc419b48d5602f09efd20e3",
   "files": [
     {
       "path": "data/analysis/h5_diagnostics/design_cells.csv",
@@ -84,24 +84,29 @@
       "sha256": "9d4cfdf85f6e6312a4a009c29c7715433dbd583640bf656173ace1f833f99003"
     },
     {
+      "path": "data/analysis/nikkei/api_routes.csv",
+      "bytes": 1109,
+      "sha256": "45d2b8821a9ecb2333d985593367005c3e5c0a5c1d2bf2bef9672c1c7eb875a4"
+    },
+    {
       "path": "data/analysis/nikkei/required_data.csv",
-      "bytes": 1980,
-      "sha256": "12337831a8b38bfb397cc375e5052833199eebcd93d978e8dc4ec80b1ef4dcb4"
+      "bytes": 2222,
+      "sha256": "7579bdd290af3ed8e140cc99dff4f940d29472ab55754a27468a5f4012892b10"
     },
     {
       "path": "data/analysis/nikkei/status.csv",
       "bytes": 1363,
-      "sha256": "02e9f13778c79d60c89f64abd2be5fd37b4113bcb799e8311da644814a5cc8e6"
+      "sha256": "442b86036d3fc52b61872a34629176ab4ac43f38d31f555305c60671a1e15607"
     },
     {
       "path": "data/analysis/nikkei/summary.json",
-      "bytes": 760,
-      "sha256": "4ee5cb5d65ecab60afa78e25570d10c2b89cc85bff1a820cb7fa4fa9d9f8464a"
+      "bytes": 928,
+      "sha256": "2a5df0903b1ebd70875ddd45705b31bd7da69a96d698b370ac79cf2c0585a34c"
     },
     {
       "path": "data/analysis/research_diagnostics/additional_data.csv",
-      "bytes": 5769,
-      "sha256": "17546fd3cb50df4922415465c4e8657f5b18d21dcfe6ab7c5c57f3887b6fe4ba"
+      "bytes": 5760,
+      "sha256": "ee6d5361f60888703bbec3bf0822106e96e6446adafaa971642f818376ce9b55"
     },
     {
       "path": "docs/images/h5_diagnostics/h5_precision_design.png",
@@ -130,8 +135,8 @@
     },
     {
       "path": "reports/H5 H6 불확실성과 닛케이 확장.md",
-      "bytes": 22515,
-      "sha256": "52ff503e50ad6ea151481f5ec45f7db4eab83f3aa5ac8383fbe2000f306f2f12"
+      "bytes": 21362,
+      "sha256": "9af224a618a66cd27691178ba37c2942b026cb4ef6172ae6a32bbfa929de5f31"
     }
   ],
   "scope": "Public derived diagnostics and metadata; no private source prices or credentials"

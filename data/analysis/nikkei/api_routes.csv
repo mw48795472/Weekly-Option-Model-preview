@@ -1,0 +1,5 @@
+﻿service,base_url,endpoint,authentication,query,response_array,scope,source_url
+개인용 J-Quants Premium,https://api.jquants.com/v2,/derivatives/bars/daily/options,x-api-key,date + category=NK225MWE + pagination_key,data,미니옵션 가격·OI·IV; 실제 권한 미확인,https://jpx-jquants.com/en/spec/drv-bars-daily-opt
+J-Quants Pro,https://api.jquants-pro.com/v2,/derivatives/options,Authorization: Bearer,date + category=NK225MWE + pagination_key,options,미니옵션 가격·OI·IV; 별도 계약 확인,https://jpx.gitbook.io/j-quants-pro/api-reference/options
+J-Quants Pro,https://api.jquants-pro.com/v2,/derivatives/open_interest_by_issue,Authorization: Bearer,date + product_code=NK225MWE + pagination_key,open_interest_by_issue,계약별 OI 대사; DataType=IssueData만 사용,https://jpx.gitbook.io/j-quants-pro/api-reference/open_interest_by_issue
+개인용 Standard 이상,https://api.jquants.com/v2,/derivatives/bars/daily/options/225,x-api-key,date + pagination_key,data,표준 닛케이 옵션 비교군; 위클리·미니 제외,https://jpx-jquants.com/en/spec/drv-bars-daily-opt-225

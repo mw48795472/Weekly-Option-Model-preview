@@ -18,9 +18,11 @@ class NikkeiTests(unittest.TestCase):
   self.assertFalse(summary['h5_executed']);self.assertFalse(summary['h6_executed'])
  def test_transport_success_does_not_invent_nikkei_data(self):
   info=readiness({'requests':[{'complete':True}]})
-  self.assertEqual(info['api_success'],1)
+  self.assertEqual(info['api_success'],0)
+  self.assertEqual(info['api_requests'],0)
+  self.assertEqual(info['data_provider'],'J-Quants')
   self.assertEqual(info['nikkei_observations'],0)
-  self.assertFalse(info['taifex_nikkei_listed']);self.assertFalse(info['h5_executed'])
+  self.assertFalse(info['taifex_audit_is_jquants_evidence']);self.assertFalse(info['h5_executed'])
   self.assertTrue(required_data().minimum_fields.str.contains('available_at').any())
 
 if __name__=='__main__':unittest.main()

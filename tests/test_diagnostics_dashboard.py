@@ -58,6 +58,7 @@ class DiagnosticsUITests(unittest.TestCase):
         self.assertFalse(app.exception)
         self.assertEqual(app.metric[0].value, "0")
         self.assertEqual(app.metric[2].value, "미실행")
+        self.assertEqual(app.metric[1].value, "J-Quants")
         app.radio(key="nikkei_view").set_value("분석 입력·실행 조건").run()
         self.assertFalse(app.exception)
         self.assertGreater(len(app.get("download_button")), 0)

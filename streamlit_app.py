@@ -86,7 +86,7 @@ def download(label, relative, name=None, mime=None, key=None):
 
 with st.sidebar:
     st.markdown("## ◈ Weekly Option")
-    st.caption("NH선물 · TAIFEX 연구실")
+    st.caption("NH선물 · TAIFEX · J-Quants")
     page = st.radio("연구 탐색", PAGES, key="page")
     st.divider()
     st.caption(f"자료 기준 · {summary['snapshot_date']} KST")
@@ -97,7 +97,7 @@ with st.sidebar:
 
 
 def overview():
-    header("위클리옵션 연구 대시보드", "국내 공개 마스터의 연구 준비 상태를 살펴봅니다. TAIFEX 실제 가격·OI는 TAIFEX 실측 분석, 장기 기초지수와 예측 검증은 H5·H6 실측 연구에서 확인하세요. H5·H6 심화 진단은 표본·변수·모형의 한계를, 닛케이225 확장은 OSE 자료 연결 조건을 보여줍니다.")
+    header("위클리옵션 연구 대시보드", "국내 공개 마스터의 연구 준비 상태를 살펴봅니다. TAIFEX 실제 가격·OI는 TAIFEX 실측 분석, 장기 기초지수와 예측 검증은 H5·H6 실측 연구에서 확인하세요. H5·H6 심화 진단은 표본·변수·모형의 한계를, 닛케이225 확장은 일본 J-Quants 자료 연결 조건을 보여줍니다.")
     cols = st.columns(4)
     for col, label, value, help_text in zip(cols,
             ["고유 계약", "후보 만기 사건", "완료 사건", "유효 가격·OI"],

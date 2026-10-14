@@ -4,17 +4,16 @@ import argparse,json,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
-from nh_research.nikkei import readiness,status_table,required_data,parse_cash_prices,cash_baseline
+from nh_research.nikkei import readiness,status_table,required_data,parse_cash_prices,cash_baseline,api_routes
 
 def main():
  p=argparse.ArgumentParser(description=__doc__)
  p.add_argument('--prices',type=Path,help='User-supplied normalized, lawfully usable Nikkei cash CSV')
  p.add_argument('--identity',choices=['NIKKEI225_CASH'])
  args=p.parse_args()
- source=ROOT/'data/source/nikkei/20261013/manifest.json'
- manifest=json.loads(source.read_text(encoding='utf-8'))
  out=ROOT/'data/analysis/nikkei';out.mkdir(parents=True,exist_ok=True)
- (out/'summary.json').write_text(json.dumps(readiness(manifest),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ (out/'summary.json').write_text(json.dumps(readiness(),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ api_routes().to_csv(out/'api_routes.csv',index=False,encoding='utf-8-sig',lineterminator='\n')
  status_table().to_csv(out/'status.csv',index=False,encoding='utf-8-sig',lineterminator='\n')
  required_data().to_csv(out/'required_data.csv',index=False,encoding='utf-8-sig',lineterminator='\n')
  if args.prices:

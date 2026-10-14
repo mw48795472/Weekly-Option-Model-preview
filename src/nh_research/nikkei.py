@@ -1,57 +1,73 @@
-"""Nikkei expansion readiness and private cash-index baselines.
-TAIFEX TOPIX/TJF is never relabelled as Nikkei225. No synthetic market observations.
-"""
+"""Japanese-market Nikkei225 research via J-Quants; no synthetic observations."""
 from __future__ import annotations
 import io
 import numpy as np
 import pandas as pd
 
-PRODUCT_URL='https://www.taifex.com.tw/enl/eng2/products'
-OSE_URL='https://www.jpx.co.jp/english/derivatives/products/domestic/225mini-options/01.html'
-PRICE_URL='https://www.jpx.co.jp/english/markets/derivatives/option-price/01.html'
-DAILY_URL='https://www.jpx.co.jp/english/markets/statistics-derivatives/daily/'
-NIKKEI_URL='https://indexes.nikkei.co.jp/nkave/data/index.en.html'
+OSE_URL = 'https://www.jpx.co.jp/english/derivatives/products/domestic/225mini-options/01.html'
+PERSONAL_URL = 'https://jpx-jquants.com/en/spec/drv-bars-daily-opt'
+STANDARD_URL = 'https://jpx-jquants.com/en/spec/drv-bars-daily-opt-225'
+PRO_URL = 'https://jpx.gitbook.io/j-quants-pro/api-reference/options'
+OI_URL = 'https://jpx.gitbook.io/j-quants-pro/api-reference/open_interest_by_issue'
+NIKKEI_URL = 'https://indexes.nikkei.co.jp/nkave/data/index.en.html'
 
 
-def readiness(manifest):
-    requests=manifest.get('requests',[])
-    success=sum(bool(r.get('complete')) for r in requests)
-    # Request success is transport evidence only, never evidence that Nikkei is listed.
-    return dict(version='nikkei-readiness-20261013',verified_at='2026-10-13',
-        status='data_unavailable',taifex_nikkei_listed=False,
-        correct_venue='OSE',correct_product='Nikkei 225 mini Options',
-        taifex_japan_product='TOPIX futures (TJF)',nikkei_observations=0,
-        option_oi_observations=0,h5_executed=False,h6_executed=False,
-        api_requests=len(requests),api_success=success,
-        requested_start='2025-01-02',requested_end='2026-10-08',
-        actual_start=None,actual_end=None,
-        product_evidence='Official product page; not an API response audit',
-        reason='TAIFEX does not list Nikkei225 in its official product catalog. OSE/Nikkei source files were not acquired.',
-        public_raw_redistribution=False)
+def readiness(manifest=None):
+    manifest = manifest or {}
+    service = manifest.get('source_service')
+    verified_service = service in ('jquants_personal_v2', 'jquants_pro_v2')
+    requests = manifest.get('requests', []) if verified_service else []
+    return dict(version='nikkei-jquants-readiness-20261013', verified_at='2026-10-13',
+        status='service_and_entitlement_unverified', data_provider='J-Quants',
+        configured_service=service if verified_service else None,
+        correct_venue='OSE (JPX)', correct_product='Nikkei 225 mini Options',
+        product_category='NK225MWE', comparison_product_category='NK225E',
+        nikkei_observations=0, option_oi_observations=0,
+        h5_executed=False, h6_executed=False,
+        api_requests=len(requests), api_success=sum(bool(r.get('complete')) for r in requests),
+        requested_start='2023-05-29', requested_end='2026-10-08', actual_start=None, actual_end=None,
+        product_evidence='J-Quants official API specifications; authenticated response not verified',
+        reason='Japanese-market J-Quants source selected. Personal/Premium or Pro entitlement and credentials are not yet confirmed.',
+        taifex_audit_is_jquants_evidence=False, public_raw_redistribution=False)
+
+
+def api_routes():
+    return pd.DataFrame([
+        ('개인용 J-Quants Premium', 'https://api.jquants.com/v2', '/derivatives/bars/daily/options',
+         'x-api-key', 'date + category=NK225MWE + pagination_key', 'data', '미니옵션 가격·OI·IV; 실제 권한 미확인', PERSONAL_URL),
+        ('J-Quants Pro', 'https://api.jquants-pro.com/v2', '/derivatives/options',
+         'Authorization: Bearer', 'date + category=NK225MWE + pagination_key', 'options', '미니옵션 가격·OI·IV; 별도 계약 확인', PRO_URL),
+        ('J-Quants Pro', 'https://api.jquants-pro.com/v2', '/derivatives/open_interest_by_issue',
+         'Authorization: Bearer', 'date + product_code=NK225MWE + pagination_key', 'open_interest_by_issue',
+         '계약별 OI 대사; DataType=IssueData만 사용', OI_URL),
+        ('개인용 Standard 이상', 'https://api.jquants.com/v2', '/derivatives/bars/daily/options/225',
+         'x-api-key', 'date + pagination_key', 'data', '표준 닛케이 옵션 비교군; 위클리·미니 제외', STANDARD_URL),
+    ], columns=['service', 'base_url', 'endpoint', 'authentication', 'query', 'response_array', 'scope', 'source_url'])
 
 
 def status_table():
-    rows=[
-      ('상품 식별','공식 확인','TAIFEX 일본 상품은 TOPIX/TJF. Nikkei225 실측은 OSE로 별도 구성.',PRODUCT_URL),
-      ('TAIFEX API','원본 미확보','두 요청 모두 로컬 네트워크 권한 오류. 서비스 HTTP 응답/종목코드 결과로 해석하지 않음.','https://openapi.taifex.com.tw/'),
-      ('OSE 계약 규격','공식 확인','Mini: JPY100, 2023-05-29 개시. 수요일 만기 2025-05-26 도입. 최종거래일과 SQ일 구분.',OSE_URL),
-      ('Nikkei 현물 OHLC','미수집','공식 공개 일별 자료 안내는 확인. 이번 작업에서 원본 검증 및 통계 계산 미실행.',NIKKEI_URL),
-      ('OSE 옵션 CSV','필드 안내 확인','최근 약2개월 이론가격/종가/기초지수 종가 안내. OI 시계열 확보를 뜻하지 않음.',PRICE_URL),
-      ('H5·H6','미실행','실제 기초지수+옵션 OI+계약별 최종거래/SQ 및 가용시각 필요.',DAILY_URL),
-      ('공개 배포 권한','별도 확인 필요','공개 열람과 원본·파생데이터 재배포 허가는 다름. 로컬 원본은 Git 및 다운로드 제외.',NIKKEI_URL)]
-    return pd.DataFrame(rows,columns=['stage','state','detail','source_url'])
+    return pd.DataFrame([
+        ('연구 시장·출처', '확정', '일본 OSE 닛케이225 옵션을 J-Quants로 수집. 대만 TAIFEX 분석과 독립된 자료 경로.', PERSONAL_URL),
+        ('위클리·미니 범위', '명세 확인', 'NK225MWE, 2023-05-29부터. 개인용 Premium 또는 Pro 옵션 API 대상.', 'https://jpx-jquants.com/en/spec/drv-bars-daily-opt/derivative-product-category'),
+        ('서비스·권한', '사용자 확인 대기', '개인용 API와 Pro는 호스트·인증·필드명이 다름. NH선물 키를 재사용하지 않음.', PERSONAL_URL),
+        ('J-Quants 인증·조회', '미실행', 'J-Quants 인증 요청·실제 시세 응답은 아직 검증하지 않음. 이전 TAIFEX 호출 실패와 무관.', PRO_URL),
+        ('현물 가격·OI·SQ', '미수집', 'UnderPx/UnderlyingPrice는 현물 OHLC가 아님. H/L 및 장중 자료를 별도로 확보해야 함.', PERSONAL_URL),
+        ('H5·H6', '미실행', '일본 SQ 달력·기초가격과 계약별 OI를 연결한 뒤 일본 표본에서 재추정.', OSE_URL),
+        ('공개 이용 범위', '확인 필요', '개인용/Pro의 계약 범위에 따라 내부 분석·파생통계 공개 가능 여부를 확인.', 'https://pro.jpx-jquants.com/'),
+    ], columns=['stage', 'state', 'detail', 'source_url'])
 
 
 def required_data():
-    rows=[
-      ('P0','Nikkei225 현물 OHLC','date,open,high,low,close,timezone,available_at','일별 Parkinson·수익률 비교; 현물과 선물 구별',NIKKEI_URL,'공개 조회 가능 안내; 미수집·재배포 허가 확인'),
-      ('P0','OSE mini 옵션 일별 전 계약','date,contract_id,expiry_date,last_trade_date,strike,side,oi,volume,close,settlement,available_at','동일 계약 OI 변화·진입/소멸 분해 및 H6',DAILY_URL,'일보 안내 확인; 장기 원문 미확보'),
-      ('P0','OSE 계약 마스터·실제 SQ','contract_id,multiplier,currency,last_trade_date,sq_date,listing_date,holiday_adjustment','H5 사건일·월간SQ·수요일 제도변경; 계약 규모 정규화',OSE_URL,'규격 확인; 실제 역사 달력 미확보'),
-      ('P0','이용·재배포 허가','provider,license_scope,derived_statistics,display,redistribution,retention','GitHub/Streamlit 공개 범위 확정','https://www.jpx.co.jp/english/term-of-use/index.html','확인 필요; 원본 비공개 기본'),
-      ('P1','Nikkei225 intraday 현물·호가','exchange_time,receive_time,price,bid,ask,session','SQ 시초가와 일중/야간 변동성 구분; 일봉 대리변수 오차 축소',NIKKEI_URL,'장기 세부자료 별도 계약 범위'),
-      ('P1','옵션 IV·호가·Greeks','contract_id,iv,bid,ask,delta,gamma,calculation_time','ATM·DTE·가격민감도 가중 OI; 이론가격과 체결 구분',PRICE_URL,'최근 공개 CSV 안내; 전체 역사/호가 미확보'),
-      ('P1','일본 뉴스·배당·구성변경·금리·환율','event_time,event_type,dividend,index_divisor,rate,JPY_TWD','H5 교란 및 한·대·일 비교 시통제',NIKKEI_URL,'원천별 확보·라이선스 필요')]
-    return pd.DataFrame(rows,columns=['priority','dataset','minimum_fields','purpose','source_url','access_status'])
+    return pd.DataFrame([
+        ('P0', 'J-Quants 서비스·옵션 이용 권한', 'service,plan,credential_reference,permitted_uses', '개인용 Premium / Pro 경로 선택; 키 값은 로컬 보관', PERSONAL_URL, '확인 대기'),
+        ('P0', 'NK225MWE 전 만기·행사가 가격/OI', 'Date/TradeDate,Code,ProdCat/DerivativesProductCategory,OI/OpenInterest,IV/ImpliedVolatility,LTD/LastTradingDay,SQD/SpecialQuotationDay,available_at', '계약별 H6; 페이지 끝까지 수집하고 표준 NK225E와 구분', PRO_URL, '명세 확인; 실제 미수집'),
+        ('P0', '닛케이225 현물 OHLC·장중 가격', 'date,open,high,low,close,timezone,available_at', '일별 H5/H6 타깃; UnderPx 한 값으로 Parkinson 분산 생성 금지', NIKKEI_URL, 'J-Quants 옵션 필드만으로 확보되지 않음; 별도 보완'),
+        ('P0', '실제 최종거래일·SQ·휴장 달력', 'Code,LTD/LastTradingDay,SQD/SpecialQuotationDay,multiplier,currency,listing_date', '시초 SQ, 수요일 도입 전후 및 월간 SQ 대조', OSE_URL, '명세 확인; 역사 레코드 미수집'),
+        ('P0', 'OI 공표·정정 이력', 'observed_at,published_at,received_at,available_at,revision', '미래정보 누출 방지; 공표 예상시각과 실제 가용시각 구분', OI_URL, '개인용은 행별 가용시각·정정 전 원본 미제공'),
+        ('P0', '이용·공개 범위', 'internal_use,derived_statistics,display,redistribution', '실측을 공개 앱에 올리기 전 허용 범위 확정', 'https://pro.jpx-jquants.com/', '계약 확인 필요'),
+        ('P1', 'Pro 계약별 OI 대사', 'Date,SeriesCode,ProductCode,DataType,CurrentDayOpenContractQuantity', 'IssueData 계약행만 사용; 옵션 API OI와 시점·단위 대사', OI_URL, 'Pro 별도 데이터셋 권한 확인'),
+        ('P1', '옵션 장중 호가·체결·IV', 'contract_id,timestamp,bid,ask,price,iv,delta,gamma', '감마·유동성 메커니즘; 일별 옵션 API와 별도', 'https://dc.jpx-jquants.com/', '별도 자료 범위 확인'),
+    ], columns=['priority','dataset','minimum_fields','purpose','source_url','access_status'])
 
 
 def parse_cash_prices(raw,identity):
